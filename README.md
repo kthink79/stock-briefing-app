@@ -1,6 +1,6 @@
 # 📈 stock-briefing-app
 
-매일 오전 8시에 국내외 증시 및 반도체·우주항공 기술주 중심의 투자 정보를 수집하고 분석하여 리포트해 주는 서비스 & 안드로이드 애플리케이션입니다.  
+매일 사용자가 지정한 시간 및 주기적 간격으로 국내외 증시 및 반도체·우주항공 기술주 중심의 투자 정보를 수집하고 분석하여 리포트해 주는 서비스 & 안드로이드 애플리케이션입니다.  
 **Gemini**의 심층 분석과 **Google Jules**를 통한 지속적인 코드 검증 및 개선 파이프라인을 지원합니다.
 
 ---
@@ -13,13 +13,15 @@
 2. **핵심 섹터 심층 모니터링**
    - **반도체**: 삼성전자, SK하이닉스, 엔비디아, TSMC, ASML 등 글로벌 공급망 동향
    - **우주항공**: 한화에어로스페이스, KAI, SpaceX, 미 방산 및 우주 탐사 주요 이슈
-3. **Gemini 투자 분석 엔진**
-   - 단순 나열이 아닌 투자자 관점의 장 개장 전 핵심 체크포인트 3가지 도출
-4. **안드로이드 8 AM 모닝 브리핑 앱**
-   - 매일 아침 08:00 정각 로컬 알림 발송
-   - 일자별 리포트 아카이브 및 섹터별 필터링 UI
+3. **사용자 맞춤형 리포트 시간 & 주기적 간격(Interval) 업데이트 (`scheduler_engine`)**
+   - 기본 08:00 AM 외에 사용자가 원하는 시각 다중 지정 가능
+   - 장중(09:00~15:30) 또는 설정한 간격(예: 1시간, 3시간 단위)으로 실시간 뉴스/지표 변동 자동 갱신
+4. **키워드 & 주제 트레이스 타임라인 관리 (`trace_engine`)**
+   - 관심 키워드(예: '트럼프') 또는 특정 주제(예: '미국 이란 전쟁')를 트레이스로 등록
+   - 등록 시점부터 발생하는 관련 발언, 사건, 정책 뉴스를 실시간 매칭하여 타임라인에 누적
+   - Gemini 기반의 누적 이력 롤링 요약(Rolling Summary) 자동 갱신
 5. **Google Jules 기반 지속적 검증 & 최적화**
-   - GitHub 연동을 통해 테스트 코드 자동 작성, 크롤러 예외 처리 강화, 성능 개선 PR 생성
+   - GitHub 연동을 통해 테스트 코드 자동 작성, 크롤러 예외 처리 강화, 성능 개선 PR 생성 및 자동 반영
 
 ---
 
@@ -28,27 +30,23 @@
 ```
 stock-briefing-app/
 ├── crawler/                  # 데이터 수집 및 분석 모듈 (Python)
-│   ├── crawler.py           # 증시 지표 및 기술주 뉴스 크롤러
+│   ├── crawler.py           # 증시 지표 및 기술주 뉴스 크롤러 (Jules PR #1 반영)
 │   ├── gemini_analyzer.py   # Gemini 프롬프트 및 분석 엔진
+│   ├── scheduler_engine.py  # 리포트 시각 및 주기적 간격 스케줄러
+│   ├── trace_engine.py      # 키워드/주제 트레이스 및 타임라인 엔진
 │   ├── requirements.txt     # 의존성 패키지
 │   └── tests/
-│       └── test_crawler.py  # 단위 테스트
+│       ├── test_crawler.py              # 크롤러 단위 테스트
+│       └── test_trace_and_scheduler.py  # 트레이스 및 스케줄러 단위 테스트
 ├── android/                  # 안드로이드 애플리케이션 (Kotlin/Compose)
 │   ├── app/
 │   │   ├── src/main/java/com/kthink79/stockbriefing/
 │   │   │   ├── MainActivity.kt
-│   │   │   ├── model/Report.kt
+│   │   │   ├── model/
+│   │   │   │   ├── Report.kt
+│   │   │   │   └── TraceModels.kt
 │   │   │   └── notification/AlarmScheduler.kt
 │   │   └── AndroidManifest.xml
 │   └── build.gradle.kts
-└── .github/
-    └── workflows/
-        └── ci.yml            # CI 자동 빌드 및 테스트 워크플로우
+└── README.md
 ```
-
----
-
-## 🤖 Jules & Gemini 활용 가이드
-
-- **Jules 연동**: `jules.google.com`에서 `kthink79/stock-briefing-app`을 선택하고 새로운 기능 개발이나 버그 수정을 요청하면 Jules가 자동으로 코드를 수정하고 PR을 올립니다.
-- **Gemini**: `crawler/gemini_analyzer.py`를 통해 수집된 원본 텍스트를 고품질 브리핑으로 가공합니다.
