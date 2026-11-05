@@ -74,6 +74,72 @@ class TraceManager:
     def list_traces(self) -> List[TopicTrace]:
         return list(self.traces.values())
 
+    @staticmethod
+    def is_keyword_matched(keyword_or_topic: Optional[str], text: Optional[str]) -> bool:
+        """
+        Accurately checks whether keyword_or_topic matches the provided text using regex,
+        word boundaries, and partial matching logic.
+        """
+        if not keyword_or_topic or not text:
+            return False
+
+        kw = keyword_or_topic.strip()
+        target = text.strip()
+        if not kw or not target:
+            return False
+
+        # 1. Regex evaluation if input looks like a regex pattern or contains regex metacharacters
+        regex_chars = set(r".*+?^$[](){}\|")
+        has_regex_metachar = any(c in kw for c in regex_chars)
+        if has_regex_metachar:
+            try:
+                if re.search(kw, target, re.IGNORECASE):
+                    return True
+            except re.error:
+                # If invalid regex syntax, continue with escaped literal matching
+                pass
+
+        # 2. Exact phrase match with whitespace normalization
+        # Collapse multiple whitespace characters into single space
+        norm_kw = re.sub(r'\s+', ' ', kw.lower())
+        norm_target = re.sub(r'\s+', ' ', target.lower())
+
+        if norm_kw in norm_target:
+            # Check word boundary for purely alphanumeric ASCII phrase to prevent false substrings (e.g. 'AI' in 'TRAIN')
+            if re.match(r'^[a-zA-Z0-9\s]+$', norm_kw):
+                pattern = r'\b' + re.escape(norm_kw) + r'\b'
+                if re.search(pattern, norm_target):
+                    return True
+            else:
+                return True
+
+        # 3. Multi-word topic handling:
+        # Check if all tokens match within the target text (partial & word-boundary matching per token)
+        tokens = [t.strip() for t in kw.split() if t.strip()]
+        if len(tokens) > 1:
+            all_tokens_matched = True
+            for token in tokens:
+                token_lower = token.lower()
+                if re.match(r'^[a-zA-Z0-9]+$', token_lower):
+                    # Alphanumeric token: enforce word boundary
+                    token_pat = r'\b' + re.escape(token_lower) + r'\b'
+                    if not re.search(token_pat, norm_target):
+                        all_tokens_matched = False
+                        break
+                else:
+                    # Non-alphanumeric / Korean token: substring match in normalized target
+                    if token_lower not in norm_target:
+                        all_tokens_matched = False
+                        break
+            if all_tokens_matched:
+                return True
+
+        # 4. Fallback: single alphanumeric token with boundary check
+        if len(tokens) == 1 and re.match(r'^[a-zA-Z0-9]+$', norm_kw):
+            return bool(re.search(r'\b' + re.escape(norm_kw) + r'\b', norm_target))
+
+        return False
+
     def match_news_to_traces(self, news_items: List[Dict[str, str]]) -> Dict[str, List[TraceEvent]]:
         """
         Matches incoming news items against active trace keywords/topics.
@@ -82,25 +148,26 @@ class TraceManager:
         new_matches: Dict[str, List[TraceEvent]] = {}
         now_str = datetime.now().strftime("%Y-%m-%d %H:%M")
 
+        high_impact_pattern = re.compile(r"긴급|전쟁|급등|급락|제재|발언", re.IGNORECASE)
+
         for trace_id, trace in self.traces.items():
             new_matches[trace_id] = []
-            keywords = [k.strip() for k in trace.keyword_or_topic.split() if len(k.strip()) > 1]
-            if not keywords:
-                keywords = [trace.keyword_or_topic.strip()]
 
             for item in news_items:
                 title = item.get("title", "")
                 snippet = item.get("snippet", title)
                 source = item.get("source", "Market News")
+                combined_text = f"{title} {snippet}"
 
-                # Keyword match criteria (matches any key term)
-                if any(kw.lower() in (title + " " + snippet).lower() for kw in keywords):
+                # Enhanced regex and partial keyword matching
+                if self.is_keyword_matched(trace.keyword_or_topic, combined_text):
+                    impact_level = "High" if high_impact_pattern.search(title or "") else "Medium"
                     event = TraceEvent(
                         timestamp=now_str,
                         title=title,
                         source=source,
                         content_snippet=snippet,
-                        impact_level="High" if any(w in title for w in ["긴급", "전쟁", "급등", "급락", "제재", "발언"]) else "Medium"
+                        impact_level=impact_level
                     )
                     if trace.add_event(event):
                         new_matches[trace_id].append(event)
