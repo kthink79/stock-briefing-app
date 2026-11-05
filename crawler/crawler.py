@@ -1,18 +1,74 @@
 """
 Stock & Tech News Crawler
 Collects macro indicators (indices, exchange rates) and sector news (semiconductors, aerospace).
+Includes robust error handling and fallback data mechanisms.
 """
 import datetime
-from typing import Dict, List, Any
+import logging
+from typing import Dict, List, Any, Optional
+
+logger = logging.getLogger(__name__)
+
+
+# Default fallback datasets for resilient operation
+DEFAULT_FALLBACK_MACRO = {
+    "indices": {
+        "NASDAQ": {"value": 18500.00, "change": "0.00%"},
+        "S&P 500": {"value": 5900.00, "change": "0.00%"},
+        "Dow Jones": {"value": 43500.00, "change": "0.00%"},
+        "SOX (필라델피아 반도체)": {"value": 5200.00, "change": "0.00%"},
+    },
+    "exchange_rate": {
+        "USD/KRW": 1380.00
+    },
+    "status": "fallback"
+}
+
+DEFAULT_FALLBACK_SECTOR_NEWS: Dict[str, List[Dict[str, str]]] = {
+    "반도체 (Semiconductors)": [
+        {"title": "[대체 데이터] 글로벌 AI 반도체 및 파운드리 공급망 동향 점검", "source": "시장 종합"},
+        {"title": "[대체 데이터] 첨단 메모리 패키징 기술 경쟁 심화", "source": "시장 종합"}
+    ],
+    "우주항공 (Aerospace)": [
+        {"title": "[대체 데이터] 우주 발사체 및 위성 통신 산업 수주 모멘텀", "source": "시장 종합"},
+        {"title": "[대체 데이터] 글로벌 방산 및 민간 항공우주 생태계 동향", "source": "시장 종합"}
+    ],
+    "빅테크 (Big Tech)": [
+        {"title": "[대체 데이터] 주요 빅테크 AI 인프라 투자 지속 전망", "source": "시장 종합"}
+    ]
+}
 
 
 class StockDataCollector:
     def __init__(self):
         self.sectors = ["반도체 (Semiconductors)", "우주항공 (Aerospace)", "빅테크 (Big Tech)"]
 
-    def fetch_macro_indicators(self) -> Dict[str, Any]:
+    def get_fallback_macro_indicators(self) -> Dict[str, Any]:
         """
-        Fetches macro market indices and exchange rates.
+        Returns structured fallback macro market indicators with a fresh timestamp.
+        """
+        now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+        fallback = {
+            "timestamp": now,
+            "indices": {k: dict(v) for k, v in DEFAULT_FALLBACK_MACRO["indices"].items()},
+            "exchange_rate": dict(DEFAULT_FALLBACK_MACRO["exchange_rate"]),
+            "status": "fallback"
+        }
+        return fallback
+
+    def get_fallback_sector_news(self, sector: Optional[str]) -> List[Dict[str, str]]:
+        """
+        Returns fallback news items for the given sector or a general fallback list.
+        """
+        if sector and sector in DEFAULT_FALLBACK_SECTOR_NEWS:
+            return [dict(item) for item in DEFAULT_FALLBACK_SECTOR_NEWS[sector]]
+        return [
+            {"title": f"[대체 데이터] {sector or '주요 섹터'} 관련 시장 종합 뉴스 업데이트 준비 중", "source": "시장 종합"}
+        ]
+
+    def _collect_macro_indicators(self) -> Dict[str, Any]:
+        """
+        Internal fetch method for macro indicators.
         In production, calls financial APIs or parses reliable public market feeds.
         """
         now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
@@ -26,12 +82,27 @@ class StockDataCollector:
             },
             "exchange_rate": {
                 "USD/KRW": 1385.50
-            }
+            },
+            "status": "live"
         }
 
-    def fetch_sector_news(self, sector: str) -> List[Dict[str, str]]:
+    def fetch_macro_indicators(self) -> Dict[str, Any]:
         """
-        Gathers latest headlines for specified sector.
+        Fetches macro market indices and exchange rates.
+        Safely catches exceptions and returns structured fallback indicators.
+        """
+        try:
+            data = self._collect_macro_indicators()
+            if not isinstance(data, dict) or "indices" not in data or "exchange_rate" not in data:
+                raise ValueError("Incomplete macro indicators data structure received")
+            return data
+        except Exception as e:
+            logger.error("Failed to fetch macro indicators: %s. Using fallback data.", e, exc_info=True)
+            return self.get_fallback_macro_indicators()
+
+    def _collect_sector_news(self, sector: str) -> List[Dict[str, str]]:
+        """
+        Internal fetch method for sector news.
         """
         sample_headlines = {
             "반도체 (Semiconductors)": [
@@ -46,11 +117,42 @@ class StockDataCollector:
                 {"title": "클라우드 인프라 투자 확대 기조 확인", "source": "Market Insider"}
             ]
         }
-        return sample_headlines.get(sector, [])
+        if sector not in sample_headlines:
+            raise KeyError(f"Unknown sector: {sector}")
+        return sample_headlines[sector]
+
+    def fetch_sector_news(self, sector: str) -> List[Dict[str, str]]:
+        """
+        Gathers latest headlines for specified sector with error handling and fallback.
+        """
+        try:
+            if not isinstance(sector, str) or not sector.strip():
+                logger.warning("Invalid sector query provided: %s. Falling back to default news.", sector)
+                return self.get_fallback_sector_news(sector)
+            return self._collect_sector_news(sector)
+        except Exception as e:
+            logger.error("Failed to fetch news for sector '%s': %s. Using fallback data.", sector, e, exc_info=True)
+            return self.get_fallback_sector_news(sector)
 
     def compile_raw_report(self) -> Dict[str, Any]:
-        macro = self.fetch_macro_indicators()
-        sector_data = {sec: self.fetch_sector_news(sec) for sec in self.sectors}
+        """
+        Compiles both macro indicators and sector news into a single dictionary.
+        Guarantees resilient fallback even if top-level failures occur.
+        """
+        try:
+            macro = self.fetch_macro_indicators()
+        except Exception as e:
+            logger.error("Unexpected error in compile_raw_report while fetching macro: %s", e, exc_info=True)
+            macro = self.get_fallback_macro_indicators()
+
+        sector_data: Dict[str, List[Dict[str, str]]] = {}
+        for sec in self.sectors:
+            try:
+                sector_data[sec] = self.fetch_sector_news(sec)
+            except Exception as e:
+                logger.error("Unexpected error fetching sector news for '%s': %s", sec, e, exc_info=True)
+                sector_data[sec] = self.get_fallback_sector_news(sec)
+
         return {
             "macro": macro,
             "sectors": sector_data
