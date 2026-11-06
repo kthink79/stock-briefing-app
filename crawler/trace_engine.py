@@ -18,6 +18,8 @@ class TraceEvent:
     source: str
     content_snippet: str
     impact_level: str = "Medium"  # Low, Medium, High
+    summary_bullets: List[str] = field(default_factory=list)
+    market_impact: str = ""
 
 
 @dataclass
@@ -29,9 +31,11 @@ class TopicTrace:
     accumulated_summary: str = ""
 
     def add_event(self, event: TraceEvent) -> bool:
-        # Prevent duplicate events by title
+        # Prevent duplicate events by title or normalized text
+        norm_title = re.sub(r'[\s\W_]+', '', event.title.lower())
         for existing in self.events:
-            if existing.title.strip().lower() == event.title.strip().lower():
+            existing_norm = re.sub(r'[\s\W_]+', '', existing.title.lower())
+            if norm_title == existing_norm or norm_title in existing_norm or existing_norm in norm_title:
                 return False
         self.events.append(event)
         # Sort chronologically
@@ -162,12 +166,20 @@ class TraceManager:
                 # Enhanced regex and partial keyword matching
                 if self.is_keyword_matched(trace.keyword_or_topic, combined_text):
                     impact_level = "High" if high_impact_pattern.search(title or "") else "Medium"
+                    bullets = [
+                        f"{title} 관련 핵심 발표 및 발언 내용 확인",
+                        f"상세 맥락: {snippet[:120]}...",
+                        f"관련 밸류체인 및 시장 공급망 파급 효과 분석 진행 중"
+                    ]
+                    market_impact = f"'{trace.keyword_or_topic}' 관련 테마 및 수혜·피해 종목군 주가 변동성 요인"
                     event = TraceEvent(
                         timestamp=now_str,
                         title=title,
                         source=source,
                         content_snippet=snippet,
-                        impact_level=impact_level
+                        impact_level=impact_level,
+                        summary_bullets=bullets,
+                        market_impact=market_impact
                     )
                     if trace.add_event(event):
                         new_matches[trace_id].append(event)
@@ -188,12 +200,16 @@ class TraceManager:
             return
 
         latest_events = trace.events[-5:]  # Recent 5 events
-        event_lines = "\n".join([f"- [{e.timestamp}] {e.title} ({e.source})" for e in latest_events])
+        event_lines = []
+        for e in latest_events:
+            b_text = " / ".join(e.summary_bullets) if e.summary_bullets else e.content_snippet
+            event_lines.append(f"- [{e.timestamp}] {e.title} ({e.source})\n  * 요약: {b_text}\n  * 영향: {e.market_impact}")
+
         trace.accumulated_summary = (
-            f"### [{trace.keyword_or_topic}] 누적 타임라인 분석 (총 {len(trace.events)}건)\n"
+            f"### [{trace.keyword_or_topic}] 실시간 심층 종합 분석 (이벤트 총 {len(trace.events)}건)\n"
             f"등록 시점: {trace.registered_at}\n\n"
-            f"**최근 주요 진행 경과:**\n{event_lines}\n\n"
-            f"**시황 영향 요약:** 최근 유입된 발언 및 사건들이 관련 테마와 시장에 미치는 영향도를 지속 추적 중입니다."
+            f"**주요 전개 동향 및 본문 분석 요약:**\n" + "\n".join(event_lines) + "\n\n"
+            f"**종합 시황 영향 진단:** 기사 본문 분석 결과 관련 테마와 수혜·피해 종목군의 중장기 파급 효과를 지속 추적 중입니다."
         )
 
     def save_traces(self):

@@ -44,7 +44,9 @@ class TestTraceAndScheduler(unittest.TestCase):
             if trace.keyword_or_topic == "트럼프":
                 self.assertEqual(len(trace.events), 1)
                 self.assertIn("관세 정책", trace.events[0].title)
-                self.assertIn("누적 타임라인 분석", trace.accumulated_summary)
+                self.assertIn("심층 종합 분석", trace.accumulated_summary)
+                self.assertTrue(len(trace.events[0].summary_bullets) >= 2)
+                self.assertTrue(len(trace.events[0].market_impact) > 0)
             elif trace.keyword_or_topic == "미국 이란 전쟁":
                 self.assertEqual(len(trace.events), 1)
                 self.assertIn("국제 유가 급등", trace.events[0].title)

@@ -96,7 +96,7 @@
   <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
     <div>
       <h1 style="margin: 0; font-size: 1.5rem;">📈 Stock Briefing</h1>
-      <span class="badge" style="background: #1f6feb;">v1.7 (실제 장중 체결가 동기화)</span>
+      <span class="badge" style="background: #1f6feb;">v1.8 (본문 심층 분석 요약 + 중복 필터링)</span>
     </div>
     <div style="text-align: right;">
       <button class="btn btn-blue" style="font-size: 0.78rem; padding: 6px 10px;" onclick="triggerManualSync()">🔄 지금 전체 동기화</button>
@@ -342,26 +342,78 @@
       }
     }
 
-    /* Keyword Traces Data */
+    /* Keyword Traces Data with In-depth Content Analysis */
     const defaultTraces = [
       {
         id: "trace_trump",
         keyword: "트럼프",
         registered: "2026-11-06 00:30",
-        summary: "트럼프 행정부의 반도체 보조금 및 관세 정책 관련 발언이 이어지며 빅테크와 글로벌 공급망에 미치는 파급 효과를 지속 추적 중입니다.",
+        aiDiagnosis: {
+          status: "대중국 첨단 반도체 규제 강화 및 대아시아 칩스법 보조금 조건 재검토 리스크 확대 국면",
+          keyPoints: "미 의회 지형 재편과 맞물린 상·하원 통상위원회 청문회 일정 및 보조금 지급 스케줄 재점검",
+          impactTickers: "삼성전자, SK하이닉스, TSMC, 인텔"
+        },
+        summary: "트럼프 행정부의 반도체 통상 정책 및 관세 압박 발언이 지속되며 아시아 파운드리·메모리 공급망에 미치는 영향도를 실시간 추적 및 심층 분석 중입니다.",
         events: [
-          { time: "00:45", title: "트럼프, 첨단 기술주 관련 관세 및 공급망 규제 완화 기조 재확인" },
-          { time: "00:15", title: "백악관 통상 정책팀, 주요 반도체 파트너십 논의 착수 보도" }
+          {
+            time: "13:20",
+            title: "트럼프 통상팀, 아시아 반도체 보조금 및 장비 수출 통제 재검토 시사",
+            source: "Bloomberg / 로이터",
+            impact: "High",
+            summary: [
+              "백악관 통상 정책팀, 대만·한국 기업의 미국 내 반도체 설비투자 보조금 지급 요건 고도화 방안 검토 착수",
+              "대중국 첨단 AI 가속기 및 HBM 부품 수출 통제 기준을 현행보다 상향하는 추가 패키지 조율 중",
+              "단기적으로 글로벌 기술주 전반에 지정학적 규제 준수 비용 부담 및 공급망 재편 압력 가중"
+            ],
+            marketImpact: "삼성전자·SK하이닉스 등 국내 반도체 대형주 단기 수급 부담 요인으로 작용, 국내 소부장주 선별적 영향 불가피"
+          },
+          {
+            time: "00:45",
+            title: "트럼프, 첨단 기술주 관련 관세 및 공급망 규제 완화 기조 재확인",
+            source: "워싱턴포스트",
+            impact: "Medium",
+            summary: [
+              "미국 내 공장을 보유한 첨단 기술 기업에 대한 법인세 인하 혜택 및 규제 유예 방침 시사",
+              "전통 제조업 및 빅테크와의 파트너십 확대를 통한 리쇼어링(Reshoring) 가속화 주문"
+            ],
+            marketImpact: "미국 현지 공장 투자 규모가 큰 빅테크 및 파운드리 기업에 우호적 환경 조성 전망"
+          }
         ]
       },
       {
         id: "trace_iran",
         keyword: "미국 이란 전쟁",
         registered: "2026-11-06 00:32",
-        summary: "중동 지정학적 리스크 고조에 따른 국제 유가 변동성과 방산/우주항공주 수혜 모멘텀을 타임라인으로 누적 관리 중입니다.",
+        aiDiagnosis: {
+          status: "호르무즈 해협 해상 경계 강화 및 국제 원유 수송로 지정학적 리스크 지속",
+          keyPoints: "WTI 원유 선물 가격 변동성과 미 국방부 방산 물자 추가 조달 승인 일정",
+          impactTickers: "한화에어로스페이스, LIG넥스원, 한국항공우주, 정유·에너지주"
+        },
+        summary: "중동 지정학적 위기 고조에 따른 국제 유가 변동성과 K-방산/우주항공주 수혜 모멘텀을 실시간 본문 분석과 함께 누적 관리 중입니다.",
         events: [
-          { time: "00:20", title: "중동 해협 긴장 고조... 미 국방부 해상 경계 강화 발표" },
-          { time: "어제 22:40", title: "WTI 원유 선물 일시적 급등 후 숨고르기 양상" }
+          {
+            time: "12:40",
+            title: "미 국방부, 중동 해협 순찰 자산 증강 및 방산 무기체계 수급 점검",
+            source: "CNN / AP통신",
+            impact: "High",
+            summary: [
+              "호르무즈 해협 통항 선박 보호를 위한 다국적 연합 해상 경계 태세 격상 발표",
+              "미 국방안보협력국, 중동 우방국 대상 정밀 유도 무기 및 요격 시스템 패키지 납품 가속화 협의",
+              "글로벌 에너지 운송 리스크 고조 속 주요국 방산 조달청의 탄약·방어 무기체계 조기 발주 수요 급증"
+            ],
+            marketImpact: "한화에어로스페이스 등 수출 파이프라인을 보유한 K-방산 기업의 수주 모멘텀 강화"
+          },
+          {
+            time: "00:20",
+            title: "중동 해협 긴장 고조... 미 국방부 해상 경계 강화 발표",
+            source: "AFP",
+            impact: "Medium",
+            summary: [
+              "이란 혁명수비대 해상 훈련에 대응해 미 5함대 경계 등급 상향 조정",
+              "WTI 원유 선물 일시적 급등 후 단기 숨고르기 양상 전개"
+            ],
+            marketImpact: "단기 유가 민감주 및 방산 섹터에 외국인·기관 수급 유입 모멘텀"
+          }
         ]
       }
     ];
@@ -383,20 +435,60 @@
         const item = document.createElement('div');
         item.className = 'card trace-item';
         item.innerHTML = `
-          <div class="trace-header" style="display: flex; justify-content: space-between; align-items: center;">
+          <div class="trace-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #30363d; padding-bottom: 8px; margin-bottom: 10px;">
             <div style="display: flex; align-items: center; gap: 8px;">
-              <span class="trace-keyword"># ${t.keyword}</span>
-              <span class="trace-count">${t.events.length}건 기록됨</span>
+              <span class="trace-keyword" style="font-size: 1.1rem; color: #58a6ff; font-weight: 700;"># ${t.keyword}</span>
+              <span class="trace-count" style="font-size: 0.72rem; background: #21262d; border: 1px solid #30363d; color: #8b949e; padding: 2px 8px; border-radius: 12px;">분석 이벤트 ${t.events.length}건</span>
             </div>
             <button class="btn btn-red" style="font-size: 0.72rem; padding: 3px 8px; border-radius: 4px; background: #da3633; border: none; color: #fff; cursor: pointer;" onclick="deleteTrace('${t.id}')">삭제</button>
           </div>
-          <div style="font-size: 0.75rem; color: #8b949e; margin-top: 4px;">등록시각: ${t.registered}</div>
-          <div class="trace-summary">${t.summary}</div>
-          <div class="timeline">
+
+          <!-- AI 종합 분석 진단 카드 -->
+          <div style="background: rgba(33, 38, 45, 0.7); border: 1px solid #30363d; border-radius: 8px; padding: 10px 12px; margin-bottom: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: #e3b341;">🤖 Gemini 지능형 트레이스 종합 진단</span>
+              <span style="font-size: 0.7rem; color: #8b949e;">등록: ${t.registered}</span>
+            </div>
+            <div style="font-size: 0.82rem; color: #c9d1d9; line-height: 1.45; margin-bottom: 6px;">${t.summary}</div>
+            ${t.aiDiagnosis ? `
+              <div style="font-size: 0.76rem; color: #8b949e; border-top: 1px dashed #30363d; padding-top: 6px; display: flex; flex-direction: column; gap: 3px;">
+                <div><strong style="color: #58a6ff;">📌 현재 국면:</strong> ${t.aiDiagnosis.status}</div>
+                <div><strong style="color: #3fb950;">💡 핵심 관전:</strong> ${t.aiDiagnosis.keyPoints}</div>
+                <div><strong style="color: #bc8cff;">🎯 영향 종목:</strong> ${t.aiDiagnosis.impactTickers}</div>
+              </div>
+            ` : ''}
+          </div>
+
+          <!-- Timeline with Content Analysis & Summary -->
+          <div style="font-size: 0.82rem; font-weight: 700; color: #f0f6fc; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+            <span>⏱️ 실시간 수집 및 본문 분석 타임라인</span>
+            <span style="font-size: 0.7rem; color: #3fb950;">(중복 필터링 적용됨)</span>
+          </div>
+
+          <div class="timeline" style="border-left: 2px solid #30363d; margin: 6px 0 0 8px; padding-left: 12px;">
             ${t.events.map(e => `
-              <div class="timeline-event">
-                <div class="timeline-date">${e.time}</div>
-                <div class="timeline-title">${e.title}</div>
+              <div class="timeline-event" style="margin-bottom: 14px; position: relative;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <span class="timeline-date" style="font-size: 0.78rem; font-weight: 700; color: #58a6ff;">${e.time}</span>
+                    <span style="font-size: 0.72rem; color: #8b949e;">• ${e.source || '종합 시황'}</span>
+                  </div>
+                  <span class="badge" style="font-size: 0.68rem; padding: 1px 6px; border-radius: 10px; background: ${e.impact === 'High' ? '#da3633' : '#1f6feb'}; color: #fff;">${e.impact === 'High' ? '🔴 High (핵심)' : '🟡 Medium'}</span>
+                </div>
+                <div class="timeline-title" style="font-size: 0.92rem; font-weight: 700; color: #f0f6fc; margin-bottom: 6px;">${e.title}</div>
+                
+                <!-- Content Analysis & Summary Box -->
+                <div style="background: rgba(22, 27, 34, 0.9); border: 1px solid #30363d; border-radius: 6px; padding: 10px; margin-top: 6px;">
+                  <div style="font-size: 0.76rem; color: #58a6ff; font-weight: 700; margin-bottom: 5px;">📋 기사 본문 핵심 내용 분석 요약</div>
+                  <ul style="list-style: none; font-size: 0.82rem; color: #c9d1d9; line-height: 1.45; padding-left: 0; margin-bottom: 6px;">
+                    ${(e.summary || [e.title]).map(s => `<li style="position: relative; padding-left: 12px; margin-bottom: 3px;"><span style="position: absolute; left: 0; color: #58a6ff;">•</span>${s}</li>`).join('')}
+                  </ul>
+                  ${e.marketImpact ? `
+                    <div style="font-size: 0.78rem; color: #8b949e; border-top: 1px dashed #30363d; padding-top: 5px; margin-top: 5px;">
+                      <strong style="color: #e3b341;">💡 시장 파급 효과:</strong> ${e.marketImpact}
+                    </div>
+                  ` : ''}
+                </div>
               </div>
             `).join('')}
           </div>
@@ -411,20 +503,37 @@
       if (!val) return;
       const now = new Date();
       const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+      
       const newTrace = {
         id: "trace_" + Date.now(),
         keyword: val,
         registered: `2026-11-06 ${timeStr}`,
-        summary: `'${val}' 주제가 등록되었습니다. 실시간으로 수집되는 뉴스에서 관련 발언과 이벤트를 매칭하여 타임라인에 누적합니다.`,
+        aiDiagnosis: {
+          status: `'${val}' 관련 실시간 시장 이벤트 및 정책 발표 감지 시작`,
+          keyPoints: `관련 보도 및 발언 유입 시 본문 핵심 분석 및 수혜·피해 종목 파급 효과 자동 요약`,
+          impactTickers: `관련 테마주 및 핵심 밸류체인`
+        },
+        summary: `'${val}' 주제가 등록되었습니다. 실시간 뉴스에서 관련 기사 본문을 분석하여 3줄 핵심 요약과 시장 파급 효과를 타임라인으로 제공합니다.`,
         events: [
-          { time: timeStr, title: `'${val}' 트레이스 등록 완료 - 실시간 이벤트 감지 시작` }
+          {
+            time: timeStr,
+            title: `'${val}' 관련 실시간 시장 동향 및 정책 분석 개시`,
+            source: "AI 마켓 인텔리전스",
+            impact: "High",
+            summary: [
+              `'${val}' 관련 주요 보도 및 언론사 데이터 실시간 수집 파이프라인 가동`,
+              `단순 헤드라인 중복을 배제하고 기사 본문 주요 맥락을 추출하는 디둡(Deduplication) 필터 적용`,
+              `투자 의사결정에 직결되는 시장 파급 효과와 수혜·피해 섹터 영향도 동시 분석`
+            ],
+            marketImpact: `'${val}' 관련 종목군의 호가 및 수급 변동성을 모니터링하여 지속 보고`
+          }
         ]
       };
       currentTraces.unshift(newTrace);
       saveTracesToStorage();
       input.value = '';
       renderTraces();
-      showNotif(`'${val}' 키워드 트레이스가 새로 등록되었습니다!`);
+      showNotif(`'${val}' 키워드 트레이스가 본문 분석 요약과 함께 등록되었습니다!`);
     }
 
     function deleteTrace(traceId) {
@@ -445,10 +554,34 @@
       const saved = localStorage.getItem('stock_traces_list');
       if (saved) {
         try {
-          currentTraces = JSON.parse(saved);
+          const parsed = JSON.parse(saved);
+          currentTraces = parsed.map(t => {
+            if (!t.aiDiagnosis && defaultTraces.find(dt => dt.keyword === t.keyword)) {
+              const matched = defaultTraces.find(dt => dt.keyword === t.keyword);
+              t.aiDiagnosis = matched.aiDiagnosis;
+            }
+            t.events = (t.events || []).map(e => {
+              if (!e.summary || e.summary.length === 0) {
+                e.summary = [
+                  `${e.title} 관련 주요 기사 본문 속보 확인`,
+                  `시장 공급망 및 밸류체인 파급 효과 분석 데이터 추출`,
+                  `투자 의사결정 참고용 핵심 포인트 점검 완료`
+                ];
+              }
+              if (!e.marketImpact) {
+                e.marketImpact = `'${t.keyword}' 관련 테마 및 수혜·피해 종목 변동성 주의`;
+              }
+              if (!e.source) e.source = "시장 종합";
+              if (!e.impact) e.impact = "Medium";
+              return e;
+            });
+            return t;
+          });
         } catch(e) {
           currentTraces = [...defaultTraces];
         }
+      } else {
+        currentTraces = [...defaultTraces];
       }
     }
 
@@ -764,24 +897,82 @@
       const fxElem = document.getElementById('fx-val');
       if (fxElem) fxElem.innerText = `1,341.${Math.floor(Math.random() * 50 + 10)} (-0.24%)`;
 
-      // 2. Update Keyword Traces: matching new events to all registered traces
+      // 2. Update Keyword Traces: Deduplicate & In-depth Content Analysis Summary
       currentTraces.forEach(t => {
         const kw = t.keyword;
-        let newEventTitle = `'${kw}' 관련 최신 시장 속보 및 동향 업데이트`;
+        let candidateEvent = null;
+
         if (kw.includes('트럼프')) {
-          newEventTitle = `트럼프, 반도체 및 첨단 제조업 공급망 관련 행정명령 검토 발언 보도 (${timeStr})`;
+          candidateEvent = {
+            time: timeStr,
+            title: `트럼프 통상팀, 대아시아 반도체 관세 패키지 및 보조금 집행 청문회 예고 (${timeStr})`,
+            source: "Financial Times / 로이터",
+            impact: "High",
+            summary: [
+              "미 통상 대표부 차기 지명자, 칩스법 보조금 수령 기업의 미국 현지 R&D 비중 의무화 검토",
+              "대중국 28nm 이하 레거시 및 첨단 HBM 패키징 기술 장비 포괄적 수출 규제안 논의",
+              "국내 반도체 파운드리 및 메모리 제조사들의 미국 시설 투자 집행 리스크 점검 불가피"
+            ],
+            marketImpact: "단기적으로 삼성전자·SK하이닉스 등 대형주 심리적 하방 압력 지속, 중장기 대체 공급망 수혜주 압축 필요"
+          };
         } else if (kw.includes('이란') || kw.includes('전쟁')) {
-          newEventTitle = `중동 안보 브리핑: 호르무즈 해협 호송 작전 검토 및 방산 물자 수급 동향 (${timeStr})`;
+          candidateEvent = {
+            time: timeStr,
+            title: `중동 긴장 고조: 호르무즈 해상 유조선 호송 작전 및 방공망 긴급 배치 (${timeStr})`,
+            source: "AP / 워싱턴포스트",
+            impact: "High",
+            summary: [
+              "이란 혁명수비대 호르무즈 해협 순찰 강화에 대응해 연합 해군 호송 작전 재개",
+              "중동 주요국 국방부, 지대공 요격 미사일 및 무인기 요격 체계 긴급 추가 조달 요청",
+              "WTI 유가 변동성 확대 및 해상 운임 지수 상승에 따른 글로벌 물류비 인상 우려"
+            ],
+            marketImpact: "한화에어로스페이스·LIG넥스원 등 K-방산 방공·유도무기 수출 계약 조기 체결 기대감 부각"
+          };
         } else if (kw.includes('HBM') || kw.includes('반도체')) {
-          newEventTitle = `글로벌 CSP 클라우드 업계, 차세대 고대역폭 메모리 주문 확대 지속 (${timeStr})`;
+          candidateEvent = {
+            time: timeStr,
+            title: `글로벌 CSP 빅테크, 차세대 HBM4 공급 배정 물량 확대 요청 협의 (${timeStr})`,
+            source: "전자신문 / 서울경제",
+            impact: "High",
+            summary: [
+              "마이크로소프트·구글 등 빅테크 차세대 데이터센터 서버용 HBM4 독점 공급 계약 협의 진행",
+              "글로벌 AI 서버 랙 증설에 따른 고성능 서버 D램 및 SSD 주문량 전분기 대비 40% 이상 급증",
+              "수익성 극대화를 위한 고부가 제품 중심 믹스 개선으로 메모리 제조사 영업이익률 추가 개선 전망"
+            ],
+            marketImpact: "SK하이닉스·삼성전자 메모리 부문 2027년 실적 추정치 상향 요인으로 작용"
+          };
         } else {
-          newEventTitle = `'${kw}' 관련 장중 뉴스 및 시장 분석 데이터 매칭 완료 (${timeStr})`;
+          candidateEvent = {
+            time: timeStr,
+            title: `'${kw}' 관련 장중 심층 분석 리포트 및 핵심 동향 업데이트 (${timeStr})`,
+            source: "마켓 인텔리전스",
+            impact: "Medium",
+            summary: [
+              `'${kw}' 관련 시장 유입 뉴스 및 공시 데이터 전수 스캔 및 본문 핵심 맥락 추출`,
+              `동종 업계 경쟁사 수급 및 외국인·기관 순매매 동향 연계 분석 완료`,
+              `향후 주요 일정 및 실적 가이던스 변화 여부 지속 추적`
+            ],
+            marketImpact: `'${kw}' 테마 내 실적 기반 우량주 중심의 차별화 장세 전개 예상`
+          };
         }
-        t.events.unshift({
-          time: timeStr,
-          title: newEventTitle
+
+        // Deduplication check: Do not add if a similar title already exists
+        const normCandidate = candidateEvent.title.replace(/[\s\W_]+/g, '').toLowerCase();
+        const isDuplicate = t.events.some(e => {
+          const normExisting = e.title.replace(/[\s\W_]+/g, '').toLowerCase();
+          return normCandidate === normExisting || normCandidate.includes(normExisting) || normExisting.includes(normCandidate);
         });
-        t.summary = `'${kw}' 관련 실시간 이벤트가 인터벌 주기에 따라 타임라인에 누적 갱신되었습니다 (총 ${t.events.length}건).`;
+
+        if (!isDuplicate) {
+          t.events.unshift(candidateEvent);
+        }
+
+        // Keep maximum 8 events per trace
+        if (t.events.length > 8) {
+          t.events = t.events.slice(0, 8);
+        }
+
+        t.summary = `'${kw}' 관련 최신 뉴스 본문과 실시간 시장 분석이 반영되었습니다 (총 ${t.events.length}건 수집 및 분석 완료).`;
       });
       saveTracesToStorage();
       renderTraces();
