@@ -614,8 +614,8 @@
           const diffUSD = currentUSD - comp.prevClose;
           const pct = ((diffUSD / comp.prevClose) * 100).toFixed(2);
           comp.isUp = diffUSD >= 0;
-          const sign = diffUSD >= 0 ? '+' : '';
-          comp.change = `${sign}${pct}% (${sign}$${Math.abs(diffUSD).toFixed(2)})`;
+          const sign = diffUSD >= 0 ? '+' : '-';
+          comp.change = `${diffUSD >= 0 ? '+' : ''}${pct}% (${sign}$${Math.abs(diffUSD).toFixed(2)})`;
           if (comp.eps > 0) comp.per = (currentUSD / comp.eps).toFixed(1) + " 배";
           if (comp.bps > 0) comp.pbr = (currentUSD / comp.bps).toFixed(1) + " 배";
         } else {
@@ -627,8 +627,8 @@
           const diffKRW = currentPriceNum - comp.prevClose;
           const pct = ((diffKRW / comp.prevClose) * 100).toFixed(2);
           comp.isUp = diffKRW >= 0;
-          const sign = diffKRW >= 0 ? '+' : '';
-          comp.change = `${sign}${pct}% (${sign}${Math.abs(diffKRW).toLocaleString()}원)`;
+          const sign = diffKRW >= 0 ? '+' : '-';
+          comp.change = `${diffKRW >= 0 ? '+' : ''}${pct}% (${sign}${Math.abs(diffKRW).toLocaleString()}원)`;
           if (comp.eps > 0) comp.per = (currentPriceNum / comp.eps).toFixed(1) + " 배";
           if (comp.bps > 0) comp.pbr = (currentPriceNum / comp.bps).toFixed(2) + " 배";
         }
