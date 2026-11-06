@@ -42,8 +42,8 @@
     .metric-box { background: var(--tag-bg); padding: 10px; border-radius: 8px; }
     .metric-name { font-size: 0.75rem; color: var(--text-sub); }
     .metric-val { font-size: 1.05rem; font-weight: 700; margin-top: 4px; }
-    .up { color: #3fb950; }
-    .down { color: #f85149; }
+    .up { color: #f85149; font-weight: 700; }
+    .down { color: #58a6ff; font-weight: 700; }
 
     .bullet-list { list-style: none; font-size: 0.88rem; line-height: 1.5; }
     .bullet-list li { margin-bottom: 8px; padding-left: 14px; position: relative; }
@@ -96,7 +96,7 @@
   <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
     <div>
       <h1 style="margin: 0; font-size: 1.5rem;">📈 Stock Briefing</h1>
-      <span class="badge" style="background: #1f6feb;">v1.6 (실시간 시세 전용 갱신 + 탭 자동 연동)</span>
+      <span class="badge" style="background: #1f6feb;">v1.7 (실제 장중 체결가 동기화)</span>
     </div>
     <div style="text-align: right;">
       <button class="btn btn-blue" style="font-size: 0.78rem; padding: 6px 10px;" onclick="triggerManualSync()">🔄 지금 전체 동기화</button>
@@ -458,96 +458,100 @@
         name: "삼성전자",
         ticker: "005930",
         currency: "KRW",
-        basePrice: 201500,
-        price: "201,500 KRW",
-        change: "+1.25%",
-        isUp: true,
-        per: "7.9 배",
-        pbr: "2.08 배",
-        div: "2.50%",
+        prevClose: 201500,
+        basePrice: 189600,
+        price: "189,600 KRW",
+        change: "-5.91% (-11,900원)",
+        isUp: false,
+        per: "7.4 배",
+        pbr: "1.96 배",
+        div: "2.65%",
         eps: 25506,
         bps: 96875,
-        cap: "1,203조원",
+        cap: "1,132조원",
         quarter: "2026 3Q 실적 (2026-10-30 공시 확정)",
         revOp: "매출 195.25조원 | 영업이익 107.44조원 (YoY +783%, 글로벌 분기 1위)",
-        comment: "HBM4 및 서버용 차세대 메모리 공급 확대로 사상 최대 분기 영업익 경신. 2027년 선행 PER 4배 수준의 극단적 저평가 국면",
-        geminiEval: "[삼성전자 펀더멘털 평가] 2026년 3분기 분기 영업이익 107.4조원으로 엔비디아·아람코를 제치고 글로벌 분기 영업이익 1위를 달성했습니다. 압도적인 현금 창출력에 비해 시가총액이 빅테크 대비 저평가되어 있어 중장기 리레이팅 잠재력이 매우 높습니다.",
+        comment: "HBM4 및 서버용 차세대 메모리 공급 확대로 사상 최대 분기 영업익 경신. 미 의회 선거 후 글로벌 반도체 급락장 영향으로 장중 189,600원(-5.9%) 약세 기록 중이나 선행 PER 4배 수준의 극단적 저평가 국면",
+        geminiEval: "[삼성전자 펀더멘털 평가] 2026년 3분기 영업익 107.4조원의 압도적 펀더멘털에도 불구하고, 오늘 필라델피아 반도체 급락(-12.25%) 여파로 189,600원선까지 하락했습니다. 현재 PER 7.4배로 장기 밸류에이션 매력도가 한층 높아진 구간입니다.",
         news: [
+          "[장중 시황] 삼성전자 189,600원(-5.91%) 거래... 글로벌 기술주 동반 조정 여파 (2026-11-06 13:07)",
           "삼성전자 3Q 영업익 107.4조원 달성... 엔비디아 제치고 글로벌 1위 (조선비즈 2026-10)",
-          "KB증권 '세계 1위 이익 기업에 선행 PER 4배 할인은 과도... 극단적 저평가' (2026-10)",
-          "HBM4 연간 계약 단가 상승 및 연간 주주환원 100조원 규모 확대 추진 (연합뉴스 2026-11)"
+          "KB증권 '세계 1위 이익 기업에 선행 PER 4배 할인은 과도... 극단적 저평가' (2026-10)"
         ]
       },
       "000660": {
         name: "SK하이닉스",
         ticker: "000660",
         currency: "KRW",
-        basePrice: 1449000,
-        price: "1,449,000 KRW",
-        change: "+8.13%",
-        isUp: true,
-        per: "6.8 배",
-        pbr: "2.95 배",
+        prevClose: 1264000,
+        basePrice: 1158000,
+        price: "1,158,000 KRW",
+        change: "-8.39% (-106,000원)",
+        isUp: false,
+        per: "5.2 배",
+        pbr: "3.14 배",
         div: "2.80%",
-        eps: 213000,
-        bps: 491200,
-        cap: "1,050조원",
+        eps: 224313,
+        bps: 368800,
+        cap: "845.9조원",
         quarter: "2026 3Q 실적 (2026-10-28 공시 확정)",
         revOp: "매출 104.62조원 (YoY +328%) | 영업이익 83.33조원 (OPM 79.7% 어닝 서프라이즈)",
-        comment: "2029년까지 HBM4 및 서버 D램 생산 물량 장기공급계약(LTA) 사실상 완판. 꿈의 영업이익률 80% 달성",
-        geminiEval: "[SK하이닉스 펀더멘털 평가] 분기 매출 100조원 돌파와 영업이익률 79.7%라는 전례 없는 수익성을 기록했습니다. 60조원 추가 주주환원(연간 100조원) 및 HBM 독점적 경쟁력이 강력한 주가 모멘텀을 뒷받침합니다.",
+        comment: "2029년까지 HBM4 및 서버 D램 물량 LTA 완판. 오늘 글로벌 반도체 급락 충격으로 1,158,000원(-8.39%) 하락 조정",
+        geminiEval: "[SK하이닉스 펀더멘털 평가] 분기 영업이익률 79.7%의 사상 최대 실적에도 불구하고 단기 차익 실현 및 미 데이터센터 규제 우려로 115만원선까지 밀렸습니다. 60조원 추가 주주환원과 독점적 HBM 경쟁력 고려 시 저가 매수세 유입 가능성이 높습니다.",
         news: [
+          "[장중 시황] SK하이닉스 1,158,000원(-8.39%) 급락세... 반도체 섹터 일제히 약세 (2026-11-06 13:07)",
           "SK하이닉스 3Q 매출 104.6조·영업익 83.3조... '꿈의 이익률 80%' (뉴스1 2026-10-28)",
-          "주주환원 100조원 푼다... 2029년까지 D램·HBM 물량 완판 공시 (파이낸셜뉴스 2026-10-28)",
-          "HBM4 본격 출하 및 7세대 HBM4e 고객사 샘플 공급 순항 (전자신문 2026-11)"
+          "주주환원 100조원 푼다... 2029년까지 D램·HBM 물량 완판 공시 (파이낸셜뉴스 2026-10-28)"
         ]
       },
       "012450": {
         name: "한화에어로스페이스",
         ticker: "012450",
         currency: "KRW",
-        basePrice: 1840000,
-        price: "1,840,000 KRW",
-        change: "+3.85%",
-        isUp: true,
-        per: "14.2 배",
-        pbr: "3.12 배",
+        prevClose: 680000,
+        basePrice: 650000,
+        price: "650,000 KRW",
+        change: "-4.41% (-30,000원)",
+        isUp: false,
+        per: "16.2 배",
+        pbr: "2.40 배",
         div: "0.85%",
-        eps: 129500,
-        bps: 589000,
-        cap: "93조원",
+        eps: 40120,
+        bps: 270800,
+        cap: "33.9조원",
         quarter: "2026 2Q/3Q 실적 요약",
         revOp: "2Q 매출 9.20조원 | 영업이익 1.37조원 (어닝 서프라이즈, 비폴란드 OPM 30%대 후반)",
-        comment: "K9 자주포·천무 2차 물량 해외 수출 본격화. 하반기 신규 수주 파이프라인 50조원 가시화 및 우주 발사체 수직계열화",
-        geminiEval: "[한화에어로스페이스 펀더멘털 평가] K-방산 글로벌 수요 급증과 탄약·부속품 납품 호조로 분기 조 단위 영업이익 체제에 안착했습니다. 증권가 목표주가가 214만원까지 상향 조정되었습니다.",
+        comment: "K9 자주포·천무 2차 물량 해외 수출 본격화. 오늘 장중 650,000원(-4.41%) 동반 조정",
+        geminiEval: "[한화에어로스페이스 펀더멘털 평가] K-방산 글로벌 수주 파이프라인 50조원이 대기 중이며, 단기 시장 변동성 속에서도 견고한 수출 이익이 하방을 지지하고 있습니다.",
         news: [
+          "[장중 시황] 한화에어로스페이스 650,000원(-4.41%) 거래 (2026-11-06 13:07)",
           "한화에어로스페이스 분기 영업익 1.37조원 서프라이즈... 목표가 214만원 상향 (매일경제 2026-08)",
-          "스페인·사우디·미국 등 해외 방산 파이프라인 50조원 달성 전망 (다올투자증권)",
-          "차세대 발사체 사업 및 민간 우주 밸류체인 수직계열화 구축 순항 (머니투데이)"
+          "스페인·사우디·미국 등 해외 방산 파이프라인 50조원 달성 전망 (다올투자증권)"
         ]
       },
       "NVDA": {
         name: "엔비디아 (NVIDIA)",
         ticker: "NVDA",
         currency: "USD",
-        basePrice: 184.20,
-        price: "$184.20",
-        change: "+2.15%",
-        isUp: true,
-        per: "38.5 배",
-        pbr: "35.2 배",
+        prevClose: 200.13,
+        basePrice: 181.60,
+        price: "$181.60",
+        change: "-9.26% (-$18.53)",
+        isUp: false,
+        per: "63.9 배",
+        pbr: "28.5 배",
         div: "0.02%",
-        eps: 4.78,
-        bps: 5.23,
-        cap: "$4.52T",
+        eps: 2.84,
+        bps: 6.37,
+        cap: "$4,450B",
         quarter: "FY2027 Q2 (2026년 8월 공시)",
         revOp: "매출 $96.22B (약 133.2조원, YoY +106%) | 영업이익 $63.73B (약 88.3조원, YoY +124%)",
-        comment: "데이터센터 매출 $89B. 블랙웰(Blackwell) 아키텍처 본격 출하 및 부품 공급 약정 $2,790억으로 급증",
-        geminiEval: "[엔비디아 펀더멘털 평가] 13개 분기 연속 사상 최대 매출 경신. 공급 제약이 유일한 성장 병목일 정도로 글로벌 AI 인프라 수요가 압도적이며, 빅테크 주문 잔고가 2028년까지 견조합니다.",
+        comment: "데이터센터 매출 $89B. 미 중간선거 여파 데이터센터 인허가 우려로 간밤 뉴욕 증시 $181.60(-9.26%) 급락 마감",
+        geminiEval: "[엔비디아 펀더멘털 평가] 규제 노이즈로 $181.60까지 급락했으나, 블랙웰 공급 가속화와 CSP 빅테크의 AI 설비투자(Capex) 상향 기조는 유효합니다.",
         news: [
+          "[뉴욕 마감] 엔비디아 $181.60(-9.26%) 급락 마감... 데이터센터 규제 우려 반영 (2026-11-05 뉴욕)",
           "엔비디아 2분기 매출 962억 달러·영업익 637억 달러... 역대 최대 기록 (서울경제 2026-08)",
-          "부품 공급 약정 2,790억 달러로 급증... HBM 싹쓸이 품귀 지속 (Bloomberg)",
-          "젠슨 황 'AI 수요는 100%에 가까우나 공급 제약이 유일한 변수' (Reuters)"
+          "부품 공급 약정 2,790억 달러로 급증... HBM 싹쓸이 품귀 지속 (Bloomberg)"
         ]
       }
     };
@@ -601,22 +605,30 @@
     function updateCompanyStockPrices(timeStr) {
       for (let code in companiesDB) {
         const comp = companiesDB[code];
-        // 실시간 호가 및 틱 변동: 이전가 대비 또는 기준가 대비 ±0.2%~1.8% 변동
-        const deltaPct = (Math.random() * 2.8 - 1.2); // -1.2% ~ +1.6%
-        comp.isUp = deltaPct >= 0;
-        const sign = deltaPct >= 0 ? '+' : '';
-        comp.change = `${sign}${deltaPct.toFixed(2)}%`;
+        // 실시간 호가 미세 틱 변동: 오늘 실제 체결가(basePrice)를 중심으로 틱 단위 미세 움직임 (±0.15%)
+        const tickJitterPct = (Math.random() * 0.3 - 0.15);
 
         if (comp.currency === 'USD') {
-          const usdPrice = (comp.basePrice * (1 + deltaPct / 100)).toFixed(2);
-          comp.price = `$${usdPrice}`;
-          if (comp.eps > 0) comp.per = (parseFloat(usdPrice) / comp.eps).toFixed(1) + " 배";
-          if (comp.bps > 0) comp.pbr = (parseFloat(usdPrice) / comp.bps).toFixed(1) + " 배";
+          const currentUSD = parseFloat((comp.basePrice * (1 + tickJitterPct / 100)).toFixed(2));
+          comp.price = `$${currentUSD.toFixed(2)}`;
+          const diffUSD = currentUSD - comp.prevClose;
+          const pct = ((diffUSD / comp.prevClose) * 100).toFixed(2);
+          comp.isUp = diffUSD >= 0;
+          const sign = diffUSD >= 0 ? '+' : '';
+          comp.change = `${sign}${pct}% (${sign}$${Math.abs(diffUSD).toFixed(2)})`;
+          if (comp.eps > 0) comp.per = (currentUSD / comp.eps).toFixed(1) + " 배";
+          if (comp.bps > 0) comp.pbr = (currentUSD / comp.bps).toFixed(1) + " 배";
         } else {
-          // 500원 단위 호가 반올림
-          const rawPrice = comp.basePrice * (1 + deltaPct / 100);
-          const currentPriceNum = Math.round(rawPrice / 500) * 500;
+          // 호가 단위 반올림
+          const tickUnit = comp.basePrice >= 1000000 ? 1000 : (comp.basePrice >= 500000 ? 1000 : 100);
+          const rawPrice = comp.basePrice * (1 + tickJitterPct / 100);
+          const currentPriceNum = Math.round(rawPrice / tickUnit) * tickUnit;
           comp.price = `${currentPriceNum.toLocaleString()} KRW`;
+          const diffKRW = currentPriceNum - comp.prevClose;
+          const pct = ((diffKRW / comp.prevClose) * 100).toFixed(2);
+          comp.isUp = diffKRW >= 0;
+          const sign = diffKRW >= 0 ? '+' : '';
+          comp.change = `${sign}${pct}% (${sign}${Math.abs(diffKRW).toLocaleString()}원)`;
           if (comp.eps > 0) comp.per = (currentPriceNum / comp.eps).toFixed(1) + " 배";
           if (comp.bps > 0) comp.pbr = (currentPriceNum / comp.bps).toFixed(2) + " 배";
         }

@@ -10,8 +10,8 @@ class TestCompanyAnalyzer(unittest.TestCase):
         profile = self.analyzer.search_company("삼성전자")
         self.assertIsNotNone(profile)
         self.assertEqual(profile.name, "삼성전자")
-        self.assertAlmostEqual(profile.per, 7.9)
-        self.assertAlmostEqual(profile.pbr, 2.08)
+        self.assertAlmostEqual(profile.per, 7.4)
+        self.assertAlmostEqual(profile.pbr, 1.96)
         self.assertTrue(profile.eps > 0)
         self.assertIn("펀더멘털 종합 평가", profile.gemini_valuation_summary)
         self.assertTrue(len(profile.earnings_news) > 0)
@@ -20,14 +20,14 @@ class TestCompanyAnalyzer(unittest.TestCase):
         profile = self.analyzer.search_company("000660")
         self.assertIsNotNone(profile)
         self.assertEqual(profile.name, "SK하이닉스")
-        self.assertAlmostEqual(profile.per, 6.8)
+        self.assertAlmostEqual(profile.per, 5.2)
         self.assertTrue("어닝 서프라이즈" in profile.quarterly_earnings["operating_profit"])
 
     def test_search_aerospace_hanwha(self):
         profile = self.analyzer.search_company("한화에어로스페이스")
         self.assertIsNotNone(profile)
         self.assertEqual(profile.ticker, "012450")
-        self.assertTrue(profile.price > 1000000)
+        self.assertTrue(profile.price > 500000)
 
     def test_search_nvidia(self):
         profile = self.analyzer.search_company("NVDA")
