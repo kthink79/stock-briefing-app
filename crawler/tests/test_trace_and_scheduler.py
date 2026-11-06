@@ -185,6 +185,38 @@ class TestTraceAndScheduler(unittest.TestCase):
         t_kr_open = datetime(2026, 11, 6, 10, 0)
         self.assertTrue(market_config.is_interval_due(None, t_kr_open))
 
+    def test_trace_remove(self):
+        trace = self.manager.add_trace("테슬라")
+        self.assertEqual(len(self.manager.list_traces()), 1)
+        res = self.manager.remove_trace(trace.id)
+        self.assertTrue(res)
+        self.assertEqual(len(self.manager.list_traces()), 0)
+
+        # Remove non-existent trace
+        self.assertFalse(self.manager.remove_trace("non_existent_id"))
+
+    def test_execute_unified_interval_sync(self):
+        from crawler.scheduler_engine import execute_unified_interval_sync
+        from crawler.crawler import StockDataCollector
+        from crawler.company_analyzer import CompanyValuationAnalyzer
+
+        collector = StockDataCollector()
+        company_analyzer = CompanyValuationAnalyzer()
+        self.manager.add_trace("반도체")
+
+        sync_res = execute_unified_interval_sync(
+            crawler_instance=collector,
+            trace_manager_instance=self.manager,
+            company_analyzer_instance=company_analyzer,
+            current_time=datetime(2026, 11, 6, 11, 0)
+        )
+
+        self.assertIsNotNone(sync_res)
+        self.assertTrue(sync_res.macro_updated)
+        self.assertTrue(sync_res.companies_updated_count >= 4)
+        self.assertEqual(sync_res.timestamp, "2026-11-06 11:00")
+        self.assertEqual(sync_res.details["briefing_status"], "ok")
+
 
 if __name__ == "__main__":
     unittest.main()

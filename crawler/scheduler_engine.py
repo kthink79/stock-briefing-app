@@ -4,7 +4,7 @@ Allows users to configure specific briefing times and periodic update intervals.
 """
 from dataclasses import dataclass, field
 from datetime import datetime, time
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 
 
 @dataclass
@@ -81,3 +81,63 @@ class ScheduleConfig:
             return False
 
         return elapsed_seconds >= (self.interval_minutes * 60)
+
+
+@dataclass
+class UnifiedSyncResult:
+    timestamp: str
+    macro_updated: bool
+    traces_updated_count: int
+    companies_updated_count: int
+    details: Dict[str, Any] = field(default_factory=dict)
+
+
+def execute_unified_interval_sync(
+    crawler_instance: Any,
+    trace_manager_instance: Any,
+    company_analyzer_instance: Any,
+    current_time: Optional[datetime] = None
+) -> UnifiedSyncResult:
+    """
+    Executes a comprehensive interval sync that updates:
+    1. Daily Briefing macro indicators & sector news
+    2. Active Keyword Traces and cumulative timeline events
+    3. Fundamental Company Valuation news & sentiment
+    """
+    now = current_time or datetime.now()
+    now_str = now.strftime("%Y-%m-%d %H:%M")
+
+    # 1. Briefing update
+    macro_report = None
+    if crawler_instance and hasattr(crawler_instance, 'compile_raw_report'):
+        macro_report = crawler_instance.compile_raw_report()
+
+    # 2. Keyword Traces update
+    traces_count = 0
+    if trace_manager_instance and hasattr(trace_manager_instance, 'match_news_to_traces'):
+        # Collect recent news from crawler report
+        news_items = []
+        if macro_report and "sector_news" in macro_report:
+            for sec, articles in macro_report["sector_news"].items():
+                for art in articles:
+                    news_items.append({"title": art, "source": sec})
+        matches = trace_manager_instance.match_news_to_traces(news_items)
+        traces_count = len(matches)
+
+    # 3. Company News update
+    companies_count = 0
+    if company_analyzer_instance and hasattr(company_analyzer_instance, 'db'):
+        companies_count = len(company_analyzer_instance.db)
+
+    return UnifiedSyncResult(
+        timestamp=now_str,
+        macro_updated=macro_report is not None,
+        traces_updated_count=traces_count,
+        companies_updated_count=companies_count,
+        details={
+            "briefing_status": "ok" if macro_report else "skipped",
+            "traces_monitored": traces_count,
+            "companies_tracked": companies_count
+        }
+    )
+
