@@ -551,6 +551,15 @@
     }
 
     function loadTracesFromStorage() {
+      const storageVersion = localStorage.getItem('stock_traces_version');
+      // If version is older than v2, reset to defaultTraces with full in-depth content analysis
+      if (storageVersion !== 'v2.0') {
+        currentTraces = JSON.parse(JSON.stringify(defaultTraces));
+        localStorage.setItem('stock_traces_version', 'v2.0');
+        saveTracesToStorage();
+        return;
+      }
+
       const saved = localStorage.getItem('stock_traces_list');
       if (saved) {
         try {
@@ -560,28 +569,37 @@
               const matched = defaultTraces.find(dt => dt.keyword === t.keyword);
               t.aiDiagnosis = matched.aiDiagnosis;
             }
-            t.events = (t.events || []).map(e => {
-              if (!e.summary || e.summary.length === 0) {
-                e.summary = [
-                  `${e.title} 관련 주요 기사 본문 속보 확인`,
-                  `시장 공급망 및 밸류체인 파급 효과 분석 데이터 추출`,
-                  `투자 의사결정 참고용 핵심 포인트 점검 완료`
-                ];
+
+            // Deduplicate events by title (strip timestamps and whitespace)
+            const seenTitles = new Set();
+            const dedupedEvents = [];
+            for (const e of (t.events || [])) {
+              const cleanTitle = e.title.replace(/\(\d{1,2}:\d{2}\)/g, '').replace(/[\s\W_]+/g, '').toLowerCase();
+              if (!seenTitles.has(cleanTitle)) {
+                seenTitles.add(cleanTitle);
+                if (!e.summary || e.summary.length === 0) {
+                  e.summary = [
+                    `${e.title} 관련 주요 기사 본문 속보 확인`,
+                    `시장 공급망 및 밸류체인 파급 효과 분석 데이터 추출`,
+                    `투자 의사결정 참고용 핵심 포인트 점검 완료`
+                  ];
+                }
+                if (!e.marketImpact) {
+                  e.marketImpact = `'${t.keyword}' 관련 테마 및 수혜·피해 종목 변동성 주의`;
+                }
+                if (!e.source) e.source = "시장 종합";
+                if (!e.impact) e.impact = "Medium";
+                dedupedEvents.push(e);
               }
-              if (!e.marketImpact) {
-                e.marketImpact = `'${t.keyword}' 관련 테마 및 수혜·피해 종목 변동성 주의`;
-              }
-              if (!e.source) e.source = "시장 종합";
-              if (!e.impact) e.impact = "Medium";
-              return e;
-            });
+            }
+            t.events = dedupedEvents;
             return t;
           });
         } catch(e) {
-          currentTraces = [...defaultTraces];
+          currentTraces = JSON.parse(JSON.stringify(defaultTraces));
         }
       } else {
-        currentTraces = [...defaultTraces];
+        currentTraces = JSON.parse(JSON.stringify(defaultTraces));
       }
     }
 
