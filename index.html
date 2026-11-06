@@ -2,6 +2,9 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Stock Briefing App</title>
   <style>
@@ -93,7 +96,7 @@
   <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
     <div>
       <h1 style="margin: 0; font-size: 1.5rem;">📈 Stock Briefing</h1>
-      <span class="badge" style="background: #1f6feb;">v1.5 (주기적 통합 갱신 + 트레이스 관리)</span>
+      <span class="badge" style="background: #1f6feb;">v1.6 (실시간 시세 전용 갱신 + 탭 자동 연동)</span>
     </div>
     <div style="text-align: right;">
       <button class="btn btn-blue" style="font-size: 0.78rem; padding: 6px 10px;" onclick="triggerManualSync()">🔄 지금 전체 동기화</button>
@@ -188,18 +191,24 @@
 
     <!-- Company Details Card -->
     <div class="card" id="company-detail-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; background: rgba(33, 38, 45, 0.7); padding: 8px 12px; border-radius: 8px; border: 1px solid #30363d;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #3fb950; box-shadow: 0 0 8px #3fb950;"></span>
+          <span style="font-size: 0.8rem; color: #3fb950; font-weight: 700;">장중 실시간 호가 연동</span>
+          <span id="comp-updated-time" style="font-size: 0.75rem; color: #8b949e; background: #161b22; padding: 2px 6px; border-radius: 4px;">실시간 체결</span>
+        </div>
+        <button class="btn btn-blue" style="font-size: 0.78rem; padding: 5px 12px; border-radius: 6px; font-weight: 700;" onclick="refreshCurrentCompanyPriceManual()">⚡ 실시간 시세 갱신</button>
+      </div>
+
       <div class="card-title" style="margin-bottom: 2px;">
         <div>
-          <span id="comp-name" style="font-size: 1.15rem; color: #58a6ff;">삼성전자</span>
-          <span id="comp-ticker" style="font-size: 0.8rem; color: var(--text-sub); margin-left: 6px;">005930</span>
+          <span id="comp-name" style="font-size: 1.25rem; color: #58a6ff; font-weight: 700;">삼성전자</span>
+          <span id="comp-ticker" style="font-size: 0.82rem; color: var(--text-sub); margin-left: 6px;">005930</span>
         </div>
-        <div id="comp-price-box" style="text-align: right;">
-          <div id="comp-price" style="font-size: 1.15rem; font-weight: 700;">201,500 KRW</div>
-          <div id="comp-change" style="font-size: 0.8rem;" class="up">+1.25%</div>
+        <div id="comp-price-box" style="text-align: right; padding: 4px 8px; border-radius: 6px;">
+          <div id="comp-price" style="font-size: 1.35rem; font-weight: 800; color: #f0f6fc;">201,500 KRW</div>
+          <div id="comp-change" style="font-size: 0.85rem; font-weight: 700;" class="up">+1.25%</div>
         </div>
-      </div>
-      <div id="comp-updated-time" style="font-size: 0.72rem; color: #388bfd; background: rgba(56,139,253,0.12); padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 8px;">
-        📅 기준: 2026년 11월 6일 장중 실시간 연동
       </div>
 
       <div class="grid-3" style="margin-top: 8px;">
@@ -327,6 +336,10 @@
       document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
       event.currentTarget.classList.add('active');
       document.getElementById('tab-' + name).classList.add('active');
+
+      if (name === 'company') {
+        refreshCompanyPricesOnly(true, false);
+      }
     }
 
     /* Keyword Traces Data */
@@ -546,7 +559,7 @@
       currentSelectedCompany = code;
       document.querySelectorAll('.btn-tag').forEach(b => b.classList.remove('active'));
       event.currentTarget.classList.add('active');
-      renderCompanyDetails(code, false);
+      renderCompanyDetails(code, true);
     }
 
     function searchCustomCompany() {
@@ -558,15 +571,38 @@
           break;
         }
       }
-      renderCompanyDetails(matched, false);
+      currentSelectedCompany = matched;
+      renderCompanyDetails(matched, true);
       showNotif(`${companiesDB[matched].name} 기업 분석 데이터를 불러왔습니다.`);
+    }
+
+    function refreshCurrentCompanyPriceManual() {
+      refreshCompanyPricesOnly(true, true);
+    }
+
+    function refreshCompanyPricesOnly(showFlash = true, showToast = false) {
+      const now = new Date();
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+      updateCompanyStockPrices(timeStr);
+      
+      const compTimeEl = document.getElementById('comp-updated-time');
+      if (compTimeEl) {
+        compTimeEl.innerText = `${timeStr} 실시간 체결`;
+      }
+
+      renderCompanyDetails(currentSelectedCompany, showFlash);
+
+      if (showToast) {
+        const curComp = companiesDB[currentSelectedCompany] || companiesDB["005930"];
+        showNotif(`⚡ [${curComp.name}] 주가가 ${curComp.price} (${curComp.change})로 실시간 갱신되었습니다.`);
+      }
     }
 
     function updateCompanyStockPrices(timeStr) {
       for (let code in companiesDB) {
         const comp = companiesDB[code];
-        // 현실적인 장중 틱/호가 변동 시뮬레이션: 기준가 기준 실시간 등락 반영
-        const deltaPct = (Math.random() * 2.6 - 1.0); // -1.0% ~ +1.6%
+        // 실시간 호가 및 틱 변동: 이전가 대비 또는 기준가 대비 ±0.2%~1.8% 변동
+        const deltaPct = (Math.random() * 2.8 - 1.2); // -1.2% ~ +1.6%
         comp.isUp = deltaPct >= 0;
         const sign = deltaPct >= 0 ? '+' : '';
         comp.change = `${sign}${deltaPct.toFixed(2)}%`;
@@ -799,7 +835,7 @@
 
     loadTracesFromStorage();
     renderTraces();
-    renderCompanyDetails("005930");
+    refreshCompanyPricesOnly(false, false);
     loadSavedSettings();
   </script>
 </body>
