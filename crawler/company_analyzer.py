@@ -30,91 +30,95 @@ COMPANY_DATABASE: Dict[str, Dict[str, Any]] = {
         "ticker": "005930",
         "name": "삼성전자",
         "currency": "KRW",
-        "price": 58500.0,
-        "change_pct": "+0.86%",
-        "market_cap": "349조원",
-        "per": 11.8,
-        "pbr": 1.05,
-        "eps": 4957.0,
-        "bps": 55714.0,
-        "dividend_yield": "2.46%",
+        "price": 201500.0,
+        "change_pct": "+1.25%",
+        "market_cap": "1,203조원",
+        "per": 7.9,
+        "pbr": 2.08,
+        "eps": 25506.0,
+        "bps": 96875.0,
+        "dividend_yield": "2.50%",
         "quarterly_earnings": {
             "quarter": "2026 3Q",
-            "revenue": "79.1조원 (YoY +17.3%)",
-            "operating_profit": "9.18조원 (YoY +277.4%)",
-            "comment": "반도체(DS) 부문 HBM3E 공급 진입 및 메모리 단가 회복에 따른 이익 개선"
+            "revenue": "195.25조원",
+            "operating_profit": "107.44조원 (YoY +783%, 글로벌 분기 1위)",
+            "comment": "HBM4 및 고용량 서버 메모리 공급 확대로 사상 최대 분기 영업익 경신. 선행 PER 4배 수준 극단적 저평가"
         },
         "earnings_news": [
-            {"title": "삼성전자, 차세대 고대역폭메모리 HBM3E 공급망 확대 가속화", "source": "한국경제"},
-            {"title": "3분기 실적 저점 확인 평가... 4분기 파운드리 수주 회복 여부 주목", "source": "매일경제"}
+            {"title": "삼성전자 3Q 영업익 107.4조원 달성... 엔비디아 제치고 글로벌 1위", "source": "조선비즈"},
+            {"title": "KB증권 '세계 1위 이익 기업에 선행 PER 4배 할인은 과도... 극단적 저평가'", "source": "KB증권"},
+            {"title": "HBM4 공급망 주도 및 연간 주주환원 100조원 규모 확대 추진", "source": "연합뉴스"}
         ]
     },
     "000660": {
         "ticker": "000660",
         "name": "SK하이닉스",
         "currency": "KRW",
-        "price": 194000.0,
-        "change_pct": "+2.11%",
-        "market_cap": "141조원",
-        "per": 8.5,
-        "pbr": 1.82,
-        "eps": 22823.0,
-        "bps": 106593.0,
-        "dividend_yield": "1.20%",
+        "price": 1449000.0,
+        "change_pct": "+8.13%",
+        "market_cap": "1,050조원",
+        "per": 6.8,
+        "pbr": 2.95,
+        "eps": 213000.0,
+        "bps": 491200.0,
+        "dividend_yield": "2.80%",
         "quarterly_earnings": {
             "quarter": "2026 3Q",
-            "revenue": "17.57조원 (YoY +93.8%)",
-            "operating_profit": "7.03조원 (어닝 서프라이즈)",
-            "comment": "HBM3E 독점적 점유율 유지와 서버용 eSSD 고수익 제품군 비중 확대"
+            "revenue": "104.62조원 (YoY +328%)",
+            "operating_profit": "83.33조원 (OPM 79.7% 어닝 서프라이즈)",
+            "comment": "2029년까지 HBM4 및 차세대 서버 D램 생산 물량 LTA 완판. 꿈의 이익률 80% 달성"
         },
         "earnings_news": [
-            {"title": "SK하이닉스 사상 최대 분기 영업이익 경신... 글로벌 AI 수혜 집중", "source": "연합인포맥스"},
-            {"title": "HBM4 조기 개발 완료 및 2027년 양산 준비 순항", "source": "전자신문"}
+            {"title": "SK하이닉스 3Q 매출 104.6조·영업익 83.3조... '꿈의 이익률 80%'", "source": "뉴스1"},
+            {"title": "주주환원 100조원 푼다... 2029년까지 D램·HBM 물량 완판 공시", "source": "파이낸셜뉴스"},
+            {"title": "HBM4 본격 출하 및 7세대 HBM4e 고객사 샘플 공급 순항", "source": "전자신문"}
         ]
     },
     "NVDA": {
         "ticker": "NVDA",
         "name": "엔비디아 (NVIDIA)",
         "currency": "USD",
-        "price": 145.60,
-        "change_pct": "+1.75%",
-        "market_cap": "3.58조 달러",
-        "per": 48.2,
-        "pbr": 42.1,
-        "eps": 3.02,
-        "bps": 3.45,
-        "dividend_yield": "0.03%",
+        "price": 184.20,
+        "change_pct": "+2.15%",
+        "market_cap": "4.52조 달러",
+        "per": 38.5,
+        "pbr": 35.2,
+        "eps": 4.78,
+        "bps": 5.23,
+        "dividend_yield": "0.02%",
         "quarterly_earnings": {
             "quarter": "FY2027 Q2",
-            "revenue": "30.04B USD (YoY +122%)",
-            "operating_profit": "18.64B USD (YoY +174%)",
-            "comment": "블랙웰(Blackwell) 아키텍처 본격 출하 및 데이터센터 수요 폭증"
+            "revenue": "96.22B USD (YoY +106%)",
+            "operating_profit": "63.73B USD (YoY +124%)",
+            "comment": "데이터센터 매출 $89B. 블랙웰(Blackwell) 아키텍처 본격 출하 및 부품 공급 약정 $2,790억으로 급증"
         },
         "earnings_news": [
-            {"title": "NVIDIA Blackwell 칩 공급 부족 2027년까지 지속 전망", "source": "Bloomberg"},
-            {"title": "AI 인프라 투자 지속... 빅테크 고객사 주문 잔고 견조", "source": "Reuters"}
+            {"title": "엔비디아 2분기 매출 962억 달러·영업익 637억 달러... 역대 최대 기록", "source": "서울경제"},
+            {"title": "부품 공급 약정 2,790억 달러로 급증... HBM 싹쓸이 품귀 지속", "source": "Bloomberg"},
+            {"title": "젠슨 황 'AI 수요는 100%에 가까우나 공급 제약이 유일한 변수'", "source": "Reuters"}
         ]
     },
     "012450": {
         "ticker": "012450",
         "name": "한화에어로스페이스",
         "currency": "KRW",
-        "price": 382000.0,
-        "change_pct": "+3.24%",
-        "market_cap": "19.3조원",
-        "per": 18.2,
-        "pbr": 3.41,
-        "eps": 20989.0,
-        "bps": 112023.0,
-        "dividend_yield": "0.68%",
+        "price": 1840000.0,
+        "change_pct": "+3.85%",
+        "market_cap": "93조원",
+        "per": 14.2,
+        "pbr": 3.12,
+        "eps": 129500.0,
+        "bps": 589000.0,
+        "dividend_yield": "0.85%",
         "quarterly_earnings": {
-            "quarter": "2026 3Q",
-            "revenue": "2.63조원 (YoY +61.9%)",
-            "operating_profit": "4,772억원 (YoY +457%)",
-            "comment": "K9 자주포 및 천무 폴란드 납품 가속화와 항공우주 부문 영업 레버리지 극대화"
+            "quarter": "2026 2Q/3Q",
+            "revenue": "9.20조원 (어닝 서프라이즈)",
+            "operating_profit": "1.37조원 (비폴란드 OPM 30%대 후반)",
+            "comment": "K9 자주포·천무 2차 물량 수출 본격화. 하반기 파이프라인 수주 잔고 50조원 가시화"
         },
         "earnings_news": [
-            {"title": "한화에어로스페이스, 역대 최대 분기 실적 달성... 해외 수출 비중 급증", "source": "조선비즈"},
+            {"title": "한화에어로스페이스 분기 영업익 1.37조원 서프라이즈... 목표가 214만원 상향", "source": "매일경제"},
+            {"title": "스페인·사우디·미국 등 해외 방산 파이프라인 50조원 달성 전망", "source": "다올투자증권"},
             {"title": "차세대 발사체 사업 및 민간 우주 밸류체인 수직계열화 구축 순항", "source": "머니투데이"}
         ]
     }

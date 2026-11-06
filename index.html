@@ -174,45 +174,48 @@
 
     <!-- Company Details Card -->
     <div class="card" id="company-detail-card">
-      <div class="card-title">
+      <div class="card-title" style="margin-bottom: 2px;">
         <div>
           <span id="comp-name" style="font-size: 1.15rem; color: #58a6ff;">삼성전자</span>
           <span id="comp-ticker" style="font-size: 0.8rem; color: var(--text-sub); margin-left: 6px;">005930</span>
         </div>
         <div id="comp-price-box" style="text-align: right;">
-          <div id="comp-price" style="font-size: 1.15rem; font-weight: 700;">58,500 KRW</div>
-          <div id="comp-change" style="font-size: 0.8rem;" class="up">+0.86%</div>
+          <div id="comp-price" style="font-size: 1.15rem; font-weight: 700;">201,500 KRW</div>
+          <div id="comp-change" style="font-size: 0.8rem;" class="up">+1.25%</div>
         </div>
       </div>
+      <div style="font-size: 0.72rem; color: #388bfd; background: rgba(56,139,253,0.12); padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 8px;">
+        📅 기준: 2026년 11월 최신 확정 실적·공시 데이터
+      </div>
 
-      <div class="grid-3" style="margin-top: 14px;">
+      <div class="grid-3" style="margin-top: 8px;">
         <div class="metric-box">
           <div class="metric-name">PER (주가수익비율)</div>
-          <div id="comp-per" class="metric-val" style="color: #3fb950;">11.8 배</div>
+          <div id="comp-per" class="metric-val" style="color: #3fb950;">7.9 배</div>
         </div>
         <div class="metric-box">
           <div class="metric-name">PBR (주가순자산)</div>
-          <div id="comp-pbr" class="metric-val">1.05 배</div>
+          <div id="comp-pbr" class="metric-val">2.08 배</div>
         </div>
         <div class="metric-box">
           <div class="metric-name">배당수익률</div>
-          <div id="comp-div" class="metric-val">2.46%</div>
+          <div id="comp-div" class="metric-val">2.50%</div>
         </div>
       </div>
 
       <div class="grid-2">
         <div class="metric-box">
           <div class="metric-name">EPS (주당순이익)</div>
-          <div id="comp-eps" class="metric-val">4,957 KRW</div>
+          <div id="comp-eps" class="metric-val">25,506 KRW</div>
         </div>
         <div class="metric-box">
           <div class="metric-name">BPS (주당순자산)</div>
-          <div id="comp-bps" class="metric-val">55,714 KRW</div>
+          <div id="comp-bps" class="metric-val">96,875 KRW</div>
         </div>
       </div>
 
       <div style="font-size: 0.8rem; color: var(--text-sub); margin-top: 6px;">
-        시가총액: <strong id="comp-cap" style="color: #fff;">349조원</strong>
+        시가총액: <strong id="comp-cap" style="color: #fff;">1,203조원</strong>
       </div>
     </div>
 
@@ -220,13 +223,13 @@
     <div class="card">
       <div class="card-title" style="color: #a371f7;">📈 실적 분석 & 밸류에이션 총평</div>
       <div id="comp-earnings-box" style="background: var(--tag-bg); padding: 12px; border-radius: 8px; margin-bottom: 12px;">
-        <div style="font-weight: 700; font-size: 0.9rem; margin-bottom: 4px;" id="comp-quarter">2026 3Q 실적 요약</div>
-        <div style="font-size: 0.85rem; line-height: 1.5;" id="comp-rev-op">매출 79.1조원 (YoY +17.3%) | 영업이익 9.18조원 (YoY +277.4%)</div>
-        <div style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;" id="comp-earn-comment">반도체(DS) 부문 HBM3E 공급 진입 및 메모리 단가 회복에 따른 이익 개선</div>
+        <div style="font-weight: 700; font-size: 0.9rem; margin-bottom: 4px;" id="comp-quarter">2026 3Q 실적 (2026-10-30 공시 확정)</div>
+        <div style="font-size: 0.85rem; line-height: 1.5;" id="comp-rev-op">매출 195.25조원 | 영업이익 107.44조원 (YoY +783%, 글로벌 분기 1위)</div>
+        <div style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;" id="comp-earn-comment">HBM4 및 고용량 서버 메모리 공급 확대로 사상 최대 분기 영업익 경신. 선행 PER 4배 수준 극단적 저평가</div>
       </div>
 
       <div style="font-size: 0.85rem; line-height: 1.5; color: #e6edf3;" id="comp-gemini-eval">
-        [삼성전자 펀더멘털 평가] PER 11.8배로 동종 글로벌 반도체 피어 대비 밸류에이션 매력도가 높은 저평가 구간입니다. PBR 1.05배 수준으로 자산가치 하방 지지력이 견고합니다.
+        [삼성전자 펀더멘털 평가] 2026년 3분기 분기 영업이익 107.4조원으로 엔비디아·아람코를 제치고 글로벌 분기 영업이익 1위를 달성했습니다. 압도적인 현금 창출력에 비해 시가총액이 빅테크 대비 저평가되어 있어 중장기 리레이팅 잠재력이 매우 높습니다.
       </div>
     </div>
 
@@ -234,8 +237,9 @@
     <div class="card">
       <div class="card-title">📰 관련 실적 & 투자 뉴스</div>
       <ul class="bullet-list" id="comp-news-list">
-        <li>삼성전자, 차세대 고대역폭메모리 HBM3E 공급망 확대 가속화 (한국경제)</li>
-        <li>3분기 실적 저점 확인 평가... 4분기 파운드리 수주 회복 여부 주목 (매일경제)</li>
+        <li>삼성전자 3Q 영업익 107.4조원 달성... 엔비디아 제치고 글로벌 1위 (조선비즈 2026-10)</li>
+        <li>KB증권 '세계 1위 이익 기업에 선행 PER 4배 할인은 과도... 극단적 저평가' (2026-10)</li>
+        <li>HBM4 연간 계약 단가 상승 및 연간 주주환원 100조원 규모 확대 추진 (연합뉴스 2026-11)</li>
       </ul>
     </div>
   </div>
@@ -253,16 +257,39 @@
         <input type="time" id="report-time" value="08:00" class="input-text" style="width: 110px; text-align: center;">
       </div>
 
-      <div class="setting-row">
-        <div>
-          <div class="setting-label">주기적 간격 업데이트 (Interval)</div>
-          <div class="setting-desc">지정한 시간 간격으로 실시간 지표/뉴스 갱신</div>
+      <div class="setting-row" style="flex-direction: column; align-items: stretch; gap: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div class="setting-label">주기적 간격 업데이트 (Interval)</div>
+            <div class="setting-desc">원하는 갱신 주기를 사용자가 직접 입력 (분 또는 시간 단위)</div>
+          </div>
+          <label style="position: relative; display: inline-flex; align-items: center; cursor: pointer;">
+            <input type="checkbox" id="interval-toggle" checked onchange="toggleIntervalInputState()" style="width: 20px; height: 20px; accent-color: #238636;">
+            <span style="font-size: 0.8rem; margin-left: 6px; color: var(--text-sub);">사용</span>
+          </label>
         </div>
-        <select id="interval-select" class="input-text" style="width: 120px;">
-          <option value="none">사용 안 함</option>
-          <option value="60" selected>1시간 간격</option>
-          <option value="180">3시간 간격</option>
-        </select>
+
+        <div id="interval-input-group" style="background: #0d1117; padding: 12px; border-radius: 8px; border: 1px solid #30363d; display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 0.85rem; color: #c9d1d9;">업데이트 주기:</span>
+            <input type="number" id="interval-value" class="input-text" value="1" min="1" max="1440" style="width: 75px; text-align: center; font-weight: 700; font-size: 1rem;" oninput="updateIntervalPreview()">
+            <select id="interval-unit" class="input-text" style="width: 80px; text-align: center;" onchange="updateIntervalPreview()">
+              <option value="hours" selected>시간</option>
+              <option value="minutes">분</option>
+            </select>
+            <span id="interval-preview-text" style="font-size: 0.8rem; color: #58a6ff; margin-left: auto;">(= 60분 간격)</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+            <span style="font-size: 0.75rem; color: #8b949e;">빠른 선택:</span>
+            <button type="button" class="btn-tag" onclick="setIntervalPreset(10, 'minutes')">10분</button>
+            <button type="button" class="btn-tag" onclick="setIntervalPreset(30, 'minutes')">30분</button>
+            <button type="button" class="btn-tag" onclick="setIntervalPreset(1, 'hours')">1시간</button>
+            <button type="button" class="btn-tag" onclick="setIntervalPreset(2, 'hours')">2시간</button>
+            <button type="button" class="btn-tag" onclick="setIntervalPreset(3, 'hours')">3시간</button>
+            <button type="button" class="btn-tag" onclick="setIntervalPreset(6, 'hours')">6시간</button>
+          </div>
+        </div>
       </div>
 
       <div class="setting-row">
@@ -360,90 +387,94 @@
       showNotif(`'${val}' 키워드 트레이스가 새로 등록되었습니다!`);
     }
 
-    /* Companies Database */
+    /* Companies Database (2026.11 최신 공시 및 실적 데이터 반영) */
     const companiesDB = {
       "005930": {
         name: "삼성전자",
         ticker: "005930",
-        price: "58,500 KRW",
-        change: "+0.86%",
+        price: "201,500 KRW",
+        change: "+1.25%",
         isUp: true,
-        per: "11.8 배",
-        pbr: "1.05 배",
-        div: "2.46%",
-        eps: "4,957 KRW",
-        bps: "55,714 KRW",
-        cap: "349조원",
-        quarter: "2026 3Q 실적 요약",
-        revOp: "매출 79.1조원 (YoY +17.3%) | 영업이익 9.18조원 (YoY +277.4%)",
-        comment: "반도체(DS) 부문 HBM3E 공급 진입 및 메모리 단가 회복에 따른 이익 개선",
-        geminiEval: "[삼성전자 펀더멘털 평가] PER 11.8배로 글로벌 피어 대비 밸류에이션 매력도가 높은 저평가 구간입니다. PBR 1.05배 수준으로 자산가치 하방 지지력이 견고합니다.",
+        per: "7.9 배",
+        pbr: "2.08 배",
+        div: "2.50%",
+        eps: "25,506 KRW",
+        bps: "96,875 KRW",
+        cap: "1,203조원",
+        quarter: "2026 3Q 실적 (2026-10-30 공시 확정)",
+        revOp: "매출 195.25조원 | 영업이익 107.44조원 (YoY +783%, 글로벌 분기 1위)",
+        comment: "HBM4 및 서버용 차세대 메모리 공급 확대로 사상 최대 분기 영업익 경신. 2027년 선행 PER 4배 수준의 극단적 저평가 국면",
+        geminiEval: "[삼성전자 펀더멘털 평가] 2026년 3분기 분기 영업이익 107.4조원으로 엔비디아·아람코를 제치고 글로벌 분기 영업이익 1위를 달성했습니다. 압도적인 현금 창출력에 비해 시가총액이 빅테크 대비 저평가되어 있어 중장기 리레이팅 잠재력이 매우 높습니다.",
         news: [
-          "삼성전자, 차세대 고대역폭메모리 HBM3E 공급망 확대 가속화 (한국경제)",
-          "3분기 실적 저점 확인 평가... 4분기 파운드리 수주 회복 여부 주목 (매일경제)"
+          "삼성전자 3Q 영업익 107.4조원 달성... 엔비디아 제치고 글로벌 1위 (조선비즈 2026-10)",
+          "KB증권 '세계 1위 이익 기업에 선행 PER 4배 할인은 과도... 극단적 저평가' (2026-10)",
+          "HBM4 연간 계약 단가 상승 및 연간 주주환원 100조원 규모 확대 추진 (연합뉴스 2026-11)"
         ]
       },
       "000660": {
         name: "SK하이닉스",
         ticker: "000660",
-        price: "194,000 KRW",
-        change: "+2.11%",
+        price: "1,449,000 KRW",
+        change: "+8.13%",
         isUp: true,
-        per: "8.5 배",
-        pbr: "1.82 배",
-        div: "1.20%",
-        eps: "22,823 KRW",
-        bps: "106,593 KRW",
-        cap: "141조원",
-        quarter: "2026 3Q 실적 요약",
-        revOp: "매출 17.57조원 (YoY +93.8%) | 영업이익 7.03조원 (어닝 서프라이즈)",
-        comment: "HBM3E 독점적 점유율 유지와 서버용 eSSD 고수익 제품군 비중 확대",
-        geminiEval: "[SK하이닉스 펀더멘털 평가] HBM 시장 주도력에 힘입어 분기 최대 이익을 달성하며 12개월 선행 PER 8.5배로 강력한 실적 모멘텀 구간입니다.",
+        per: "6.8 배",
+        pbr: "2.95 배",
+        div: "2.80%",
+        eps: "213,000 KRW",
+        bps: "491,200 KRW",
+        cap: "1,050조원",
+        quarter: "2026 3Q 실적 (2026-10-28 공시 확정)",
+        revOp: "매출 104.62조원 (YoY +328%) | 영업이익 83.33조원 (OPM 79.7% 어닝 서프라이즈)",
+        comment: "2029년까지 HBM4 및 서버 D램 생산 물량 장기공급계약(LTA) 사실상 완판. 꿈의 영업이익률 80% 달성",
+        geminiEval: "[SK하이닉스 펀더멘털 평가] 분기 매출 100조원 돌파와 영업이익률 79.7%라는 전례 없는 수익성을 기록했습니다. 60조원 추가 주주환원(연간 100조원) 및 HBM 독점적 경쟁력이 강력한 주가 모멘텀을 뒷받침합니다.",
         news: [
-          "SK하이닉스 사상 최대 분기 영업이익 경신... 글로벌 AI 수혜 집중 (연합인포맥스)",
-          "HBM4 조기 개발 완료 및 2027년 양산 준비 순항 (전자신문)"
+          "SK하이닉스 3Q 매출 104.6조·영업익 83.3조... '꿈의 이익률 80%' (뉴스1 2026-10-28)",
+          "주주환원 100조원 푼다... 2029년까지 D램·HBM 물량 완판 공시 (파이낸셜뉴스 2026-10-28)",
+          "HBM4 본격 출하 및 7세대 HBM4e 고객사 샘플 공급 순항 (전자신문 2026-11)"
         ]
       },
       "012450": {
         name: "한화에어로스페이스",
         ticker: "012450",
-        price: "382,000 KRW",
-        change: "+3.24%",
+        price: "1,840,000 KRW",
+        change: "+3.85%",
         isUp: true,
-        per: "18.2 배",
-        pbr: "3.41 배",
-        div: "0.68%",
-        eps: "20,989 KRW",
-        bps: "112,023 KRW",
-        cap: "19.3조원",
-        quarter: "2026 3Q 실적 요약",
-        revOp: "매출 2.63조원 (YoY +61.9%) | 영업이익 4,772억원 (YoY +457%)",
-        comment: "K9 자주포 및 천무 폴란드 납품 가속화와 항공우주 부문 영업 레버리지 극대화",
-        geminiEval: "[한화에어로스페이스 펀더멘털 평가] 방산 수주 잔고가 실적으로 본격 전환되며 영업이익 급증. 우주항공 발사체 사업 확장과 해외 수주 가시성이 주가 프리미엄을 뒷받침합니다.",
+        per: "14.2 배",
+        pbr: "3.12 배",
+        div: "0.85%",
+        eps: "129,500 KRW",
+        bps: "589,000 KRW",
+        cap: "93조원",
+        quarter: "2026 2Q/3Q 실적 요약",
+        revOp: "2Q 매출 9.20조원 | 영업이익 1.37조원 (어닝 서프라이즈, 비폴란드 OPM 30%대 후반)",
+        comment: "K9 자주포·천무 2차 물량 해외 수출 본격화. 하반기 신규 수주 파이프라인 50조원 가시화 및 우주 발사체 수직계열화",
+        geminiEval: "[한화에어로스페이스 펀더멘털 평가] K-방산 글로벌 수요 급증과 탄약·부속품 납품 호조로 분기 조 단위 영업이익 체제에 안착했습니다. 증권가 목표주가가 214만원까지 상향 조정되었습니다.",
         news: [
-          "한화에어로스페이스, 역대 최대 분기 실적 달성... 해외 수출 비중 급증 (조선비즈)",
+          "한화에어로스페이스 분기 영업익 1.37조원 서프라이즈... 목표가 214만원 상향 (매일경제 2026-08)",
+          "스페인·사우디·미국 등 해외 방산 파이프라인 50조원 달성 전망 (다올투자증권)",
           "차세대 발사체 사업 및 민간 우주 밸류체인 수직계열화 구축 순항 (머니투데이)"
         ]
       },
       "NVDA": {
         name: "엔비디아 (NVIDIA)",
         ticker: "NVDA",
-        price: "$145.60",
-        change: "+1.75%",
+        price: "$184.20",
+        change: "+2.15%",
         isUp: true,
-        per: "48.2 배",
-        pbr: "42.1 배",
-        div: "0.03%",
-        eps: "$3.02",
-        bps: "$3.45",
-        cap: "$3.58T",
-        quarter: "FY2027 Q2 실적 요약",
-        revOp: "매출 $30.04B (YoY +122%) | 영업이익 $18.64B (YoY +174%)",
-        comment: "블랙웰(Blackwell) 아키텍처 본격 출하 및 데이터센터 수요 폭증",
-        geminiEval: "[엔비디아 펀더멘털 평가] AI 가속기 독점적 시장 지배력으로 고성장세 유지. 높은 밸류에이션(PER 48배)에도 불구하고 견고한 매출 성장률이 프리미엄을 정당화하고 있습니다.",
+        per: "38.5 배",
+        pbr: "35.2 배",
+        div: "0.02%",
+        eps: "$4.78",
+        bps: "$5.23",
+        cap: "$4.52T",
+        quarter: "FY2027 Q2 (2026년 8월 공시)",
+        revOp: "매출 $96.22B (약 133.2조원, YoY +106%) | 영업이익 $63.73B (약 88.3조원, YoY +124%)",
+        comment: "데이터센터 매출 $89B. 블랙웰(Blackwell) 아키텍처 본격 출하 및 부품 공급 약정 $2,790억으로 급증",
+        geminiEval: "[엔비디아 펀더멘털 평가] 13개 분기 연속 사상 최대 매출 경신. 공급 제약이 유일한 성장 병목일 정도로 글로벌 AI 인프라 수요가 압도적이며, 빅테크 주문 잔고가 2028년까지 견조합니다.",
         news: [
-          "NVIDIA Blackwell 칩 공급 부족 2027년까지 지속 전망 (Bloomberg)",
-          "AI 인프라 투자 지속... 빅테크 고객사 주문 잔고 견조 (Reuters)"
+          "엔비디아 2분기 매출 962억 달러·영업익 637억 달러... 역대 최대 기록 (서울경제 2026-08)",
+          "부품 공급 약정 2,790억 달러로 급증... HBM 싹쓸이 품귀 지속 (Bloomberg)",
+          "젠슨 황 'AI 수요는 100%에 가까우나 공급 제약이 유일한 변수' (Reuters)"
         ]
       }
     };
@@ -499,10 +530,80 @@
       setTimeout(() => { banner.style.display = 'none'; }, 3500);
     }
 
+    function updateIntervalPreview() {
+      const val = parseInt(document.getElementById('interval-value').value) || 0;
+      const unit = document.getElementById('interval-unit').value;
+      const previewEl = document.getElementById('interval-preview-text');
+      if (unit === 'hours') {
+        previewEl.innerText = `(= ${val * 60}분 간격)`;
+      } else {
+        const hrs = (val / 60).toFixed(1);
+        previewEl.innerText = val >= 60 ? `(= 약 ${hrs}시간 간격)` : `(= ${val}분 간격)`;
+      }
+    }
+
+    function setIntervalPreset(val, unit) {
+      document.getElementById('interval-toggle').checked = true;
+      document.getElementById('interval-value').value = val;
+      document.getElementById('interval-unit').value = unit;
+      toggleIntervalInputState();
+      updateIntervalPreview();
+      showNotif(`업데이트 주기가 ${val}${unit === 'hours' ? '시간' : '분'}으로 설정되었습니다.`);
+    }
+
+    function toggleIntervalInputState() {
+      const isEnabled = document.getElementById('interval-toggle').checked;
+      const grp = document.getElementById('interval-input-group');
+      if (isEnabled) {
+        grp.style.opacity = '1';
+        grp.style.pointerEvents = 'auto';
+      } else {
+        grp.style.opacity = '0.4';
+        grp.style.pointerEvents = 'none';
+      }
+    }
+
     function saveSettings() {
       const time = document.getElementById('report-time').value;
-      const interval = document.getElementById('interval-select').value;
-      showNotif(`설정이 저장되었습니다: 리포트 ${time}, 간격 ${interval === 'none' ? '미사용' : interval + '분'}`);
+      const isIntervalEnabled = document.getElementById('interval-toggle').checked;
+      const val = parseInt(document.getElementById('interval-value').value) || 1;
+      const unit = document.getElementById('interval-unit').value;
+      const totalMinutes = unit === 'hours' ? val * 60 : val;
+      const marketOnly = document.getElementById('market-only').checked;
+
+      localStorage.setItem('stock_report_time', time);
+      localStorage.setItem('stock_interval_enabled', isIntervalEnabled);
+      localStorage.setItem('stock_interval_val', val);
+      localStorage.setItem('stock_interval_unit', unit);
+      localStorage.setItem('stock_interval_minutes', totalMinutes);
+      localStorage.setItem('stock_market_only', marketOnly);
+
+      const intervalText = isIntervalEnabled ? `${val}${unit === 'hours' ? '시간' : '분'}마다 (${totalMinutes}분 간격)` : '미사용';
+      showNotif(`설정이 저장되었습니다: 리포트 ${time}, 갱신 주기: ${intervalText}`);
+    }
+
+    function loadSavedSettings() {
+      const savedTime = localStorage.getItem('stock_report_time');
+      if (savedTime) document.getElementById('report-time').value = savedTime;
+
+      const savedEnabled = localStorage.getItem('stock_interval_enabled');
+      if (savedEnabled !== null) {
+        document.getElementById('interval-toggle').checked = (savedEnabled === 'true');
+      }
+
+      const savedVal = localStorage.getItem('stock_interval_val');
+      if (savedVal) document.getElementById('interval-value').value = savedVal;
+
+      const savedUnit = localStorage.getItem('stock_interval_unit');
+      if (savedUnit) document.getElementById('interval-unit').value = savedUnit;
+
+      const savedMarketOnly = localStorage.getItem('stock_market_only');
+      if (savedMarketOnly !== null) {
+        document.getElementById('market-only').checked = (savedMarketOnly === 'true');
+      }
+
+      toggleIntervalInputState();
+      updateIntervalPreview();
     }
 
     function testNotification() {
@@ -511,6 +612,7 @@
 
     renderTraces();
     renderCompanyDetails("005930");
+    loadSavedSettings();
   </script>
 </body>
 </html>
