@@ -161,6 +161,26 @@ class CompanyValuationAnalyzer:
         profile.gemini_valuation_summary = self.generate_valuation_summary(profile)
         return profile
 
+    def update_live_quotes(self, quote_updates: Optional[Dict[str, Dict[str, Any]]] = None) -> Dict[str, CompanyProfile]:
+        """
+        Updates stock prices and dynamically recalculates PER and PBR for tracked companies during interval sync.
+        """
+        updated_profiles = {}
+        for ticker, data in self.db.items():
+            if quote_updates and ticker in quote_updates:
+                upd = quote_updates[ticker]
+                if "price" in upd:
+                    data["price"] = float(upd["price"])
+                if "change_pct" in upd:
+                    data["change_pct"] = str(upd["change_pct"])
+                # Recalculate PER and PBR dynamically based on new live price
+                if data.get("eps", 0) > 0:
+                    data["per"] = round(data["price"] / data["eps"], 1)
+                if data.get("bps", 0) > 0:
+                    data["pbr"] = round(data["price"] / data["bps"], 2)
+            updated_profiles[ticker] = self.search_company(ticker)
+        return updated_profiles
+
     def generate_valuation_summary(self, profile: CompanyProfile) -> str:
         """
         Synthesizes valuation metrics (PER, PBR, EPS) and earnings momentum into an investor summary.

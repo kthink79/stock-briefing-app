@@ -35,6 +35,17 @@ class TestCompanyAnalyzer(unittest.TestCase):
         self.assertEqual(profile.currency, "USD")
         self.assertTrue(profile.per > 30)
 
+    def test_update_live_quotes(self):
+        updates = {
+            "005930": {"price": 205000.0, "change_pct": "+3.01%"}
+        }
+        res = self.analyzer.update_live_quotes(updates)
+        self.assertIn("005930", res)
+        self.assertEqual(res["005930"].price, 205000.0)
+        self.assertEqual(res["005930"].change_pct, "+3.01%")
+        # PER = 205000 / 25506 = 8.0
+        self.assertAlmostEqual(res["005930"].per, 8.0, places=1)
+
 
 if __name__ == "__main__":
     unittest.main()

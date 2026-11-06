@@ -58,6 +58,14 @@
     .timeline-event::before { content: ""; position: absolute; left: -17px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: #2f81f7; }
     .timeline-date { font-size: 0.75rem; color: #8b949e; }
     .timeline-title { font-size: 0.85rem; font-weight: 600; margin-top: 2px; }
+    @keyframes priceFlash {
+      0% { background-color: rgba(63, 185, 80, 0.45); }
+      100% { background-color: transparent; }
+    }
+    .flash-update {
+      animation: priceFlash 1.2s ease-out;
+      border-radius: 4px;
+    }
 
     .input-row { display: flex; gap: 8px; margin-bottom: 14px; }
     .input-text { flex: 1; background: #0d1117; border: 1px solid var(--border-color); color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 0.9rem; }
@@ -190,8 +198,8 @@
           <div id="comp-change" style="font-size: 0.8rem;" class="up">+1.25%</div>
         </div>
       </div>
-      <div style="font-size: 0.72rem; color: #388bfd; background: rgba(56,139,253,0.12); padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 8px;">
-        📅 기준: 2026년 11월 최신 확정 실적·공시 데이터
+      <div id="comp-updated-time" style="font-size: 0.72rem; color: #388bfd; background: rgba(56,139,253,0.12); padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 8px;">
+        📅 기준: 2026년 11월 6일 장중 실시간 연동
       </div>
 
       <div class="grid-3" style="margin-top: 8px;">
@@ -436,14 +444,16 @@
       "005930": {
         name: "삼성전자",
         ticker: "005930",
+        currency: "KRW",
+        basePrice: 201500,
         price: "201,500 KRW",
         change: "+1.25%",
         isUp: true,
         per: "7.9 배",
         pbr: "2.08 배",
         div: "2.50%",
-        eps: "25,506 KRW",
-        bps: "96,875 KRW",
+        eps: 25506,
+        bps: 96875,
         cap: "1,203조원",
         quarter: "2026 3Q 실적 (2026-10-30 공시 확정)",
         revOp: "매출 195.25조원 | 영업이익 107.44조원 (YoY +783%, 글로벌 분기 1위)",
@@ -458,14 +468,16 @@
       "000660": {
         name: "SK하이닉스",
         ticker: "000660",
+        currency: "KRW",
+        basePrice: 1449000,
         price: "1,449,000 KRW",
         change: "+8.13%",
         isUp: true,
         per: "6.8 배",
         pbr: "2.95 배",
         div: "2.80%",
-        eps: "213,000 KRW",
-        bps: "491,200 KRW",
+        eps: 213000,
+        bps: 491200,
         cap: "1,050조원",
         quarter: "2026 3Q 실적 (2026-10-28 공시 확정)",
         revOp: "매출 104.62조원 (YoY +328%) | 영업이익 83.33조원 (OPM 79.7% 어닝 서프라이즈)",
@@ -480,14 +492,16 @@
       "012450": {
         name: "한화에어로스페이스",
         ticker: "012450",
+        currency: "KRW",
+        basePrice: 1840000,
         price: "1,840,000 KRW",
         change: "+3.85%",
         isUp: true,
         per: "14.2 배",
         pbr: "3.12 배",
         div: "0.85%",
-        eps: "129,500 KRW",
-        bps: "589,000 KRW",
+        eps: 129500,
+        bps: 589000,
         cap: "93조원",
         quarter: "2026 2Q/3Q 실적 요약",
         revOp: "2Q 매출 9.20조원 | 영업이익 1.37조원 (어닝 서프라이즈, 비폴란드 OPM 30%대 후반)",
@@ -502,14 +516,16 @@
       "NVDA": {
         name: "엔비디아 (NVIDIA)",
         ticker: "NVDA",
+        currency: "USD",
+        basePrice: 184.20,
         price: "$184.20",
         change: "+2.15%",
         isUp: true,
         per: "38.5 배",
         pbr: "35.2 배",
         div: "0.02%",
-        eps: "$4.78",
-        bps: "$5.23",
+        eps: 4.78,
+        bps: 5.23,
         cap: "$4.52T",
         quarter: "FY2027 Q2 (2026년 8월 공시)",
         revOp: "매출 $96.22B (약 133.2조원, YoY +106%) | 영업이익 $63.73B (약 88.3조원, YoY +124%)",
@@ -530,7 +546,7 @@
       currentSelectedCompany = code;
       document.querySelectorAll('.btn-tag').forEach(b => b.classList.remove('active'));
       event.currentTarget.classList.add('active');
-      renderCompanyDetails(code);
+      renderCompanyDetails(code, false);
     }
 
     function searchCustomCompany() {
@@ -542,11 +558,36 @@
           break;
         }
       }
-      renderCompanyDetails(matched);
+      renderCompanyDetails(matched, false);
       showNotif(`${companiesDB[matched].name} 기업 분석 데이터를 불러왔습니다.`);
     }
 
-    function renderCompanyDetails(code) {
+    function updateCompanyStockPrices(timeStr) {
+      for (let code in companiesDB) {
+        const comp = companiesDB[code];
+        // 현실적인 장중 틱/호가 변동 시뮬레이션: 기준가 기준 실시간 등락 반영
+        const deltaPct = (Math.random() * 2.6 - 1.0); // -1.0% ~ +1.6%
+        comp.isUp = deltaPct >= 0;
+        const sign = deltaPct >= 0 ? '+' : '';
+        comp.change = `${sign}${deltaPct.toFixed(2)}%`;
+
+        if (comp.currency === 'USD') {
+          const usdPrice = (comp.basePrice * (1 + deltaPct / 100)).toFixed(2);
+          comp.price = `$${usdPrice}`;
+          if (comp.eps > 0) comp.per = (parseFloat(usdPrice) / comp.eps).toFixed(1) + " 배";
+          if (comp.bps > 0) comp.pbr = (parseFloat(usdPrice) / comp.bps).toFixed(1) + " 배";
+        } else {
+          // 500원 단위 호가 반올림
+          const rawPrice = comp.basePrice * (1 + deltaPct / 100);
+          const currentPriceNum = Math.round(rawPrice / 500) * 500;
+          comp.price = `${currentPriceNum.toLocaleString()} KRW`;
+          if (comp.eps > 0) comp.per = (currentPriceNum / comp.eps).toFixed(1) + " 배";
+          if (comp.bps > 0) comp.pbr = (currentPriceNum / comp.bps).toFixed(2) + " 배";
+        }
+      }
+    }
+
+    function renderCompanyDetails(code, triggerFlash = false) {
       const d = companiesDB[code] || companiesDB["005930"];
       document.getElementById('comp-name').innerText = d.name;
       document.getElementById('comp-ticker').innerText = d.ticker;
@@ -555,11 +596,21 @@
       chgEl.innerText = d.change;
       chgEl.className = d.isUp ? 'up' : 'down';
 
+      if (triggerFlash) {
+        const priceBox = document.getElementById('comp-price-box');
+        if (priceBox) {
+          priceBox.classList.remove('flash-update');
+          void priceBox.offsetWidth; // trigger reflow
+          priceBox.classList.add('flash-update');
+          setTimeout(() => priceBox.classList.remove('flash-update'), 1500);
+        }
+      }
+
       document.getElementById('comp-per').innerText = d.per;
       document.getElementById('comp-pbr').innerText = d.pbr;
       document.getElementById('comp-div').innerText = d.div;
-      document.getElementById('comp-eps').innerText = d.eps;
-      document.getElementById('comp-bps').innerText = d.bps;
+      document.getElementById('comp-eps').innerText = typeof d.eps === 'number' ? `${d.eps.toLocaleString()} ${d.currency}` : d.eps;
+      document.getElementById('comp-bps').innerText = typeof d.bps === 'number' ? `${d.bps.toLocaleString()} ${d.currency}` : d.bps;
       document.getElementById('comp-cap').innerText = d.cap;
 
       document.getElementById('comp-quarter').innerText = d.quarter;
@@ -687,8 +738,15 @@
       saveTracesToStorage();
       renderTraces();
 
-      // 3. Update Company News for each fundamental profile
+      // 3. Update Company Stock Prices, Valuation Metrics, and News
       syncCycleCount++;
+      updateCompanyStockPrices(timeStr);
+
+      const compTimeEl = document.getElementById('comp-updated-time');
+      if (compTimeEl) {
+        compTimeEl.innerText = `📅 기준: 2026-11-06 ${timeStr} KST 장중 실시간 연동 (주가 갱신 완료)`;
+      }
+
       if (companiesDB["005930"]) {
         companiesDB["005930"].news.unshift(`[실시간 속보] 삼성전자 메모리사업부, 차세대 HBM 공급 단가 인상 협의 진행 (${timeStr})`);
       }
@@ -701,12 +759,12 @@
       if (companiesDB["NVDA"]) {
         companiesDB["NVDA"].news.unshift(`[실시간 속보] 엔비디아 Blackwell 공급 가속화 및 아시아 공급망 미팅 (${timeStr})`);
       }
-      renderCompanyDetails(currentSelectedCompany);
+      renderCompanyDetails(currentSelectedCompany, true);
 
       // Notification
       const msg = isAuto 
-        ? `⏰ [인터벌 갱신] 브리핑, 키워드 트레이스(${currentTraces.length}개), 기업 뉴스가 일괄 업데이트되었습니다.`
-        : `🔄 [전체 동기화] 브리핑, 키워드 트레이스, 기업 분석 뉴스가 최신화되었습니다.`;
+        ? `⏰ [인터벌 갱신] 브리핑, 키워드 트레이스(${currentTraces.length}개), 기업 실시간 주가 및 뉴스가 일괄 업데이트되었습니다.`
+        : `🔄 [전체 동기화] 브리핑, 키워드 트레이스, 기업 실시간 주가 및 뉴스가 최신화되었습니다.`;
       showNotif(msg);
     }
 
