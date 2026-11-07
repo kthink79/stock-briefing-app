@@ -100,7 +100,7 @@
     </div>
     <div style="text-align: right;">
       <button class="btn btn-blue" style="font-size: 0.78rem; padding: 6px 10px;" onclick="triggerManualSync()">🔄 지금 전체 동기화</button>
-      <div id="last-sync-time" style="font-size: 0.7rem; color: #8b949e; margin-top: 4px;">최근 갱신: 2026-11-06 08:00</div>
+      <div id="last-sync-time" style="font-size: 0.7rem; color: #8b949e; margin-top: 4px;">최근 갱신: 2026-11-08 08:00</div>
     </div>
   </header>
 
@@ -116,7 +116,7 @@
     <div class="card">
       <div class="card-title">
         <span>글로벌 핵심 지표 마감</span>
-        <span id="briefing-base-time" style="font-size: 0.75rem; color: #8b949e;">기준 2026-11-07 08:00 KST</span>
+        <span id="briefing-base-time" style="font-size: 0.75rem; color: #8b949e;">기준 2026-11-08 08:00 KST (주말 글로벌 종합)</span>
       </div>
       <div class="grid-2">
         <div class="metric-box">
@@ -142,7 +142,7 @@
     <div class="card">
       <div class="card-title">
         <span>📊 글로벌 금리 & 통화정책 현황</span>
-        <span style="font-size: 0.75rem; color: #8b949e;">기준 2026-11-07 08:00 KST</span>
+        <span style="font-size: 0.75rem; color: #8b949e;">기준 2026-11-08 08:00 KST (주말 글로벌 종합)</span>
       </div>
       <div class="grid-2">
         <div class="metric-box">
@@ -947,7 +947,7 @@
     function runIntervalSyncAll(isAuto = false) {
       const now = new Date();
       const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-      const syncStamp = `2026-11-06 ${timeStr}`;
+      const syncStamp = `2026-11-08 ${timeStr}`;
 
       // 1. Update Header & Briefing Timestamps
       document.getElementById('last-sync-time').innerText = `최근 갱신: ${syncStamp} (${isAuto ? '자동 주기' : '수동 동기화'})`;
@@ -1044,7 +1044,7 @@
 
       const compTimeEl = document.getElementById('comp-updated-time');
       if (compTimeEl) {
-        compTimeEl.innerText = `📅 기준: 2026-11-06 ${timeStr} KST 장중 실시간 연동 (주가 갱신 완료)`;
+        compTimeEl.innerText = `📅 기준: 2026-11-08 ${timeStr} KST 글로벌 시세 연동 (주가 갱신 완료)`;
       }
 
       if (companiesDB["005930"]) {
