@@ -96,7 +96,7 @@
   <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
     <div>
       <h1 style="margin: 0; font-size: 1.5rem;">📈 Stock Briefing</h1>
-      <span class="badge" style="background: #1f6feb;">v1.8 (본문 심층 분석 요약 + 중복 필터링)</span>
+      <span class="badge" style="background: #1f6feb;">v1.9 (금리 & 공매도 금지 현황)</span>
     </div>
     <div style="text-align: right;">
       <button class="btn btn-blue" style="font-size: 0.78rem; padding: 6px 10px;" onclick="triggerManualSync()">🔄 지금 전체 동기화</button>
@@ -136,6 +136,49 @@
           <div id="dow-val" class="metric-val down">51,285.73 (-0.46%)</div>
         </div>
       </div>
+    </div>
+
+    <!-- 금리 및 통화정책 지표 -->
+    <div class="card">
+      <div class="card-title">
+        <span>📊 글로벌 금리 & 통화정책 현황</span>
+        <span style="font-size: 0.75rem; color: #8b949e;">기준 2026-11-07 08:00 KST</span>
+      </div>
+      <div class="grid-2">
+        <div class="metric-box">
+          <div class="metric-name">미 국채 10년물 금리</div>
+          <div id="rate-10y-val" class="metric-val up">4.858% (+2.2bp)</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-name">미 국채 2년물 금리</div>
+          <div id="rate-2y-val" class="metric-val up">4.382% (+3.1bp)</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-name">미국 기준금리 (연준)</div>
+          <div class="metric-val">5.25 ~ 5.50%</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-name">한국 기준금리 (한은)</div>
+          <div class="metric-val">3.25%</div>
+        </div>
+      </div>
+      <div style="background: var(--tag-bg); border-radius: 6px; padding: 8px 12px; font-size: 0.8rem; color: #8b949e; line-height: 1.4;">
+        ⚡ <strong>연준 12월 FOMC 전망:</strong> 10월 비농업 고용 서프라이즈(16.5만)로 12월 금리 인상 확률이 75%까지 급상승하며 채권 금리가 단기 급등세를 보이고 있습니다.
+      </div>
+    </div>
+
+    <!-- 시장 거래제한 및 공매도 금지 현황 -->
+    <div class="card">
+      <div class="card-title" style="color: #f85149;">
+        <span>🚫 공매도 금지 및 시장 거래제한 현황</span>
+        <span style="font-size: 0.75rem; color: #8b949e;">정부·거래소 고시</span>
+      </div>
+      <ul class="bullet-list">
+        <li><strong>국내 공매도 전면 금지 조치:</strong> 코스피·코스닥 전 종목 대상 공매도 금지 조치 지속 시행 중. 불법 무차입 공매도 방지 전산시스템(NSDS) 구축 완료 후 재개 검토 예정.</li>
+        <li><strong>공매도 과열종목 지정:</strong> 전면 금지 조치로 신규 공매도 과열종목 지정 건수 0건 유지. 시장조성자(LP) 헤지용 물량만 예외적 허용.</li>
+        <li><strong>매매거래정지 및 관리종목:</strong> 코스피/코스닥 주요 기술주(반도체·우주항공) 내 신규 매매거래정지 종목 없음. 정상 거래 유지 중.</li>
+        <li><strong>미국 시장 규제 동향:</strong> 미 의회 지형 변화에 따른 빅테크 데이터센터 전력 승인 지연 및 국방/우주 계약 조사 등 정책 리스크 모니터링 진행.</li>
+      </ul>
     </div>
 
     <div class="card">
