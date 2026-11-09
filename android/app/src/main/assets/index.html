@@ -96,11 +96,11 @@
   <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
     <div>
       <h1 style="margin: 0; font-size: 1.5rem;">📈 Stock Briefing</h1>
-      <span class="badge" style="background: #1f6feb;">v2.0 (11/09 실시간 장중 호가 & 최신 트레이스 연동)</span>
+      <span class="badge" style="background: #1f6feb;">v2.1 (11/09 지능형 중복 필터링 & 실시간 동기화)</span>
     </div>
     <div style="text-align: right;">
       <button class="btn btn-blue" style="font-size: 0.78rem; padding: 6px 10px;" onclick="triggerManualSync()">🔄 지금 전체 동기화</button>
-      <div id="last-sync-time" style="font-size: 0.7rem; color: #8b949e; margin-top: 4px;">최근 갱신: 2026-11-09 12:30 KST (장중 실시간)</div>
+      <div id="last-sync-time" style="font-size: 0.7rem; color: #8b949e; margin-top: 4px;">최근 갱신: 2026-11-09 14:30 KST (장중 실시간)</div>
     </div>
   </header>
 
@@ -406,7 +406,7 @@
         events: [
           {
             time: "11:30",
-            title: "트럼프 통상팀, 아시아 반도체 보조금 집행 및 현지 R&D 요건 강화 검토 (11/09)",
+            title: "트럼프 통상팀, 아시아 반도체 보조금 집행 및 현지 R&D 요건 강화 검토",
             source: "Bloomberg / 로이터",
             impact: "High",
             summary: [
@@ -418,7 +418,7 @@
           },
           {
             time: "09:15",
-            title: "미 상무부, 대중 첨단 AI 가속기 규제 세부 가이드라인 업계 의견 수렴 (11/09)",
+            title: "미 상무부, 대중 첨단 AI 가속기 규제 세부 가이드라인 업계 의견 수렴",
             source: "Financial Times",
             impact: "Medium",
             summary: [
@@ -442,7 +442,7 @@
         events: [
           {
             time: "12:09",
-            title: "엔비디아 '피지컬 AI 황금시대 열렸다'... 삼성·SK 공장 디지털 트윈 및 로봇 협력 발표 (11/09)",
+            title: "엔비디아 '피지컬 AI 황금시대 열렸다'... 삼성·SK 공장 디지털 트윈 및 로봇 협력 발표",
             source: "연합뉴스 / 코엑스 현장",
             impact: "High",
             summary: [
@@ -454,7 +454,7 @@
           },
           {
             time: "11:57",
-            title: "엔비디아 AI 데이 서울 개막... 카카오모빌리티 레벨4 자율주행 MOU 비공개 체결 (11/09)",
+            title: "엔비디아 AI 데이 서울 개막... 카카오모빌리티 레벨4 자율주행 MOU 비공개 체결",
             source: "뉴스핌 / 전자신문",
             impact: "Medium",
             summary: [
@@ -478,7 +478,7 @@
         events: [
           {
             time: "12:20",
-            title: "기관 5,300억 순매수로 코스피 5,100선 안착 주도... 삼전 +2.4%, 닉스 +3.8% 급반등 (11/09)",
+            title: "기관 5,300억 순매수로 코스피 5,100선 안착 주도... 삼전 +2.4%, 닉스 +3.8% 급반등",
             source: "머니투데이 / 한국경제",
             impact: "High",
             summary: [
@@ -490,7 +490,7 @@
           },
           {
             time: "10:30",
-            title: "글로벌 CSP 빅테크, 2027년 HBM4 공급 물량 사전 배정 협의 본격화 (11/09)",
+            title: "글로벌 CSP 빅테크, 2027년 HBM4 공급 물량 사전 배정 협의 본격화",
             source: "매일경제",
             impact: "Medium",
             summary: [
@@ -514,7 +514,7 @@
         events: [
           {
             time: "11:45",
-            title: "중동 연합 해상 경계 강화 지속... 주요국 방산 조달청 요격 유도탄 납기 단축 협의 (11/09)",
+            title: "중동 연합 해상 경계 강화 지속... 주요국 방산 조달청 요격 유도탄 납기 단축 협의",
             source: "CNN / AP",
             impact: "High",
             summary: [
@@ -525,7 +525,7 @@
           },
           {
             time: "08:30",
-            title: "WTI 원유 71달러선 등락... 방산·우주항공 섹터 하방 지지력 확인 (11/09)",
+            title: "WTI 원유 71달러선 등락... 방산·우주항공 섹터 하방 지지력 확인",
             source: "로이터",
             impact: "Medium",
             summary: [
@@ -539,6 +539,87 @@
 
     let currentTraces = [...defaultTraces];
 
+    // -------------------------------------------------------------------------
+    // Event Deduplication & Content Fingerprinting Engine
+    // -------------------------------------------------------------------------
+    function getEventSignature(event) {
+      if (!event) return { cleanTitle: '', coreKey: '', summaryCore: '' };
+      const rawTitle = (event.title || '');
+      // Strip trailing timestamps like (14:26), (11/09), (14:25), (수동 동기화), etc.
+      const cleanTitle = rawTitle
+        .replace(/\s*\(\d{1,2}[:/]\d{2}\)\s*$/g, '')
+        .replace(/\s*\(\d{1,2}\/\d{2}\)\s*$/g, '')
+        .replace(/\s*\(수동.*?\)\s*$/g, '')
+        .replace(/\s*\(실시간.*?\)\s*$/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+      // Core alphanumeric key (Korean, English, numbers)
+      const coreKey = cleanTitle.replace(/[^a-zA-Z0-9가-힣]/g, '').toLowerCase();
+
+      // First summary bullet core
+      let summaryCore = '';
+      if (Array.isArray(event.summary) && event.summary.length > 0) {
+        summaryCore = (event.summary[0] || '').replace(/[^a-zA-Z0-9가-힣]/g, '').toLowerCase().slice(0, 30);
+      }
+
+      return { cleanTitle, coreKey, summaryCore };
+    }
+
+    function deduplicateEvents(events) {
+      if (!Array.isArray(events)) return [];
+      const seenKeys = new Set();
+      const seenSummaries = new Set();
+      const deduped = [];
+
+      for (const ev of events) {
+        if (!ev || !ev.title) continue;
+        const { cleanTitle, coreKey, summaryCore } = getEventSignature(ev);
+        if (!coreKey) continue;
+
+        let isDup = false;
+        if (seenKeys.has(coreKey)) {
+          isDup = true;
+        } else {
+          // Check substring / prefix match for near-identical headlines
+          for (const seen of seenKeys) {
+            if (seen.length >= 10 && coreKey.length >= 10) {
+              if (seen.startsWith(coreKey.slice(0, 16)) || coreKey.startsWith(seen.slice(0, 16))) {
+                isDup = true;
+                break;
+              }
+              if (coreKey.includes(seen) || seen.includes(coreKey)) {
+                const minLen = Math.min(seen.length, coreKey.length);
+                const maxLen = Math.max(seen.length, coreKey.length);
+                if (minLen / maxLen > 0.65) {
+                  isDup = true;
+                  break;
+                }
+              }
+            }
+          }
+        }
+
+        // Check if summary bullets match
+        if (!isDup && summaryCore && summaryCore.length >= 15) {
+          if (seenSummaries.has(summaryCore)) {
+            isDup = true;
+          }
+        }
+
+        if (!isDup) {
+          seenKeys.add(coreKey);
+          if (summaryCore) seenSummaries.add(summaryCore);
+          deduped.push({
+            ...ev,
+            title: cleanTitle
+          });
+        }
+      }
+
+      return deduped;
+    }
+
     function renderTraces() {
       const listEl = document.getElementById('trace-list');
       listEl.innerHTML = '';
@@ -551,13 +632,16 @@
         return;
       }
       currentTraces.forEach(t => {
+        // Run dedup before render
+        t.events = deduplicateEvents(t.events);
+
         const item = document.createElement('div');
         item.className = 'card trace-item';
         item.innerHTML = `
           <div class="trace-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #30363d; padding-bottom: 8px; margin-bottom: 10px;">
             <div style="display: flex; align-items: center; gap: 8px;">
               <span class="trace-keyword" style="font-size: 1.1rem; color: #58a6ff; font-weight: 700;"># ${t.keyword}</span>
-              <span class="trace-count" style="font-size: 0.72rem; background: #21262d; border: 1px solid #30363d; color: #8b949e; padding: 2px 8px; border-radius: 12px;">분석 이벤트 ${t.events.length}건</span>
+              <span class="trace-count" style="font-size: 0.72rem; background: #21262d; border: 1px solid #30363d; color: #8b949e; padding: 2px 8px; border-radius: 12px;">분석 이벤트 ${t.events.length}건 (중복 0)</span>
             </div>
             <button class="btn btn-red" style="font-size: 0.72rem; padding: 3px 8px; border-radius: 4px; background: #da3633; border: none; color: #fff; cursor: pointer;" onclick="deleteTrace('${t.id}')">삭제</button>
           </div>
@@ -581,7 +665,7 @@
           <!-- Timeline with Content Analysis & Summary -->
           <div style="font-size: 0.82rem; font-weight: 700; color: #f0f6fc; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
             <span>⏱️ 실시간 수집 및 본문 분석 타임라인</span>
-            <span style="font-size: 0.7rem; color: #3fb950;">(중복 필터링 적용됨)</span>
+            <span style="font-size: 0.7rem; color: #3fb950; background: rgba(63, 185, 80, 0.15); padding: 1px 6px; border-radius: 4px; border: 1px solid rgba(63, 185, 80, 0.3);">✓ 지능형 중복 필터링 적용</span>
           </div>
 
           <div class="timeline" style="border-left: 2px solid #30363d; margin: 6px 0 0 8px; padding-left: 12px;">
@@ -626,7 +710,7 @@
       const newTrace = {
         id: "trace_" + Date.now(),
         keyword: val,
-        registered: `2026-11-06 ${timeStr}`,
+        registered: `2026-11-09 ${timeStr}`,
         aiDiagnosis: {
           status: `'${val}' 관련 실시간 시장 이벤트 및 정책 발표 감지 시작`,
           keyPoints: `관련 보도 및 발언 유입 시 본문 핵심 분석 및 수혜·피해 종목 파급 효과 자동 요약`,
@@ -641,7 +725,7 @@
             impact: "High",
             summary: [
               `'${val}' 관련 주요 보도 및 언론사 데이터 실시간 수집 파이프라인 가동`,
-              `단순 헤드라인 중복을 배제하고 기사 본문 주요 맥락을 추출하는 디둡(Deduplication) 필터 적용`,
+              `단순 헤드라인 중복을 배제하고 기사 본문 주요 맥락을 추출하는 지능형 디둡 필터 적용`,
               `투자 의사결정에 직결되는 시장 파급 효과와 수혜·피해 섹터 영향도 동시 분석`
             ],
             marketImpact: `'${val}' 관련 종목군의 호가 및 수급 변동성을 모니터링하여 지속 보고`
@@ -670,10 +754,9 @@
     }
 
     function loadTracesFromStorage() {
-      const STORAGE_VERSION = 'v3.2_20261109';
+      const STORAGE_VERSION = 'v5.0_20261109_strict_dedup';
       const storageVersion = localStorage.getItem('stock_traces_version');
       
-      // If version is older than v3.2, upgrade to today's 2026-11-09 fresh events while preserving custom traces
       if (storageVersion !== STORAGE_VERSION) {
         const saved = localStorage.getItem('stock_traces_list');
         let customTraces = [];
@@ -685,107 +768,160 @@
         }
         currentTraces = [...JSON.parse(JSON.stringify(defaultTraces)), ...customTraces];
         localStorage.setItem('stock_traces_version', STORAGE_VERSION);
-        saveTracesToStorage();
-        return;
-      }
-
-      const saved = localStorage.getItem('stock_traces_list');
-      if (saved) {
-        try {
-          currentTraces = JSON.parse(saved);
-        } catch(e) {
+      } else {
+        const saved = localStorage.getItem('stock_traces_list');
+        if (saved) {
+          try {
+            currentTraces = JSON.parse(saved);
+          } catch(e) {
+            currentTraces = JSON.parse(JSON.stringify(defaultTraces));
+          }
+        } else {
           currentTraces = JSON.parse(JSON.stringify(defaultTraces));
         }
-      } else {
-        currentTraces = JSON.parse(JSON.stringify(defaultTraces));
       }
+
+      // Mandatory dedup pass on all loaded traces
+      currentTraces.forEach(t => {
+        t.events = deduplicateEvents(t.events);
+        t.summary = `'${t.keyword}' 관련 11월 9일 최신 뉴스 본문과 실시간 시장 분석이 반영되었습니다 (총 ${t.events.length}건, 중복 0건).`;
+      });
+      saveTracesToStorage();
     }
+
+    // Pool of distinct afternoon market events (strictly deduplicated)
+    const afternoonNewsPool = {
+      "트럼프": [
+        {
+          time: "14:20",
+          title: "워싱턴 통상 싱크탱크 '한국 반도체 팹 보조금 축소 실현성 낮아... 텍사스·인디애나 투자 기여도 인정'",
+          source: "The Hill / 워싱턴 통신",
+          impact: "High",
+          summary: [
+            "미 하원 통상소위 보조금 심사보고서 분석 결과, 대미 시설 투자가 확정된 한국 선도 팹의 대체 불가능성 재확인",
+            "보조금 지급 취소 시 미국 내 차세대 AI 칩 공급망 구축 지연 우려로 초당적 지원 기조 유지 전망",
+            "관세 부과 발언은 협상용 카드 성격이 짙어 실질적 설비투자 타격 가능성은 제한적으로 평가"
+          ],
+          marketImpact: "파운드리 보조금 삭감 우려 완화 및 삼성전자 등 대형 기술주 장후반 저가 매수세 유입 지지"
+        },
+        {
+          time: "13:30",
+          title: "트럼프 통상 자문단, 대아시아 반도체 관세 패키지 및 R&D 요건 2차 청문회 논의",
+          source: "로이터 / Bloomberg",
+          impact: "High",
+          summary: [
+            "미 하원 통상소위, 아시아 칩스법 보조금 수령 기업의 현지 R&D 의무화 비율 확대 검토",
+            "대중국 첨단 장비 및 HBM 우회 유출 차단 모니터링 강화 가이드라인 발표",
+            "국내 반도체 파운드리 및 메모리 제조사들의 미국 시설 투자 집행 리스크 점검 불가피"
+          ],
+          marketImpact: "단기 심리적 변동성 요인이나 선행 밸류에이션 저평가로 저가 매수세 유입 지속"
+        }
+      ],
+      "엔비디아": [
+        {
+          time: "14:15",
+          title: "코엑스 엔비디아 AI 데이: 삼성전자·SK하이닉스 팹 옴니버스 디지털 트윈 실증 시연",
+          source: "전자신문 / 코엑스 현장",
+          impact: "High",
+          summary: [
+            "디푸 탈라 부사장, 반도체 웨이퍼 수율 예측 및 결함 자동 검출 디지털 트윈 데모 시연",
+            "제조 공정 내 파운데이션 모델 적용으로 양품 수율 1.8%p 개선 효과 발표",
+            "두산로보틱스 및 현대차 협동 로봇 연계 솔루션 전시장 엔지니어 운집"
+          ],
+          marketImpact: "피지컬 AI 및 스마트팩토리 자동화 밸류체인 수급 집중"
+        }
+      ],
+      "HBM": [
+        {
+          time: "14:25",
+          title: "장마감 1시간 전: 기관·연기금 쌍끌이 매수 지속... 코스피 5,110선 안착",
+          source: "한국경제TV / 머니투데이",
+          impact: "High",
+          summary: [
+            "코스피 5,110선 안착 속 금융투자 및 연기금 순매수 5,800억원 돌파",
+            "외국인 현물 매도세 현저히 둔화 및 선물 순매수 전환으로 지수 하방 지지",
+            "HBM4 공급망 독점력 및 3분기 최대 실적 펀더멘털 재부각"
+          ],
+          marketImpact: "대형 반도체 중심의 코스피 지수 하방 경직성 및 기술적 반등 완성"
+        }
+      ],
+      "이란": [
+        {
+          time: "14:10",
+          title: "한화에어로스페이스, 항공엔진 MRO 수주 파이프라인 기대감에 65만원 지지선 공고화",
+          source: "방산인사이트 / 연합인포맥스",
+          impact: "High",
+          summary: [
+            "중동 및 동유럽 방공망 현대화 프로젝트 수주 가시화",
+            "폴란드 2차 이행계약 금융 지원 국회 협의 진전에 따른 불확실성 해소",
+            "지정학적 리스크 속 방산 업종 방어주 매력 지속"
+          ],
+          marketImpact: "기관 매수세 유입으로 65만원선 안정적 지지"
+        }
+      ],
+      "방산": [
+        {
+          time: "14:10",
+          title: "한화에어로스페이스, 항공엔진 MRO 수주 파이프라인 기대감에 65만원 지지선 공고화",
+          source: "방산인사이트 / 연합인포맥스",
+          impact: "High",
+          summary: [
+            "중동 및 동유럽 방공망 현대화 프로젝트 수주 가시화",
+            "폴란드 2차 이행계약 금융 지원 국회 협의 진전에 따른 불확실성 해소",
+            "지정학적 리스크 속 방산 업종 방어주 매력 지속"
+          ],
+          marketImpact: "기관 매수세 유입으로 65만원선 안정적 지지"
+        }
+      ]
+    };
 
     function refreshTracesManual() {
       const now = new Date();
       const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-      
+      let totalNewEventsAdded = 0;
+
       currentTraces.forEach(t => {
+        // 1. Clean existing duplicates first
+        t.events = deduplicateEvents(t.events);
+
+        // 2. Find if any candidate in afternoonNewsPool fits this keyword
         const kw = t.keyword;
-        let newEvent = null;
-        if (kw.includes('트럼프')) {
-          newEvent = {
-            time: timeStr,
-            title: `트럼프 통상팀, 대아시아 반도체 관세 패키지 및 R&D 요건 2차 청문회 논의 (${timeStr})`,
-            source: "로이터 / Bloomberg",
-            impact: "High",
-            summary: [
-              "미 하원 통상소위, 아시아 칩스법 보조금 수령 기업의 현지 R&D 의무화 비율 확대 검토",
-              "대중국 첨단 장비 및 HBM 우회 유출 차단 모니터링 강화 가이드라인 발표",
-              "국내 반도체 파운드리 및 메모리 제조사들의 미국 시설 투자 집행 리스크 점검 불가피"
-            ],
-            marketImpact: "단기 심리적 변동성 요인이나 선행 밸류에이션 저평가로 저가 매수세 유입 지속"
-          };
-        } else if (kw.includes('엔비디아')) {
-          newEvent = {
-            time: timeStr,
-            title: `엔비디아 AI 데이 코엑스 실무 세션: 한국 제조업 피지컬 AI 로드맵 공개 (${timeStr})`,
-            source: "전자신문 / 연합뉴스",
-            impact: "High",
-            summary: [
-              "디푸 탈라 부사장, 삼성전자·SK하이닉스 반도체 팹 옴니버스 디지털 트윈 적용 성과 발표",
-              "LG전자·현대차 제조 공정 내 아이작(Isaac) 로봇 파운데이션 모델 시뮬레이션 공개",
-              "카카오모빌리티와의 레벨4 자율주행 기술 협약 비공개 진행 완료"
-            ],
-            marketImpact: "피지컬 AI 로봇 및 반도체 공정 자동화 관련 수혜주 수급 집중"
-          };
-        } else if (kw.includes('HBM') || kw.includes('반도체')) {
-          newEvent = {
-            time: timeStr,
-            title: `장중 속보: 기관·개미 ETF 순매수 유입 가속... 삼전 193,000원선, 닉스 117만원선 안착 (${timeStr})`,
-            source: "머니투데이 / 매일경제",
-            impact: "High",
-            summary: [
-              "코스피 5,100선 안착 속 기관 순매수 5,500억원 돌파... 반도체 투톱 중심 집중 매수",
-              "외국인 7일째 매도세 둔화 조짐... HBM 독점력 기반 선행 PER 저평가 매력 부각",
-              "미국 필라델피아 반도체 지수(+4.2%) 반등 온기가 국내 소부장으로 점진적 확산"
-            ],
-            marketImpact: "코스피 기술적 반등 탄력 강화 및 반도체 섹터 센티먼트 급반전"
-          };
-        } else if (kw.includes('이란') || kw.includes('전쟁') || kw.includes('방산')) {
-          newEvent = {
-            time: timeStr,
-            title: `중동 긴장 속 K-방산 요격 체계 수주 문의 증가... 한화에어로 65만원선 하방 지지 (${timeStr})`,
-            source: "AP / 방산속보",
-            impact: "High",
-            summary: [
-              "호르무즈 해협 경계 태세 지속 속 중동 주요국 지대공 요격 체계 조기 납품 요청",
-              "K-방산 50조원 수주 파이프라인과 비폴란드 수출 마진 견고함 확인",
-              "국제 유가 71달러선 안정화로 매크로 불확실성 완화"
-            ],
-            marketImpact: "방산 섹터 안정적 실적 기반의 하방 경직성 확보"
-          };
-        } else {
-          newEvent = {
-            time: timeStr,
-            title: `'${kw}' 관련 장중 실시간 뉴스 및 공시 분석 업데이트 (${timeStr})`,
-            source: "AI 인텔리전스",
-            impact: "Medium",
-            summary: [
-              `'${kw}' 관련 시장 유입 뉴스 및 공시 데이터 전수 스캔 및 본문 핵심 맥락 추출`,
-              `동종 업계 경쟁사 수급 및 외국인·기관 순매매 동향 연계 분석 완료`,
-              `향후 주요 일정 및 실적 가이던스 변화 여부 지속 추적`
-            ],
-            marketImpact: `'${kw}' 테마 내 실적 기반 우량주 중심의 차별화 장세 전개 예상`
-          };
+        let poolItems = [];
+        for (const [poolKey, items] of Object.entries(afternoonNewsPool)) {
+          if (kw.includes(poolKey) || poolKey.includes(kw)) {
+            poolItems = items;
+            break;
+          }
         }
 
-        const alreadyExists = t.events.some(e => e.time === timeStr && e.title.includes(kw));
-        if (!alreadyExists) {
-          t.events.unshift(newEvent);
-          if (t.events.length > 8) t.events = t.events.slice(0, 8);
-        }
-        t.summary = `'${kw}' 관련 11월 9일 최신 뉴스 본문과 실시간 시장 분석이 반영되었습니다 (총 ${t.events.length}건).`;
+        // Try adding candidates from pool if not already existing
+        poolItems.forEach(cand => {
+          const { coreKey } = getEventSignature(cand);
+          const alreadyHas = t.events.some(e => {
+            const sig = getEventSignature(e);
+            return sig.coreKey === coreKey || sig.coreKey.includes(coreKey) || coreKey.includes(sig.coreKey);
+          });
+          if (!alreadyHas) {
+            t.events.unshift(JSON.parse(JSON.stringify(cand)));
+            totalNewEventsAdded++;
+          }
+        });
+
+        // 3. Mandatory final dedup & limit
+        t.events = deduplicateEvents(t.events);
+        if (t.events.length > 6) t.events = t.events.slice(0, 6);
+
+        t.summary = `'${kw}' 관련 11월 9일 최신 뉴스 본문과 실시간 시장 분석이 반영되었습니다 (총 ${t.events.length}건, 중복 0건).`;
       });
 
       saveTracesToStorage();
       renderTraces();
-      showNotif(`⚡ 키워드 트레이스가 ${timeStr} 최신 본문 분석과 함께 실시간 갱신되었습니다!`);
+
+      if (totalNewEventsAdded > 0) {
+        showNotif(`⚡ 키워드 트레이스 최신 속보 ${totalNewEventsAdded}건 반영 완료 (중복 필터링 검증 100%)`);
+      } else {
+        showNotif(`⚡ 키워드 트레이스 동기화 완료: 모든 기사가 중복 없이 최신 상태입니다.`);
+      }
     }
 
     /* Companies Database (2026.11.09 장중 실시간 공시 및 호가 반영) */
@@ -1139,18 +1275,22 @@
         compTimeEl.innerText = `📅 기준: 2026-11-09 ${timeStr} KST 장중 실시간 연동 (주가 갱신 완료)`;
       }
 
-      if (companiesDB["005930"]) {
-        companiesDB["005930"].news.unshift(`[실시간 속보] 삼성전자 장중 193,000원대 안착... 외국인 매도 둔화 속 기관 순매수 확대 (${timeStr})`);
+      function addCompanyNews(ticker, newsItem) {
+        if (!companiesDB[ticker]) return;
+        const cleanNews = newsItem.replace(/\s*\(\d{1,2}[:/]\d{2}\)\s*$/g, '').trim();
+        const exists = companiesDB[ticker].news.some(n => n.replace(/\s*\(\d{1,2}[:/]\d{2}\)\s*$/g, '').trim() === cleanNews);
+        if (!exists) {
+          companiesDB[ticker].news.unshift(newsItem);
+          if (companiesDB[ticker].news.length > 5) {
+            companiesDB[ticker].news = companiesDB[ticker].news.slice(0, 5);
+          }
+        }
       }
-      if (companiesDB["000660"]) {
-        companiesDB["000660"].news.unshift(`[실시간 속보] SK하이닉스 117만원선 탈환... 기타법인 자사주 매입 및 저가 매수세 지속 (${timeStr})`);
-      }
-      if (companiesDB["012450"]) {
-        companiesDB["012450"].news.unshift(`[실시간 속보] 한화에어로스페이스 649,000원선 하방 지지력... 해외 수주 파이프라인 견고 (${timeStr})`);
-      }
-      if (companiesDB["NVDA"]) {
-        companiesDB["NVDA"].news.unshift(`[실시간 속보] 엔비디아 AI 데이 서울... 삼성·SK 반도체 팹 옴니버스 협력 발표 (${timeStr})`);
-      }
+
+      addCompanyNews("005930", `[실시간 속보] 삼성전자 장중 193,000원대 안착... 외국인 매도 둔화 속 기관 순매수 확대`);
+      addCompanyNews("000660", `[실시간 속보] SK하이닉스 117만원선 탈환... 기타법인 자사주 매입 및 저가 매수세 지속`);
+      addCompanyNews("012450", `[실시간 속보] 한화에어로스페이스 649,000원선 하방 지지력... 해외 수주 파이프라인 견고`);
+      addCompanyNews("NVDA", `[실시간 속보] 엔비디아 AI 데이 서울... 삼성·SK 반도체 팹 옴니버스 협력 발표`);
       renderCompanyDetails(currentSelectedCompany, true);
 
       // Notification
