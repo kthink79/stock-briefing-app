@@ -30,11 +30,11 @@ COMPANY_DATABASE: Dict[str, Dict[str, Any]] = {
         "ticker": "005930",
         "name": "삼성전자",
         "currency": "KRW",
-        "price": 189600.0,
-        "change_pct": "-5.91% (-11,900원)",
-        "market_cap": "1,132조원",
-        "per": 7.4,
-        "pbr": 1.96,
+        "price": 193200.0,
+        "change_pct": "+2.38% (+4,500원)",
+        "market_cap": "1,153조원",
+        "per": 7.58,
+        "pbr": 1.99,
         "eps": 25506.0,
         "bps": 96875.0,
         "dividend_yield": "2.65%",
@@ -42,23 +42,23 @@ COMPANY_DATABASE: Dict[str, Dict[str, Any]] = {
             "quarter": "2026 3Q",
             "revenue": "195.25조원",
             "operating_profit": "107.44조원 (YoY +783%, 글로벌 분기 1위)",
-            "comment": "HBM4 및 고용량 서버 메모리 공급 확대로 사상 최대 분기 영업익 경신. 선행 PER 4배 수준 극단적 저평가"
+            "comment": "HBM4 및 고용량 서버 메모리 공급 확대로 사상 최대 분기 영업익 경신. 11/9 코스피 5,100선 공방 속 저가 매수세 유입 반등"
         },
         "earnings_news": [
+            {"title": "외국인 7일째 매도에도 개미·기관 ETF 매수세에 삼전닉스 반등 (11/09)", "source": "머니투데이"},
             {"title": "삼성전자 3Q 영업익 107.4조원 달성... 엔비디아 제치고 글로벌 1위", "source": "조선비즈"},
-            {"title": "KB증권 '세계 1위 이익 기업에 선행 PER 4배 할인은 과도... 극단적 저평가'", "source": "KB증권"},
-            {"title": "HBM4 공급망 주도 및 연간 주주환원 100조원 규모 확대 추진", "source": "연합뉴스"}
+            {"title": "엔비디아 AI 데이 서울 개막... 삼성전자 반도체 팹 디지털 트윈 협력 가속", "source": "연합뉴스"}
         ]
     },
     "000660": {
         "ticker": "000660",
         "name": "SK하이닉스",
         "currency": "KRW",
-        "price": 1158000.0,
-        "change_pct": "-8.39% (-106,000원)",
-        "market_cap": "845.9조원",
-        "per": 5.2,
-        "pbr": 3.14,
+        "price": 1175000.0,
+        "change_pct": "+3.80% (+43,000원)",
+        "market_cap": "858.3조원",
+        "per": 5.24,
+        "pbr": 3.19,
         "eps": 224313.0,
         "bps": 368800.0,
         "dividend_yield": "2.80%",
@@ -66,23 +66,23 @@ COMPANY_DATABASE: Dict[str, Dict[str, Any]] = {
             "quarter": "2026 3Q",
             "revenue": "104.62조원 (YoY +328%)",
             "operating_profit": "83.33조원 (OPM 79.7% 어닝 서프라이즈)",
-            "comment": "2029년까지 HBM4 및 차세대 서버 D램 생산 물량 LTA 완판. 꿈의 이익률 80% 달성"
+            "comment": "2029년까지 HBM4 및 차세대 서버 D램 생산 물량 LTA 완판. 11/9 기타법인 1,305억원 자사주 매입 및 기관 매수로 117만원선 탈환"
         },
         "earnings_news": [
-            {"title": "SK하이닉스 3Q 매출 104.6조·영업익 83.3조... '꿈의 이익률 80%'", "source": "뉴스1"},
-            {"title": "주주환원 100조원 푼다... 2029년까지 D램·HBM 물량 완판 공시", "source": "파이낸셜뉴스"},
-            {"title": "HBM4 본격 출하 및 7세대 HBM4e 고객사 샘플 공급 순항", "source": "전자신문"}
+            {"title": "SK하이닉스 1,175,000원(+3.80%) 급반등... 117만원선 탈환 (11/09)", "source": "매일경제"},
+            {"title": "기타법인 1,305억원 자사주 매입 및 기관 매수세 유입", "source": "머니투데이"},
+            {"title": "엔비디아 디푸 탈라 부사장, SK하이닉스 팹 옴니버스 협력 발표", "source": "연합뉴스"}
         ]
     },
     "NVDA": {
         "ticker": "NVDA",
         "name": "엔비디아 (NVIDIA)",
         "currency": "USD",
-        "price": 181.60,
-        "change_pct": "-9.26% (-$18.53)",
-        "market_cap": "4.45조 달러",
-        "per": 63.9,
-        "pbr": 28.5,
+        "price": 186.64,
+        "change_pct": "+2.78% (+$5.04)",
+        "market_cap": "4.57조 달러",
+        "per": 65.72,
+        "pbr": 29.30,
         "eps": 2.84,
         "bps": 6.37,
         "dividend_yield": "0.02%",
@@ -90,22 +90,22 @@ COMPANY_DATABASE: Dict[str, Dict[str, Any]] = {
             "quarter": "FY2027 Q2",
             "revenue": "96.22B USD (YoY +106%)",
             "operating_profit": "63.73B USD (YoY +124%)",
-            "comment": "데이터센터 매출 $89B. 블랙웰(Blackwell) 아키텍처 본격 출하 및 부품 공급 약정 $2,790억으로 급증"
+            "comment": "뉴욕 $186.64 반등 마감. 9일 서울 코엑스 엔비디아 AI 데이 개막 및 피지컬 AI 동맹 선언"
         },
         "earnings_news": [
-            {"title": "엔비디아 2분기 매출 962억 달러·영업익 637억 달러... 역대 최대 기록", "source": "서울경제"},
-            {"title": "부품 공급 약정 2,790억 달러로 급증... HBM 싹쓸이 품귀 지속", "source": "Bloomberg"},
-            {"title": "젠슨 황 'AI 수요는 100%에 가까우나 공급 제약이 유일한 변수'", "source": "Reuters"}
+            {"title": "엔비디아 '피지컬 AI 황금시대' 선언... 삼성·SK 공장 디지털 트윈, 현대차·LG 로봇 협력", "source": "연합뉴스"},
+            {"title": "엔비디아 AI 데이 서울 2026 개막... 카카오모빌리티 자율주행 MOU 체결", "source": "뉴스핌"},
+            {"title": "부품 공급 약정 2,790억 달러로 급증... HBM 싹쓸이 품귀 지속", "source": "Bloomberg"}
         ]
     },
     "012450": {
         "ticker": "012450",
         "name": "한화에어로스페이스",
         "currency": "KRW",
-        "price": 650000.0,
-        "change_pct": "-4.41% (-30,000원)",
-        "market_cap": "33.9조원",
-        "per": 16.2,
+        "price": 649000.0,
+        "change_pct": "-1.67% (-11,000원)",
+        "market_cap": "33.5조원",
+        "per": 16.18,
         "pbr": 2.40,
         "eps": 40120.0,
         "bps": 270800.0,
@@ -114,12 +114,12 @@ COMPANY_DATABASE: Dict[str, Dict[str, Any]] = {
             "quarter": "2026 2Q/3Q",
             "revenue": "9.20조원 (어닝 서프라이즈)",
             "operating_profit": "1.37조원 (비폴란드 OPM 30%대 후반)",
-            "comment": "K9 자주포·천무 2차 물량 수출 본격화. 하반기 파이프라인 수주 잔고 50조원 가시화"
+            "comment": "K9 자주포·천무 2차 물량 수출 본격화. 11/9 반도체 반등 장세 속 649,000원선 소폭 숨고르기"
         },
         "earnings_news": [
-            {"title": "한화에어로스페이스 분기 영업익 1.37조원 서프라이즈... 목표가 214만원 상향", "source": "매일경제"},
-            {"title": "스페인·사우디·미국 등 해외 방산 파이프라인 50조원 달성 전망", "source": "다올투자증권"},
-            {"title": "차세대 발사체 사업 및 민간 우주 밸류체인 수직계열화 구축 순항", "source": "머니투데이"}
+            {"title": "한화에어로스페이스 649,000원(-1.67%) 거래... 방산 섹터 숨고르기 (11/09)", "source": "매일경제"},
+            {"title": "K9 자주포 및 천무 2차 해외 양산 납품 정상 가동 확인", "source": "방사청"},
+            {"title": "스페인·사우디·미국 등 해외 방산 파이프라인 50조원 달성 전망", "source": "다올투자증권"}
         ]
     }
 }
