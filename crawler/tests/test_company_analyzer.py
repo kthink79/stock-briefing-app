@@ -46,6 +46,42 @@ class TestCompanyAnalyzer(unittest.TestCase):
         # PER = 205000 / 25506 = 8.0
         self.assertAlmostEqual(res["005930"].per, 8.0, places=1)
 
+    def test_register_and_remove_company(self):
+        new_company = {
+            "ticker": "005380",
+            "name": "현대차",
+            "currency": "KRW",
+            "price": 254000.0,
+            "change_pct": "+2.42%",
+            "market_cap": "53.6조원",
+            "per": 5.2,
+            "pbr": 0.65,
+            "eps": 48846.0,
+            "bps": 390769.0,
+            "dividend_yield": "5.10%",
+            "quarterly_earnings": {
+                "quarter": "2026 3Q",
+                "revenue": "42.93조원",
+                "operating_profit": "3.58조원",
+                "comment": "인도법인 상장 효과 및 로보틱스 협력"
+            },
+            "earnings_news": [
+                {"title": "현대차 254,000원 안착", "source": "연합뉴스"}
+            ]
+        }
+        profile = self.analyzer.register_company(new_company)
+        self.assertEqual(profile.name, "현대차")
+        self.assertEqual(profile.ticker, "005380")
+        self.assertAlmostEqual(profile.per, 5.2, places=1)
+
+        # Test removal
+        removed = self.analyzer.remove_company("005380")
+        self.assertTrue(removed)
+        # Search for non-existent returns default
+        fallback = self.analyzer.search_company("005380")
+        self.assertEqual(fallback.name, "삼성전자")
+
+
 
 if __name__ == "__main__":
     unittest.main()

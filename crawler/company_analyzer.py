@@ -197,3 +197,21 @@ class CompanyValuationAnalyzer:
             f"• 핵심 투자 시사점: {profile.quarterly_earnings.get('comment')}"
         )
         return summary
+
+    def register_company(self, company_dict: Dict[str, Any]) -> CompanyProfile:
+        """
+        Registers a new company profile to the database and returns its valuation profile.
+        """
+        ticker = company_dict.get("ticker", "UNKNOWN")
+        self.db[ticker] = company_dict
+        return self.search_company(ticker)
+
+    def remove_company(self, ticker: str) -> bool:
+        """
+        Removes a company from the tracked watchlist database.
+        """
+        if ticker in self.db:
+            del self.db[ticker]
+            return True
+        return False
+
