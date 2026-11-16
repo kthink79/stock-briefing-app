@@ -111,10 +111,10 @@ GitHub App 토큰에는 `workflows` 권한이 없어 이 저장소로는 워크�
 `.github/workflows/live-data.yml`은 **JSON 표기(한 줄)로 저장**되어 있습니다. YAML과 JSON은 같은 문법 계열이라
 GitHub이 그대로 실행하며, 실제로 2026-11-17 08:38 KST 수동 실행에서 시세·뉴스 수집과 자동 커밋까지 성공했습니다.
 (통합 GitHub App 토큰에 `workflows` 권한이 없어 CLI로 푸시할 수 없고, 웹 편집기의 YAML 자동 들여쓰기가
-내용을 망가뜨려 JSON 한 줄 형식으로 올렸습니다. 사람이 읽는 버전은 `docs/workflows/live-data.yml`입니다.
+내용을 망가뜨려 JSON 한 줄 형식으로 올렸습니다. 사람이 읽는 YAML 버전은 `docs/workflows/live-data.yml`, 배포본과 같은 JSON 원문은 `docs/workflows/live-data.json`에 있습니다.
 같은 내용을 고칠 때는 두 파일을 함께 고치고 웹에서는 편집기 대신 **Upload files**로 올리면 들여쓰기가 깨지지 않습니다.)
 
 ### 운영 cadence
 - 시세: 10분마다 (장 시작 전·장중·미국장 시간 모두 동일)
 - 기본 키워드 뉴스: 20분마다 / 섹터·기업 뉴스: 60분마다(회전 수집) / 주제 풀: 120분마다
-- 데이터가 바뀐 경우에만 커밋합니다. (`data/.last_run.json`은 커밋하지 않습니다)
+- 값이 실제로 바뀐 실행에서만 커밋하고, 변화가 없는 야간에는 30분에 한 번만 타임스탬프를 갱신합니다. (`data/.last_run.json`은 커밋하지 않습니다)
