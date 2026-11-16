@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generated_at": "2026-11-17T08:38:44+09:00",
- "generated_at_kst": "2026-11-17(화) 08:38",
+ "generated_at": "2026-11-17T08:45:38+09:00",
+ "generated_at_kst": "2026-11-17(화) 08:45",
  "source": "네이버 금융 실시간 (polling.finance.naver.com)",
  "market": {
   "indices": {
@@ -13,7 +13,7 @@
     "pct": 0.0,
     "currency": "KRW",
     "market_status": "PREOPEN",
-    "as_of": "2026-11-17T08:38:26+09:00",
+    "as_of": "2026-11-17T08:45:00+09:00",
     "high": null,
     "low": null,
     "open": null,
@@ -28,7 +28,7 @@
     "pct": 0.0,
     "currency": "KRW",
     "market_status": "PREOPEN",
-    "as_of": "2026-11-17T08:38:26+09:00",
+    "as_of": "2026-11-17T08:45:00+09:00",
     "high": null,
     "low": null,
     "open": null,
@@ -100,22 +100,22 @@
    "US10Y": {
     "name": "미국 국채 10년",
     "price": 5.129,
-    "change": -0.0239,
-    "pct": -0.46,
+    "change": 0.0081,
+    "pct": 0.16,
     "currency": null,
     "market_status": "OPEN",
-    "as_of": "2026-11-16T17:05:00-05:00",
-    "bp": -2.39
+    "as_of": "2026-11-16T18:39:24-05:00",
+    "bp": 0.81
    },
    "US2Y": {
     "name": "미국 국채 2년",
     "price": 4.832,
-    "change": -0.0425,
-    "pct": -0.87,
+    "change": 0.0045,
+    "pct": 0.09,
     "currency": null,
     "market_status": "OPEN",
-    "as_of": "2026-11-16T17:05:00-05:00",
-    "bp": -4.25
+    "as_of": "2026-11-16T18:40:00-05:00",
+    "bp": 0.45
    }
   },
   "fx": {
@@ -138,7 +138,7 @@
     "pct": 0.0,
     "currency": "KRW",
     "market_status": "PREOPEN",
-    "as_of": "2026-11-17T08:38:25.778827+09:00",
+    "as_of": "2026-11-17T08:44:59.925727+09:00",
     "high": null,
     "low": null,
     "open": null,
@@ -146,11 +146,11 @@
     "market_value": 1150547630054400.0,
     "extended": {
      "session": "PRE_MARKET",
-     "price": 190600.0,
-     "pct": -3.15,
-     "change": -6200.0,
-     "as_of": "2026-11-17T08:38:25.778983+09:00",
-     "volume": 1710476.0
+     "price": 190700.0,
+     "pct": -3.1,
+     "change": -6100.0,
+     "as_of": "2026-11-17T08:44:59.925816+09:00",
+     "volume": 1907194.0
     }
    },
    "000660": {
@@ -161,7 +161,7 @@
     "pct": 0.0,
     "currency": "KRW",
     "market_status": "PREOPEN",
-    "as_of": "2026-11-17T08:38:25.778841+09:00",
+    "as_of": "2026-11-17T08:44:59.925738+09:00",
     "high": null,
     "low": null,
     "open": null,
@@ -169,11 +169,11 @@
     "market_value": 791614984160000.0,
     "extended": {
      "session": "PRE_MARKET",
-     "price": 1082000.0,
-     "pct": -3.39,
-     "change": -38000.0,
-     "as_of": "2026-11-17T08:38:25.778999+09:00",
-     "volume": 364777.0
+     "price": 1084000.0,
+     "pct": -3.21,
+     "change": -36000.0,
+     "as_of": "2026-11-17T08:44:59.925829+09:00",
+     "volume": 405498.0
     }
    },
    "012450": {
@@ -184,7 +184,7 @@
     "pct": 0.0,
     "currency": "KRW",
     "market_status": "PREOPEN",
-    "as_of": "2026-11-17T08:38:25.778853+09:00",
+    "as_of": "2026-11-17T08:44:59.925746+09:00",
     "high": null,
     "low": null,
     "open": null,
@@ -195,8 +195,8 @@
      "price": 635000.0,
      "pct": -2.16,
      "change": -14000.0,
-     "as_of": "2026-11-17T08:38:25.779012+09:00",
-     "volume": 2116.0
+     "as_of": "2026-11-17T08:44:59.925841+09:00",
+     "volume": 2564.0
     }
    },
    "005380": {
@@ -207,7 +207,7 @@
     "pct": 0.0,
     "currency": "KRW",
     "market_status": "PREOPEN",
-    "as_of": "2026-11-17T08:38:25.778865+09:00",
+    "as_of": "2026-11-17T08:44:59.925754+09:00",
     "high": null,
     "low": null,
     "open": null,
@@ -215,11 +215,11 @@
     "market_value": 54020353626000.0,
     "extended": {
      "session": "PRE_MARKET",
-     "price": 259000.0,
-     "pct": -2.45,
-     "change": -6500.0,
-     "as_of": "2026-11-17T08:38:25.779026+09:00",
-     "volume": 34125.0
+     "price": 259500.0,
+     "pct": -2.26,
+     "change": -6000.0,
+     "as_of": "2026-11-17T08:44:59.925866+09:00",
+     "volume": 37694.0
     }
    },
    "035420": {
@@ -230,7 +230,7 @@
     "pct": 0.0,
     "currency": "KRW",
     "market_status": "PREOPEN",
-    "as_of": "2026-11-17T08:38:25.778877+09:00",
+    "as_of": "2026-11-17T08:44:59.925762+09:00",
     "high": null,
     "low": null,
     "open": null,
@@ -238,11 +238,11 @@
     "market_value": 26302679457600.0,
     "extended": {
      "session": "PRE_MARKET",
-     "price": 169900.0,
-     "pct": -1.74,
-     "change": -3000.0,
-     "as_of": "2026-11-17T08:38:25.779040+09:00",
-     "volume": 49216.0
+     "price": 170200.0,
+     "pct": -1.56,
+     "change": -2700.0,
+     "as_of": "2026-11-17T08:44:59.925879+09:00",
+     "volume": 54759.0
     }
    },
    "042700": {
@@ -253,7 +253,7 @@
     "pct": 0.0,
     "currency": "KRW",
     "market_status": "PREOPEN",
-    "as_of": "2026-11-17T08:38:25.778888+09:00",
+    "as_of": "2026-11-17T08:44:59.925771+09:00",
     "high": null,
     "low": null,
     "open": null,
@@ -261,11 +261,11 @@
     "market_value": 16174480340000.0,
     "extended": {
      "session": "PRE_MARKET",
-     "price": 163600.0,
-     "pct": -3.59,
-     "change": -6100.0,
-     "as_of": "2026-11-17T08:38:25.779066+09:00",
-     "volume": 30592.0
+     "price": 163100.0,
+     "pct": -3.89,
+     "change": -6600.0,
+     "as_of": "2026-11-17T08:44:59.925887+09:00",
+     "volume": 34212.0
     }
    },
    "034020": {
@@ -276,7 +276,7 @@
     "pct": 0.0,
     "currency": "KRW",
     "market_status": "PREOPEN",
-    "as_of": "2026-11-17T08:38:25.778927+09:00",
+    "as_of": "2026-11-17T08:44:59.925779+09:00",
     "high": null,
     "low": null,
     "open": null,
@@ -284,11 +284,11 @@
     "market_value": 28761195455400.0,
     "extended": {
      "session": "PRE_MARKET",
-     "price": 43200.0,
-     "pct": -3.79,
-     "change": -1700.0,
-     "as_of": "2026-11-17T08:38:25.779079+09:00",
-     "volume": 221300.0
+     "price": 43300.0,
+     "pct": -3.56,
+     "change": -1600.0,
+     "as_of": "2026-11-17T08:44:59.925895+09:00",
+     "volume": 245892.0
     }
    },
    "035720": {
@@ -299,7 +299,7 @@
     "pct": 0.0,
     "currency": "KRW",
     "market_status": "PREOPEN",
-    "as_of": "2026-11-17T08:38:25.778941+09:00",
+    "as_of": "2026-11-17T08:44:59.925787+09:00",
     "high": null,
     "low": null,
     "open": null,
@@ -314,7 +314,7 @@
     "pct": 0.0,
     "currency": "KRW",
     "market_status": "PREOPEN",
-    "as_of": "2026-11-17T08:38:25.778953+09:00",
+    "as_of": "2026-11-17T08:44:59.925796+09:00",
     "high": null,
     "low": null,
     "open": null,
@@ -322,11 +322,11 @@
     "market_value": 49791711040500.0,
     "extended": {
      "session": "PRE_MARKET",
-     "price": 211500.0,
-     "pct": -1.4,
-     "change": -3000.0,
-     "as_of": "2026-11-17T08:38:25.779094+09:00",
-     "volume": 24118.0
+     "price": 212000.0,
+     "pct": -1.17,
+     "change": -2500.0,
+     "as_of": "2026-11-17T08:44:59.925903+09:00",
+     "volume": 26328.0
     }
    },
    "NVDA": {
@@ -345,10 +345,10 @@
     "market_value": 3762974000000.0,
     "extended": {
      "session": "AFTER_MARKET",
-     "price": 155.55,
-     "pct": -0.38,
-     "change": -0.59,
-     "as_of": "2026-11-16T18:38:16-05:00",
+     "price": 155.37,
+     "pct": -0.49,
+     "change": -0.77,
+     "as_of": "2026-11-16T18:44:48-05:00",
      "volume": null
     }
    },
@@ -368,10 +368,10 @@
     "market_value": 1501020302414.0,
     "extended": {
      "session": "AFTER_MARKET",
-     "price": 378.5,
-     "pct": -0.33,
-     "change": -1.24,
-     "as_of": "2026-11-16T18:38:09-05:00",
+     "price": 378.92,
+     "pct": -0.22,
+     "change": -0.82,
+     "as_of": "2026-11-16T18:44:14-05:00",
      "volume": null
     }
    },
@@ -391,10 +391,10 @@
     "market_value": 5126663165960.0,
     "extended": {
      "session": "AFTER_MARKET",
-     "price": 353.25,
-     "pct": 0.13,
-     "change": 0.47,
-     "as_of": "2026-11-16T18:37:26-05:00",
+     "price": 353.7,
+     "pct": 0.26,
+     "change": 0.92,
+     "as_of": "2026-11-16T18:44:42-05:00",
      "volume": null
     }
    },
@@ -414,10 +414,10 @@
     "market_value": 827063198934.0,
     "extended": {
      "session": "AFTER_MARKET",
-     "price": 498.55,
-     "pct": -1.14,
-     "change": -5.73,
-     "as_of": "2026-11-16T18:38:20-05:00",
+     "price": 498.87,
+     "pct": -1.07,
+     "change": -5.41,
+     "as_of": "2026-11-16T18:44:49-05:00",
      "volume": null
     }
    },
@@ -437,10 +437,10 @@
     "market_value": 1591528196991.0,
     "extended": {
      "session": "AFTER_MARKET",
-     "price": 330.51,
-     "pct": -0.87,
-     "change": -2.89,
-     "as_of": "2026-11-16T18:37:56-05:00",
+     "price": 331.0,
+     "pct": -0.72,
+     "change": -2.4,
+     "as_of": "2026-11-16T18:44:03-05:00",
      "volume": null
     }
    },
@@ -460,10 +460,10 @@
     "market_value": 813515917892.0,
     "extended": {
      "session": "AFTER_MARKET",
-     "price": 711.0,
-     "pct": -1.12,
-     "change": -8.02,
-     "as_of": "2026-11-16T18:38:17-05:00",
+     "price": 709.09,
+     "pct": -1.38,
+     "change": -9.93,
+     "as_of": "2026-11-16T18:44:58-05:00",
      "volume": null
     }
    }
@@ -483,7 +483,7 @@
    "pct": 0.0,
    "currency": "KRW",
    "market_status": "PREOPEN",
-   "as_of": "2026-11-17T08:38:25.778827+09:00",
+   "as_of": "2026-11-17T08:44:59.925727+09:00",
    "high": null,
    "low": null,
    "open": null,
@@ -491,11 +491,11 @@
    "market_value": 1150547630054400.0,
    "extended": {
     "session": "PRE_MARKET",
-    "price": 190600.0,
-    "pct": -3.15,
-    "change": -6200.0,
-    "as_of": "2026-11-17T08:38:25.778983+09:00",
-    "volume": 1710476.0
+    "price": 190700.0,
+    "pct": -3.1,
+    "change": -6100.0,
+    "as_of": "2026-11-17T08:44:59.925816+09:00",
+    "volume": 1907194.0
    }
   },
   "000660": {
@@ -506,7 +506,7 @@
    "pct": 0.0,
    "currency": "KRW",
    "market_status": "PREOPEN",
-   "as_of": "2026-11-17T08:38:25.778841+09:00",
+   "as_of": "2026-11-17T08:44:59.925738+09:00",
    "high": null,
    "low": null,
    "open": null,
@@ -514,11 +514,11 @@
    "market_value": 791614984160000.0,
    "extended": {
     "session": "PRE_MARKET",
-    "price": 1082000.0,
-    "pct": -3.39,
-    "change": -38000.0,
-    "as_of": "2026-11-17T08:38:25.778999+09:00",
-    "volume": 364777.0
+    "price": 1084000.0,
+    "pct": -3.21,
+    "change": -36000.0,
+    "as_of": "2026-11-17T08:44:59.925829+09:00",
+    "volume": 405498.0
    }
   },
   "012450": {
@@ -529,7 +529,7 @@
    "pct": 0.0,
    "currency": "KRW",
    "market_status": "PREOPEN",
-   "as_of": "2026-11-17T08:38:25.778853+09:00",
+   "as_of": "2026-11-17T08:44:59.925746+09:00",
    "high": null,
    "low": null,
    "open": null,
@@ -540,8 +540,8 @@
     "price": 635000.0,
     "pct": -2.16,
     "change": -14000.0,
-    "as_of": "2026-11-17T08:38:25.779012+09:00",
-    "volume": 2116.0
+    "as_of": "2026-11-17T08:44:59.925841+09:00",
+    "volume": 2564.0
    }
   },
   "005380": {
@@ -552,7 +552,7 @@
    "pct": 0.0,
    "currency": "KRW",
    "market_status": "PREOPEN",
-   "as_of": "2026-11-17T08:38:25.778865+09:00",
+   "as_of": "2026-11-17T08:44:59.925754+09:00",
    "high": null,
    "low": null,
    "open": null,
@@ -560,11 +560,11 @@
    "market_value": 54020353626000.0,
    "extended": {
     "session": "PRE_MARKET",
-    "price": 259000.0,
-    "pct": -2.45,
-    "change": -6500.0,
-    "as_of": "2026-11-17T08:38:25.779026+09:00",
-    "volume": 34125.0
+    "price": 259500.0,
+    "pct": -2.26,
+    "change": -6000.0,
+    "as_of": "2026-11-17T08:44:59.925866+09:00",
+    "volume": 37694.0
    }
   },
   "035420": {
@@ -575,7 +575,7 @@
    "pct": 0.0,
    "currency": "KRW",
    "market_status": "PREOPEN",
-   "as_of": "2026-11-17T08:38:25.778877+09:00",
+   "as_of": "2026-11-17T08:44:59.925762+09:00",
    "high": null,
    "low": null,
    "open": null,
@@ -583,11 +583,11 @@
    "market_value": 26302679457600.0,
    "extended": {
     "session": "PRE_MARKET",
-    "price": 169900.0,
-    "pct": -1.74,
-    "change": -3000.0,
-    "as_of": "2026-11-17T08:38:25.779040+09:00",
-    "volume": 49216.0
+    "price": 170200.0,
+    "pct": -1.56,
+    "change": -2700.0,
+    "as_of": "2026-11-17T08:44:59.925879+09:00",
+    "volume": 54759.0
    }
   },
   "042700": {
@@ -598,7 +598,7 @@
    "pct": 0.0,
    "currency": "KRW",
    "market_status": "PREOPEN",
-   "as_of": "2026-11-17T08:38:25.778888+09:00",
+   "as_of": "2026-11-17T08:44:59.925771+09:00",
    "high": null,
    "low": null,
    "open": null,
@@ -606,11 +606,11 @@
    "market_value": 16174480340000.0,
    "extended": {
     "session": "PRE_MARKET",
-    "price": 163600.0,
-    "pct": -3.59,
-    "change": -6100.0,
-    "as_of": "2026-11-17T08:38:25.779066+09:00",
-    "volume": 30592.0
+    "price": 163100.0,
+    "pct": -3.89,
+    "change": -6600.0,
+    "as_of": "2026-11-17T08:44:59.925887+09:00",
+    "volume": 34212.0
    }
   },
   "034020": {
@@ -621,7 +621,7 @@
    "pct": 0.0,
    "currency": "KRW",
    "market_status": "PREOPEN",
-   "as_of": "2026-11-17T08:38:25.778927+09:00",
+   "as_of": "2026-11-17T08:44:59.925779+09:00",
    "high": null,
    "low": null,
    "open": null,
@@ -629,11 +629,11 @@
    "market_value": 28761195455400.0,
    "extended": {
     "session": "PRE_MARKET",
-    "price": 43200.0,
-    "pct": -3.79,
-    "change": -1700.0,
-    "as_of": "2026-11-17T08:38:25.779079+09:00",
-    "volume": 221300.0
+    "price": 43300.0,
+    "pct": -3.56,
+    "change": -1600.0,
+    "as_of": "2026-11-17T08:44:59.925895+09:00",
+    "volume": 245892.0
    }
   },
   "035720": {
@@ -644,7 +644,7 @@
    "pct": 0.0,
    "currency": "KRW",
    "market_status": "PREOPEN",
-   "as_of": "2026-11-17T08:38:25.778941+09:00",
+   "as_of": "2026-11-17T08:44:59.925787+09:00",
    "high": null,
    "low": null,
    "open": null,
@@ -659,7 +659,7 @@
    "pct": 0.0,
    "currency": "KRW",
    "market_status": "PREOPEN",
-   "as_of": "2026-11-17T08:38:25.778953+09:00",
+   "as_of": "2026-11-17T08:44:59.925796+09:00",
    "high": null,
    "low": null,
    "open": null,
@@ -667,11 +667,11 @@
    "market_value": 49791711040500.0,
    "extended": {
     "session": "PRE_MARKET",
-    "price": 211500.0,
-    "pct": -1.4,
-    "change": -3000.0,
-    "as_of": "2026-11-17T08:38:25.779094+09:00",
-    "volume": 24118.0
+    "price": 212000.0,
+    "pct": -1.17,
+    "change": -2500.0,
+    "as_of": "2026-11-17T08:44:59.925903+09:00",
+    "volume": 26328.0
    }
   },
   "NVDA": {
@@ -690,10 +690,10 @@
    "market_value": 3762974000000.0,
    "extended": {
     "session": "AFTER_MARKET",
-    "price": 155.55,
-    "pct": -0.38,
-    "change": -0.59,
-    "as_of": "2026-11-16T18:38:16-05:00",
+    "price": 155.37,
+    "pct": -0.49,
+    "change": -0.77,
+    "as_of": "2026-11-16T18:44:48-05:00",
     "volume": null
    }
   },
@@ -713,10 +713,10 @@
    "market_value": 1501020302414.0,
    "extended": {
     "session": "AFTER_MARKET",
-    "price": 378.5,
-    "pct": -0.33,
-    "change": -1.24,
-    "as_of": "2026-11-16T18:38:09-05:00",
+    "price": 378.92,
+    "pct": -0.22,
+    "change": -0.82,
+    "as_of": "2026-11-16T18:44:14-05:00",
     "volume": null
    }
   },
@@ -736,10 +736,10 @@
    "market_value": 5126663165960.0,
    "extended": {
     "session": "AFTER_MARKET",
-    "price": 353.25,
-    "pct": 0.13,
-    "change": 0.47,
-    "as_of": "2026-11-16T18:37:26-05:00",
+    "price": 353.7,
+    "pct": 0.26,
+    "change": 0.92,
+    "as_of": "2026-11-16T18:44:42-05:00",
     "volume": null
    }
   },
@@ -759,10 +759,10 @@
    "market_value": 827063198934.0,
    "extended": {
     "session": "AFTER_MARKET",
-    "price": 498.55,
-    "pct": -1.14,
-    "change": -5.73,
-    "as_of": "2026-11-16T18:38:20-05:00",
+    "price": 498.87,
+    "pct": -1.07,
+    "change": -5.41,
+    "as_of": "2026-11-16T18:44:49-05:00",
     "volume": null
    }
   },
@@ -782,10 +782,10 @@
    "market_value": 1591528196991.0,
    "extended": {
     "session": "AFTER_MARKET",
-    "price": 330.51,
-    "pct": -0.87,
-    "change": -2.89,
-    "as_of": "2026-11-16T18:37:56-05:00",
+    "price": 331.0,
+    "pct": -0.72,
+    "change": -2.4,
+    "as_of": "2026-11-16T18:44:03-05:00",
     "volume": null
    }
   },
@@ -805,10 +805,10 @@
    "market_value": 813515917892.0,
    "extended": {
     "session": "AFTER_MARKET",
-    "price": 711.0,
-    "pct": -1.12,
-    "change": -8.02,
-    "as_of": "2026-11-16T18:38:17-05:00",
+    "price": 709.09,
+    "pct": -1.38,
+    "change": -9.93,
+    "as_of": "2026-11-16T18:44:58-05:00",
     "volume": null
    }
   }
@@ -826,20 +826,20 @@
    },
    {
     "title": "금리·환율",
-    "detail": "미 10년물 5.129% (-2.39bp), 미 2년물 4.832%, 원/달러 1,336.00원 (-0.04%)."
+    "detail": "미 10년물 5.129% (+0.81bp), 미 2년물 4.832%, 원/달러 1,336.00원 (-0.04%)."
    },
    {
     "title": "국내 증시",
-    "detail": "장전 시간외 삼성전자 -3.15%, SK하이닉스 -3.39%, 한화에어로스페이스 -2.16%."
+    "detail": "장전 시간외 삼성전자 -3.10%, SK하이닉스 -3.21%, 한화에어로스페이스 -2.16%."
    }
   ],
   "sector_news": [
    {
     "tag": "반도체",
-    "text": "美, AI 칩 우회 수출 봉쇄에 반도체·클라우드주 '검은 월요일'",
+    "text": "젠슨 황 나비효과?…\"한국 반도체, 기술 경쟁 우위 연장할 수도\" [분석+]",
     "date": "2026-11-17",
-    "source": "글로벌이코노믹",
-    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPZS1WOGlLSEdmcjQtV2loNXlTT2NDSHpncEE3S1hpSFMyVExXMjRnaTlrUGR2X29OTEo5R0hKZkdiWERIZFROVE5RTTNYd1d2WkJqMWJtNm1NRldRSG9Pa1puZW9sQnZiYTAtYnpNSTNoaVlQSk5CWU16T2dEclloSFNwUFRvVFdI?oc=5"
+    "source": "한국경제",
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1pSDBlOUFFTUhwREpwaGlmRXJFTU5ob0ZJa09pbzZsY2F2SUh5cE5kZ2JHZUxGaWNnYkNjVS1SaDk3SFJTaDVia050RDhGU0ozM0xUNWl4eFNzdw?oc=5"
    },
    {
     "tag": "국내증시",
@@ -850,10 +850,10 @@
    },
    {
     "tag": "AI",
-    "text": "부동산 대신 AI 데이터센터…中 은행·보험사 돈뭉치 몰린다 [차이나 워치]",
+    "text": "“LS, 미국 AI 투자 불확실”…목표가 38만→29만5000원",
     "date": "2026-11-17",
-    "source": "한국경제",
-    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5BVUh1Q29hWDQzOGVnV09jeXJkckpsd2Q3cngyQ2JSNU84V244ZFU1RlQtY054M1V2ZGtTZ0VuamYzamRPa3ZGYzc0bzMyM0hkdGxuNkt1QXRtUQ?oc=5"
+    "source": "매일경제 마켓",
+    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE44N09udGkzZkNPU2p2V2VZbEd3OG01TmVjMFpSTllvZ09TYjlKbk5tbzJkdTNST3ZlZFVBaUgtbWF5b3ZRRFd2QXhEMFpwS2VHSVE?oc=5"
    }
   ]
  }

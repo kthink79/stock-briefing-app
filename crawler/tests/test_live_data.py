@@ -131,6 +131,24 @@ class TestGoogleNewsRss(unittest.TestCase):
         self.assertEqual(live.title_key("[속보] 삼성전자 급등!"), live.title_key("삼성전자 급등"))
 
 
+class TestRelevanceFilter(unittest.TestCase):
+    def test_keyword_tokens(self):
+        self.assertEqual(live.keyword_tokens("미국 이란 전쟁"), ["미국", "이란", "전쟁"])
+        self.assertEqual(live.keyword_tokens("HBM"), ["HBM"])
+        self.assertEqual(live.keyword_tokens(""), [])
+
+    def test_filter_relevant_drops_noise(self):
+        arts = [
+            {"title": "SK하이닉스 HBM4 양산 확대"},
+            {"title": "부동산 대신 AI 데이터센터…中 은행 돈몰이"},
+            {"title": "미국 항모 집결, 이란 대응 전략은?"},
+        ]
+        picked = live.filter_relevant(arts, ["이란"])
+        self.assertEqual(len(picked), 1)
+        self.assertIn("이란", picked[0]["title"])
+        self.assertEqual(len(live.filter_relevant(arts, [])), 3)
+
+
 class TestBriefing(unittest.TestCase):
     def _market(self):
         return {

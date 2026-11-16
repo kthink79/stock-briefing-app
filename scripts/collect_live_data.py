@@ -369,12 +369,34 @@ def parse_google_news_rss(xml_bytes: bytes, keyword: str, max_age_days: int = 10
     return articles
 
 
-def fetch_news_for(query: str, max_age_days: int = 10, limit: int = 30) -> list:
+def keyword_tokens(keyword: str) -> list:
+    """'미국 이란 전쟁' → ['미국','이란','전쟁'] 같은 관련성 판정용 토큰."""
+    return [t for t in re.split(r"\s+", keyword or "") if len(t) >= 2]
+
+
+def filter_relevant(articles: list, tokens: list) -> list:
+    """제목에 토큰이 하나도 없는 기사는 검색 노이즈로 보고 제외한다."""
+    if not tokens:
+        return articles
+    lowered = [t.lower() for t in tokens]
+    out = []
+    for a in articles:
+        title = (a.get("title") or "").lower()
+        if any(t in title for t in lowered):
+            out.append(a)
+    return out
+
+
+def fetch_news_for(query: str, max_age_days: int = 10, limit: int = 30,
+                   require_tokens: list | None = None) -> list:
     params = urllib.parse.urlencode({
         "q": query, "hl": "ko", "gl": "KR", "ceid": "KR:ko",
     })
     xml_bytes = http_get(f"{GOOGLE_NEWS}?{params}", timeout=25, retries=3)
-    return parse_google_news_rss(xml_bytes, query, max_age_days, limit)
+    articles = parse_google_news_rss(xml_bytes, query, max_age_days * 2, limit * 3)
+    if require_tokens:
+        articles = filter_relevant(articles, require_tokens)
+    return articles[:limit]
 
 
 def is_fresh(fetched_at: str | None, minutes: int) -> bool:
@@ -613,12 +635,16 @@ def _paced_fetch(state: dict, query: str, max_age: int, limit: int) -> list:
     return fetch_news_for(query, max_age, limit)
 
 
-def _refresh_entry(prev, query, reuse, max_age, limit, errors, label, force, state):
+def _refresh_entry(prev, query, reuse, max_age, limit, errors, label, force, state,
+                   require_tokens=None):
     """캐시가 신선하면 재사용, 아니면 실제 수집. 실패하면 직전 값 유지(stale)."""
     if prev and not force and is_fresh(prev.get("fetched_at"), reuse) and prev.get("articles"):
         return prev
     try:
-        arts = _paced_fetch(state, query, max_age, limit)
+        if state.get("fetched"):
+            time.sleep(2.5)
+        state["fetched"] = state.get("fetched", 0) + 1
+        arts = fetch_news_for(query, max_age, limit, require_tokens)
         return {"query": query, "articles": arts, "fetched_at": iso_kst(now_kst())}
     except Exception as e:
         errors.append(f"뉴스 수집 실패({label}): {e}")
@@ -648,7 +674,8 @@ def collect_news(cfg: dict, previous: dict, stock_names: dict | None = None,
         query = kw.get("query") or label
         entry = _refresh_entry(prev_kw.get(label), query,
                                int(cfg.get("news_reuse_minutes", 20)),
-                               max_age, limit, errors, label, force, state)
+                               max_age, limit, errors, label, force, state,
+                               kw.get("require") or keyword_tokens(label))
         if entry:
             entry = dict(entry)
             entry.update({"keyword": label, "id": kw.get("id")})
