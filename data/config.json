@@ -1,0 +1,60 @@
+{
+ "kr_stocks": {
+  "005930": "삼성전자",
+  "000660": "SK하이닉스",
+  "012450": "한화에어로스페이스",
+  "005380": "현대차",
+  "035420": "NAVER",
+  "042700": "한미반도체",
+  "034020": "두산에너빌리티",
+  "035720": "카카오",
+  "068270": "셀트리온"
+ },
+ "us_stocks": {
+  "NVDA": "NVDA.O",
+  "TSLA": "TSLA.O",
+  "AAPL": "AAPL.O",
+  "AMD": "AMD.O",
+  "AVGO": "AVGO.O",
+  "MU": "MU.O"
+ },
+ "kr_indices": ["KOSPI", "KOSDAQ"],
+ "us_indices": {
+  "DOW": ".DJI",
+  "NASDAQ": ".IXIC",
+  "SP500": ".INX",
+  "SOX": ".SOX"
+ },
+ "rates": {
+  "US10Y": "US10YT=RR",
+  "US2Y": "US2YT=RR"
+ },
+ "fx": {
+  "USDKRW": "FX_USDKRW"
+ },
+ "trace_keywords": [
+  { "id": "trace_nvda", "keyword": "엔비디아", "query": "엔비디아" },
+  { "id": "trace_hbm", "keyword": "HBM", "query": "HBM 반도체" },
+  { "id": "trace_iran", "keyword": "미국 이란 전쟁", "query": "미국 이란" },
+  { "id": "trace_trump", "keyword": "트럼프", "query": "트럼프 관세" }
+ ],
+ "sector_news": [
+  { "tag": "반도체", "query": "반도체 수출" },
+  { "tag": "국내증시", "query": "코스피 외국인" },
+  { "tag": "AI", "query": "AI 데이터센터 투자" }
+ ],
+ "keyword_pool": [
+  "삼성전자", "SK하이닉스", "반도체", "AI", "HBM", "금리", "환율",
+  "비트코인", "현대차", "방산", "조선", "원전", "중국", "관세",
+  "연준", "물가", "코스피", "테슬라", "애플", "2차전지", "바이오",
+  "우주항공", "메모리", "엔비디아", "트럼프", "이란"
+ ],
+ "news_max_age_days": 10,
+ "news_per_keyword": 30,
+ "news_reuse_minutes": 20,
+ "sector_reuse_minutes": 60,
+ "company_reuse_minutes": 60,
+ "company_per_run": 2,
+ "pool_reuse_minutes": 120,
+ "pool_per_run": 3
+}

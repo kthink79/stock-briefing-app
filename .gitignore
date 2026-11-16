@@ -6,3 +6,4 @@ build/
 .idea/
 *.iml
 .DS_Store
+data/.last_run.json

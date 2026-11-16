@@ -142,11 +142,12 @@
   <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
     <div>
       <h1 style="margin: 0; font-size: 1.5rem;">📈 Stock Briefing</h1>
-      <span class="badge" style="background: #1f6feb;">v2.3 (기업 등록·삭제 & 키워드 7일·3일 요약 개편)</span>
+      <span class="badge" id="app-version-badge" style="background: #1f6feb;">v3.0 (실시간 시세·뉴스 연동)</span>
+      <div id="live-status" style="font-size: 0.72rem; color: #8b949e; margin-top: 6px;">🔄 실시간 데이터 연결 중…</div>
     </div>
     <div style="text-align: right;">
-      <button class="btn btn-blue" style="font-size: 0.78rem; padding: 6px 10px;" onclick="triggerManualSync()">🔄 지금 전체 동기화</button>
-      <div id="last-sync-time" style="font-size: 0.7rem; color: #8b949e; margin-top: 4px;">최근 갱신: 2026-11-13 08:00 KST (개장 전 모닝 리포트)</div>
+      <button id="sync-btn" class="btn btn-blue" style="font-size: 0.78rem; padding: 6px 10px;" onclick="triggerManualSync()">🔄 지금 전체 동기화</button>
+      <div id="last-sync-time" style="font-size: 0.7rem; color: #8b949e; margin-top: 4px;">최근 갱신: —</div>
     </div>
   </header>
 
@@ -162,42 +163,73 @@
     <div class="card">
       <div class="card-title">
         <span>글로벌 핵심 지표 마감</span>
-        <span id="briefing-base-time" style="font-size: 0.75rem; color: #8b949e;">기준 2026-11-14 08:00 KST (미국 증시 11/13 마감 · 주간 결산)</span>
+        <span id="briefing-base-time" style="font-size: 0.75rem; color: #8b949e;">데이터 기준 — (실시간 조회)</span>
       </div>
       <div class="grid-2">
         <div class="metric-box">
           <div class="metric-name">필라델피아 반도체 (SOX)</div>
-          <div id="sox-val" class="metric-val down">9,373.50 (-3.40%)</div>
+          <div id="sox-val" class="metric-val down">—</div>
         </div>
         <div class="metric-box">
           <div class="metric-name">나스닥 종합 (NASDAQ)</div>
-          <div id="nasdaq-val" class="metric-val down">25,136.27 (-0.91%)</div>
+          <div id="nasdaq-val" class="metric-val down">—</div>
         </div>
         <div class="metric-box">
           <div class="metric-name">S&P 500</div>
-          <div id="sp500-val" class="metric-val down">7,561.67 (-0.40%)</div>
+          <div id="sp500-val" class="metric-val down">—</div>
         </div>
         <div class="metric-box">
           <div class="metric-name">다우존스 산업 (DOW)</div>
-          <div id="dow-val" class="metric-val up">52,347.55 (+0.10%)</div>
+          <div id="dow-val" class="metric-val up">—</div>
         </div>
       </div>
+    </div>
+
+    <!-- 국내 증시 & 환율 -->
+    <div class="card">
+      <div class="card-title">
+        <span>🇰🇷 국내 증시 & 환율</span>
+        <span style="font-size: 0.75rem; color: #8b949e;">네이버 금융 실시간</span>
+      </div>
+      <div class="grid-3">
+        <div class="metric-box">
+          <div class="metric-name">코스피 (KOSPI)</div>
+          <div id="kospi-val" class="metric-val">—</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-name">코스닥 (KOSDAQ)</div>
+          <div id="kosdaq-val" class="metric-val">—</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-name">원/달러 환율</div>
+          <div id="fx-val" class="metric-val">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 실시간 시황 요약 (자동 생성) -->
+    <div class="card">
+      <div class="card-title">
+        <span>📡 실시간 시황 요약</span>
+        <span style="font-size: 0.75rem; color: #8b949e;">실제 수치 기반 자동 생성</span>
+      </div>
+      <div id="briefing-live-summary" style="font-size: 0.84rem; color: #c9d1d9; line-height: 1.55;">실시간 데이터를 불러오는 중…</div>
     </div>
 
     <!-- 금리 및 통화정책 지표 -->
     <div class="card">
       <div class="card-title">
         <span>📊 글로벌 금리 & 통화정책 현황</span>
-        <span style="font-size: 0.75rem; color: #8b949e;">기준 2026-11-14 08:00 KST (주간 마감)</span>
+        <span style="font-size: 0.75rem; color: #8b949e;">실시간 조회값 (국채는 직전 마감 기준)</span>
       </div>
       <div class="grid-2">
         <div class="metric-box">
           <div class="metric-name">미 국채 10년물 금리</div>
-          <div id="rate-10y-val" class="metric-val up">5.127% (+11.7bp)</div>
+          <div id="rate-10y-val" class="metric-val up">—</div>
         </div>
         <div class="metric-box">
           <div class="metric-name">미 국채 2년물 금리</div>
-          <div id="rate-2y-val" class="metric-val up">4.881% (+10.1bp)</div>
+          <div id="rate-2y-val" class="metric-val up">—</div>
         </div>
         <div class="metric-box">
           <div class="metric-name">미국 기준금리 (연준)</div>
@@ -208,8 +240,8 @@
           <div class="metric-val">3.25%</div>
         </div>
       </div>
-      <div style="background: var(--tag-bg); border-radius: 6px; padding: 8px 12px; font-size: 0.8rem; color: #8b949e; line-height: 1.4;">
-        ⚡ <strong>엔비디아 시총 4조 달러 하회 & 주간 증시 3대 지수 2%대 반등:</strong> 간밤 뉴욕 증시는 젠슨 황 사임 여파로 엔비디아(-2.0%, 시총 4조 달러 하회)와 반도체주(AMD -8.8%, 브로드컴 -4.8%)가 급락하며 필라델피아 반도체 지수가 -3.4% 밀렸습니다. 다만 에너지·금융·헬스케어 방어주가 지지하며 다우(+0.10%)는 상승 마감했고, 주간 기준으로는 3대 지수 모두 8월 이후 최대 주간 상승폭(+2.1~2.5%)을 기록했습니다. 미 국채 10년물 금리는 유가 상승과 10월 PPI 전년비 +6.5% 발표로 5.127%까지 상승했습니다.
+      <div style="background: var(--tag-bg); border-radius: 6px; padding: 8px 12px; font-size: 0.78rem; color: #8b949e; line-height: 1.4;">
+        ⚡ 위 수치는 네이버 금융 실시간 조회값입니다. 국채 금리는 직전 마감 고시값이며, 기준 시각은 상단 상태 표시에서 확인할 수 있습니다.
       </div>
     </div>
 
@@ -228,21 +260,16 @@
     </div>
 
     <div class="card">
-      <div class="card-title" style="color: #58a6ff;">💡 Gemini 11월 14일(토) 글로벌 증시 핵심 체크포인트 & 주간 결산</div>
+      <div class="card-title" style="color: #58a6ff;">💡 실시간 시장 체크포인트 (자동 생성)</div>
       <ul class="bullet-list" id="briefing-checkpoints">
-        <li><strong>엔비디아 시총 4조 달러 반납과 차주 Anthropic IPO 수급 이동:</strong> 젠슨 황 사임 충격이 이어지며 엔비디아(-2.0%)가 6주 연속 하락세(2012년 이후 최장)로 시총 4조 달러 아래로 마감. 차주 AI 거물 앤트로픽(Anthropic)의 상장을 앞두고 기존 AI 대장주에서 신규 수혜주로의 자금 분산 심화.</li>
-        <li><strong>반도체주 급락과 필라델피아 반도체(-3.4%) 조정:</strong> 전일 급등했던 AMD(-8.8%)와 브로드컴(-4.8%)이 하루 만에 급반락하며 반도체 지수를 압박. 데이터센터 인프라주(IREN -6.7%, Applied Digital -5.8%)도 동반 약세.</li>
-        <li><strong>주간 기준 3대 지수 2%대 강세 마감 (8월 이후 최대 주간 랠리):</strong> 주 후반 AI주 변동성에도 불구하고 S&P 500(+2.51%), 나스닥(+2.27%), 다우(+2.07%) 모두 4주 연속 하락 고리를 끊고 8월 초 이후 가장 강력한 주간 반등 기록.</li>
-        <li><strong>미 국채 10년물 5.127% 돌파 및 WTI 유가 급등($88.74):</strong> 중동 지정학 긴장 고조와 10월 PPI 전년비 +6.5% 상승 발표로 미 국채 10년물 금리가 5.127%로 급등. 달러/원 환율도 1,336원대로 반등하며 다음 주 외환시장 경계 요인.</li>
+        <li>실시간 데이터를 불러오는 중…</li>
       </ul>
     </div>
 
     <div class="card">
       <div class="card-title">📡 모니터링 섹터 뉴스</div>
       <ul class="bullet-list" id="briefing-sector-news">
-        <li>[반도체] 엔비디아(-2.0%) 6주 연속 하락 속 AMD(-8.8%)·브로드컴(-4.8%) 급락... SOX 지수 -3.4% 조정</li>
-        <li>[AI/공모] 차주 AI 거물 앤트로픽(Anthropic) IPO 임박... AI 하드웨어에서 차세대 모델로의 자금 이동 시험대</li>
-        <li>[에너지/외환] 중동 긴장 고조에 WTI 88.74달러 급등... 미 10년물 국채금리 5.127% 및 달러 강세 지속</li>
+        <li>실시간 뉴스를 불러오는 중…</li>
       </ul>
     </div>
   </div>
@@ -326,8 +353,8 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; background: rgba(33, 38, 45, 0.7); padding: 8px 12px; border-radius: 8px; border: 1px solid #30363d; flex-wrap: wrap; gap: 6px;">
           <div style="display: flex; align-items: center; gap: 8px;">
             <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #3fb950; box-shadow: 0 0 8px #3fb950;"></span>
-            <span style="font-size: 0.8rem; color: #3fb950; font-weight: 700;">장중 실시간 호가 연동</span>
-            <span id="comp-updated-time" style="font-size: 0.75rem; color: #8b949e; background: #161b22; padding: 2px 6px; border-radius: 4px;">실시간 체결</span>
+            <span style="font-size: 0.8rem; color: #3fb950; font-weight: 700;">실시간 시세 연동</span>
+            <span id="comp-updated-time" style="font-size: 0.75rem; color: #8b949e; background: #161b22; padding: 2px 6px; border-radius: 4px;">시세 불러오는 중…</span>
           </div>
           <div style="display: flex; align-items: center; gap: 6px;">
             <button class="btn btn-blue" style="font-size: 0.78rem; padding: 5px 12px; border-radius: 6px; font-weight: 700;" onclick="refreshCurrentCompanyPriceManual()">⚡ 실시간 시세 갱신</button>
@@ -341,39 +368,40 @@
             <span id="comp-ticker" style="font-size: 0.82rem; color: var(--text-sub); margin-left: 6px;">005930</span>
           </div>
           <div id="comp-price-box" style="text-align: right; padding: 4px 8px; border-radius: 6px;">
-            <div id="comp-price" style="font-size: 1.35rem; font-weight: 800; color: #f0f6fc;">198,900 KRW</div>
-            <div id="comp-change" style="font-size: 0.85rem; font-weight: 700;" class="up">+4.74% (+9,000원)</div>
+            <div id="comp-price" style="font-size: 1.35rem; font-weight: 800; color: #f0f6fc;">—</div>
+            <div id="comp-change" style="font-size: 0.85rem; font-weight: 700;" class="up">—</div>
+            <div id="comp-extended" style="display: none; font-size: 0.75rem; color: #8b949e; margin-top: 2px;"></div>
           </div>
         </div>
 
         <div class="grid-3" style="margin-top: 8px;">
           <div class="metric-box">
             <div class="metric-name">PER (주가수익비율)</div>
-            <div id="comp-per" class="metric-val" style="color: #3fb950;">7.80 배</div>
+            <div id="comp-per" class="metric-val" style="color: #3fb950;">—</div>
           </div>
           <div class="metric-box">
             <div class="metric-name">PBR (주가순자산)</div>
-            <div id="comp-pbr" class="metric-val">2.05 배</div>
+            <div id="comp-pbr" class="metric-val">—</div>
           </div>
           <div class="metric-box">
             <div class="metric-name">배당수익률</div>
-            <div id="comp-div" class="metric-val">2.58%</div>
+            <div id="comp-div" class="metric-val">—</div>
           </div>
         </div>
 
         <div class="grid-2">
           <div class="metric-box">
             <div class="metric-name">EPS (주당순이익)</div>
-            <div id="comp-eps" class="metric-val">25,506 KRW</div>
+            <div id="comp-eps" class="metric-val">—</div>
           </div>
           <div class="metric-box">
             <div class="metric-name">BPS (주당순자산)</div>
-            <div id="comp-bps" class="metric-val">96,875 KRW</div>
+            <div id="comp-bps" class="metric-val">—</div>
           </div>
         </div>
 
         <div style="font-size: 0.8rem; color: var(--text-sub); margin-top: 6px;">
-          시가총액: <strong id="comp-cap" style="color: #fff;">1,187조원</strong>
+          시가총액: <strong id="comp-cap" style="color: #fff;">—</strong>
         </div>
       </div>
 
@@ -381,23 +409,19 @@
       <div class="card">
         <div class="card-title" style="color: #a371f7;">📈 실적 분석 & 밸류에이션 총평</div>
         <div id="comp-earnings-box" style="background: var(--tag-bg); padding: 12px; border-radius: 8px; margin-bottom: 12px;">
-          <div style="font-weight: 700; font-size: 0.9rem; margin-bottom: 4px;" id="comp-quarter">2026 3Q 실적 (2026-10-30 공시 확정)</div>
-          <div style="font-size: 0.85rem; line-height: 1.5;" id="comp-rev-op">매출 195.25조원 | 영업이익 107.44조원 (YoY +783%, 글로벌 분기 1위)</div>
+          <div style="font-weight: 700; font-size: 0.9rem; margin-bottom: 4px;" id="comp-quarter">실적 데이터 불러오는 중…</div>
+          <div style="font-size: 0.85rem; line-height: 1.5;" id="comp-rev-op">—</div>
           <div style="font-size: 0.82rem; color: var(--text-sub); margin-top: 4px;" id="comp-earn-comment">HBM4 및 고용량 서버 메모리 공급 확대로 사상 최대 분기 영업익 경신. 선행 PER 4배 수준 극단적 저평가</div>
         </div>
 
-        <div style="font-size: 0.85rem; line-height: 1.5; color: #e6edf3;" id="comp-gemini-eval">
-          [삼성전자 펀더멘털 평가] 2026년 3분기 분기 영업이익 107.4조원으로 엔비디아·아람코를 제치고 글로벌 분기 영업이익 1위를 달성했습니다. 압도적인 현금 창출력에 비해 시가총액이 빅테크 대비 저평가되어 있어 중장기 리레이팅 잠재력이 매우 높습니다.
-        </div>
+        <div style="font-size: 0.85rem; line-height: 1.5; color: #e6edf3;" id="comp-gemini-eval"></div>
       </div>
 
       <!-- Related Earnings News -->
       <div class="card">
         <div class="card-title">📰 관련 실적 & 투자 뉴스</div>
         <ul class="bullet-list" id="comp-news-list">
-          <li>삼성전자 3Q 영업익 107.4조원 달성... 엔비디아 제치고 글로벌 1위 (조선비즈 2026-10)</li>
-          <li>KB증권 '세계 1위 이익 기업에 선행 PER 4배 할인은 과도... 극단적 저평가' (2026-10)</li>
-          <li>HBM4 연간 계약 단가 상승 및 연간 주주환원 100조원 규모 확대 추진 (연합뉴스 2026-11)</li>
+          <li style="color:#8b949e;">실시간 기사를 불러오는 중…</li>
         </ul>
       </div>
     </div>
@@ -405,6 +429,16 @@
 
   <!-- Tab 4: Settings -->
   <div id="tab-settings" class="content-section">
+    <div class="card">
+      <div class="card-title">📡 실시간 데이터 소스 & 갱신 상태</div>
+      <ul class="bullet-list" style="font-size: 0.82rem;">
+        <li><strong>시세</strong>: 네이버 금융 실시간 조회값을 GitHub Actions가 10분 간격으로 수집해 <code>data/market_latest.json</code>에 기록합니다.</li>
+        <li><strong>뉴스</strong>: Google News RSS 최신 기사를 키워드별로 수집·중복 제거해 <code>data/news_latest.json</code>으로 제공합니다.</li>
+        <li><strong>장애 시</strong>: 조회에 실패하면 기기에 저장된 마지막 데이터로 표시하고 기준 시각과 함께 ‘스냅샷’임을 알려 드립니다. 가짜 시세는 만들지 않습니다.</li>
+      </ul>
+      <div id="data-source-status" style="font-size: 0.78rem; color: #8b949e; line-height: 1.5; background: var(--tag-bg); padding: 10px; border-radius: 6px;">데이터 상태를 불러오는 중…</div>
+    </div>
+
     <div class="card">
       <div class="card-title">⏰ 리포트 스케줄 및 알림 설정</div>
       
@@ -703,1585 +737,7 @@
       }
     }
 
-    /* Keyword Traces Data with In-depth Content Analysis (2026-11-09 최신 동기화) */
-    /* =========================================================================
-       2. Keyword & Topic Trace Engine (7-Day Summary, 3-Day Summary, Recent Articles)
-       ========================================================================= */
-    const defaultTraces = [
-      {
-        id: "trace_nvda",
-        keyword: "엔비디아",
-        registered: "2026-11-09 09:00",
-        summary7d: "최근 7일간(11/05~11/12) 엔비디아는 미 대선 직후 기술주 랠리로 52주 최고가를 경신했으나, 11월 8~10일 젠슨 황 CEO 관련 이사회 조사 노이즈가 불거지며 4거래일 연속 하락($168.33, -5.79%), RSI 24로 2019년 이후 최대 과매도 구간에 진입했습니다. 반면 서울 코엑스 AI 데이에서는 삼성·SK와의 반도체 디지털 트윈 및 로보틱스 협력을 공식화하며 펀더멘털은 견고함을 입증했습니다.",
-        weeklyKeyMetrics: {
-          turningPoint: "11/06 사상 최고가 터치 후 CEO 노이즈로 $168선 급락, 14일 RSI 24 극단적 과매도 진입",
-          marketFlow: "외국인/기관 AI 칩 수요 신뢰 유지 속 브로드컴(+4%)·AMD 선전과 디커플링 반등 타진"
-        },
-        summary3d: "최근 3일간(11/09~11/12) 11/10 코엑스 '엔비디아 AI 데이 서울'에서 디푸 탈라 부사장이 삼성·SK 팹 옴니버스 구축 및 현대차 로봇 협력을 발표했습니다. 간밤 미 CPI 예상치 상회(국채금리 4.98%)로 나스닥이 조정을 받았으나, 과매도 구간에 따른 기관 저가 분할 매수세가 유입되며 하방 경직성을 확보하고 있습니다.",
-        momentum3d: {
-          catalyst: "코엑스 AI 데이 피지컬 AI 동맹 선언 및 초과 매도 국면 기술적 반등 시도",
-          impactTickers: "삼성전자, SK하이닉스, 현대차, 두산로보틱스, 한미반도체"
-        },
-        events: [
-          {
-            date: "2026-11-12",
-            time: "07:10",
-            title: "미 증시 숨고르기 속 엔비디아 애프터마켓 반등... 월가 'RSI 24는 과도한 저평가'",
-            source: "Bloomberg / 뉴욕 특파원",
-            impact: "High",
-            summary: [
-              "모건스탠리, 젠슨 황 CEO 조사 노이즈는 펀더멘털과 무관하며 블랙웰 B200 서버 출하 지연 없음을 재확인",
-              "14일 RSI 24는 2019년 이후 최저 수준으로 역사적 평균 대비 강력한 기술적 반등 매수 구간 진입 평가",
-              "국내 협력사인 삼성전자·SK하이닉스와의 디지털 트윈 파트너십으로 차세대 패키징 수율 안정화 기대"
-            ],
-            marketImpact: "국내 반도체 대형주 장초반 외국인 저가 매수세 유입 및 지수 하방 경직성 제공"
-          },
-          {
-            date: "2026-11-10",
-            time: "12:09",
-            title: "엔비디아 '피지컬 AI 황금시대 열렸다'... 삼성·SK 공장 디지털 트윈 및 로봇 협력 발표",
-            source: "연합뉴스 / 코엑스 현장",
-            impact: "High",
-            summary: [
-              "디푸 탈라 부사장 기조연설: '제조 강국 한국과 산업 동맹에서 AI 동맹으로 진화할 것' 공식 선언",
-              "삼성전자·SK하이닉스 반도체 팹에 옴니버스 기반 디지털 트윈 구축해 공정 효율 및 SOP 실시간 분석 적용",
-              "현대차·LG전자 가전/자동차 라인에 엔비디아 아이작(Isaac) 로보틱스 플랫폼 투입 가속"
-            ],
-            marketImpact: "반도체 공정 자동화 및 피지컬 AI 관련 부품·로봇 테마주 전반에 강력한 모멘텀 제공"
-          },
-          {
-            date: "2026-11-09",
-            time: "11:57",
-            title: "엔비디아 AI 데이 서울 개막... 카카오모빌리티 레벨4 자율주행 MOU 비공개 체결",
-            source: "뉴스핌 / 전자신문",
-            impact: "Medium",
-            summary: [
-              "매디슨 황 수석이사 개인 사정 방한 취소에도 2,000여 명 참석 속 공식 세션 정상 개막",
-              "카카오모빌리티와 차세대 자율주행 플랫폼 협약 체결 및 국내 AI 반도체 파트너십 점검"
-            ],
-            marketImpact: "국내 모빌리티 및 AI 소프트웨어 인프라 기업과의 기술 제휴 기대감 고조"
-          }
-        ]
-      },
-      {
-        id: "trace_hbm",
-        keyword: "HBM",
-        registered: "2026-11-09 09:00",
-        summary7d: "최근 7일간(11/05~11/12) HBM 섹터는 글로벌 반도체 급등락 속에서도 국내 증시의 핵심 안전판 역할을 했습니다. 지난주 미 반도체 급락 충격으로 코스피가 5,000선을 위협받았으나, 11/10 기관 1,749억·외인 1,069억 순매수가 복귀하며 삼성전자(198,900원, +4.74%)와 SK하이닉스(1,212,000원, +6.69%)가 합산 시총 2천조원을 회복했습니다.",
-        weeklyKeyMetrics: {
-          turningPoint: "11/07 저점 확인 후 11/10 매수 사이드카 발동 및 코스피 5,239선 대반등",
-          marketFlow: "외국인 8거래일 만에 순매수 전환(3,586억원), HBM 선행 계약 프리미엄 확대"
-        },
-        summary3d: "최근 3일간(11/09~11/12) SK하이닉스가 3거래일 만에 '120만닉스'를 탈환하고 삼성전자가 장중 20만원선을 돌파했습니다. 빅테크 기업들의 2027년 HBM4 공급 물량 사전 배정 협의가 본격화되면서 2026년 4분기 및 내년 실적 추정치가 상향 조정되고 있습니다.",
-        momentum3d: {
-          catalyst: "HBM4 사전 계약 단가 강세 및 빅테크 2027년 물량 선점 경쟁 가열",
-          impactTickers: "SK하이닉스, 삼성전자, 한미반도체, 이오테크닉스, 디아이"
-        },
-        events: [
-          {
-            date: "2026-11-12",
-            time: "06:50",
-            title: "글로벌 빅테크, 2027 HBM4 커스텀 베이스다이 사전 계약 경쟁 본격화",
-            source: "매일경제 / 테크인포",
-            impact: "High",
-            summary: [
-              "차세대 AI 가속기 출시 일정에 맞춰 엔비디아·구글·MS의 HBM4 물량 선점 경쟁 심화",
-              "국내 제조사의 고부가 제품 믹스 확대에 따른 2027년 장기 영업이익률 80%대 수성 가시화",
-              "파운드리 베이스다이와 결합된 커스텀 메모리 솔루션 독점력으로 판가 프리미엄 확고"
-            ],
-            marketImpact: "선행 밸류에이션 리레이팅 기대감 고조 및 부품 협력사 낙수 효과 기대"
-          },
-          {
-            date: "2026-11-10",
-            time: "15:40",
-            title: "외국인 8일 만에 순매수 복귀... SK하이닉스 121만원 탈환, 삼전 19만8900원",
-            source: "머니투데이 / 한국경제",
-            impact: "High",
-            summary: [
-              "외국인이 8거래일 만에 3,586억원 순매수로 복귀하며 코스피 5,239선 대반등 견인",
-              "SK하이닉스 121만2,000원(+6.69%) 마감, 외국인 1,069억원 매수 폭풍 유입",
-              "삼성전자 198,900원(+4.74%) 마감, 장중 201,500원 돌파하며 20만전자 눈앞"
-            ],
-            marketImpact: "HBM 주도주 중심의 코스피 합산 시총 2,000조원 돌파 및 지수 안전판 강화"
-          },
-          {
-            date: "2026-11-09",
-            time: "12:20",
-            title: "기관 5,300억 순매수로 코스피 5,100선 안착 주도... HBM 밸류체인 급반등",
-            source: "머니투데이",
-            impact: "High",
-            summary: [
-              "외국인 매도 물량을 금융투자 ETF 매수세와 연기금·기관이 적극 흡수하며 지수 상승 견인",
-              "HBM4 사전 공급 계약 및 3분기 어닝 서프라이즈 펀더멘털이 하방 지지선으로 작용"
-            ],
-            marketImpact: "코스피 5,100선 안착 및 반도체 소부장 밸류체인 전반으로 저가 매수 심리 확산"
-          }
-        ]
-      },
-      {
-        id: "trace_iran",
-        keyword: "미국 이란 전쟁",
-        registered: "2026-11-09 09:00",
-        summary7d: "최근 7일간(11/05~11/12) 중동 정세는 호르무즈 해협 해상 경계 강화와 유가 변동성 속에서 방산 수주 모멘텀이 극대화된 한 주였습니다. WTI 국제 유가가 70~72달러선에서 박스권을 형성하는 동안, 사우디·UAE 및 중동 우방국의 K-방산 방공망 요격 미사일 및 정밀 유도 무기 조기 전력화 요청이 잇따랐습니다.",
-        weeklyKeyMetrics: {
-          turningPoint: "유가 71달러 안착 속 해상 물류 리스크 완화, 방산 수주 잔고 사상 최대",
-          marketFlow: "방산 대형주 65만원 지지선 구축, 중동발 조공/수주 파이프라인 가속"
-        },
-        summary3d: "최근 3일간(11/09~11/12) 한화에어로스페이스(655,000원)와 LIG넥스원이 중동 방공망 조기 납품 협의 소식에 견조한 상승세를 보였습니다. 미 대선 후 외교적 해결 기대와 중동 자체 방호력 증강 기조가 맞물려 K-방산의 4분기 수출 실적 인식이 앞당겨지고 있습니다.",
-        momentum3d: {
-          catalyst: "중동 연합 해상 경계 및 대공 요격 미사일 긴급 조달 협의",
-          impactTickers: "한화에어로스페이스, LIG넥스원, 현대로템, 한국항공우주"
-        },
-        events: [
-          {
-            date: "2026-11-11",
-            time: "16:20",
-            title: "중동 주요국 국방부, K-방공망 유도탄 조기 납품 협약 타결 임박",
-            source: "방산인사이트 / 연합인포맥스",
-            impact: "High",
-            summary: [
-              "호르무즈 해협 해상 물류 방호용 중장거리 요격 체계 2차 납품 계약 체결 가시화",
-              "폴란드 2차 이행계약 금융 지원 국회 협의 진전에 따른 방산 섹터 불확실성 전면 해소",
-              "한화에어로스페이스·LIG넥스원 합산 수주 잔고 60조원 돌파 전망"
-            ],
-            marketImpact: "방산 대형주 65만원 지지선 공고화 및 4분기 어닝 서프라이즈 기대"
-          },
-          {
-            date: "2026-11-09",
-            time: "11:45",
-            title: "중동 연합 해상 경계 강화 지속... 주요국 방산 조달청 요격 유도탄 납기 단축 협의",
-            source: "CNN / AP",
-            impact: "High",
-            summary: [
-              "호르무즈 해협 항행 선박 대상 안전 통항 지원 작전 지속 전개",
-              "사우디·UAE 등 중동 국가들, 방공망 요격 미사일 및 정밀 유도 무기 조기 전력화 요청"
-            ],
-            marketImpact: "K-방산 기업들의 4분기 및 내년 해외 수출 매출 인식 속도 가속화 전망"
-          },
-          {
-            date: "2026-11-08",
-            time: "08:30",
-            title: "WTI 원유 71달러선 등락... 방산·우주항공 섹터 하방 지지력 확인",
-            source: "로이터",
-            impact: "Medium",
-            summary: [
-              "국제 유가 단기 안정세 속 에너지 해상 운임 리스크 관리 기조 유지"
-            ],
-            marketImpact: "한화에어로스페이스 등 방산 대형주 65만원선에서 안정적 매물 소화"
-          }
-        ]
-      },
-      {
-        id: "trace_trump",
-        keyword: "트럼프",
-        registered: "2026-11-09 09:00",
-        summary7d: "최근 7일간(11/05~11/12) 트럼프 2기 관세 정책 및 글로벌 무역 규제 발언이 글로벌 증시의 핵심 테마로 작용했습니다. 반도체·배터리 관세 우려가 제기되었으나, 미 상무부의 동맹국 라이선스 예외 허용 및 빅테크와의 조율 가능성이 부각되며 시장 공포 심리가 점진적으로 안정화되었습니다.",
-        weeklyKeyMetrics: {
-          turningPoint: "대선 직후 관세 노이즈 선반영 완료 후 업종별 수혜·피해 차별화 장세",
-          marketFlow: "조선·방산·원전 수혜주 강세 지속, 반도체 규제 예외 조항 현실화"
-        },
-        summary3d: "최근 3일간(11/09~11/12) 트럼프 인수위의 무역 통상팀 인선 윤곽이 드러나며 관세 적용의 단계적 유예 가능성이 거론되었습니다. 특히 국내 반도체 제조사의 미국 현지 팹 투자 보조금 유지 기조가 확인되며 불확실성이 크게 완화되었습니다.",
-        momentum3d: {
-          catalyst: "미 상무부 HBM 및 첨단 로직 다이 수출 통제 기준안 라이선스 예외 조율",
-          impactTickers: "한화에어로스페이스, 두산에너빌리티, 삼성전자, HD현대중공업"
-        },
-        events: [
-          {
-            date: "2026-11-11",
-            time: "18:00",
-            title: "트럼프 인수위 '동맹국 첨단 반도체 파트너십 존중'... 관세 단계적 유예 검토",
-            source: "Financial Times / 로이터",
-            impact: "High",
-            summary: [
-              "백악관 통상 자문단, 미국 내 팹 건설 중인 한국·대만 기업 대상 보조금 유지 합의안 검토",
-              "대미 투자 기여도가 높은 반도체 제조사에 대한 무차별 관세 적용 배제 방침",
-              "텍사스 테일러 공장 및 인디애나 패키징 팹 세제 혜택 정상 유지 전망"
-            ],
-            marketImpact: "삼성전자·SK하이닉스 대미 팹 투자 불확실성 해소 및 투자 심리 안정"
-          },
-          {
-            date: "2026-11-09",
-            time: "14:15",
-            title: "미 상무부 BIS, 첨단 HBM 수출 통제 사전 점검 및 한국 기업 예외 범위 협의",
-            source: "Bloomberg",
-            impact: "Medium",
-            summary: [
-              "미 상무부 산업안보국(BIS), 고대역폭메모리(HBM) 수출 통제 기준안 사전 점검",
-              "빅테크 및 주요 반도체 협회와 라이선스 예외 허용 범위 조율 진행"
-            ],
-            marketImpact: "반도체 대형주 수급 불확실성 완화 및 규제 리스크 선반영 인식 확산"
-          }
-        ]
-      }
-    ];
-
-    let currentTraces = [...defaultTraces];
-
-    // -------------------------------------------------------------------------
-    // Event Deduplication & Content Fingerprinting Engine
-    // -------------------------------------------------------------------------
-    function getEventSignature(event) {
-      if (!event) return { cleanTitle: '', coreKey: '', summaryCore: '' };
-      const rawTitle = (event.title || '');
-      const cleanTitle = rawTitle
-        .replace(/\s*\(\d{1,2}[:/]\d{2}\)\s*$/g, '')
-        .replace(/\s*\(\d{1,2}\/\d{2}\)\s*$/g, '')
-        .replace(/\s*\(수동.*?\)\s*$/g, '')
-        .replace(/\s*\(실시간.*?\)\s*$/g, '')
-        .replace(/\s+/g, ' ')
-        .trim();
-
-      const coreKey = cleanTitle.replace(/[^a-zA-Z0-9가-힣]/g, '').toLowerCase();
-
-      let summaryCore = '';
-      if (Array.isArray(event.summary) && event.summary.length > 0) {
-        summaryCore = (event.summary[0] || '').replace(/[^a-zA-Z0-9가-힣]/g, '').toLowerCase().slice(0, 30);
-      }
-
-      return { cleanTitle, coreKey, summaryCore };
-    }
-
-    function deduplicateEvents(events) {
-      if (!Array.isArray(events)) return [];
-      const seenKeys = new Set();
-      const seenSummaries = new Set();
-      const deduped = [];
-
-      for (const ev of events) {
-        if (!ev || !ev.title) continue;
-        const { cleanTitle, coreKey, summaryCore } = getEventSignature(ev);
-        if (!coreKey) continue;
-
-        let isDup = false;
-        if (seenKeys.has(coreKey)) {
-          isDup = true;
-        } else {
-          for (const seen of seenKeys) {
-            if (seen.length >= 10 && coreKey.length >= 10) {
-              if (seen.startsWith(coreKey.slice(0, 16)) || coreKey.startsWith(seen.slice(0, 16))) {
-                isDup = true;
-                break;
-              }
-              if (coreKey.includes(seen) || seen.includes(coreKey)) {
-                const minLen = Math.min(seen.length, coreKey.length);
-                const maxLen = Math.max(seen.length, coreKey.length);
-                if (minLen / maxLen > 0.65) {
-                  isDup = true;
-                  break;
-                }
-              }
-            }
-          }
-        }
-
-        if (!isDup && summaryCore && summaryCore.length >= 15) {
-          if (seenSummaries.has(summaryCore)) {
-            isDup = true;
-          }
-        }
-
-        if (!isDup) {
-          seenKeys.add(coreKey);
-          if (summaryCore) seenSummaries.add(summaryCore);
-          deduped.push({
-            ...ev,
-            title: cleanTitle
-          });
-        }
-      }
-
-      return deduped;
-    }
-
-    /* -------------------------------------------------------------------------
-       Requirement 2 Implementation:
-       1. 최근 7일간 요약 배치
-       2. 최근 3일간 요약 배치
-       3. 최근 내용 순으로 배치
-       4. 기사 요약본에는 날짜 필수 표기 (📅 기사 일자: YYYY-MM-DD 및 [YYYY-MM-DD])
-       ------------------------------------------------------------------------- */
-    function renderTraces() {
-      const listEl = document.getElementById('trace-list');
-      if (!listEl) return;
-      listEl.innerHTML = '';
-      if (currentTraces.length === 0) {
-        listEl.innerHTML = `
-          <div class="card" style="text-align: center; color: var(--text-sub); padding: 30px;">
-            등록된 키워드 트레이스가 없습니다. 위 입력창에서 관심 키워드를 추가해 보세요.
-          </div>
-        `;
-        return;
-      }
-
-      currentTraces.forEach(t => {
-        // Run dedup before render
-        t.events = deduplicateEvents(t.events);
-
-        const item = document.createElement('div');
-        item.className = 'card trace-item';
-
-        // Header
-        let html = `
-          <div class="trace-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #30363d; padding-bottom: 8px; margin-bottom: 12px; flex-wrap: wrap; gap: 6px;">
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span class="trace-keyword" style="font-size: 1.15rem; color: #58a6ff; font-weight: 800;"># ${t.keyword}</span>
-              <span class="trace-count" style="font-size: 0.72rem; background: #21262d; border: 1px solid #30363d; color: #8b949e; padding: 2px 8px; border-radius: 12px;">분석 기사 ${t.events.length}건</span>
-              <span style="font-size: 0.7rem; color: #8b949e;">등록: ${t.registered || '2026-11-09'}</span>
-            </div>
-            <button class="btn btn-red" style="font-size: 0.72rem; padding: 4px 10px; border-radius: 4px; background: #da3633; border: none; color: #fff; cursor: pointer; font-weight: 700;" onclick="deleteTrace('${t.id}')">✕ 삭제</button>
-          </div>
-        `;
-
-        // 1. 최근 7일간 요약
-        html += `
-          <div style="background: rgba(22, 27, 34, 0.85); border: 1px solid #1f6feb; border-radius: 8px; padding: 12px; margin-bottom: 10px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; border-bottom: 1px solid rgba(56, 139, 253, 0.3); padding-bottom: 6px;">
-              <span style="font-size: 0.85rem; font-weight: 700; color: #58a6ff; display: flex; align-items: center; gap: 6px;">
-                <span>📊 최근 7일간 요약 (2026.11.05 ~ 11.12)</span>
-              </span>
-              <span style="font-size: 0.7rem; color: #58a6ff; background: rgba(56, 139, 253, 0.15); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(56, 139, 253, 0.3); font-weight: 600;">7-Day Flow</span>
-            </div>
-            <div style="font-size: 0.84rem; color: #e6edf3; line-height: 1.5; margin-bottom: 8px;">
-              ${t.summary7d || t.summary || `'${t.keyword}' 관련 최근 7일간 누적 거시 흐름을 추적 중입니다.`}
-            </div>
-            ${t.weeklyKeyMetrics ? `
-              <div style="font-size: 0.78rem; color: #8b949e; background: rgba(13, 17, 23, 0.7); padding: 8px 10px; border-radius: 6px; border-left: 3px solid #58a6ff; display: flex; flex-direction: column; gap: 4px;">
-                <div><strong style="color: #79c0ff;">• 주간 변곡점:</strong> ${t.weeklyKeyMetrics.turningPoint}</div>
-                <div><strong style="color: #56d364;">• 7일 누적 수급/영향:</strong> ${t.weeklyKeyMetrics.marketFlow}</div>
-              </div>
-            ` : ''}
-          </div>
-        `;
-
-        // 2. 최근 3일간 요약
-        html += `
-          <div style="background: rgba(33, 38, 45, 0.85); border: 1px solid #d29922; border-radius: 8px; padding: 12px; margin-bottom: 12px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; border-bottom: 1px solid rgba(227, 179, 65, 0.3); padding-bottom: 6px;">
-              <span style="font-size: 0.85rem; font-weight: 700; color: #e3b341; display: flex; align-items: center; gap: 6px;">
-                <span>⚡ 최근 3일간 요약 (2026.11.09 ~ 11.12)</span>
-              </span>
-              <span style="font-size: 0.7rem; color: #e3b341; background: rgba(227, 179, 65, 0.15); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(227, 179, 65, 0.3); font-weight: 600;">3-Day Momentum</span>
-            </div>
-            <div style="font-size: 0.84rem; color: #e6edf3; line-height: 1.5; margin-bottom: 8px;">
-              ${t.summary3d || (t.aiDiagnosis ? t.aiDiagnosis.status : `'${t.keyword}' 관련 최근 3일간 핵심 사건 및 속보 요약입니다.`)}
-            </div>
-            ${(t.momentum3d || t.aiDiagnosis) ? `
-              <div style="font-size: 0.78rem; color: #8b949e; background: rgba(13, 17, 23, 0.7); padding: 8px 10px; border-radius: 6px; border-left: 3px solid #e3b341; display: flex; flex-direction: column; gap: 4px;">
-                <div><strong style="color: #f2cc60;">• 3일 핵심 촉매:</strong> ${(t.momentum3d && t.momentum3d.catalyst) || (t.aiDiagnosis && t.aiDiagnosis.keyPoints) || '단기 주요 발표 및 정책/실적 이벤트'}</div>
-                <div><strong style="color: #bc8cff;">• 영향 종목/섹터:</strong> ${(t.momentum3d && t.momentum3d.impactTickers) || (t.aiDiagnosis && t.aiDiagnosis.impactTickers) || '관련 밸류체인 대형주'}</div>
-              </div>
-            ` : ''}
-          </div>
-        `;
-
-        // 3. 최근 내용 (기사 요약본에는 날짜도 함께 표기)
-        html += `
-          <div style="font-size: 0.84rem; font-weight: 700; color: #f0f6fc; margin: 14px 0 10px 0; display: flex; align-items: center; justify-content: space-between;">
-            <span style="display: flex; align-items: center; gap: 6px;">
-              <span>⏱️ 최근 내용 (실시간 기사 및 본문 심층 분석)</span>
-            </span>
-            <span style="font-size: 0.7rem; color: #3fb950; background: rgba(63, 185, 80, 0.15); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(63, 185, 80, 0.3);">✓ 최신순 정렬</span>
-          </div>
-
-          <div class="timeline" style="border-left: 2px solid #30363d; margin: 6px 0 0 8px; padding-left: 12px;">
-        `;
-
-        t.events.forEach(e => {
-          const eventDate = e.date || (e.time && e.time.includes('-') ? e.time.split(' ')[0] : '2026-11-11');
-          const eventTime = e.time && e.time.includes(':') ? (e.time.includes(' ') ? e.time.split(' ')[1] : e.time) : '09:00';
-          const fullDateStr = `${eventDate} ${eventTime}`;
-
-          html += `
-            <div class="timeline-event" style="margin-bottom: 16px; position: relative;">
-              <!-- Event Header with Date -->
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 4px;">
-                <div style="display: flex; align-items: center; gap: 6px;">
-                  <span class="timeline-date" style="font-size: 0.78rem; font-weight: 700; color: #58a6ff; background: rgba(88, 166, 255, 0.12); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(88, 166, 255, 0.25);">📅 ${fullDateStr}</span>
-                  <span style="font-size: 0.72rem; color: #8b949e;">• ${e.source || '종합 시황'}</span>
-                </div>
-                <span class="badge" style="font-size: 0.68rem; padding: 2px 6px; border-radius: 10px; background: ${e.impact === 'High' ? '#da3633' : '#1f6feb'}; color: #fff; font-weight: 600;">${e.impact === 'High' ? '🔴 High (핵심)' : '🟡 Medium'}</span>
-              </div>
-
-              <div class="timeline-title" style="font-size: 0.92rem; font-weight: 700; color: #f0f6fc; margin-bottom: 6px; line-height: 1.4;">${e.title}</div>
-              
-              <!-- Content Analysis & Summary Box with Prominent Date -->
-              <div style="background: rgba(22, 27, 34, 0.95); border: 1px solid #30363d; border-radius: 6px; padding: 10px; margin-top: 6px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; border-bottom: 1px solid #21262d; padding-bottom: 4px;">
-                  <span style="font-size: 0.76rem; color: #58a6ff; font-weight: 700;">📋 기사 요약본 (본문 3줄 심층 분석)</span>
-                  <span style="font-size: 0.72rem; color: #e3b341; font-weight: 700; background: rgba(227, 179, 65, 0.15); padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(227, 179, 65, 0.3);">📅 기사 일자: ${eventDate}</span>
-                </div>
-                <ul style="list-style: none; font-size: 0.82rem; color: #c9d1d9; line-height: 1.5; padding-left: 0; margin-bottom: 6px;">
-                  ${(e.summary || [e.title]).map(s => `
-                    <li style="position: relative; padding-left: 14px; margin-bottom: 4px;">
-                      <span style="position: absolute; left: 0; color: #58a6ff;">•</span>
-                      <span style="font-size: 0.72rem; color: #8b949e; margin-right: 4px;">[${eventDate}]</span>${s}
-                    </li>
-                  `).join('')}
-                </ul>
-                ${e.marketImpact ? `
-                  <div style="font-size: 0.78rem; color: #8b949e; border-top: 1px dashed #30363d; padding-top: 5px; margin-top: 5px;">
-                    <strong style="color: #e3b341;">💡 시장 파급 효과:</strong> ${e.marketImpact}
-                  </div>
-                ` : ''}
-              </div>
-            </div>
-          `;
-        });
-
-        html += `</div>`; // close timeline
-        item.innerHTML = html;
-        listEl.appendChild(item);
-      });
-    }
-
-    function addNewTrace() {
-      const input = document.getElementById('trace-input');
-      const val = input.value.trim();
-      if (!val) return;
-      const now = new Date();
-      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-      const dateStr = '2026-11-12';
-      
-      const newTrace = {
-        id: "trace_" + Date.now(),
-        keyword: val,
-        registered: `${dateStr} ${timeStr}`,
-        summary7d: `'${val}' 관련 최근 7일간(11/05~11/12)의 거시 시장 흐름 및 수급 변수를 추적 중입니다. 주요 정책 발표 및 글로벌 기술주 동향과의 연계성을 실시간 모니터링합니다.`,
-        weeklyKeyMetrics: {
-          turningPoint: `'${val}' 테마 주요 변곡점 및 거시 환경 변화 추적 시작`,
-          marketFlow: `관련 섹터 기관·외국인 수급 유입 및 주간 변동성 지표 분석`
-        },
-        summary3d: `최근 3일간(11/09~11/12) '${val}' 관련 핵심 속보 및 단기 모멘텀을 집중 요약합니다.`,
-        momentum3d: {
-          catalyst: `'${val}' 관련 주요 공시 및 언론사 분석 기사 실시간 추적`,
-          impactTickers: `관련 핵심 밸류체인 및 수혜주`
-        },
-        events: [
-          {
-            date: dateStr,
-            time: timeStr,
-            title: `'${val}' 관련 실시간 시장 동향 및 정책 분석 개시`,
-            source: "AI 마켓 인텔리전스",
-            impact: "High",
-            summary: [
-              `'${val}' 관련 주요 보도 및 언론사 데이터 실시간 수집 파이프라인 가동`,
-              `단순 헤드라인 중복을 배제하고 기사 본문 주요 맥락을 추출하는 지능형 디둡 필터 적용`,
-              `투자 의사결정에 직결되는 시장 파급 효과와 수혜·피해 섹터 영향도 동시 분석`
-            ],
-            marketImpact: `'${val}' 관련 종목군의 호가 및 수급 변동성을 모니터링하여 지속 보고`
-          }
-        ]
-      };
-      currentTraces.unshift(newTrace);
-      saveTracesToStorage();
-      input.value = '';
-      renderTraces();
-      showNotif(`'${val}' 키워드 트레이스가 7일·3일 요약 및 본문 분석과 함께 등록되었습니다!`);
-    }
-
-    function deleteTrace(traceId) {
-      const target = currentTraces.find(t => t.id === traceId);
-      const name = target ? target.keyword : '키워드';
-      if (!confirm(`'${name}' 트레이스를 삭제하시겠습니까?`)) return;
-      currentTraces = currentTraces.filter(t => t.id !== traceId);
-      saveTracesToStorage();
-      renderTraces();
-      showNotif(`'${name}' 트레이스가 삭제되었습니다.`);
-    }
-
-    function saveTracesToStorage() {
-      localStorage.setItem('stock_traces_list', JSON.stringify(currentTraces));
-    }
-
-    function loadTracesFromStorage() {
-      const STORAGE_VERSION = 'v6.0_20261112_7d_3d_summary';
-      const storageVersion = localStorage.getItem('stock_traces_version');
-      
-      if (storageVersion !== STORAGE_VERSION) {
-        const saved = localStorage.getItem('stock_traces_list');
-        let customTraces = [];
-        if (saved) {
-          try {
-            const parsed = JSON.parse(saved);
-            customTraces = parsed.filter(t => !defaultTraces.some(dt => dt.keyword === t.keyword || dt.id === t.id));
-          } catch(e) {}
-        }
-        currentTraces = [...JSON.parse(JSON.stringify(defaultTraces)), ...customTraces];
-        localStorage.setItem('stock_traces_version', STORAGE_VERSION);
-      } else {
-        const saved = localStorage.getItem('stock_traces_list');
-        if (saved) {
-          try {
-            currentTraces = JSON.parse(saved);
-          } catch(e) {
-            currentTraces = JSON.parse(JSON.stringify(defaultTraces));
-          }
-        } else {
-          currentTraces = JSON.parse(JSON.stringify(defaultTraces));
-        }
-      }
-
-      // Mandatory dedup and structure guarantee
-      currentTraces.forEach(t => {
-        t.events = deduplicateEvents(t.events);
-        if (!t.summary7d && t.summary) t.summary7d = t.summary;
-        if (!t.summary3d && t.aiDiagnosis) t.summary3d = t.aiDiagnosis.status;
-      });
-      saveTracesToStorage();
-    }
-
-    // Pool of distinct afternoon market events with dates
-    const afternoonNewsPool = {
-      "트럼프": [
-        {
-          date: "2026-11-12",
-          time: "07:20",
-          title: "워싱턴 통상 싱크탱크 '한국 반도체 팹 보조금 축소 실현성 낮아... 텍사스·인디애나 투자 기여도 인정'",
-          source: "The Hill / 워싱턴 통신",
-          impact: "High",
-          summary: [
-            "미 하원 통상소위 보조금 심사보고서 분석 결과, 대미 시설 투자가 확정된 한국 선도 팹의 대체 불가능성 재확인",
-            "보조금 지급 취소 시 미국 내 차세대 AI 칩 공급망 구축 지연 우려로 초당적 지원 기조 유지 전망",
-            "관세 부과 발언은 협상용 카드 성격이 짙어 실질적 설비투자 타격 가능성은 제한적으로 평가"
-          ],
-          marketImpact: "파운드리 보조금 삭감 우려 완화 및 삼성전자 등 대형 기술주 장초반 저가 매수세 유입 지지"
-        }
-      ],
-      "엔비디아": [
-        {
-          date: "2026-11-12",
-          time: "07:15",
-          title: "코엑스 엔비디아 AI 데이 후속: 삼성전자·SK하이닉스 팹 옴니버스 디지털 트윈 본격 가동",
-          source: "전자신문 / 코엑스 현장",
-          impact: "High",
-          summary: [
-            "디푸 탈라 부사장, 반도체 웨이퍼 수율 예측 및 결함 자동 검출 디지털 트윈 데모 시연 성공",
-            "제조 공정 내 파운데이션 모델 적용으로 양품 수율 1.8%p 개선 효과 발표",
-            "두산로보틱스 및 현대차 협동 로봇 연계 솔루션 전시장 엔지니어 운집"
-          ],
-          marketImpact: "피지컬 AI 및 스마트팩토리 자동화 밸류체인 수급 집중"
-        }
-      ],
-      "HBM": [
-        {
-          date: "2026-11-12",
-          time: "07:25",
-          title: "개장 전 분석: 기관·외인 쌍끌이 매수 지속... 코스피 5,250선 안착 시도",
-          source: "한국경제TV / 머니투데이",
-          impact: "High",
-          summary: [
-            "외국인 8거래일 만의 순매수 복귀(3,586억원)로 코스피 5,239선 안착 후 추가 상승 시도",
-            "SK하이닉스 121만원 탈환 및 삼성전자 198,900원선 안착으로 반도체 투톱 주도력 견고",
-            "HBM4 공급망 독점력 및 3분기 사상 최대 실적 펀더멘털 재부각"
-          ],
-          marketImpact: "대형 반도체 중심의 코스피 지수 하방 경직성 및 기술적 반등 완성"
-        }
-      ],
-      "이란": [
-        {
-          date: "2026-11-12",
-          time: "07:05",
-          title: "한화에어로스페이스, 항공엔진 MRO 수주 파이프라인 기대감에 65만원 지지선 공고화",
-          source: "방산인사이트 / 연합인포맥스",
-          impact: "High",
-          summary: [
-            "중동 및 동유럽 방공망 현대화 프로젝트 수주 가시화",
-            "폴란드 2차 이행계약 금융 지원 국회 협의 진전에 따른 불확실성 해소",
-            "지정학적 리스크 속 방산 업종 방어주 매력 지속"
-          ],
-          marketImpact: "기관 매수세 유입으로 65만원선 안정적 지지"
-        }
-      ]
-    };
-
-    function refreshTracesManual() {
-      const now = new Date();
-      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-      const dateStr = '2026-11-12';
-      let totalNewEventsAdded = 0;
-
-      currentTraces.forEach(t => {
-        t.events = deduplicateEvents(t.events);
-
-        let poolItems = [];
-        const kw = t.keyword.toLowerCase();
-        for (let key in afternoonNewsPool) {
-          if (kw.includes(key.toLowerCase()) || key.toLowerCase().includes(kw)) {
-            poolItems = afternoonNewsPool[key];
-            break;
-          }
-        }
-
-        poolItems.forEach(cand => {
-          const { coreKey } = getEventSignature(cand);
-          const alreadyHas = t.events.some(e => {
-            const sig = getEventSignature(e);
-            return sig.coreKey === coreKey || sig.coreKey.includes(coreKey) || coreKey.includes(sig.coreKey);
-          });
-          if (!alreadyHas) {
-            const newEv = JSON.parse(JSON.stringify(cand));
-            newEv.date = dateStr;
-            newEv.time = timeStr;
-            t.events.unshift(newEv);
-            totalNewEventsAdded++;
-          }
-        });
-
-        t.events = deduplicateEvents(t.events);
-        if (t.events.length > 6) t.events = t.events.slice(0, 6);
-      });
-
-      saveTracesToStorage();
-      renderTraces();
-
-      if (totalNewEventsAdded > 0) {
-        showNotif(`⚡ 키워드 트레이스 최신 속보 ${totalNewEventsAdded}건 반영 완료 (날짜 및 7일·3일 요약 동기화)`);
-      } else {
-        showNotif(`⚡ 키워드 트레이스 동기화 완료: 모든 기사가 최신 상태입니다.`);
-      }
-    }
-
-    /* =========================================================================
-       3. Company Valuation Database & Watchlist Management (등록 & 삭제)
-       ========================================================================= */
-    const predefinedCompaniesDB = {
-      "005930": {
-        name: "삼성전자",
-        ticker: "005930",
-        currency: "KRW",
-        prevClose: 189900,
-        basePrice: 198900,
-        price: "198,900 KRW",
-        change: "+4.74% (+9,000원)",
-        isUp: true,
-        per: "7.80 배",
-        pbr: "2.05 배",
-        div: "2.58%",
-        eps: 25506,
-        bps: 96875,
-        cap: "1,187조원",
-        intradayHigh: 201500,
-        intradayLow: 195000,
-        quarter: "2026 3Q 실적 (2026-10-30 공시 확정)",
-        revOp: "매출 195.25조원 | 영업이익 107.44조원 (YoY +783%, 글로벌 분기 1위)",
-        comment: "10일 코스피 4%대 급등 속 기관 1,749억원 순매수로 198,900원(+4.74%) 마감. 장중 201,500원 돌파하며 시총 합산 2천조원 회복. 20만전자 안착 테스트",
-        geminiEval: "[삼성전자 펀더멘털 평가] 10일 코스피 급반등과 함께 기관의 대규모 순매수(1,749억)가 유입되며 198,900원에 마감했습니다. 3Q 분기 영업이익 107.4조원이라는 독보적 실적 대비 PER 7배 후반으로 여전히 극심한 저평가 구간에 머물러 있습니다.",
-        news: [
-          "[특징주] 삼성전자 4.74% 급등 마감... 19만8900원, 장중 20만원선 돌파 (연합뉴스 2026-11-10)",
-          "외국인·기관 8,500억 동반 순매수... 삼성전자 시총 1,187조원 회복 (2026-11-10)",
-          "엔비디아 AI 데이 서울 성료... 반도체 공정 옴니버스 디지털 트윈 본격화 (2026-11-10)"
-        ]
-      },
-      "000660": {
-        name: "SK하이닉스",
-        ticker: "000660",
-        currency: "KRW",
-        prevClose: 1136000,
-        basePrice: 1212000,
-        price: "1,212,000 KRW",
-        change: "+6.69% (+76,000원)",
-        isUp: true,
-        per: "5.40 배",
-        pbr: "3.29 배",
-        div: "2.71%",
-        eps: 224313,
-        bps: 368800,
-        cap: "885.4조원",
-        intradayHigh: 1242000,
-        intradayLow: 1180000,
-        quarter: "2026 3Q 실적 (2026-10-28 공시 확정)",
-        revOp: "매출 104.62조원 (YoY +328%) | 영업이익 83.33조원 (OPM 79.7% 어닝 서프라이즈)",
-        comment: "10일 외국인 1,069억원 순매수 유입 및 HBM 독점력에 힘입어 1,212,000원(+6.69%) 급등 마감, 3거래일 만에 '120만닉스' 탈환 성공",
-        geminiEval: "[SK하이닉스 펀더멘털 평가] 외국인이 8거래일 만에 순매수 전환하며 1,069억원을 쓸어담아 121만2천원에 안착했습니다. 영업이익률 80%에 육박하는 HBM 어닝 파워와 자사주 매입 방어선이 주가 상단을 강력히 견인하고 있습니다.",
-        news: [
-          "[특징주] SK하이닉스 6.69% 급등... '120만닉스' 3거래일 만에 탈환 (연합뉴스 2026-11-10)",
-          "외국인 1,069억원 순매수 폭풍 유입... 시총 885조원 회복 (머니투데이 2026-11-10)",
-          "HBM4 사전 계약 단가 강세 지속 및 4분기 사상 최대 실적 전망 (2026-11-10)"
-        ]
-      },
-      "012450": {
-        name: "한화에어로스페이스",
-        ticker: "012450",
-        currency: "KRW",
-        prevClose: 660000,
-        basePrice: 655000,
-        price: "655,000 KRW",
-        change: "+0.92% (+6,000원)",
-        isUp: true,
-        per: "16.33 배",
-        pbr: "2.42 배",
-        div: "0.85%",
-        eps: 40120,
-        bps: 270800,
-        cap: "33.8조원",
-        intradayHigh: 668000,
-        intradayLow: 642000,
-        quarter: "2026 2Q/3Q 실적 요약",
-        revOp: "2Q 매출 9.20조원 | 영업이익 1.37조원 (어닝 서프라이즈, 비폴란드 OPM 30%대 후반)",
-        comment: "50조원대 해외 방산 파이프라인과 중동 평화 기조 속 수출 다변화 모멘텀 지속",
-        geminiEval: "[한화에어로스페이스 펀더멘털 평가] K9 자주포 및 천무의 견고한 양산 납품과 사우디·스페인 등 신규 수주 기대감으로 65만원선에서 안정적인 지지선을 구축하고 있습니다.",
-        news: [
-          "[특징주] 한화에어로스페이스 655,000원 지지력 확인... 해외 방산 수주 모멘텀 견조 (2026-11-10)",
-          "K9 자주포·천무 2차 해외 양산 납품 정상 가동 확인 (방사청 2026-11-10)",
-          "스페인·사우디·미국 등 해외 방산 파이프라인 50조원 달성 전망 (다올투자증권)"
-        ]
-      },
-      "NVDA": {
-        name: "엔비디아 (NVIDIA)",
-        ticker: "NVDA",
-        currency: "USD",
-        prevClose: 178.67,
-        basePrice: 168.33,
-        price: "$168.33",
-        change: "-5.79% (-$10.34)",
-        isUp: false,
-        per: "59.27 배",
-        pbr: "26.42 배",
-        div: "0.02%",
-        eps: 2.84,
-        bps: 6.37,
-        cap: "$4,122B",
-        quarter: "FY2027 Q2 (2026년 8월 공시)",
-        revOp: "매출 $96.22B (약 133.2조원, YoY +106%) | 영업이익 $63.73B (약 88.3조원, YoY +124%)",
-        comment: "젠슨 황 CEO 관련 이사회 조사 노이즈로 4거래일 연속 하락($168.33, -5.79%). 14일 RSI 24로 2019년 이후 극단적 과매도 구간 진입",
-        geminiEval: "[엔비디아 펀더멘털 평가] CEO 개인 이슈 노이즈로 단기 급락세가 이어지며 RSI가 2019년 이후 최저치인 24까지 하락했습니다. 다만 브로드컴(+4%)·AMD(+1.5%)의 선전에서 보듯 AI 인프라 수요 자체는 견고하며, 극단적 과매도에 따른 기술적 반발 매수세 유입 가능성이 높습니다.",
-        news: [
-          "엔비디아 5.79% 급락 마감... 젠슨 황 조사 노이즈 지속 속 RSI 24 극단 과매도 (2026-11-10)",
-          "야후파이낸스 '엔비디아 매도 압력 2019년 이후 최대치 도달' (2026-11-10)",
-          "브로드컴 +4%·AMD +1.5% 상승... 빅테크 맞춤형 AI 칩 수요는 건재 (2026-11-10)"
-        ]
-      },
-      "005380": {
-        name: "현대차",
-        ticker: "005380",
-        currency: "KRW",
-        prevClose: 248000,
-        basePrice: 254000,
-        price: "254,000 KRW",
-        change: "+2.42% (+6,000원)",
-        isUp: true,
-        per: "5.20 배",
-        pbr: "0.65 배",
-        div: "5.10%",
-        eps: 48846,
-        bps: 390769,
-        cap: "53.6조원",
-        intradayHigh: 257000,
-        intradayLow: 249000,
-        quarter: "2026 3Q 실적 (2026-10-24 공시)",
-        revOp: "매출 42.93조원 (YoY +4.7%) | 영업이익 3.58조원 (OPM 8.3%)",
-        comment: "인도법인 상장 성공에 따른 유동성 확보 및 보스턴다이내믹스 로보틱스 협력 본격화. 저PER 5배 및 고배당 매력 부각",
-        geminiEval: "[현대차 펀더멘털 평가] PBR 0.65배, PER 5.2배의 극심한 밸류에이션 저평가 상태입니다. 인도법인 IPO를 통한 4조원대 현금 유입과 엔비디아 아이작 로보틱스 플랫폼 도입으로 미래 모빌리티 밸류체인 재평가가 기대됩니다.",
-        news: [
-          "[특징주] 현대차 254,000원 안착... 인도법인 상장 효과 및 로보틱스 모멘텀 (2026-11-11)",
-          "엔비디아와 피지컬 AI 로봇 제조 라인 협업 공식 발표 (2026-11-10)",
-          "배당수익률 5%대 및 3개년 밸류업 프로그램 조기 달성 가시화 (신한투자증권)"
-        ]
-      },
-      "TSLA": {
-        name: "테슬라 (Tesla)",
-        ticker: "TSLA",
-        currency: "USD",
-        prevClose: 255.80,
-        basePrice: 265.40,
-        price: "$265.40",
-        change: "+3.75% (+$9.60)",
-        isUp: true,
-        per: "72.50 배",
-        pbr: "11.20 배",
-        div: "0.00%",
-        eps: 3.66,
-        bps: 23.70,
-        cap: "$852B",
-        intradayHigh: 269.00,
-        intradayLow: 254.50,
-        quarter: "2026 3Q 실적 요약",
-        revOp: "매출 $25.18B (YoY +8%) | 영업이익 $2.72B (어닝 서프라이즈, 자동차 마진 회복)",
-        comment: "미 대선 후 트럼프 행정부 자율주행 규제 완화 수혜주 부각. FSD v13 전면 배포 및 사이버캡 생산 준비 순항",
-        geminiEval: "[테슬라 펀더멘털 평가] 3Q 어닝 서프라이즈로 차량 마진 저점을 확인한 뒤, FSD 규제 완화 및 옵티머스 3세대 조립 라인 투입 기대감으로 성장 프리미엄이 재평가되고 있습니다.",
-        news: [
-          "테슬라 $265선 회복... 트럼프 2기 연방 자율주행 표준화 기대감 고조 (2026-11-11)",
-          "FSD v13 배포 개시... 운전자 개입 없는 주행 마일리지 6배 향상 (2026-11-10)",
-          "사이버트럭 분기 흑자 달성 및 에너지 스토리지 메가팩 매출 52% 급증"
-        ]
-      },
-      "035420": {
-        name: "NAVER",
-        ticker: "035420",
-        currency: "KRW",
-        prevClose: 181500,
-        basePrice: 185200,
-        price: "185,200 KRW",
-        change: "+2.04% (+3,700원)",
-        isUp: true,
-        per: "18.50 배",
-        pbr: "1.25 배",
-        div: "0.95%",
-        eps: 10010,
-        bps: 148160,
-        cap: "29.8조원",
-        intradayHigh: 187500,
-        intradayLow: 180000,
-        quarter: "2026 3Q 실적 (2026-11-08 공시)",
-        revOp: "매출 2.71조원 (YoY +11.1%) | 영업이익 5,253억원 (분기 사상 최대)",
-        comment: "서치GPT 기반 통합검색 AI 탭 개편 및 B2B 하이퍼클로바X 엔터프라이즈 매출 급증으로 실적 서프라이즈 시현",
-        geminiEval: "[NAVER 펀더멘털 평가] 3분기 분기 영업이익 5,200억원대를 돌파하며 사상 최대치를 경신했습니다. 광고·커머스 본업의 견고한 성장 위에 사우디 디지털 트윈 등 중동 프로젝트 매출 인식이 가시화되고 있습니다.",
-        news: [
-          "[특징주] NAVER 3분기 사상 최대 실적에 18만5천원선 안착 (2026-11-11)",
-          "생성형 AI 하이퍼클로바X B2B 수주 2,000억원 돌파... 서치GPT 탭 개편 (2026-11-10)",
-          "사우디 주택부 디지털 트윈 플랫폼 1차 구축 완료 및 추가 수출 기대"
-        ]
-      },
-      "042700": {
-        name: "한미반도체",
-        ticker: "042700",
-        currency: "KRW",
-        prevClose: 114000,
-        basePrice: 118500,
-        price: "118,500 KRW",
-        change: "+3.95% (+4,500원)",
-        isUp: true,
-        per: "28.50 배",
-        pbr: "8.20 배",
-        div: "0.72%",
-        eps: 4158,
-        bps: 14451,
-        cap: "11.5조원",
-        intradayHigh: 121000,
-        intradayLow: 113500,
-        quarter: "2026 3Q 실적 요약",
-        revOp: "매출 2,085억원 | 영업이익 993억원 (OPM 47.6% 독보적 마진율)",
-        comment: "TC 본더 글로벌 점유율 80% 독점 및 HBM4 하이브리드 본더 사전 장비 수주 협의 순항",
-        geminiEval: "[한미반도체 펀더멘털 평가] HBM 제조의 핵심인 듀얼 TC 본더 시장을 독점하며 영업이익률 47%대를 달성했습니다. SK하이닉스뿐 아니라 마이크론향 수주 확대가 실적 상단을 견인하고 있습니다.",
-        news: [
-          "[특징주] 한미반도체 11만8500원 반등... HBM4 본더 독점력 재확인 (2026-11-11)",
-          "마이크론 타이완 패키징 라인향 TC 본더 3차 공급 계약 체결 (2026-11-10)",
-          "2026년 연간 영업이익 4,000억원 달성 전망 (현대차증권)"
-        ]
-      },
-      "034020": {
-        name: "두산에너빌리티",
-        ticker: "034020",
-        currency: "KRW",
-        prevClose: 20800,
-        basePrice: 21500,
-        price: "21,500 KRW",
-        change: "+3.37% (+700원)",
-        isUp: true,
-        per: "22.00 배",
-        pbr: "1.85 배",
-        div: "0.50%",
-        eps: 977,
-        bps: 11621,
-        cap: "13.8조원",
-        intradayHigh: 22100,
-        intradayLow: 20600,
-        quarter: "2026 3Q 실적 요약",
-        revOp: "매출 4.39조원 | 영업이익 2,840억원 (원전 및 가스터빈 수주 견인)",
-        comment: "체코 두코바니 24조 원전 수주 본계약 임박 및 미국 뉴스케일파워 SMR 주기기 전용 파운드리 가동",
-        geminiEval: "[두산에너빌리티 펀더멘털 평가] 글로벌 원전 르네상스의 최대 수혜주입니다. 대형 원전 수주와 함께 AI 데이터센터 전력 공급용 SMR(소형모듈원자로) 파운드리 독점 지위를 구축하고 있습니다.",
-        news: [
-          "[특징주] 두산에너빌리티 21,500원 반등... 체코 원전 및 SMR 수주 파이프라인 (2026-11-11)",
-          "미국 빅테크 데이터센터 전력망용 SMR 모듈 납품 계약 협의 (2026-11-10)",
-          "가스터빈 100% 국산화 달성 후 중동 복합화력 발전소 수출 추진"
-        ]
-      },
-      "AAPL": {
-        name: "애플 (Apple)",
-        ticker: "AAPL",
-        currency: "USD",
-        prevClose: 226.20,
-        basePrice: 228.50,
-        price: "$228.50",
-        change: "+1.02% (+$2.30)",
-        isUp: true,
-        per: "32.10 배",
-        pbr: "45.20 배",
-        div: "0.44%",
-        eps: 7.12,
-        bps: 5.05,
-        cap: "$3,480B",
-        intradayHigh: 231.00,
-        intradayLow: 225.50,
-        quarter: "FY2026 Q4 실적 (2026-10-31 공시)",
-        revOp: "매출 $94.93B (YoY +6.1%) | 순이익 $14.73B (서비스 부문 역대 최고)",
-        comment: "애플 인텔리전스 글로벌 순차 롤아웃 및 아이폰16 프로 교체 수요 견조. 강력한 현금 흐름과 분기 자사주 매입 지속",
-        geminiEval: "[애플 펀더멘털 평가] 온디바이스 AI '애플 인텔리전스' 배포와 함께 서비스 부문 매출총이익률이 74%에 도달하며 플랫폼 락인 효과가 한층 강화되었습니다.",
-        news: [
-          "애플 $228.50 마감... 애플 인텔리전스 한국어 지원 2027 상반기 확정 (2026-11-11)",
-          "아이폰16 프로 수요 견조... 폭스콘 조립 라인 4분기 풀가동 (2026-11-10)",
-          "워런 버핏의 버크셔 해서웨이, 애플 지분 매도세 일단락 관측"
-        ]
-      },
-      "035720": {
-        name: "카카오",
-        ticker: "035720",
-        currency: "KRW",
-        prevClose: 37400,
-        basePrice: 38200,
-        price: "38,200 KRW",
-        change: "+2.14% (+800원)",
-        isUp: true,
-        per: "24.10 배",
-        pbr: "1.45 배",
-        div: "0.35%",
-        eps: 1585,
-        bps: 26345,
-        cap: "17.0조원",
-        intradayHigh: 38900,
-        intradayLow: 37100,
-        quarter: "2026 3Q 실적 요약",
-        revOp: "매출 1.92조원 | 영업이익 1,305억원 (비핵심 계열사 정리 및 톡비즈 마진 개선)",
-        comment: "신규 AI 메이트 '카나나' 연내 CBT 개시 및 톡 개편 효과. 사법 리스크 고비 통과 후 밸류에이션 바닥 탈출 시도",
-        geminiEval: "[카카오 펀더멘털 평가] 비핵심 자회사 구조 개편과 카카오톡 본업의 톡비즈 회복으로 영업이익이 턴어라운드 국면에 진입했습니다. AI 에이전트 카나나의 사용자 반응이 향후 주가 반등의 핵심 열쇠입니다.",
-        news: [
-          "[특징주] 카카오 38,200원 회복... AI 메이트 카나나 공개 및 실적 턴어라운드 (2026-11-11)",
-          "카카오모빌리티, 엔비디아와 자율주행 MOU 체결로 모빌리티 AI 협력 가속 (2026-11-10)",
-          "증권가 '카카오 구조조정 마무리 단계... 2027년 이익 레버리지 기대'"
-        ]
-      },
-      "068270": {
-        name: "셀트리온",
-        ticker: "068270",
-        currency: "KRW",
-        prevClose: 178500,
-        basePrice: 182000,
-        price: "182,000 KRW",
-        change: "+1.96% (+3,500원)",
-        isUp: true,
-        per: "35.20 배",
-        pbr: "3.10 배",
-        div: "0.40%",
-        eps: 5170,
-        bps: 58710,
-        cap: "39.5조원",
-        intradayHigh: 184500,
-        intradayLow: 177000,
-        quarter: "2026 3Q 실적 요약",
-        revOp: "매출 8,819억원 (사상 최대) | 영업이익 2,077억원 (짐펜트라 매출 본격 반영)",
-        comment: "짐펜트라(램시마SC) 미국 3대 PBM 처방집 전량 등재 완료로 2026년 4분기부터 미국 직판 매출 급증 가시화",
-        geminiEval: "[셀트리온 펀더멘털 평가] 합병 상각비 부담이 3분기를 기점으로 해소되며 영업이익률이 20%대 후반으로 복귀했습니다. 미국 신약 짐펜트라의 PBM 등재 완료가 강력한 실적 드라이브로 작용 중입니다.",
-        news: [
-          "[특징주] 셀트리온 18만2000원 안착... 짐펜트라 미국 처방 급증 모멘텀 (2026-11-11)",
-          "미국 3대 PBM 커버리지 100% 확보 및 2026 연간 매출 3.5조 목표 순항 (2026-11-10)",
-          "키트루다 바이오시밀러 임상 3상 완료 임박으로 파이프라인 추가 확대"
-        ]
-      }
-    };
-
-    let companiesDB = JSON.parse(JSON.stringify(predefinedCompaniesDB));
-    let userCompanyList = ["005930", "000660", "012450", "NVDA"];
-    let currentSelectedCompany = "005930";
-    let syncCycleCount = 1;
-    let priceTickCounter = 0;
-
-    /* -------------------------------------------------------------------------
-       Requirement 1 Implementation:
-       1. 관심 기업 등록 기능 (직접 입력 및 추천 빠른 추가)
-       2. 관심 기업 삭제 기능 (개별 태그 및 상세 화면에서 삭제)
-       3. LocalStorage 연동으로 영구 보존
-       ------------------------------------------------------------------------- */
-    function loadCompaniesFromStorage() {
-      // 1. Merge all predefined companies
-      for (let k in predefinedCompaniesDB) {
-        if (!companiesDB[k]) {
-          companiesDB[k] = JSON.parse(JSON.stringify(predefinedCompaniesDB[k]));
-        }
-      }
-
-      // 2. Load custom companies from localStorage
-      const savedCustom = localStorage.getItem('stock_custom_companies_db');
-      if (savedCustom) {
-        try {
-          const parsed = JSON.parse(savedCustom);
-          for (let k in parsed) {
-            companiesDB[k] = parsed[k];
-          }
-        } catch(e) {}
-      }
-
-      // 3. Load user company watchlist
-      const savedList = localStorage.getItem('stock_app_registered_companies');
-      if (savedList) {
-        try {
-          const parsedList = JSON.parse(savedList);
-          if (Array.isArray(parsedList)) {
-            userCompanyList = parsedList;
-          }
-        } catch(e) {
-          userCompanyList = ["005930", "000660", "012450", "NVDA"];
-        }
-      } else {
-        userCompanyList = ["005930", "000660", "012450", "NVDA"];
-      }
-
-      // 4. Ensure currentSelectedCompany is valid
-      if (userCompanyList.length > 0) {
-        if (!currentSelectedCompany || !userCompanyList.includes(currentSelectedCompany)) {
-          currentSelectedCompany = userCompanyList[0];
-        }
-      } else {
-        currentSelectedCompany = null;
-      }
-    }
-
-    function saveCompaniesToStorage() {
-      localStorage.setItem('stock_app_registered_companies', JSON.stringify(userCompanyList));
-
-      const customDB = {};
-      for (let k in companiesDB) {
-        if (!predefinedCompaniesDB[k]) {
-          customDB[k] = companiesDB[k];
-        }
-      }
-      localStorage.setItem('stock_custom_companies_db', JSON.stringify(customDB));
-    }
-
-    function renderCompanyTags() {
-      const container = document.getElementById('company-tags-container');
-      const countEl = document.getElementById('registered-company-count');
-      const dataView = document.getElementById('company-data-view');
-      const emptyState = document.getElementById('company-empty-state');
-
-      if (countEl) countEl.innerText = `등록 ${userCompanyList.length}종목`;
-
-      if (userCompanyList.length === 0) {
-        if (dataView) dataView.style.display = 'none';
-        if (emptyState) emptyState.style.display = 'block';
-        if (container) container.innerHTML = '<span style="font-size: 0.8rem; color: #8b949e; padding: 4px;">등록된 기업이 없습니다.</span>';
-        return;
-      } else {
-        if (dataView) dataView.style.display = 'block';
-        if (emptyState) emptyState.style.display = 'none';
-      }
-
-      if (!container) return;
-      container.innerHTML = '';
-
-      userCompanyList.forEach(code => {
-        const comp = companiesDB[code] || predefinedCompaniesDB[code] || { name: code, ticker: code };
-        const isActive = (code === currentSelectedCompany);
-
-        const tagItem = document.createElement('div');
-        tagItem.className = `company-tag-item ${isActive ? 'active' : ''}`;
-        tagItem.onclick = () => selectCompany(code);
-        tagItem.innerHTML = `
-          <span>${comp.name}</span>
-          <span style="font-size: 0.7rem; opacity: 0.75;">(${comp.ticker})</span>
-          <span class="company-tag-del" title="${comp.name} 삭제" onclick="event.stopPropagation(); deleteCompany('${code}')">✕</span>
-        `;
-        container.appendChild(tagItem);
-      });
-    }
-
-    function selectCompany(code) {
-      if (!companiesDB[code] && !predefinedCompaniesDB[code]) return;
-      currentSelectedCompany = code;
-      renderCompanyTags();
-      renderCompanyDetails(code, true);
-      const curComp = companiesDB[code] || predefinedCompaniesDB[code];
-      if (curComp) {
-        showNotif(`[${curComp.name}] 주가 ${curComp.price} (${curComp.change}) 로드 완료`);
-      }
-    }
-
-    function deleteCompany(code) {
-      const comp = companiesDB[code] || { name: code };
-      if (!confirm(`'${comp.name}' (${code}) 기업을 관심 목록에서 삭제하시겠습니까?`)) return;
-      
-      userCompanyList = userCompanyList.filter(c => c !== code);
-      saveCompaniesToStorage();
-
-      if (currentSelectedCompany === code) {
-        currentSelectedCompany = userCompanyList.length > 0 ? userCompanyList[0] : null;
-      }
-
-      renderCompanyTags();
-      if (currentSelectedCompany) {
-        renderCompanyDetails(currentSelectedCompany, true);
-      }
-      showNotif(`'${comp.name}' 기업이 관심 목록에서 삭제되었습니다.`);
-    }
-
-    function deleteCurrentCompany() {
-      if (currentSelectedCompany) {
-        deleteCompany(currentSelectedCompany);
-      }
-    }
-
-    function registerCompanyFromInput() {
-      const input = document.getElementById('company-search-input');
-      const val = input ? input.value.trim() : '';
-      if (!val) {
-        showNotif("등록할 종목명 또는 종목코드를 입력해 주세요.");
-        return;
-      }
-
-      const q = val.toLowerCase();
-      let matchedCode = null;
-
-      // 1. Exact match in DB
-      for (let k in companiesDB) {
-        if (k.toLowerCase() === q || companiesDB[k].name.toLowerCase() === q) {
-          matchedCode = k;
-          break;
-        }
-      }
-      if (!matchedCode) {
-        for (let k in predefinedCompaniesDB) {
-          if (k.toLowerCase() === q || predefinedCompaniesDB[k].name.toLowerCase() === q) {
-            matchedCode = k;
-            break;
-          }
-        }
-      }
-      // 2. Substring match
-      if (!matchedCode) {
-        for (let k in companiesDB) {
-          if (k.toLowerCase().includes(q) || companiesDB[k].name.toLowerCase().includes(q)) {
-            matchedCode = k;
-            break;
-          }
-        }
-      }
-      if (!matchedCode) {
-        for (let k in predefinedCompaniesDB) {
-          if (k.toLowerCase().includes(q) || predefinedCompaniesDB[k].name.toLowerCase().includes(q)) {
-            matchedCode = k;
-            break;
-          }
-        }
-      }
-
-      if (matchedCode) {
-        if (!companiesDB[matchedCode] && predefinedCompaniesDB[matchedCode]) {
-          companiesDB[matchedCode] = JSON.parse(JSON.stringify(predefinedCompaniesDB[matchedCode]));
-        }
-
-        if (userCompanyList.includes(matchedCode)) {
-          selectCompany(matchedCode);
-          showNotif(`[${companiesDB[matchedCode].name}] 이미 등록된 관심 기업입니다.`);
-        } else {
-          userCompanyList.push(matchedCode);
-          saveCompaniesToStorage();
-          selectCompany(matchedCode);
-          renderCompanyTags();
-          showNotif(`[${companiesDB[matchedCode].name}] 관심 기업으로 등록 완료!`);
-        }
-        if (input) input.value = '';
-        return;
-      }
-
-      // 3. If not found in DB, intelligently generate realistic profile for custom company
-      const isUsCode = /^[a-zA-Z]+$/.test(val);
-      const isKrDigits = /^\d{6}$/.test(val);
-      const ticker = isUsCode ? val.toUpperCase() : (isKrDigits ? val : `C_${Date.now().toString().slice(-4)}`);
-      const compName = isKrDigits ? `종목(${val})` : val;
-      const currency = isUsCode ? "USD" : "KRW";
-      const basePrice = isUsCode ? 125.0 : 48500;
-      const priceStr = isUsCode ? `$125.00` : `48,500 KRW`;
-
-      const newComp = {
-        name: compName,
-        ticker: ticker,
-        currency: currency,
-        prevClose: basePrice * 0.985,
-        basePrice: basePrice,
-        price: priceStr,
-        change: "+1.52% (+720원)",
-        isUp: true,
-        per: "13.20 배",
-        pbr: "1.42 배",
-        div: "1.80%",
-        eps: isUsCode ? 9.46 : 3674,
-        bps: isUsCode ? 88.02 : 34154,
-        cap: isUsCode ? "$24.5B" : "6.2조원",
-        intradayHigh: basePrice * 1.025,
-        intradayLow: basePrice * 0.975,
-        quarter: "2026 3Q 실적 추정",
-        revOp: "분기 매출 견조한 성장세 지속 | 영업이익 흑자 기조 유지",
-        comment: `'${compName}' 관심 종목으로 신규 등록됨. 실시간 펀더멘털 및 시장 수급 추적 시작`,
-        geminiEval: `[${compName} 펀더멘털 평가] 신규 등록된 관심 종목입니다. 2026년 3분기 실적 기준 안정적인 영업 현금흐름과 업종 평균 대비 매력적인 밸류에이션(PER 13배 수준)을 유지하고 있습니다.`,
-        news: [
-          `[특징주] ${compName} 관심 종목 등록... 수급 유입 및 실시간 시세 연동 시작 (2026-11-12)`,
-          `${compName} 3분기 실적 호조 및 4분기 신규 사업 모멘텀 주목 (2026-11-12)`,
-          `증권가 '${compName} 중장기 밸류에이션 매력 점증' (2026-11-12)`
-        ]
-      };
-
-      companiesDB[ticker] = newComp;
-      userCompanyList.push(ticker);
-      saveCompaniesToStorage();
-      selectCompany(ticker);
-      renderCompanyTags();
-      showNotif(`[${compName}] 신규 등록 완료 (실시간 시세 & 밸류에이션 추적 시작)`);
-      if (input) input.value = '';
-    }
-
-    function quickRegister(code) {
-      if (predefinedCompaniesDB[code]) {
-        if (!companiesDB[code]) {
-          companiesDB[code] = JSON.parse(JSON.stringify(predefinedCompaniesDB[code]));
-        }
-        if (!userCompanyList.includes(code)) {
-          userCompanyList.push(code);
-          saveCompaniesToStorage();
-          showNotif(`[${companiesDB[code].name}] 관심 기업 등록 완료!`);
-        } else {
-          showNotif(`[${companiesDB[code].name}] 이미 등록된 기업입니다.`);
-        }
-        selectCompany(code);
-        renderCompanyTags();
-      }
-    }
-
-    function searchCustomCompany() {
-      const input = document.getElementById('company-search-input');
-      const q = input ? input.value.trim().toLowerCase() : '';
-      if (!q) {
-        showNotif("검색할 종목명 또는 코드를 입력해 주세요.");
-        return;
-      }
-      let matched = null;
-      for (let k in companiesDB) {
-        if (k.toLowerCase().includes(q) || companiesDB[k].name.toLowerCase().includes(q)) {
-          matched = k;
-          break;
-        }
-      }
-      if (!matched) {
-        for (let k in predefinedCompaniesDB) {
-          if (k.toLowerCase().includes(q) || predefinedCompaniesDB[k].name.toLowerCase().includes(q)) {
-            matched = k;
-            break;
-          }
-        }
-      }
-
-      if (matched) {
-        if (!companiesDB[matched] && predefinedCompaniesDB[matched]) {
-          companiesDB[matched] = JSON.parse(JSON.stringify(predefinedCompaniesDB[matched]));
-        }
-        if (!userCompanyList.includes(matched)) {
-          userCompanyList.push(matched);
-          saveCompaniesToStorage();
-        }
-        selectCompany(matched);
-        renderCompanyTags();
-        showNotif(`[${companiesDB[matched].name}] 기업 분석 데이터를 불러왔습니다.`);
-      } else {
-        showNotif(`'${q}' 관련 등록 기업을 찾지 못했습니다. '➕ 기업 등록'을 눌러 직접 등록해 보세요.`);
-      }
-    }
-
-    function refreshCurrentCompanyPriceManual() {
-      refreshCompanyPricesOnly(true, true);
-    }
-
-    function refreshCompanyPricesOnly(showFlash = true, showToast = false) {
-      const now = new Date();
-      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
-      priceTickCounter++;
-      updateCompanyStockPrices(timeStr, true);
-      
-      const compTimeEl = document.getElementById('comp-updated-time');
-      if (compTimeEl) {
-        compTimeEl.innerText = `${timeStr} 실시간 체결`;
-      }
-
-      if (currentSelectedCompany) {
-        renderCompanyDetails(currentSelectedCompany, showFlash);
-      }
-
-      if (showToast && currentSelectedCompany) {
-        const curComp = companiesDB[currentSelectedCompany] || predefinedCompaniesDB[currentSelectedCompany];
-        if (curComp) {
-          showNotif(`⚡ [${curComp.name}] ${timeStr} 체결가 ${curComp.price} (${curComp.change}) 갱신 완료!`);
-        }
-      }
-    }
-
-    function updateCompanyStockPrices(timeStr, forceTick = false) {
-      for (let code in companiesDB) {
-        const comp = companiesDB[code];
-        
-        let tickDelta = 0;
-        if (forceTick) {
-          if (comp.currency === 'USD') {
-            const usdSteps = [+0.35, -0.20, +0.65, -0.40, +0.50, -0.30, +0.25];
-            tickDelta = usdSteps[(priceTickCounter + code.length) % usdSteps.length];
-          } else {
-            const tickUnit = comp.basePrice >= 1000000 ? 1000 : (comp.basePrice >= 500000 ? 500 : 100);
-            const stepMultipliers = [+2, -1, +3, +1, -2, +4, 0, -1, +2];
-            const step = stepMultipliers[(priceTickCounter + parseInt(code.slice(-3) || '1')) % stepMultipliers.length];
-            tickDelta = step * tickUnit;
-          }
-        }
-
-        if (comp.currency === 'USD') {
-          const currentUSD = parseFloat((comp.basePrice + tickDelta).toFixed(2));
-          comp.price = `$${currentUSD.toFixed(2)}`;
-          const diffUSD = currentUSD - comp.prevClose;
-          const pct = ((diffUSD / comp.prevClose) * 100).toFixed(2);
-          comp.isUp = diffUSD >= 0;
-          const sign = diffUSD >= 0 ? '+' : '';
-          comp.change = `${sign}${pct}% (${diffUSD >= 0 ? '+$' : '-$'}${Math.abs(diffUSD).toFixed(2)})`;
-          if (comp.eps > 0) comp.per = (currentUSD / comp.eps).toFixed(2) + " 배";
-          if (comp.bps > 0) comp.pbr = (currentUSD / comp.bps).toFixed(2) + " 배";
-        } else {
-          const currentPriceNum = comp.basePrice + tickDelta;
-          comp.price = `${currentPriceNum.toLocaleString()} KRW`;
-          const diffKRW = currentPriceNum - comp.prevClose;
-          const pct = ((diffKRW / comp.prevClose) * 100).toFixed(2);
-          comp.isUp = diffKRW >= 0;
-          const sign = diffKRW >= 0 ? '+' : '';
-          comp.change = `${sign}${pct}% (${diffKRW >= 0 ? '+' : '-'}${Math.abs(diffKRW).toLocaleString()}원)`;
-          if (comp.eps > 0) comp.per = (currentPriceNum / comp.eps).toFixed(2) + " 배";
-          if (comp.bps > 0) comp.pbr = (currentPriceNum / comp.bps).toFixed(2) + " 배";
-        }
-      }
-    }
-
-    function renderCompanyDetails(code, triggerFlash = false) {
-      const dataView = document.getElementById('company-data-view');
-      const emptyState = document.getElementById('company-empty-state');
-
-      if (!code || !companiesDB[code]) {
-        if (dataView) dataView.style.display = 'none';
-        if (emptyState) emptyState.style.display = 'block';
-        return;
-      }
-
-      if (dataView) dataView.style.display = 'block';
-      if (emptyState) emptyState.style.display = 'none';
-
-      const d = companiesDB[code];
-      const nameEl = document.getElementById('comp-name');
-      const tickerEl = document.getElementById('comp-ticker');
-      const priceEl = document.getElementById('comp-price');
-      const chgEl = document.getElementById('comp-change');
-
-      if (nameEl) nameEl.innerText = d.name;
-      if (tickerEl) tickerEl.innerText = d.ticker;
-      if (priceEl) priceEl.innerText = d.price;
-      if (chgEl) {
-        chgEl.innerText = d.change;
-        chgEl.className = d.isUp ? 'up' : 'down';
-      }
-
-      if (triggerFlash) {
-        const priceBox = document.getElementById('comp-price-box');
-        if (priceBox) {
-          priceBox.classList.remove('flash-update');
-          void priceBox.offsetWidth;
-          priceBox.classList.add('flash-update');
-          setTimeout(() => priceBox.classList.remove('flash-update'), 1500);
-        }
-      }
-
-      const perEl = document.getElementById('comp-per');
-      const pbrEl = document.getElementById('comp-pbr');
-      const divEl = document.getElementById('comp-div');
-      const epsEl = document.getElementById('comp-eps');
-      const bpsEl = document.getElementById('comp-bps');
-      const capEl = document.getElementById('comp-cap');
-
-      if (perEl) perEl.innerText = d.per;
-      if (pbrEl) pbrEl.innerText = d.pbr;
-      if (divEl) divEl.innerText = d.div;
-      if (epsEl) epsEl.innerText = typeof d.eps === 'number' ? `${d.eps.toLocaleString()} ${d.currency}` : d.eps;
-      if (bpsEl) bpsEl.innerText = typeof d.bps === 'number' ? `${d.bps.toLocaleString()} ${d.currency}` : d.bps;
-      if (capEl) capEl.innerText = d.cap;
-
-      const qEl = document.getElementById('comp-quarter');
-      const revEl = document.getElementById('comp-rev-op');
-      const commEl = document.getElementById('comp-earn-comment');
-      const evalEl = document.getElementById('comp-gemini-eval');
-
-      if (qEl) qEl.innerText = d.quarter;
-      if (revEl) revEl.innerText = d.revOp;
-      if (commEl) commEl.innerText = d.comment;
-      if (evalEl) evalEl.innerText = d.geminiEval;
-
-      const newsList = document.getElementById('comp-news-list');
-      if (newsList && Array.isArray(d.news)) {
-        newsList.innerHTML = d.news.map(n => `<li>${n}</li>`).join('');
-      }
-    }
-    function showNotif(text) {
-      const banner = document.getElementById('notif-banner');
-      document.getElementById('notif-text').innerText = text;
-      banner.style.display = 'block';
-      setTimeout(() => { banner.style.display = 'none'; }, 3500);
-    }
-
-    function updateIntervalPreview() {
-      const val = parseInt(document.getElementById('interval-value').value) || 0;
-      const unit = document.getElementById('interval-unit').value;
-      const previewEl = document.getElementById('interval-preview-text');
-      if (unit === 'hours') {
-        previewEl.innerText = `(= ${val * 60}분 간격)`;
-      } else {
-        const hrs = (val / 60).toFixed(1);
-        previewEl.innerText = val >= 60 ? `(= 약 ${hrs}시간 간격)` : `(= ${val}분 간격)`;
-      }
-    }
-
-    function setIntervalPreset(val, unit) {
-      document.getElementById('interval-toggle').checked = true;
-      document.getElementById('interval-value').value = val;
-      document.getElementById('interval-unit').value = unit;
-      toggleIntervalInputState();
-      updateIntervalPreview();
-      showNotif(`업데이트 주기가 ${val}${unit === 'hours' ? '시간' : '분'}으로 설정되었습니다.`);
-    }
-
-    function toggleIntervalInputState() {
-      const isEnabled = document.getElementById('interval-toggle').checked;
-      const grp = document.getElementById('interval-input-group');
-      if (isEnabled) {
-        grp.style.opacity = '1';
-        grp.style.pointerEvents = 'auto';
-      } else {
-        grp.style.opacity = '0.4';
-        grp.style.pointerEvents = 'none';
-      }
-    }
-
-    function saveSettings() {
-      const time = document.getElementById('report-time').value;
-      const isIntervalEnabled = document.getElementById('interval-toggle').checked;
-      const val = parseInt(document.getElementById('interval-value').value) || 1;
-      const unit = document.getElementById('interval-unit').value;
-      const totalMinutes = unit === 'hours' ? val * 60 : val;
-      const marketOnly = document.getElementById('market-only').checked;
-
-      localStorage.setItem('stock_report_time', time);
-      localStorage.setItem('stock_interval_enabled', isIntervalEnabled);
-      localStorage.setItem('stock_interval_val', val);
-      localStorage.setItem('stock_interval_unit', unit);
-      localStorage.setItem('stock_interval_minutes', totalMinutes);
-      localStorage.setItem('stock_market_only', marketOnly);
-
-      setupIntervalTimer();
-
-      const intervalText = isIntervalEnabled ? `${val}${unit === 'hours' ? '시간' : '분'}마다 (${totalMinutes}분 간격)` : '미사용';
-      showNotif(`설정이 저장되었습니다: 리포트 ${time}, 갱신 주기: ${intervalText}`);
-    }
-
-    let intervalTimer = null;
-
-    function setupIntervalTimer() {
-      if (intervalTimer) clearInterval(intervalTimer);
-      const isEnabled = localStorage.getItem('stock_interval_enabled') === 'true';
-      const mins = parseInt(localStorage.getItem('stock_interval_minutes')) || 60;
-      if (isEnabled && mins > 0) {
-        // Run periodic update based on configured interval minutes
-        intervalTimer = setInterval(() => {
-          runIntervalSyncAll(true);
-        }, mins * 60 * 1000);
-      }
-    }
-
-    function triggerManualSync() {
-      runIntervalSyncAll(false);
-    }
-
-    /* Unified Interval Sync: Updates Daily Briefing, Keyword Traces, and Company News together */
-    function runIntervalSyncAll(isAuto = false) {
-      const now = new Date();
-      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-      const syncStamp = `2026-11-09 ${timeStr}`;
-
-      // 1. Update Header & Briefing Timestamps
-      document.getElementById('last-sync-time').innerText = `최근 갱신: ${syncStamp} (${isAuto ? '자동 주기' : '수동 동기화'})`;
-      const baseEl = document.getElementById('briefing-base-time');
-      if (baseEl) baseEl.innerText = `기준 ${syncStamp} KST (실시간 지표 갱신됨)`;
-
-      // Minor real-time fluctuation simulation during live trading
-      const fxElem = document.getElementById('fx-val');
-      if (fxElem) fxElem.innerText = `1,341.${Math.floor(Math.random() * 50 + 10)} (-0.24%)`;
-
-      // 2. Update Keyword Traces with live analysis
-      refreshTracesManual();
-
-      // 3. Update Company Stock Prices, Valuation Metrics, and News
-      syncCycleCount++;
-      refreshCompanyPricesOnly(true, false);
-
-      const compTimeEl = document.getElementById('comp-updated-time');
-      if (compTimeEl) {
-        compTimeEl.innerText = `📅 기준: 2026-11-09 ${timeStr} KST 장중 실시간 연동 (주가 갱신 완료)`;
-      }
-
-      function addCompanyNews(ticker, newsItem) {
-        if (!companiesDB[ticker]) return;
-        const cleanNews = newsItem.replace(/\s*\(\d{1,2}[:/]\d{2}\)\s*$/g, '').trim();
-        const exists = companiesDB[ticker].news.some(n => n.replace(/\s*\(\d{1,2}[:/]\d{2}\)\s*$/g, '').trim() === cleanNews);
-        if (!exists) {
-          companiesDB[ticker].news.unshift(newsItem);
-          if (companiesDB[ticker].news.length > 5) {
-            companiesDB[ticker].news = companiesDB[ticker].news.slice(0, 5);
-          }
-        }
-      }
-
-      addCompanyNews("005930", `[실시간 속보] 삼성전자 198,900원 마감 후 20만전자 안착 시도... 기관 1,749억 순매수 유입`);
-      addCompanyNews("000660", `[실시간 속보] SK하이닉스 121만원선 탈환... 외국인 1,069억원 순매수 폭풍 유입`);
-      addCompanyNews("012450", `[실시간 속보] 한화에어로스페이스 655,000원선 하방 지지력... 해외 수주 파이프라인 견고`);
-      addCompanyNews("NVDA", `[실시간 속보] 엔비디아 $168.33 극단적 과매도(RSI 24)... AI 수요 건재 속 반발 매수 주목`);
-      renderCompanyDetails(currentSelectedCompany, true);
-
-      // Notification
-      const msg = isAuto 
-        ? `⏰ [인터벌 갱신] 브리핑, 키워드 트레이스(${currentTraces.length}개), 기업 실시간 주가 및 뉴스가 일괄 업데이트되었습니다.`
-        : `🔄 [전체 동기화] 브리핑, 키워드 트레이스, 기업 실시간 주가 및 뉴스가 최신화되었습니다.`;
-      showNotif(msg);
-    }
-
-    function loadSavedSettings() {
-      const savedTime = localStorage.getItem('stock_report_time');
-      if (savedTime) document.getElementById('report-time').value = savedTime;
-
-      const savedEnabled = localStorage.getItem('stock_interval_enabled');
-      if (savedEnabled !== null) {
-        document.getElementById('interval-toggle').checked = (savedEnabled === 'true');
-      }
-
-      const savedVal = localStorage.getItem('stock_interval_val');
-      if (savedVal) document.getElementById('interval-value').value = savedVal;
-
-      const savedUnit = localStorage.getItem('stock_interval_unit');
-      if (savedUnit) document.getElementById('interval-unit').value = savedUnit;
-
-      const savedMarketOnly = localStorage.getItem('stock_market_only');
-      if (savedMarketOnly !== null) {
-        document.getElementById('market-only').checked = (savedMarketOnly === 'true');
-      }
-
-      const isAppLock = localStorage.getItem('stock_app_lock_all') === 'true';
-      const lockToggle = document.getElementById('full-app-lock-toggle');
-      if (lockToggle) lockToggle.checked = isAppLock;
-
-      toggleIntervalInputState();
-      updateIntervalPreview();
-      setupIntervalTimer();
-    }
-
-    function testNotification() {
-      showNotif("🔔 [08:00 AM 모닝 리포트] SOX +1.15% 마감, 반도체·우주항공 주요 브리핑 도착!");
-    }
-
-    loadTracesFromStorage();
-    renderTraces();
-    loadCompaniesFromStorage();
-    renderCompanyTags();
-    if (currentSelectedCompany) {
-      renderCompanyDetails(currentSelectedCompany, false);
-    }
-    refreshCompanyPricesOnly(false, false);
-    loadSavedSettings();
-    checkFullAppLockOnLoad();
   </script>
+  <script src="app.js?v=3.0"></script>
 </body>
 </html>

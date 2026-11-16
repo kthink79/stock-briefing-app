@@ -1,0 +1,823 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""실시간 시세·뉴스 수집기 (stock-briefing-app 백엔드)
+
+GitHub Actions에서 주기적으로 실행되어 아래 두 파일을 저장소에 기록한다.
+  data/market_latest.json  : 국내/해외 주가·지수·금리·환율 (네이버 금융 실시간)
+  data/news_latest.json    : 키워드별 최신 뉴스 (Google News RSS)
+
+정적 호스팅(GitHub Pages) 앱은 이 JSON을 `?t=<timestamp>` 캐시버스팅으로
+fetch 하여 "실제 최신" 데이터를 표시한다. 네트워크/파싱 실패 시에는
+직전 파일의 값을 유지하고 errors/stale 표시를 남긴다(가짜 값 생성 금지).
+
+사용:
+  python3 scripts/collect_live_data.py [--check]
+    --check : 파일을 쓰지 않고 수집 결과 요약만 출력(테스트/로컬 확인용)
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import re
+import sys
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+import xml.etree.ElementTree as ET
+from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
+
+KST = timezone(timedelta(hours=9))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(ROOT, "data")
+MARKET_PATH = os.path.join(DATA_DIR, "market_latest.json")
+NEWS_PATH = os.path.join(DATA_DIR, "news_latest.json")
+CONFIG_PATH = os.path.join(DATA_DIR, "config.json")
+
+UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+      "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+
+NAVER_POLL = "https://polling.finance.naver.com/api/realtime"
+NAVER_PRODUCT = "https://m.stock.naver.com/front-api/marketIndex/productDetail"
+GOOGLE_NEWS = "https://news.google.com/rss/search"
+
+DEFAULT_CONFIG = {
+    "kr_stocks": {
+        "005930": "삼성전자",
+        "000660": "SK하이닉스",
+        "012450": "한화에어로스페이스",
+        "005380": "현대차",
+        "035420": "NAVER",
+        "042700": "한미반도체",
+        "034020": "두산에너빌리티",
+        "035720": "카카오",
+        "068270": "셀트리온",
+    },
+    "us_stocks": {
+        "NVDA": "NVDA.O",
+        "TSLA": "TSLA.O",
+        "AAPL": "AAPL.O",
+        "AMD": "AMD.O",
+        "AVGO": "AVGO.O",
+        "MU": "MU.O",
+    },
+    "kr_indices": ["KOSPI", "KOSDAQ"],
+    "us_indices": {
+        "DOW": ".DJI",
+        "NASDAQ": ".IXIC",
+        "SP500": ".INX",
+        "SOX": ".SOX",
+    },
+    "rates": {"US10Y": "US10YT=RR", "US2Y": "US2YT=RR"},
+    "fx": {"USDKRW": "FX_USDKRW"},
+    "trace_keywords": [
+        {"id": "trace_nvda", "keyword": "엔비디아", "query": "엔비디아"},
+        {"id": "trace_hbm", "keyword": "HBM", "query": "HBM 반도체"},
+        {"id": "trace_iran", "keyword": "미국 이란 전쟁", "query": "미국 이란"},
+        {"id": "trace_trump", "keyword": "트럼프", "query": "트럼프 관세"},
+    ],
+    "sector_news": [
+        {"tag": "반도체", "query": "반도체 수출"},
+        {"tag": "국내증시", "query": "코스피 외국인"},
+        {"tag": "AI", "query": "AI 데이터센터 투자"},
+    ],
+    "keyword_pool": [
+        "삼성전자", "SK하이닉스", "반도체", "AI", "HBM", "금리", "환율",
+        "비트코인", "현대차", "방산", "조선", "원전", "중국", "관세",
+        "연준", "물가", "코스피", "테슬라", "애플", "2차전지", "바이오",
+        "우주항공", "메모리", "엔비디아", "트럼프", "이란",
+    ],
+    "news_max_age_days": 10,
+    "news_per_keyword": 30,
+    "news_reuse_minutes": 20,
+    "sector_reuse_minutes": 60,
+    "company_reuse_minutes": 60,
+    "company_per_run": 2,
+    "pool_reuse_minutes": 120,
+    "pool_per_run": 3,
+}
+
+
+# --------------------------------------------------------------------------
+# helpers
+# --------------------------------------------------------------------------
+def now_kst() -> datetime:
+    return datetime.now(KST)
+
+
+def num(value):
+    """'1,234.5' / '-0.24%' / '-' 등을 float로 변환. 값이 없으면 None."""
+    if value is None:
+        return None
+    if isinstance(value, (int, float)):
+        return float(value)
+    text = str(value).replace(",", "").replace("%", "").replace("+", "").strip()
+    if text in ("", "-", "N/A", "null", "None"):
+        return None
+    try:
+        return float(text)
+    except ValueError:
+        return None
+
+
+def http_get(url: str, timeout: int = 15, retries: int = 2) -> bytes:
+    last_err = None
+    for attempt in range(retries + 1):
+        req = urllib.request.Request(url, headers={
+            "User-Agent": UA,
+            "Accept": "*/*",
+            "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.8",
+        })
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                return resp.read()
+        except urllib.error.HTTPError as e:  # 429/500 등
+            last_err = f"HTTP {e.code} {url}"
+            if e.code in (429, 500, 502, 503, 504):
+                time.sleep(1.5 * (attempt + 1))
+                continue
+            raise
+        except Exception as e:  # urllib.error.URLError ...
+            last_err = f"{type(e).__name__}: {e} ({url})"
+            time.sleep(1.0 * (attempt + 1))
+    raise RuntimeError(last_err or f"request failed: {url}")
+
+
+def get_json(url: str) -> dict:
+    return json.loads(http_get(url).decode("utf-8", "replace"))
+
+
+def iso_kst(dt: datetime) -> str:
+    return dt.astimezone(KST).isoformat(timespec="seconds")
+
+
+# --------------------------------------------------------------------------
+# parsing: 네이버 금융 실시간
+# --------------------------------------------------------------------------
+def parse_naver_quote(item: dict, currency_default: str = "KRW") -> dict:
+    """네이버 polling 응답의 한 종목/지수를 정규화한다."""
+    price = num(item.get("closePrice"))
+    diff = num(item.get("compareToPreviousClosePrice"))
+    pct = num(item.get("fluctuationsRatio"))
+    prev_close = None
+    if price is not None and diff is not None:
+        prev_close = round(price - diff, 4)
+
+    currency = currency_default
+    ctype = item.get("currencyType") or {}
+    if ctype.get("code"):
+        currency = ctype["code"]
+
+    quote = {
+        "name": item.get("stockName") or item.get("indexName") or item.get("itemCode"),
+        "price": price,
+        "prev_close": prev_close,
+        "change": diff,
+        "pct": pct,
+        "currency": currency,
+        "market_status": item.get("marketStatus"),
+        "as_of": item.get("localTradedAt"),
+        "high": num(item.get("highPrice")),
+        "low": num(item.get("lowPrice")),
+        "open": num(item.get("openPrice")),
+        "volume": num(item.get("accumulatedTradingVolume")),
+        "market_value": num(item.get("marketValueFull")),
+    }
+
+    # 장전/시간외 거래가 있으면 별도로 표기(프리마켓/애프터마켓)
+    over = item.get("overMarketPriceInfo") or {}
+    if over and num(over.get("overPrice")) is not None:
+        quote["extended"] = {
+            "session": over.get("tradingSessionType"),
+            "price": num(over.get("overPrice")),
+            "pct": num(over.get("fluctuationsRatio")),
+            "change": num(over.get("compareToPreviousClosePrice")),
+            "as_of": over.get("localTradedAt"),
+            "volume": num(over.get("accumulatedTradingVolumeRaw")),
+        }
+    return quote
+
+
+def fetch_domestic_stocks(codes) -> dict:
+    if not codes:
+        return {}
+    url = f"{NAVER_POLL}/domestic/stock/{','.join(codes)}"
+    payload = get_json(url)
+    out = {}
+    for item in payload.get("datas", []):
+        code = item.get("itemCode") or item.get("symbolCode")
+        if code:
+            out[code] = parse_naver_quote(item, "KRW")
+    return out
+
+
+def fetch_domestic_index(codes) -> dict:
+    if not codes:
+        return {}
+    url = f"{NAVER_POLL}/domestic/index/{','.join(codes)}"
+    payload = get_json(url)
+    out = {}
+    for item in payload.get("datas", []):
+        code = (item.get("itemCode") or "").upper()
+        if code:
+            out[code] = parse_naver_quote(item, "KRW")
+    return out
+
+
+def fetch_world_stocks(mapping: dict) -> dict:
+    """mapping: {앱코드: 네이버 reuters code}"""
+    if not mapping:
+        return {}
+    rev = {v: k for k, v in mapping.items()}
+    url = f"{NAVER_POLL}/worldstock/stock/{','.join(mapping.values())}"
+    payload = get_json(url)
+    out = {}
+    for item in payload.get("datas", []):
+        rcode = item.get("reutersCode") or item.get("symbolCode")
+        key = rev.get(rcode) or rcode
+        quote = parse_naver_quote(item, "USD")
+        if not quote["name"]:
+            quote["name"] = key
+        out[key] = quote
+    return out
+
+
+def fetch_world_index(mapping: dict) -> dict:
+    """mapping: {앱키: 네이버 지수 코드}"""
+    if not mapping:
+        return {}
+    rev = {v: k for k, v in mapping.items()}
+    url = f"{NAVER_POLL}/worldstock/index/{','.join(mapping.values())}"
+    payload = get_json(url)
+    out = {}
+    for item in payload.get("datas", []):
+        rcode = item.get("reutersCode") or item.get("itemCode")
+        key = rev.get(rcode) or rcode
+        out[key] = parse_naver_quote(item, "USD")
+    return out
+
+
+def fetch_product(category: str, reuters_code: str) -> dict | None:
+    query = urllib.parse.urlencode({"category": category, "reutersCode": reuters_code})
+    try:
+        payload = get_json(f"{NAVER_PRODUCT}?{query}")
+    except Exception:
+        return None
+    result = payload.get("result") or {}
+    price = num(result.get("closePrice"))
+    if price is None:
+        return None
+    return {
+        "name": result.get("name"),
+        "price": price,
+        "change": num(result.get("fluctuations")),
+        "pct": num(result.get("fluctuationsRatio")),
+        "currency": (result.get("currencyType") or {}).get("code"),
+        "market_status": result.get("marketStatus"),
+        "as_of": result.get("localTradedAt"),
+    }
+
+
+def fetch_rates(mapping: dict) -> dict:
+    out = {}
+    for key, code in mapping.items():
+        q = fetch_product("bond", code)
+        if q:
+            # 금리는 bp 변화도 함께 (10년물 5.129% → -0.0239 = -2.39bp)
+            if q.get("change") is not None:
+                q["bp"] = round(q["change"] * 100, 2)
+            out[key] = q
+    return out
+
+
+def fetch_fx(mapping: dict) -> dict:
+    out = {}
+    for key, code in mapping.items():
+        q = fetch_product("exchange", code)
+        if q:
+            out[key] = q
+    return out
+
+
+# --------------------------------------------------------------------------
+# parsing: Google News RSS
+# --------------------------------------------------------------------------
+_TAG_RE = re.compile(r"\[[^\]]{1,12}\]|\([^)]{1,12}\)")
+_WS_RE = re.compile(r"\s+")
+
+
+def clean_title(title: str, source: str = "") -> str:
+    title = (title or "").strip()
+    if source:
+        for sep in (" - ", " – ", " | "):
+            if title.endswith(sep + source):
+                title = title[: -len(sep + source)]
+                break
+    return _WS_RE.sub(" ", title).strip()
+
+
+def title_key(title: str) -> str:
+    """중복 판단용 정규화 키: 대괄호 태그/기호/공백 제거."""
+    t = _TAG_RE.sub(" ", title or "")
+    t = re.sub(r"[^0-9A-Za-z가-힣]", "", t).lower()
+    return t
+
+
+def parse_google_news_rss(xml_bytes: bytes, keyword: str, max_age_days: int = 10,
+                          limit: int = 30) -> list:
+    articles = []
+    cutoff = now_kst() - timedelta(days=max_age_days)
+    root = ET.fromstring(xml_bytes)
+    channel = root.find("channel")
+    if channel is None:
+        return articles
+    seen = set()
+    for item in channel.findall("item"):
+        raw_title = item.findtext("title") or ""
+        source_el = item.find("source")
+        source = (source_el.text or "").strip() if source_el is not None else ""
+        link = item.findtext("link") or ""
+        pub = item.findtext("pubDate") or ""
+        try:
+            dt = parsedate_to_datetime(pub)
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            dt = dt.astimezone(KST)
+        except Exception:
+            continue
+        if dt < cutoff:
+            continue
+        title = clean_title(raw_title, source)
+        key = title_key(title)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        articles.append({
+            "keyword": keyword,
+            "title": title,
+            "source": source or "Google News",
+            "url": link,
+            "date": dt.strftime("%Y-%m-%d"),
+            "time": dt.strftime("%H:%M"),
+            "published_at": iso_kst(dt),
+        })
+        if len(articles) >= limit:
+            break
+    articles.sort(key=lambda a: a["published_at"], reverse=True)
+    return articles
+
+
+def fetch_news_for(query: str, max_age_days: int = 10, limit: int = 30) -> list:
+    params = urllib.parse.urlencode({
+        "q": query, "hl": "ko", "gl": "KR", "ceid": "KR:ko",
+    })
+    xml_bytes = http_get(f"{GOOGLE_NEWS}?{params}", timeout=25, retries=3)
+    return parse_google_news_rss(xml_bytes, query, max_age_days, limit)
+
+
+def is_fresh(fetched_at: str | None, minutes: int) -> bool:
+    """직전 수집 시각이 minutes 이내인지 (429 회피용 저부하 캐시)."""
+    if not fetched_at:
+        return False
+    try:
+        dt = datetime.fromisoformat(fetched_at)
+    except Exception:
+        return False
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=KST)
+    return (now_kst() - dt) < timedelta(minutes=minutes)
+
+
+# --------------------------------------------------------------------------
+# briefing (실제 수치로만 문장 생성 — 추정/가짜 값 없음)
+# --------------------------------------------------------------------------
+def fmt_num(v, digits=2):
+    if v is None:
+        return "-"
+    if digits == 0:
+        return f"{v:,.0f}"
+    return f"{v:,.{digits}f}"
+
+
+def fmt_pct(v):
+    if v is None:
+        return "-"
+    sign = "+" if v > 0 else ""
+    return f"{sign}{v:.2f}%"
+
+
+def build_briefing(market: dict, stock_map: dict, news: dict) -> dict:
+    indices = market.get("indices") or {}
+    rates = market.get("rates") or {}
+    fx = market.get("fx") or {}
+    stocks = market.get("stocks") or {}
+
+    def idx_line(key, label):
+        q = indices.get(key) or {}
+        if q.get("price") is None:
+            return None
+        return f"{label} {fmt_num(q['price'])} ({fmt_pct(q.get('pct'))})"
+
+    us_line = ", ".join(x for x in [
+        idx_line("DOW", "다우"), idx_line("NASDAQ", "나스닥"),
+        idx_line("SP500", "S&P500"), idx_line("SOX", "SOX"),
+    ] if x)
+    kr_line = ", ".join(x for x in [
+        idx_line("KOSPI", "코스피"), idx_line("KOSDAQ", "코스닥"),
+    ] if x)
+
+    headline = ""
+    if us_line:
+        headline = f"미국 증시 마감: {us_line}"
+        if kr_line:
+            headline += f" / {kr_line}"
+
+    def stock_moves(keys):
+        rows = []
+        for k in keys:
+            q = stocks.get(k) or {}
+            if q.get("pct") is None:
+                continue
+            rows.append((q.get("name") or k, q["pct"], q.get("price")))
+        return rows
+
+    us_rows = stock_moves([k for k in stock_map.get("us", [])])
+    kr_rows = stock_moves([k for k in stock_map.get("kr", [])])
+    worst_us = min(us_rows, key=lambda r: r[1]) if us_rows else None
+    worst_kr = min(kr_rows, key=lambda r: r[1]) if kr_rows else None
+    best_us = max(us_rows, key=lambda r: r[1]) if us_rows else None
+
+    checkpoints = []
+    sox = indices.get("SOX") or {}
+    if sox.get("price") is not None:
+        detail = f"필라델피아 반도체 지수 {fmt_num(sox['price'])} ({fmt_pct(sox.get('pct'))})"
+        if worst_us:
+            detail += f", 추적 기술주 중 낙폭 최대는 {worst_us[0]} {fmt_pct(worst_us[1])}"
+        checkpoints.append({"title": "반도체·기술주 흐름", "detail": detail + "."})
+    if best_us:
+        checkpoints.append({
+            "title": "상대 강세 종목",
+            "detail": f"추적 기술주 중 {best_us[0]} {fmt_pct(best_us[1])} "
+                      f"({fmt_num(best_us[2])}) 가 가장 견조했습니다.",
+        })
+    y10 = rates.get("US10Y") or {}
+    fxq = fx.get("USDKRW") or {}
+    if y10.get("price") is not None or fxq.get("price") is not None:
+        parts = []
+        if y10.get("price") is not None:
+            bp = y10.get("bp")
+            parts.append(f"미 10년물 {fmt_num(y10['price'], 3)}%"
+                         + (f" ({bp:+.2f}bp)" if bp is not None else ""))
+        y2 = rates.get("US2Y") or {}
+        if y2.get("price") is not None:
+            parts.append(f"미 2년물 {fmt_num(y2['price'], 3)}%")
+        if fxq.get("price") is not None:
+            parts.append(f"원/달러 {fmt_num(fxq['price'])}원 ({fmt_pct(fxq.get('pct'))})")
+        checkpoints.append({"title": "금리·환율", "detail": ", ".join(parts) + "."})
+    if kr_rows:
+        ext_parts = []
+        for k in stock_map.get("kr", []):
+            q = stocks.get(k) or {}
+            ext = q.get("extended") or {}
+            if ext.get("price") is not None and ext.get("pct") is not None:
+                ext_parts.append(f"{q.get('name')} {fmt_pct(ext['pct'])}")
+        moved = [r for r in kr_rows if r[1]]
+        detail_parts = []
+        if moved:
+            detail_parts.append(
+                f"국내 추적 종목 낙폭 최대는 {min(moved, key=lambda r: r[1])[0]} "
+                f"{fmt_pct(min(moved, key=lambda r: r[1])[1])}")
+        if ext_parts:
+            detail_parts.append("장전 시간외 " + ", ".join(ext_parts[:3]))
+        if detail_parts:
+            checkpoints.append({"title": "국내 증시", "detail": ", ".join(detail_parts) + "."})
+
+    sector_news = []
+    for sector in news.get("sectors", []):
+        arts = sector.get("articles") or []
+        if not arts:
+            continue
+        top = arts[0]
+        sector_news.append({
+            "tag": sector.get("tag"),
+            "text": top["title"],
+            "date": top["date"],
+            "source": top["source"],
+            "url": top["url"],
+        })
+
+    return {
+        "headline": headline,
+        "checkpoints": checkpoints,
+        "sector_news": sector_news[:3],
+    }
+
+
+# --------------------------------------------------------------------------
+# collection
+# --------------------------------------------------------------------------
+def load_json(path, default):
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return default
+
+
+def load_config() -> dict:
+    cfg = json.loads(json.dumps(DEFAULT_CONFIG))
+    if os.path.exists(CONFIG_PATH):
+        try:
+            with open(CONFIG_PATH, encoding="utf-8") as f:
+                user_cfg = json.load(f)
+            for k, v in user_cfg.items():
+                cfg[k] = v
+        except Exception as e:
+            print(f"[warn] config.json 파싱 실패: {e}", file=sys.stderr)
+    return cfg
+
+
+def collect_market(cfg: dict, previous: dict) -> dict:
+    errors = []
+    prev_stocks = previous.get("stocks") or {}
+    market = {"indices": {}, "rates": {}, "fx": {}, "stocks": {}}
+
+    kr_codes = list(cfg["kr_stocks"].keys())
+    name_map = dict(cfg["kr_stocks"])
+    name_map.update({k: k for k in cfg["us_stocks"].keys()})
+
+    try:
+        market["stocks"].update(fetch_domestic_stocks(kr_codes))
+    except Exception as e:
+        errors.append(f"국내 주가 수집 실패: {e}")
+
+    try:
+        market["stocks"].update(fetch_world_stocks(cfg["us_stocks"]))
+    except Exception as e:
+        errors.append(f"해외 주가 수집 실패: {e}")
+
+    try:
+        market["indices"].update(fetch_domestic_index(cfg["kr_indices"]))
+    except Exception as e:
+        errors.append(f"국내 지수 수집 실패: {e}")
+
+    try:
+        market["indices"].update(fetch_world_index(cfg["us_indices"]))
+    except Exception as e:
+        errors.append(f"해외 지수 수집 실패: {e}")
+
+    market["rates"] = fetch_rates(cfg["rates"])
+    if not market["rates"]:
+        errors.append("금리 수집 실패")
+        market["rates"] = previous.get("market", {}).get("rates") or {}
+
+    market["fx"] = fetch_fx(cfg["fx"])
+    if not market["fx"]:
+        errors.append("환율 수집 실패")
+        market["fx"] = previous.get("market", {}).get("fx") or {}
+
+    # 실패한 종목은 직전 값 유지 + stale 표시
+    for code, name in name_map.items():
+        if code not in market["stocks"]:
+            old = prev_stocks.get(code)
+            if old:
+                old = dict(old)
+                old["stale"] = True
+                market["stocks"][code] = old
+                errors.append(f"{name}({code}) 시세 유지(직전값)")
+
+    kr_session = None
+    us_session = None
+    for code in kr_codes:
+        q = market["stocks"].get(code) or {}
+        if q.get("market_status"):
+            kr_session = q["market_status"]
+            break
+    for code in cfg["us_stocks"]:
+        q = market["stocks"].get(code) or {}
+        if q.get("market_status"):
+            us_session = q["market_status"]
+            break
+
+    market["session"] = {"kr": kr_session, "us": us_session}
+    market["errors"] = errors
+    return market
+
+
+def _paced_fetch(state: dict, query: str, max_age: int, limit: int) -> list:
+    if state["fetched"]:
+        time.sleep(2.5)
+    state["fetched"] += 1
+    return fetch_news_for(query, max_age, limit)
+
+
+def _refresh_entry(prev, query, reuse, max_age, limit, errors, label, force, state):
+    """캐시가 신선하면 재사용, 아니면 실제 수집. 실패하면 직전 값 유지(stale)."""
+    if prev and not force and is_fresh(prev.get("fetched_at"), reuse) and prev.get("articles"):
+        return prev
+    try:
+        arts = _paced_fetch(state, query, max_age, limit)
+        return {"query": query, "articles": arts, "fetched_at": iso_kst(now_kst())}
+    except Exception as e:
+        errors.append(f"뉴스 수집 실패({label}): {e}")
+        if prev:
+            carried = dict(prev)
+            carried["stale"] = True
+            return carried
+        return None
+
+
+def collect_news(cfg: dict, previous: dict, stock_names: dict | None = None,
+                 force: bool = False) -> dict:
+    stock_names = stock_names or {}
+    prev_kw = (previous.get("keywords") or {})
+    prev_sectors = {s.get("tag"): s for s in (previous.get("sectors") or [])}
+    prev_companies = previous.get("companies") or {}
+    prev_pool = previous.get("pool") or {}
+    max_age = int(cfg.get("news_max_age_days", 10))
+    limit = int(cfg.get("news_per_keyword", 30))
+    state = {"fetched": 0}
+    errors = []
+
+    # 1) 기본 키워드 트레이스
+    keywords = {}
+    for kw in cfg["trace_keywords"]:
+        label = kw["keyword"]
+        query = kw.get("query") or label
+        entry = _refresh_entry(prev_kw.get(label), query,
+                               int(cfg.get("news_reuse_minutes", 20)),
+                               max_age, limit, errors, label, force, state)
+        if entry:
+            entry = dict(entry)
+            entry.update({"keyword": label, "id": kw.get("id")})
+            keywords[label] = entry
+
+    # 2) 섹터 뉴스(브리핑 카드)
+    sectors = []
+    for sec in cfg["sector_news"]:
+        tag = sec["tag"]
+        query = sec.get("query") or tag
+        entry = _refresh_entry(prev_sectors.get(tag), query,
+                               int(cfg.get("sector_reuse_minutes", 60)),
+                               max_age, 15, errors, tag, force, state)
+        if entry:
+            entry = dict(entry)
+            entry["tag"] = tag
+            sectors.append(entry)
+
+    # 3) 기업별 실적 뉴스 (오래된 순 회전 수집)
+    company_queries = {}
+    for code in list(cfg["kr_stocks"].keys()) + list(cfg["us_stocks"].keys()):
+        name = stock_names.get(code) or cfg["kr_stocks"].get(code) or code
+        company_queries[code] = f"{name} 실적"
+    reuse_c = int(cfg.get("company_reuse_minutes", 60))
+    candidates = []
+    for code, query in company_queries.items():
+        prev = prev_companies.get(code) or {}
+        if force or not (prev and is_fresh(prev.get("fetched_at"), reuse_c) and prev.get("articles")):
+            candidates.append((prev.get("fetched_at") or "", code))
+    candidates.sort()
+    selected = {code for _, code in candidates[:int(cfg.get("company_per_run", 2))]}
+
+    companies = {}
+    for code, query in company_queries.items():
+        prev = prev_companies.get(code)
+        if code in selected:
+            entry = _refresh_entry(prev, query, 0, max_age, 8, errors, query, True, state)
+        else:
+            entry = prev
+        if entry:
+            entry = dict(entry)
+            entry["code"] = code
+            companies[code] = entry
+
+    # 4) 사용자 추가 키워드 대비 주제 풀 (회전 수집)
+    pool_queries = cfg.get("keyword_pool") or []
+    reuse_p = int(cfg.get("pool_reuse_minutes", 120))
+    pool_cands = []
+    for kw in pool_queries:
+        prev = prev_pool.get(kw) or {}
+        if force or not (prev and is_fresh(prev.get("fetched_at"), reuse_p) and prev.get("articles")):
+            pool_cands.append((prev.get("fetched_at") or "", kw))
+    pool_cands.sort()
+    selected_pool = {kw for _, kw in pool_cands[:int(cfg.get("pool_per_run", 3))]}
+    pool = {}
+    for kw in pool_queries:
+        prev = prev_pool.get(kw)
+        if kw in selected_pool:
+            entry = _refresh_entry(prev, kw, 0, max_age, 20, errors, kw, True, state)
+        else:
+            entry = prev
+        if entry:
+            entry = dict(entry)
+            entry["keyword"] = kw
+            pool[kw] = entry
+
+    return {"keywords": keywords, "sectors": sectors, "companies": companies,
+            "pool": pool, "errors": errors}
+
+
+def significant_change(old: dict, new: dict) -> bool:
+    """커밋 여부 판단: 생성시각/에러를 제외한 실제 데이터가 달라졌는가."""
+    def strip(payload):
+        payload = json.loads(json.dumps(payload))
+        payload.pop("generated_at", None)
+        payload.pop("generated_at_kst", None)
+        payload.pop("errors", None)
+        for q in (payload.get("stocks") or {}).values():
+            q.pop("as_of", None)
+            q.pop("stale", None)
+        for q in (payload.get("market", {}).get("indices") or {}).values():
+            q.pop("as_of", None)
+        return payload
+    return strip(old) != strip(new)
+
+
+def main(argv=None) -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--check", action="store_true", help="파일 기록 없이 결과만 확인")
+    parser.add_argument("--force-news", action="store_true", help="뉴스 캐시 무시하고 재수집")
+    args = parser.parse_args(argv)
+
+    cfg = load_config()
+    prev_market = load_json(MARKET_PATH, {})
+    prev_news = load_json(NEWS_PATH, {})
+
+    market = collect_market(cfg, prev_market)
+    stock_names = {code: (q or {}).get("name") for code, q in market["stocks"].items()}
+    news = collect_news(cfg, prev_news, stock_names, force=args.force_news)
+
+    generated = now_kst()
+    market_payload = {
+        "schema": 1,
+        "generated_at": iso_kst(generated),
+        "generated_at_kst": generated.strftime("%Y-%m-%d(%a) %H:%M").replace(
+            "Mon", "월").replace("Tue", "화").replace("Wed", "수").replace(
+            "Thu", "목").replace("Fri", "금").replace("Sat", "토").replace("Sun", "일"),
+        "source": "네이버 금융 실시간 (polling.finance.naver.com)",
+        "market": market,
+        "stocks": market["stocks"],
+        "briefing": build_briefing(
+            market,
+            {"kr": list(cfg["kr_stocks"].keys()), "us": list(cfg["us_stocks"].keys())},
+            news,
+        ),
+    }
+    news_payload = {
+        "schema": 1,
+        "generated_at": iso_kst(generated),
+        "source": "Google News RSS (news.google.com)",
+        "match": [kw["keyword"] for kw in cfg["trace_keywords"]],
+        "keywords": news["keywords"],
+        "sectors": news["sectors"],
+        "companies": news["companies"],
+        "pool": news["pool"],
+        "errors": news["errors"],
+    }
+    news_payload["briefing"] = market_payload["briefing"]
+
+    counts = {
+        "stocks": len(market_payload["stocks"]),
+        "indices": len(market_payload["market"]["indices"]),
+        "keywords": len(news_payload["keywords"]),
+        "articles": sum(len(v.get("articles") or []) for v in news_payload["keywords"].values()),
+        "pool_topics": len(news_payload["pool"]),
+        "company_news": len(news_payload["companies"]),
+        "errors": len(market.get("errors", [])) + len(news.get("errors", [])),
+    }
+
+    if args.check:
+        print(json.dumps({"counts": counts,
+                          "headline": market_payload["briefing"]["headline"],
+                          "generated_at": market_payload["generated_at"],
+                          "errors": market.get("errors", []) + news.get("errors", [])},
+                         ensure_ascii=False, indent=2))
+        return 0
+
+    os.makedirs(DATA_DIR, exist_ok=True)
+    changed = True
+    if prev_market:
+        changed = significant_change(prev_market, market_payload)
+
+    with open(MARKET_PATH, "w", encoding="utf-8") as f:
+        json.dump(market_payload, f, ensure_ascii=False, indent=1)
+        f.write("\n")
+    with open(NEWS_PATH, "w", encoding="utf-8") as f:
+        json.dump(news_payload, f, ensure_ascii=False, indent=1)
+        f.write("\n")
+
+    print(json.dumps({"counts": counts, "changed": changed,
+                      "headline": market_payload["briefing"]["headline"]},
+                     ensure_ascii=False))
+    # 워크플로가 커밋 여부를 판단할 수 있도록 출력 파일로도 남긴다
+    meta_path = os.path.join(DATA_DIR, ".last_run.json")
+    with open(meta_path, "w", encoding="utf-8") as f:
+        json.dump({"changed": changed, "counts": counts,
+                   "generated_at": market_payload["generated_at"]}, f, ensure_ascii=False)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
