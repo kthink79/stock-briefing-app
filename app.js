@@ -1783,7 +1783,7 @@ async function refreshAll(opts) {
   try {
     const market = await loadMarketData({ flash: !opts.initial });
     await loadNewsData({});
-    await refreshTraces({ force: !!opts.force || !!opts.initial });
+    await refreshTraces({ force: !!opts.force });
 
     const parts = [];
     if (market && market.stocks) parts.push('시세 ' + Object.keys(market.stocks).length + '종목');
