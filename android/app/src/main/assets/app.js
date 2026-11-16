@@ -312,6 +312,29 @@ function applyQuoteToCompany(code, q) {
   if (q.market_value) comp.cap = formatCap(q.market_value, comp.currency);
   if (comp.eps > 0 && q.price) comp.per = fmtNum(q.price / comp.eps, 2) + ' 배';
   if (comp.bps > 0 && q.price) comp.pbr = fmtNum(q.price / comp.bps, 2) + ' 배';
+
+  comp.comment = '실시간 ' + comp.price + ' (' + comp.change + ') 기준 PER ' + comp.per +
+    ' · PBR ' + comp.pbr + ' · 시총 ' + comp.cap;
+  if (comp.quarter && comp.revOp) {
+    comp.geminiEval = '[' + comp.name + ' 펀더멘털] ' + comp.quarter + ' — ' + comp.revOp + '. ' +
+      '현재가 ' + comp.price + ' (' + comp.change + ') 기준 PER ' + comp.per +
+      ', PBR ' + comp.pbr + ', 시총 ' + comp.cap + '. ' +
+      '(실적 수치는 공시 기준, 주가·밸류에이션은 실시간 재계산)';
+  }
+}
+
+function setRateMetric(id, quote) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (!quote || quote.price === null || quote.price === undefined) {
+    el.textContent = '—';
+    el.className = 'metric-val';
+    return;
+  }
+  const bp = (quote.bp === null || quote.bp === undefined) ? '' : ' (' + (quote.bp > 0 ? '+' : '') + Number(quote.bp).toFixed(2) + 'bp)';
+  el.textContent = fmtNum(quote.price, 3) + '%' + bp;
+  const pct = quote.pct || 0;
+  el.className = 'metric-val ' + (pct > 0 ? 'up' : (pct < 0 ? 'down' : ''));
 }
 
 function setMetric(id, quote, digits) {
@@ -340,8 +363,8 @@ function applyMarketData(payload, opts) {
   setMetric('dow-val', indices.DOW, 2);
   setMetric('kospi-val', indices.KOSPI, 2);
   setMetric('kosdaq-val', indices.KOSDAQ, 2);
-  setMetric('rate-10y-val', rates.US10Y, 3);
-  setMetric('rate-2y-val', rates.US2Y, 3);
+  setRateMetric('rate-10y-val', rates.US10Y);
+  setRateMetric('rate-2y-val', rates.US2Y);
   setMetric('fx-val', fx.USDKRW, 2);
 
   const stocks = payload.stocks || {};
@@ -473,7 +496,6 @@ function snapshotArticlesFor(keyword) {
   Object.keys(pool).forEach(function (k) {
     if (normalizeKeyword(k) === target) buckets.push(pool[k]);
   });
-  (news.sectors || []).forEach(function (s) { buckets.push(s); });
   let out = [];
   buckets.forEach(function (b) { if (b && Array.isArray(b.articles)) out = out.concat(b.articles); });
   return normalizeArticles(out, keyword);
@@ -593,6 +615,16 @@ function titleTokens(t) {
   return set;
 }
 
+function bigramMap(text) {
+  const map = {};
+  for (let i = 0; i < text.length - 1; i++) {
+    const g = text.substr(i, 2);
+    map[g] = (map[g] || 0) + 1;
+  }
+  return map;
+}
+
+/* 같은 사건을 다룬 기사인지 판단: 부분 포함 + 문자 2-gram Dice 유사도 */
 function similarTitles(a, b) {
   if (!a || !b) return false;
   const ka = normalizeKeyword(a);
@@ -601,16 +633,18 @@ function similarTitles(a, b) {
   if (ka === kb) return true;
   const shortK = ka.length <= kb.length ? ka : kb;
   const longK = ka.length <= kb.length ? kb : ka;
-  if (shortK.length >= 8 && longK.indexOf(shortK) !== -1 && shortK.length / longK.length > 0.5) return true;
-  const ta = titleTokens(a);
-  const tb = titleTokens(b);
-  const taKeys = Object.keys(ta);
-  const tbKeys = Object.keys(tb);
-  if (!taKeys.length || !tbKeys.length) return false;
+  if (shortK.length >= 10 && longK.indexOf(shortK) !== -1) return true;
+
+  const ga = bigramMap(ka);
+  const gb = bigramMap(kb);
   let inter = 0;
-  taKeys.forEach(function (t) { if (tb[t]) inter += 1; });
-  const ratio = inter / Math.min(taKeys.length, tbKeys.length);
-  return inter >= 2 && ratio >= 0.6;
+  let total = 0;
+  Object.keys(ga).forEach(function (g) { total += ga[g]; if (gb[g]) inter += Math.min(ga[g], gb[g]); });
+  Object.keys(gb).forEach(function (g) { total += gb[g]; });
+  if (!total) return false;
+  const dice = (2 * inter) / total;
+  const minLen = Math.min(ka.length, kb.length);
+  return minLen < 12 ? dice >= 0.72 : dice >= 0.5;
 }
 
 function buildTraceClusters(articles, maxClusters) {
@@ -694,10 +728,14 @@ function buildTraceSummary(articles, days, keyword) {
   if (!list.length) {
     return { text: '', count: 0, sources: 0, clusters: [], range: rangeLabel(days) };
   }
-  const top = clusters[0];
+  const ranked = clusters.slice().sort(function (a, b) {
+    return (b.items.length - a.items.length) ||
+      String(b.items[0].published_at).localeCompare(String(a.items[0].published_at));
+  });
+  const top = ranked[0];
   const text = `최근 ${days}일간(${rangeLabel(days)}) '${keyword}' 관련 기사 ${list.length}건이 ${sourceCount}개 매체에서 보도되었습니다. ` +
     (top ? `가장 많이 다뤄진 이슈는 "${truncate(normTitle(top.title), 70)}"(${top.items.length}건, ${top.sources.length}곳)입니다.` : '');
-  return { text: text, count: list.length, sources: sourceCount, clusters: clusters, range: rangeLabel(days) };
+  return { text: text, count: list.length, sources: sourceCount, clusters: clusters, ranked: ranked, range: rangeLabel(days) };
 }
 
 function rebuildTrace(trace) {
@@ -711,11 +749,11 @@ function rebuildTrace(trace) {
   trace.summary3d = s3.text || `최근 3일간 '${trace.keyword}' 관련 신규 기사가 없습니다.`;
 
   if (s7.clusters.length) {
-    const titles = s7.clusters.slice(0, 3).map(function (c) {
+    const titles = s7.ranked.slice(0, 3).map(function (c) {
       return '"' + truncate(normTitle(c.title), 48) + '"(' + c.items.length + '건)';
     });
     trace.weeklyKeyMetrics = {
-      turningPoint: '최다 보도 이슈: ' + truncate(normTitle(s7.clusters[0].title), 70),
+      turningPoint: '최다 보도 이슈: ' + truncate(normTitle(s7.ranked[0].title), 70),
       marketFlow: `보도 ${s7.count}건 · 매체 ${s7.sources}곳 / 주요 흐름: ` + titles.join(', ')
     };
   } else {
@@ -725,7 +763,7 @@ function rebuildTrace(trace) {
   if (s3.clusters.length) {
     const allTitles = articlesWithin(articles, 3).map(function (a) { return a.title; }).join(' ');
     trace.momentum3d = {
-      catalyst: truncate(normTitle(s3.clusters[0].title), 70),
+      catalyst: truncate(normTitle(s3.ranked[0].title), 70),
       impactTickers: detectTickers(allTitles) || '관련 종목 언급 없음'
     };
   } else {
@@ -784,7 +822,20 @@ function saveTracesToStorage() {
   } catch (e) { /* ignore */ }
 }
 
+function getDeletedDefaults() {
+  try { return JSON.parse(localStorage.getItem('stock_traces_deleted') || '[]') || []; } catch (e) { return []; }
+}
+
+function markDefaultDeleted(id) {
+  const list = getDeletedDefaults();
+  if (list.indexOf(id) === -1) {
+    list.push(id);
+    try { localStorage.setItem('stock_traces_deleted', JSON.stringify(list)); } catch (e) {}
+  }
+}
+
 function loadTracesFromStorage() {
+  const deleted = getDeletedDefaults();
   let saved = [];
   try { saved = JSON.parse(localStorage.getItem('stock_traces_list') || '[]'); } catch (e) { saved = []; }
   if (!Array.isArray(saved)) saved = [];
@@ -798,6 +849,7 @@ function loadTracesFromStorage() {
   DEFAULT_TRACE_KEYWORDS.forEach(function (def) {
     const old = byKeyword[normalizeKeyword(def.keyword)];
     if (old) delete byKeyword[normalizeKeyword(def.keyword)];
+    if (deleted.indexOf(def.id) !== -1) return;
     traces.push({
       id: def.id,
       keyword: def.keyword,
@@ -971,6 +1023,9 @@ function deleteTrace(traceId) {
   const target = currentTraces.find(function (t) { return t.id === traceId; });
   const name = target ? target.keyword : '키워드';
   if (!confirm(`'${name}' 트레이스를 삭제하시겠습니까?`)) return;
+  if (DEFAULT_TRACE_KEYWORDS.some(function (d) { return d.id === traceId; })) {
+    markDefaultDeleted(traceId);
+  }
   currentTraces = currentTraces.filter(function (t) { return t.id !== traceId; });
   saveTracesToStorage();
   renderTraces();
