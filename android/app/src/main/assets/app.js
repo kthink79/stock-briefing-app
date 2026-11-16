@@ -14,7 +14,7 @@ const MARKET_PATH = 'data/market_latest.json';
 const NEWS_PATH = 'data/news_latest.json';
 const REMOTE_BASE = 'https://kthink79.github.io/stock-briefing-app/';
 const CACHE_KEY = 'stock_live_cache_v3';
-const TRACE_STORAGE_VERSION = 'v7.1_20261117_relevance';
+const TRACE_STORAGE_VERSION = 'v7.2_20261117_relevance2';
 const STALE_MS = 15 * 60 * 1000;      // 15분 지난 데이터는 '스냅샷'으로 표시
 const MARKET_WATCH_MS = 5 * 60 * 1000; // 5분마다 시세 파일 재확인
 const TRACE_REFRESH_MS = 30 * 60 * 1000;
@@ -848,6 +848,8 @@ function markDefaultDeleted(id) {
 
 function loadTracesFromStorage() {
   const deleted = getDeletedDefaults();
+  // 저장 버전이 바뀌면(수집 규칙 개선 등) 누적 기사를 버리고 새로 수집한다.
+  const versionChanged = localStorage.getItem('stock_traces_version') !== TRACE_STORAGE_VERSION;
   let saved = [];
   try { saved = JSON.parse(localStorage.getItem('stock_traces_list') || '[]'); } catch (e) { saved = []; }
   if (!Array.isArray(saved)) saved = [];
@@ -866,8 +868,8 @@ function loadTracesFromStorage() {
       id: def.id,
       keyword: def.keyword,
       registered: (old && old.registered) || def.registered,
-      articles: (old && Array.isArray(old.articles)) ? old.articles : [],
-      articlesAt: (old && old.articlesAt) || null
+      articles: (!versionChanged && old && Array.isArray(old.articles)) ? old.articles : [],
+      articlesAt: (!versionChanged && old && old.articlesAt) || null
     });
   });
   Object.keys(byKeyword).forEach(function (k) {
@@ -876,8 +878,8 @@ function loadTracesFromStorage() {
       id: t.id || ('trace_' + Date.now() + '_' + Math.floor(Math.random() * 1000)),
       keyword: t.keyword,
       registered: t.registered || (todayStr() + ' ' + fmtClock(new Date().toISOString())),
-      articles: Array.isArray(t.articles) ? t.articles : [],
-      articlesAt: t.articlesAt || null
+      articles: (!versionChanged && Array.isArray(t.articles)) ? t.articles : [],
+      articlesAt: (!versionChanged && t.articlesAt) || null
     });
   });
 

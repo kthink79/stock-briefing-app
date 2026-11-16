@@ -73,10 +73,10 @@ DEFAULT_CONFIG = {
     "rates": {"US10Y": "US10YT=RR", "US2Y": "US2YT=RR"},
     "fx": {"USDKRW": "FX_USDKRW"},
     "trace_keywords": [
-        {"id": "trace_nvda", "keyword": "엔비디아", "query": "엔비디아"},
-        {"id": "trace_hbm", "keyword": "HBM", "query": "HBM 반도체"},
-        {"id": "trace_iran", "keyword": "미국 이란 전쟁", "query": "미국 이란"},
-        {"id": "trace_trump", "keyword": "트럼프", "query": "트럼프 관세"},
+        {"id": "trace_nvda", "keyword": "엔비디아", "query": "엔비디아", "require": ["엔비디아"]},
+        {"id": "trace_hbm", "keyword": "HBM", "query": "HBM", "require": ["HBM"]},
+        {"id": "trace_iran", "keyword": "미국 이란 전쟁", "query": "이란", "require": ["이란"]},
+        {"id": "trace_trump", "keyword": "트럼프", "query": "트럼프", "require": ["트럼프"]},
     ],
     "sector_news": [
         {"tag": "반도체", "query": "반도체 수출"},
@@ -734,7 +734,8 @@ def collect_news(cfg: dict, previous: dict, stock_names: dict | None = None,
     for kw in pool_queries:
         prev = prev_pool.get(kw)
         if kw in selected_pool:
-            entry = _refresh_entry(prev, kw, 0, max_age, 20, errors, kw, True, state)
+            entry = _refresh_entry(prev, kw, 0, max_age, 20, errors, kw, True, state,
+                                   keyword_tokens(kw))
         else:
             entry = prev
         if entry:
