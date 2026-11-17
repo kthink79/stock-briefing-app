@@ -795,6 +795,16 @@ def main(argv=None) -> int:
             news,
         ),
     }
+    # 파일 크기 절감: 화면에 필요한 만큼만 남긴다
+    for entry in news["keywords"].values():
+        entry["articles"] = entry.get("articles", [])[:30]
+    for entry in news["pool"].values():
+        entry["articles"] = entry.get("articles", [])[:10]
+    for entry in news["companies"].values():
+        entry["articles"] = entry.get("articles", [])[:6]
+    for entry in news["sectors"]:
+        entry["articles"] = entry.get("articles", [])[:8]
+
     news_payload = {
         "schema": 1,
         "generated_at": iso_kst(generated),
