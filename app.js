@@ -9,7 +9,7 @@
             임의의 가짜 시세·기사로 채우지 않는다.
    ========================================================================== */
 
-const APP_VERSION = 'v3.0 (실시간 시세·뉴스 연동)';
+const APP_VERSION = 'v3.1 (전종목 검색·등록)';
 const MARKET_PATH = 'data/market_latest.json';
 const NEWS_PATH = 'data/news_latest.json';
 const REMOTE_BASE = 'https://kthink79.github.io/stock-briefing-app/';
@@ -19,6 +19,9 @@ const STALE_MS = 15 * 60 * 1000;      // 15분 지난 데이터는 '스냅샷'�
 const MARKET_WATCH_MS = 5 * 60 * 1000; // 5분마다 시세 파일 재확인
 const TRACE_REFRESH_MS = 30 * 60 * 1000;
 const NEWS_FRESH_MS = 25 * 60 * 1000;   // 서버 뉴스가 25분 이내면 실시간 재조회 생략
+const UNIVERSE_PATH = 'data/stock_universe.json';
+const UNIVERSE_CACHE_KEY = 'stock_universe_cache_v1';
+const UNIVERSE_TTL_MS = 12 * 60 * 1000;  // 전종목 인덱스 재확인 주기(12분)
 
 const LIVE = {
   market: null,
@@ -30,7 +33,8 @@ const LIVE = {
   state: 'idle',        // idle | live | snapshot | fail
   busy: false,
   errors: [],
-  lastSyncAt: 0
+  lastSyncAt: 0,
+  universe: { payload: null, index: [], map: {}, at: 0, loading: null, error: null }
 };
 
 /* ------------------------------------------------------------------ utils */
@@ -369,6 +373,7 @@ function applyMarketData(payload, opts) {
 
   const stocks = payload.stocks || {};
   Object.keys(stocks).forEach(function (code) { applyQuoteToCompany(code, stocks[code]); });
+  applyUniverseQuotes();
 
   if (payload.briefing) applyBriefing(payload.briefing);
 
@@ -1047,6 +1052,173 @@ function deleteTrace(traceId) {
 }
 
 /* ==========================================================================
+   전종목 검색 인덱스 (data/stock_universe.json)
+   ----------------------------------------------------------------------------
+   GitHub Actions가 네이버 금융 전종목 시세(10분 주기)와 Daum 금융 재무지표(하루 1회)를
+   수집해 같은 저장소의 JSON으로 배포합니다. 브라우저는 이 파일만 읽으므로
+   CORS 제약 없이 코스피·코스닥 전 종목과 미국 주요 종목을 검색할 수 있습니다.
+   행 형식 - 국내: [이름, 시장, 현재가, 등락률, 시가총액(억원), PER, PBR, EPS, BPS]
+            해외: [이름, 거래소, 현재가, 등락률, 시가총액(USD), PER, PBR, EPS, BPS]
+   ========================================================================== */
+function normalizeSearchText(v) {
+  return String(v === null || v === undefined ? '' : v).toLowerCase().replace(/\s+/g, '');
+}
+
+function universeRowToEntry(code, row, currency, asOf, marketStatus) {
+  return {
+    code: code,
+    name: row[0] || code,
+    market: row[1] || (currency === 'USD' ? 'US' : 'KRX'),
+    cur: currency,
+    price: (row[2] === null || row[2] === undefined) ? null : Number(row[2]),
+    pct: (row[3] === null || row[3] === undefined) ? null : Number(row[3]),
+    mcap: (row[4] === null || row[4] === undefined) ? null : Number(row[4]),
+    per: (row[5] === null || row[5] === undefined) ? null : Number(row[5]),
+    pbr: (row[6] === null || row[6] === undefined) ? null : Number(row[6]),
+    eps: (row[7] === null || row[7] === undefined) ? null : Number(row[7]),
+    bps: (row[8] === null || row[8] === undefined) ? null : Number(row[8]),
+    asOf: asOf || null,
+    status: marketStatus || null,
+    q: normalizeSearchText(row[0] || code),
+    cq: String(code).toLowerCase()
+  };
+}
+
+function buildUniverseIndex(payload) {
+  const index = [];
+  const map = {};
+  const asOf = payload.as_of || {};
+  const status = payload.status || {};
+  const kr = payload.kr || {};
+  const us = payload.us || {};
+  Object.keys(kr).forEach(function (code) {
+    const e = universeRowToEntry(code, kr[code] || [], 'KRW', asOf.kr, status.kr);
+    index.push(e);
+    map[code] = e;
+  });
+  Object.keys(us).forEach(function (sym) {
+    const e = universeRowToEntry(sym, us[sym] || [], 'USD', asOf.us, status.us);
+    index.push(e);
+    map[sym] = e;
+  });
+  return { index: index, map: map };
+}
+
+function readUniverseCache() {
+  try {
+    const raw = localStorage.getItem(UNIVERSE_CACHE_KEY);
+    if (!raw) return null;
+    const obj = JSON.parse(raw);
+    if (!obj || !obj.payload) return null;
+    return obj;
+  } catch (e) { return null; }
+}
+
+function saveUniverseCache(payload) {
+  try {
+    localStorage.setItem(UNIVERSE_CACHE_KEY, JSON.stringify({ savedAt: Date.now(), payload: payload }));
+  } catch (e) { /* 용량 초과는 무시 */ }
+}
+
+function applyUniverse(payload, opts) {
+  if (!payload) return;
+  const built = buildUniverseIndex(payload);
+  LIVE.universe.payload = payload;
+  LIVE.universe.index = built.index;
+  LIVE.universe.map = built.map;
+  LIVE.universe.at = Date.now();
+  LIVE.universe.error = null;
+  applyUniverseQuotes();
+  if (opts && opts.renderSuggest) renderCompanySuggest(getCompanySearchValue());
+}
+
+async function loadUniverse(opts) {
+  opts = opts || {};
+  if (LIVE.universe.loading) return LIVE.universe.loading;
+
+  const cached = readUniverseCache();
+  const cacheAge = cached ? (Date.now() - (cached.savedAt || 0)) : Infinity;
+  if (cached && (!LIVE.universe.index.length || cacheAge < UNIVERSE_TTL_MS)) {
+    if (!LIVE.universe.index.length) applyUniverse(cached.payload);
+    if (!opts.force && cacheAge < UNIVERSE_TTL_MS) return LIVE.universe.payload;
+  }
+
+  const urls = dataUrls(UNIVERSE_PATH);
+  LIVE.universe.loading = (async function () {
+    for (let i = 0; i < urls.length; i++) {
+      try {
+        // 파일이 10분마다 갱신되므로 10분 단위의 주소로만 새로 받아 CDN·브라우저 캐시를 활용한다
+        const bucket = 'v=' + Math.floor(Date.now() / 600000);
+        const url = urls[i] + (urls[i].indexOf('?') === -1 ? '?' : '&') + bucket;
+        const payload = await fetchJSON(url, 12000);
+        if (payload && payload.kr) {
+          applyUniverse(payload, { renderSuggest: true });
+          saveUniverseCache(payload);
+          return payload;
+        }
+      } catch (e) { /* 다음 경로 시도 */ }
+    }
+    LIVE.universe.error = '전종목 목록을 불러오지 못했습니다.';
+    if (!LIVE.universe.index.length && cached) applyUniverse(cached.payload, { renderSuggest: true });
+    return LIVE.universe.payload;
+  })();
+
+  try {
+    return await LIVE.universe.loading;
+  } finally {
+    LIVE.universe.loading = null;
+  }
+}
+
+function universeLookup(code) {
+  if (!code) return null;
+  return (LIVE.universe.map || {})[code] || null;
+}
+
+/* 검색 우선순위: 코드/이름 정확 → 코드 접두 → 이름 접두 → 이름 포함 → 시가총액 순 */
+function searchCompanies(query, limit) {
+  const q = normalizeSearchText(query);
+  if (!q) return [];
+  const rows = (LIVE.universe && LIVE.universe.index) || [];
+  const exact = [];
+  const codePrefix = [];
+  const namePrefix = [];
+  const contains = [];
+  for (let i = 0; i < rows.length; i++) {
+    const e = rows[i];
+    if (e.cq === q || e.q === q) { exact.push(e); continue; }
+    if (e.cq.indexOf(q) === 0) { codePrefix.push(e); continue; }
+    if (e.q.indexOf(q) === 0) { namePrefix.push(e); continue; }
+    if (e.q.indexOf(q) > 0) contains.push(e);
+  }
+  const bySize = function (a, b) { return (b.mcap || 0) - (a.mcap || 0); };
+  const out = exact.sort(bySize)
+    .concat(codePrefix.sort(bySize), namePrefix.sort(bySize), contains.sort(bySize));
+  return out.slice(0, limit || 10);
+}
+
+/* 등록된 관심 종목의 시세를 전종목 인덱스 값으로 맞춘다(market_latest에 없는 종목만) */
+function applyUniverseQuotes() {
+  const liveStocks = (LIVE.market && LIVE.market.stocks) || {};
+  let touched = false;
+  (userCompanyList || []).forEach(function (code) {
+    const e = universeLookup(code);
+    if (!e) return;
+    if (liveStocks[code] && !(companiesDB[code] && companiesDB[code].fromUniverse)) return;
+    if (!companiesDB[code]) {
+      companiesDB[code] = makeCompanyRecord(code);
+      touched = true;
+    }
+    applyUniverseQuoteToCompany(companiesDB[code], e);
+    touched = true;
+  });
+  if (touched) {
+    renderCompanyTags();
+    if (currentSelectedCompany) renderCompanyDetails(currentSelectedCompany, false);
+  }
+}
+
+/* ==========================================================================
    기업 분석 (관심 종목 등록·삭제 + 실시간 시세/밸류에이션)
    ========================================================================== */
     const predefinedCompaniesDB = {
@@ -1495,48 +1667,85 @@ function findCompanyInDB(q) {
   return exact || partial;
 }
 
-function registerCompanyFromInput() {
+function registerCompanyFromInput(retried) {
   const input = document.getElementById('company-search-input');
   const val = input ? input.value.trim() : '';
   if (!val) {
     showNotif('등록할 종목명 또는 종목코드를 입력해 주세요.');
     return;
   }
-  const matched = findCompanyInDB(val);
-  if (matched) {
-    if (!companiesDB[matched]) {
-      companiesDB[matched] = JSON.parse(JSON.stringify(predefinedCompaniesDB[matched]));
-      if (LIVE.market && LIVE.market.stocks && LIVE.market.stocks[matched]) {
-        applyQuoteToCompany(matched, LIVE.market.stocks[matched]);
-      }
+
+  if (!LIVE.universe.index.length) {
+    if (!retried) {
+      // 전종목 목록이 아직 없으면 먼저 불러오고 한 번만 다시 시도
+      showNotif('전체 종목 목록을 불러오는 중입니다…');
+      loadUniverse().then(function () { registerCompanyFromInput(true); });
+      return;
     }
-    if (userCompanyList.indexOf(matched) !== -1) {
-      selectCompany(matched);
-      showNotif(`[${companiesDB[matched].name}] 이미 등록된 관심 기업입니다.`);
-    } else {
-      userCompanyList.push(matched);
-      saveCompaniesToStorage();
-      selectCompany(matched);
-      renderCompanyTags();
-      showNotif(`[${companiesDB[matched].name}] 관심 기업 등록 완료!`);
-    }
-    if (input) input.value = '';
+    const preOnly = findCompanyInDB(val);
+    if (preOnly) { registerCompanyByCode(preOnly); return; }
+    showNotif('전종목 목록을 불러오지 못했습니다. 잠시 후 다시 시도하거나 사전 등록된 기업을 이용해 주세요.');
     return;
   }
 
-  // 사전 DB에 없는 종목: 추정 수치를 만들지 않고 '시세 미수신' 상태로 등록
-  const isUsCode = /^[a-zA-Z.]{1,6}$/.test(val);
-  const isKrDigits = /^\d{6}$/.test(val);
-  const ticker = val.toUpperCase();
-  const compName = isKrDigits ? `종목(${val})` : val;
-  const currency = isUsCode ? 'USD' : 'KRW';
+  const q = normalizeSearchText(val);
+  const list = searchCompanies(val, 10);
 
-  companiesDB[ticker] = {
-    name: compName,
-    ticker: ticker,
-    currency: currency,
+  // 1) 코드/이름이 정확히 일치하는 종목은 바로 등록
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].cq === q || list[i].q === q) { registerCompanyByCode(list[i].code); return; }
+  }
+  // 2) 후보가 한 개뿐이면 바로 등록
+  if (list.length === 1) { registerCompanyByCode(list[0].code); return; }
+  // 3) 후보가 여러 개면 목록에서 고르게 한다
+  if (list.length > 1) {
+    renderCompanySuggest(val);
+    showNotif('후보 ' + list.length + '개입니다. 목록에서 등록할 종목을 선택해 주세요.');
+    return;
+  }
+  // 4) 전종목 목록에 없으면 사전 DB(실적 상세 12개)만 확인
+  const pre = findCompanyInDB(val);
+  if (pre) { registerCompanyByCode(pre); return; }
+  closeCompanySuggest();
+  showNotif(`'${val}' 종목을 찾지 못했습니다. 종목명이나 6자리 코드(예: 207940)로 다시 입력해 주세요.`);
+}
+
+/* 검색 후보에서 고른 종목을 관심 목록에 등록한다 */
+function registerCompanyByCode(code) {
+  if (!code) return;
+  const input = document.getElementById('company-search-input');
+  if (!companiesDB[code]) companiesDB[code] = makeCompanyRecord(code);
+
+  if (userCompanyList.indexOf(code) !== -1) {
+    selectCompany(code);
+    showNotif(`[${companiesDB[code].name}] 이미 등록된 관심 기업입니다.`);
+  } else {
+    userCompanyList.push(code);
+    saveCompaniesToStorage();
+    selectCompany(code);
+    renderCompanyTags();
+    showNotif(`[${companiesDB[code].name}] 관심 기업 등록 완료!`);
+  }
+  if (input) input.value = '';
+  closeCompanySuggest();
+  hydrateCompanyNews(code);
+}
+
+/* 사전 DB에 없는 종목의 카드 기본값 (가짜 수치는 넣지 않는다) */
+function makeCompanyRecord(code) {
+  if (predefinedCompaniesDB[code]) {
+    const rec = JSON.parse(JSON.stringify(predefinedCompaniesDB[code]));
+    const uni = universeLookup(code);
+    if (uni) applyUniverseQuoteToCompany(rec, uni);
+    return rec;
+  }
+  const e = universeLookup(code);
+  const record = {
+    name: e ? e.name : code,
+    ticker: code,
+    currency: e ? e.cur : (/^\d{6}$/.test(code) ? 'KRW' : 'USD'),
     price: '—',
-    change: '시세 미수신',
+    change: '—',
     isUp: true,
     per: '-',
     pbr: '-',
@@ -1544,28 +1753,186 @@ function registerCompanyFromInput() {
     eps: null,
     bps: null,
     cap: '—',
-    quarter: '실적 데이터 없음',
-    revOp: '이 종목은 실시간 자동 수집 목록에 없어 시세·실적 데이터가 제공되지 않습니다.',
-    comment: '관심 목록에만 등록되었습니다. 자동 수집 목록 추가가 필요합니다.',
+    quarter: '실적 공시 데이터 미수집',
+    revOp: '이 종목은 시세·밸류에이션만 자동 수집 대상입니다. 분기 매출·영업이익은 사전 등록된 12개 기업에 대해서만 제공되며, 그 밖의 종목은 공시 원문을 확인해 주세요.',
+    comment: '',
     geminiEval: '',
-    news: []
+    news: [],
+    fromUniverse: true
   };
-  userCompanyList.push(ticker);
-  saveCompaniesToStorage();
-  selectCompany(ticker);
-  renderCompanyTags();
-  showNotif(`[${compName}] 관심 목록에 등록했습니다. (자동 수집 대상이 아니어서 시세는 비어 있습니다)`);
-  if (input) input.value = '';
+  if (e) applyUniverseQuoteToCompany(record, e);
+  return record;
+}
+
+/* 전종목 인덱스의 시세·밸류에이션을 기업 카드에 반영 */
+function applyUniverseQuoteToCompany(comp, e) {
+  if (!comp || !e) return comp;
+  comp.currency = e.cur || comp.currency;
+  comp.name = comp.name || e.name;
+  comp.ticker = comp.ticker || e.code;
+  if (e.price !== null && e.price !== undefined) {
+    comp.livePrice = e.price;
+    comp.price = formatPriceValue(e.price, comp.currency);
+    let changeAmount = null;
+    if (e.pct !== null && e.pct !== undefined && (1 + e.pct / 100) !== 0) {
+      changeAmount = e.price - (e.price / (1 + e.pct / 100));
+    }
+    comp.change = formatChangeText({ pct: e.pct, change: changeAmount }, comp.currency);
+    comp.isUp = (e.pct || 0) >= 0;
+  }
+  comp.asOf = e.asOf || comp.asOf || null;
+  comp.marketStatus = e.status || comp.marketStatus || null;
+  if (e.mcap) {
+    comp.cap = formatCap(e.cur === 'USD' ? e.mcap : e.mcap * 1e8, comp.currency);
+  }
+  if (e.per !== null && e.per !== undefined) comp.per = fmtNum(e.per, 2) + ' 배';
+  if (e.pbr !== null && e.pbr !== undefined) comp.pbr = fmtNum(e.pbr, 2) + ' 배';
+  if (e.eps !== null && e.eps !== undefined) comp.eps = e.eps;
+  if (e.bps !== null && e.bps !== undefined) comp.bps = e.bps;
+
+  comp.comment = '실시간 ' + comp.price + ' (' + comp.change + ') · PER ' + comp.per +
+    ' · PBR ' + comp.pbr + ' · 시총 ' + comp.cap;
+  if (comp.fromUniverse) {
+    comp.geminiEval = '[' + comp.name + ' 실시간 요약] 현재가 ' + comp.price + ' (' + comp.change + '), ' +
+      '시가총액 ' + comp.cap + ', PER ' + comp.per + ', PBR ' + comp.pbr + '. ' +
+      (comp.quarter === '실적 공시 데이터 미수집'
+        ? '분기 실적(EPS ' + (comp.eps === null ? '-' : fmtNum(comp.eps, 0) + ' ' + comp.currency) +
+          ', BPS ' + (comp.bps === null ? '-' : fmtNum(comp.bps, 0) + ' ' + comp.currency) + ')은 시세·밸류에이션 수치만 자동 수집되며, 매출·영업이익 공시 요약은 제공되지 않습니다.'
+        : '');
+  }
+  return comp;
+}
+
+/* 임의 종목의 최신 뉴스 (Google News RSS · rss2json 경로) */
+function hydrateCompanyNews(code, force) {
+  const comp = code ? companiesDB[code] : null;
+  if (!comp) return;
+  if (comp.newsHydrating) return;
+  if (!force && comp.liveArticles && (Date.now() - (comp.liveArticlesAt || 0)) < 30 * 60 * 1000) return;
+  const keyword = /^\d{6}$/.test(code) ? comp.name : (comp.name || code).replace(/\s*\(.*$/, '') || code;
+  comp.newsHydrating = true;
+  fetchLiveKeywordNews(keyword).then(function (arts) {
+    comp.newsHydrating = false;
+    comp.liveArticles = (arts || []).slice(0, 6);
+    comp.liveArticlesAt = Date.now();
+    if (currentSelectedCompany === code) renderCompanyDetails(code, false);
+  }).catch(function () {
+    comp.newsHydrating = false;
+  });
+}
+
+/* ------------------------------------------------------------------ 검색 후보 드롭다운 */
+let suggestItems = [];
+let suggestActive = -1;
+
+function getCompanySearchValue() {
+  const input = document.getElementById('company-search-input');
+  return input ? input.value : '';
+}
+
+function onCompanySearchInput() {
+  const val = getCompanySearchValue();
+  if (!val.trim()) { closeCompanySuggest(); return; }
+  if (!LIVE.universe.index.length) loadUniverse();
+  renderCompanySuggest(val);
+}
+
+function renderCompanySuggest(val) {
+  const box = document.getElementById('company-suggest');
+  if (!box) return;
+  const q = String(val || '').trim();
+  if (!q) { closeCompanySuggest(); return; }
+
+  if (!LIVE.universe.index.length) {
+    box.innerHTML = '<div class="suggest-empty">전체 종목 목록을 불러오는 중…</div>';
+    box.style.display = 'block';
+    suggestItems = [];
+    suggestActive = -1;
+    return;
+  }
+
+  const list = searchCompanies(q, 10);
+  suggestItems = list;
+  suggestActive = list.length ? 0 : -1;
+  if (!list.length) {
+    box.innerHTML = '<div class="suggest-empty">일치하는 종목이 없습니다. 종목명 또는 6자리 코드로 다시 입력해 주세요.</div>';
+    box.style.display = 'block';
+    return;
+  }
+  box.innerHTML = list.map(function (e, i) {
+    const priceText = (e.price === null || e.price === undefined) ? '시세 미수신' : formatPriceValue(e.price, e.cur);
+    const pctCls = (e.pct || 0) >= 0 ? 'up' : 'down';
+    const registered = (userCompanyList || []).indexOf(e.code) !== -1;
+    return '<div class="suggest-item" data-idx="' + i + '" onmousedown="pickCompanySuggest(' + i + ', event)"' +
+      ' onmouseover="setSuggestActive(' + i + ')">' +
+      '<div class="suggest-main">' +
+        '<span class="suggest-name">' + escapeHtml(e.name) + '</span>' +
+        '<span class="suggest-code">' + escapeHtml(e.code) + '</span>' +
+        '<span class="suggest-market">' + escapeHtml(e.market) + '</span>' +
+        (registered ? '<span class="suggest-reg">등록됨</span>' : '') +
+      '</div>' +
+      '<div class="suggest-price">' + escapeHtml(priceText) +
+        ' <span class="' + pctCls + '">' + fmtPct(e.pct) + '</span></div>' +
+      '</div>';
+  }).join('');
+  box.style.display = 'block';
+  highlightSuggest();
+}
+
+function setSuggestActive(i) {
+  suggestActive = i;
+  highlightSuggest();
+}
+
+function highlightSuggest() {
+  const box = document.getElementById('company-suggest');
+  if (!box) return;
+  const items = box.querySelectorAll('.suggest-item');
+  for (let i = 0; i < items.length; i++) {
+    if (i === suggestActive) items[i].classList.add('active');
+    else items[i].classList.remove('active');
+  }
+}
+
+function pickCompanySuggest(i, ev) {
+  if (ev) { ev.preventDefault(); ev.stopPropagation(); }
+  const e = suggestItems[i];
+  if (!e) return;
+  registerCompanyByCode(e.code);
+}
+
+function closeCompanySuggest() {
+  const box = document.getElementById('company-suggest');
+  if (box) { box.style.display = 'none'; box.innerHTML = ''; }
+  suggestItems = [];
+  suggestActive = -1;
+}
+
+function onCompanySearchKey(ev) {
+  if (!ev) return;
+  const key = ev.key;
+  if (key === 'ArrowDown' || key === 'ArrowUp') {
+    if (!suggestItems.length) return;
+    ev.preventDefault();
+    const step = key === 'ArrowDown' ? 1 : -1;
+    suggestActive = (suggestActive + step + suggestItems.length) % suggestItems.length;
+    highlightSuggest();
+    return;
+  }
+  if (key === 'Escape') { closeCompanySuggest(); return; }
+  if (key === 'Enter') {
+    ev.preventDefault();
+    if (suggestActive >= 0 && suggestItems[suggestActive]) {
+      registerCompanyByCode(suggestItems[suggestActive].code);
+    } else {
+      registerCompanyFromInput();
+    }
+  }
 }
 
 function quickRegister(code) {
-  if (!predefinedCompaniesDB[code]) return;
-  if (!companiesDB[code]) {
-    companiesDB[code] = JSON.parse(JSON.stringify(predefinedCompaniesDB[code]));
-    if (LIVE.market && LIVE.market.stocks && LIVE.market.stocks[code]) {
-      applyQuoteToCompany(code, LIVE.market.stocks[code]);
-    }
-  }
+  if (!code) return;
+  if (!companiesDB[code]) companiesDB[code] = makeCompanyRecord(code);
   if (userCompanyList.indexOf(code) === -1) {
     userCompanyList.push(code);
     saveCompaniesToStorage();
@@ -1575,28 +1942,39 @@ function quickRegister(code) {
   }
   selectCompany(code);
   renderCompanyTags();
+  hydrateCompanyNews(code);
 }
 
-function searchCustomCompany() {
-  const input = document.getElementById('company-search-input');
-  const q = input ? input.value.trim() : '';
-  if (!q) {
+function searchCustomCompany(retried) {
+  const val = getCompanySearchValue().trim();
+  if (!val) {
     showNotif('검색할 종목명 또는 코드를 입력해 주세요.');
     return;
   }
-  const matched = findCompanyInDB(q);
-  if (!matched) {
-    showNotif(`'${q}' 종목을 찾지 못했습니다. 목록에 없는 종목은 실시간 시세가 제공되지 않습니다.`);
+  if (!LIVE.universe.index.length) {
+    if (!retried) {
+      showNotif('전체 종목 목록을 불러오는 중입니다…');
+      loadUniverse().then(function () { searchCustomCompany(true); });
+      return;
+    }
+    showNotif('전종목 목록을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.');
     return;
   }
-  const comp = predefinedCompaniesDB[matched];
-  const quote = LIVE.market && LIVE.market.stocks ? LIVE.market.stocks[matched] : null;
-  showNotif(quote
-    ? `[${comp.name}] ${formatPriceValue(quote.price, quote.currency)} (${fmtPct(quote.pct)}) · ${fmtStamp(quote.as_of)} 기준`
-    : `[${comp.name}] 시세 파일을 아직 받지 못했습니다.`);
+  const list = searchCompanies(val, 10);
+  if (!list.length) {
+    closeCompanySuggest();
+    showNotif(`'${val}' 종목을 찾지 못했습니다. 종목명이나 6자리 코드로 다시 입력해 주세요.`);
+    return;
+  }
+  renderCompanySuggest(val);
+  const first = list[0];
+  const priceText = (first.price === null || first.price === undefined)
+    ? '시세 미수신' : formatPriceValue(first.price, first.cur) + ' (' + fmtPct(first.pct) + ')';
+  showNotif(`[${first.name}] ${priceText} · 후보 ${list.length}개 (선택하면 관심 기업에 등록됩니다)`);
 }
 
 function refreshCompanyPricesOnly(showFlash, showToast) {
+  if (!LIVE.universe.index.length || (Date.now() - (LIVE.universe.at || 0)) > UNIVERSE_TTL_MS) loadUniverse();
   if (LIVE.market) applyMarketData(LIVE.market, { flash: !!showFlash });
   if (!LIVE.market || isStale(LIVE.marketAt)) {
     loadMarketData({ flash: !!showFlash });
@@ -1704,8 +2082,10 @@ function renderCompanyDetails(code, triggerFlash) {
   const newsList = document.getElementById('comp-news-list');
   if (newsList) {
     const arts = companyArticlesFor(code, d.name).slice(0, 5);
-    if (arts.length) {
-      newsList.innerHTML = arts.map(function (a) {
+    const liveArts = (d.liveArticles || []).slice(0, 5);
+    const picked = arts.length ? arts : liveArts;
+    if (picked.length) {
+      newsList.innerHTML = picked.map(function (a) {
         return '<li><a href="' + escapeHtml(a.url) + '" target="_blank" rel="noopener" style="color:#c9d1d9; text-decoration:none;">' +
           escapeHtml(a.title) + '</a> <span style="color:#8b949e; font-size:0.75rem;">(' + escapeHtml(a.source) + ' · ' + escapeHtml(a.date) + ')</span></li>';
       }).join('');
@@ -1713,9 +2093,12 @@ function renderCompanyDetails(code, triggerFlash) {
       newsList.innerHTML = (d.news || []).slice(0, 4).map(function (n) {
         return '<li>' + escapeHtml(n) + '</li>';
       }).join('');
+    } else if (d.newsHydrating) {
+      newsList.innerHTML = '<li style="color:#8b949e;">실시간 기사를 불러오는 중…</li>';
     } else {
-      newsList.innerHTML = '<li style="color:#8b949e;">실시간 기사를 아직 수집하지 못했습니다. (자동 수집 주기 후 갱신)</li>';
+      newsList.innerHTML = '<li style="color:#8b949e;">최근 10일 안에 이 종목을 다룬 기사를 찾지 못했습니다.</li>';
     }
+    if (!picked.length) hydrateCompanyNews(code);
   }
 }
 

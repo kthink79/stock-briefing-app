@@ -1,0 +1,170 @@
+# -*- coding: utf-8 -*-
+"""전종목 검색·등록 인덱스(scripts/collect_live_data.py) 단위 테스트."""
+import importlib.util
+import json
+import os
+import unittest
+
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+SPEC = importlib.util.spec_from_file_location(
+    "collect_live_data", os.path.join(ROOT, "scripts", "collect_live_data.py"))
+live = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(live)
+
+LIST_SAMPLE = {
+    "stockType": "domestic",
+    "itemCode": "207940",
+    "stockName": "삼성바이오로직스",
+    "sosok": "0",
+    "closePrice": "1,424,000",
+    "compareToPreviousClosePrice": "1,000",
+    "fluctuationsRatio": "0.07",
+    "accumulatedTradingVolume": "30,347",
+    "marketValue": "659,183",
+    "localTradedAt": "2026-11-17T12:51:22+09:00",
+    "marketStatus": "OPEN",
+    "stockExchangeType": {"code": "KS", "name": "KOSPI"},
+}
+
+WORLD_SAMPLE = {
+    "reutersCode": "AMD.O",
+    "stockName": "AMD(어드밴스드 마이크로 디바이시스)",
+    "closePrice": "504.28",
+    "compareToPreviousClosePrice": "-29.78",
+    "fluctuationsRatio": "-5.58",
+    "accumulatedTradingVolume": "37,115,577",
+    "marketValueFull": "827,063,198,934",
+    "localTradedAt": "2026-11-16T16:00:00-05:00",
+    "marketStatus": "CLOSE",
+    "currencyType": {"code": "USD"},
+    "stockExchangeType": {"name": "NASDAQ"},
+}
+
+DAUM_SAMPLE = {
+    "name": "알테오젠",
+    "tradePrice": 175300.0,
+    "per": 84.13,
+    "pbr": 27.03,
+    "eps": 2041.0,
+    "bps": 6353.0,
+    "marketCap": 12210510328200.0,
+}
+
+
+class TestUniverseParsing(unittest.TestCase):
+    def test_market_list_item_normalized(self):
+        entry = live.parse_market_list_item(LIST_SAMPLE)
+        self.assertEqual(entry["code"], "207940")
+        self.assertEqual(entry["name"], "삼성바이오로직스")
+        self.assertEqual(entry["market"], "KOSPI")
+        self.assertEqual(entry["price"], 1424000.0)
+        self.assertAlmostEqual(entry["pct"], 0.07)
+        self.assertEqual(entry["mcap_eok"], 659183.0)
+
+    def test_market_list_item_rejects_non_numeric_code(self):
+        bad = dict(LIST_SAMPLE, itemCode="KOSPI")
+        self.assertIsNone(live.parse_market_list_item(bad))
+        self.assertIsNone(live.parse_market_list_item(dict(LIST_SAMPLE, itemCode="", stockName="")))
+
+    def test_market_list_item_defaults_market_from_sosok(self):
+        item = dict(LIST_SAMPLE, sosok="1")
+        item.pop("stockExchangeType")
+        self.assertEqual(live.parse_market_list_item(item)["market"], "KOSDAQ")
+
+    def test_world_item_strips_reuters_suffix(self):
+        entry = live.parse_world_list_item(WORLD_SAMPLE)
+        self.assertEqual(entry["symbol"], "AMD")
+        self.assertEqual(entry["reuters"], "AMD.O")
+        self.assertEqual(entry["market"], "NASDAQ")
+        self.assertEqual(entry["price"], 504.28)
+        self.assertAlmostEqual(entry["pct"], -5.58)
+        self.assertEqual(entry["mcap"], 827063198934.0)
+
+    def test_daum_fundamental_parsed(self):
+        f = live.parse_daum_fundamental(DAUM_SAMPLE)
+        self.assertAlmostEqual(f["per"], 84.13)
+        self.assertAlmostEqual(f["pbr"], 27.03)
+        self.assertAlmostEqual(f["eps"], 2041.0)
+        self.assertIsNone(live.parse_daum_fundamental({"name": "x"}))
+
+
+class TestBuildUniverse(unittest.TestCase):
+    def setUp(self):
+        self.kr = {
+            "005930": {"code": "005930", "name": "삼성전자", "market": "KOSPI", "price": 192000.0,
+                       "pct": -2.44, "mcap_eok": 11224855.0, "volume": 100.0,
+                       "as_of": "2026-11-17T12:51:22+09:00", "status": "OPEN"},
+            "196170": {"code": "196170", "name": "알테오젠", "market": "KOSDAQ", "price": 175300.0,
+                       "pct": 2.1, "mcap_eok": 122105.0, "volume": 10.0,
+                       "as_of": "2026-11-17T12:51:00+09:00", "status": "OPEN"},
+        }
+        self.us = {
+            "AMD": {"symbol": "AMD", "reuters": "AMD.O", "name": "AMD(어드밴스드 마이크로 디바이시스)",
+                    "market": "NASDAQ", "price": 504.28, "pct": -5.58, "mcap": 827063198934.0,
+                    "volume": 1.0, "as_of": "2026-11-16T16:00:00-05:00", "status": "CLOSE"},
+        }
+        self.funds = {"date": "2026-11-17", "items": {"005930": {"per": 29.8, "pbr": 3.08,
+                                                                 "eps": 6605.0, "bps": 63997.0, "d": "2026-11-17"}}}
+
+    def test_row_shape_and_order(self):
+        uni = live.build_universe(self.kr, self.us, self.funds)
+        self.assertEqual(len(uni["kr"]["005930"]), 9)
+        self.assertEqual(uni["kr"]["005930"][0], "삼성전자")
+        self.assertEqual(uni["kr"]["005930"][1], "KOSPI")
+        self.assertEqual(uni["kr"]["005930"][4], 11224855)
+        self.assertEqual(uni["kr"]["005930"][5], 29.8)
+        self.assertEqual(uni["kr"]["005930"][6], 3.08)
+
+    def test_missing_fundamentals_are_null_not_fake(self):
+        uni = live.build_universe(self.kr, self.us, self.funds)
+        self.assertIsNone(uni["kr"]["196170"][5])
+        self.assertIsNone(uni["kr"]["196170"][6])
+        self.assertIsNone(uni["us"]["AMD"][5])
+        self.assertIsNone(uni["us"]["AMD"][6])
+
+    def test_file_level_metadata(self):
+        uni = live.build_universe(self.kr, self.us, self.funds)
+        self.assertEqual(uni["counts"]["kr"], 2)
+        self.assertEqual(uni["counts"]["us"], 1)
+        self.assertEqual(uni["as_of"]["kr"], "2026-11-17T12:51:22+09:00")
+        self.assertEqual(uni["status"]["us"], "CLOSE")
+        self.assertEqual(uni["fund_date"], "2026-11-17")
+        self.assertIn("AMD", uni["us"])
+
+    def test_universe_is_json_serializable_and_compact(self):
+        uni = live.build_universe(self.kr, self.us, self.funds)
+        blob = json.dumps(uni, ensure_ascii=False, separators=(",", ":"))
+        self.assertLess(len(blob), 1000)
+        self.assertEqual(json.loads(blob)["kr"]["005930"][0], "삼성전자")
+
+
+class TestUniverseFileOnDisk(unittest.TestCase):
+    """배포용 data/stock_universe.json 이 실제로 생성되어 있는지 확인한다."""
+
+    def setUp(self):
+        if not os.path.exists(live.UNIVERSE_PATH):
+            self.skipTest("stock_universe.json 없음 (수집 전)")
+
+    def test_universe_has_kr_us_and_rows(self):
+        with open(live.UNIVERSE_PATH, encoding="utf-8") as f:
+            uni = json.load(f)
+        self.assertGreater(uni["counts"]["kr"], 1000)
+        self.assertGreater(uni["counts"]["us"], 100)
+        self.assertEqual(len(uni["kr"]), uni["counts"]["kr"])
+        self.assertIn("005930", uni["kr"])
+        self.assertEqual(uni["kr"]["005930"][0], "삼성전자")
+        for code, row in list(uni["kr"].items())[:50]:
+            self.assertEqual(len(row), 9, code)
+            self.assertTrue(code.isdigit())
+        for sym, row in list(uni["us"].items())[:50]:
+            self.assertEqual(len(row), 9, sym)
+
+    def test_us_symbols_list_present(self):
+        symbols = live.load_us_symbols()
+        self.assertGreater(len(symbols), 300)
+        self.assertIn("AMD", symbols)
+        self.assertIn("TSLA", symbols)
+
+
+if __name__ == "__main__":
+    unittest.main()
