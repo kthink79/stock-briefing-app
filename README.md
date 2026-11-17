@@ -116,3 +116,10 @@ GitHub App 토큰에는 `workflows` 권한이 없어 CLI(`git push`)로는 이 �
 - 시세: 10분마다 (`2,12,22,32,42,52` — GitHub 스케줄러가 혼잡한 정각을 피하도록 분 단위를 어긋나게 지정)
 - 기본 키워드 뉴스: 20분마다 / 섹터·기업 뉴스: 60분마다(회전 수집) / 주제 풀: 120분마다
 - 값이 실제로 바뀐 실행에서만 커밋하고, 변화가 없는 야간에는 30분에 한 번만 타임스탬프를 갱신합니다. (`data/.last_run.json`은 커밋하지 않습니다)
+
+### 자동 실행 확인
+```bash
+gh run list -R kthink79/stock-briefing-app -w live-data --event schedule -L 3
+```
+스케줄 실행이 보이지 않으면 Actions 탭에서 `live-data` → **Run workflow**로 즉시 한 번 돌릴 수 있습니다.
+
