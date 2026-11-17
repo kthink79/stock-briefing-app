@@ -1147,7 +1147,10 @@ async function loadUniverse(opts) {
   LIVE.universe.loading = (async function () {
     for (let i = 0; i < urls.length; i++) {
       try {
-        const payload = await fetchJSON(urls[i], 12000);
+        // 파일이 10분마다 갱신되므로 10분 단위의 주소로만 새로 받아 CDN·브라우저 캐시를 활용한다
+        const bucket = 'v=' + Math.floor(Date.now() / 600000);
+        const url = urls[i] + (urls[i].indexOf('?') === -1 ? '?' : '&') + bucket;
+        const payload = await fetchJSON(url, 12000);
         if (payload && payload.kr) {
           applyUniverse(payload, { renderSuggest: true });
           saveUniverseCache(payload);
@@ -1971,7 +1974,7 @@ function searchCustomCompany(retried) {
 }
 
 function refreshCompanyPricesOnly(showFlash, showToast) {
-  if (!LIVE.universe.index.length) loadUniverse();
+  if (!LIVE.universe.index.length || (Date.now() - (LIVE.universe.at || 0)) > UNIVERSE_TTL_MS) loadUniverse();
   if (LIVE.market) applyMarketData(LIVE.market, { flash: !!showFlash });
   if (!LIVE.market || isStale(LIVE.marketAt)) {
     loadMarketData({ flash: !!showFlash });
@@ -2279,9 +2282,6 @@ async function initApp() {
   if (typeof checkFullAppLockOnLoad === 'function') checkFullAppLockOnLoad();
 
   if (currentSelectedCompany) renderCompanyDetails(currentSelectedCompany, false);
-
-  // 전종목 검색 인덱스는 화면을 막지 않고 백그라운드에서 먼저 받아 둔다
-  loadUniverse();
 
   await refreshAll({ initial: true });
   setupMarketWatch();
