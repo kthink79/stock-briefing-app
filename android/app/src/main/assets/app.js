@@ -1657,7 +1657,8 @@ function renderCompanyDetails(code, triggerFlash) {
   const extEl = document.getElementById('comp-extended');
   if (extEl) {
     if (d.extended && d.extended.price !== null && d.extended.price !== undefined) {
-      const sess = d.extended.session === 'PRE_MARKET' ? '장전 시간외' : (d.extended.session === 'AFTER_MARKET' ? '시간외' : '시간외');
+      const sessMap = { PRE_MARKET: '장전 시간외', AFTER_MARKET: '시간외', AFTER_HOURS: '시간외', REGULAR_MARKET: '장중' };
+      const sess = sessMap[String(d.extended.session || '').toUpperCase()] || '시간외';
       extEl.innerHTML = '<span style="color:#58a6ff;">' + sess + '</span> ' +
         formatPriceValue(d.extended.price, d.currency) + ' (' + fmtPct(d.extended.pct) + ')';
       extEl.style.display = 'block';

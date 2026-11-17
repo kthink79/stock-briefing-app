@@ -188,7 +188,9 @@ def parse_naver_quote(item: dict, currency_default: str = "KRW") -> dict:
 
     # 장전/시간외 거래가 있으면 별도로 표기(프리마켓/애프터마켓)
     over = item.get("overMarketPriceInfo") or {}
-    if over and num(over.get("overPrice")) is not None:
+    session_type = str(over.get("tradingSessionType") or "").upper()
+    # 정규장 중에는 overMarketPriceInfo가 정규장 값이므로 '시간외'로 표기하지 않는다
+    if over and num(over.get("overPrice")) is not None and session_type and session_type != "REGULAR_MARKET":
         quote["extended"] = {
             "session": over.get("tradingSessionType"),
             "price": num(over.get("overPrice")),
