@@ -2132,8 +2132,14 @@ function renderCompanyDetails(code, triggerFlash) {
   if (perEl) perEl.innerText = d.per || '-';
   if (pbrEl) pbrEl.innerText = d.pbr || '-';
   if (divEl) divEl.innerText = d.div || '-';
-  if (epsEl) epsEl.innerText = typeof d.eps === 'number' ? fmtNum(d.eps, 0) + ' ' + d.currency : (d.eps || '-');
-  if (bpsEl) bpsEl.innerText = typeof d.bps === 'number' ? fmtNum(d.bps, 0) + ' ' + d.currency : (d.bps || '-');
+  if (epsEl) {
+    const epsDigits = String(d.currency || '').toUpperCase() === 'USD' ? 2 : 0;
+    epsEl.innerText = typeof d.eps === 'number' ? fmtNum(d.eps, epsDigits) + ' ' + d.currency : (d.eps || '-');
+  }
+  if (bpsEl) {
+    const bpsDigits = String(d.currency || '').toUpperCase() === 'USD' ? 2 : 0;
+    bpsEl.innerText = typeof d.bps === 'number' ? fmtNum(d.bps, bpsDigits) + ' ' + d.currency : (d.bps || '-');
+  }
   if (capEl) capEl.innerText = d.cap || '—';
 
   const qEl = document.getElementById('comp-quarter');
