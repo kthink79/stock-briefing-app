@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-17T10:22:54+09:00",
+ "generated_at": "2026-11-17T10:33:14+09:00",
  "source": "Google News RSS (news.google.com)",
  "match": [
   "엔비디아",
@@ -1376,6 +1376,15 @@
     },
     {
      "keyword": "삼성전자 실적",
+     "title": "[오늘 증시 전망] 필라델피아 반도체 5.3% 급락… 코스피 5100선 공방·삼성전자 20만원 붕괴, 엔비디아 실적 D-1",
+     "source": "뉴스클레임",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1JU19tZmhqR25kWFhhaWRiUzNMR0hsTDJWSVFhNi1HTXdjSndLS2VZRDJGZGVZc0NzZTRLbUdWeXBFMUxZaGYyRjJtc3J6MlFEdVRBRjJ3S2plVkhxbHhpa25VTmNNZU4zaE5ERktPbWbSAXRBVV95cUxNRXVXWkYtek5KWGlnNEIxcktJUHhUaW5WTXpkVUExOG41MVZ6MnFBa1FoSGJHSG1EU0c2WllzQjRDTmJDYjFaVENhd2w2enhMR3V5Zl9SdzQ2dDVrcDNrckpwT3g2NVhsUzNablRtYVBkbzJoWA?oc=5",
+     "date": "2026-11-17",
+     "time": "07:30",
+     "published_at": "2026-11-17T07:30:21+09:00"
+    },
+    {
+     "keyword": "삼성전자 실적",
      "title": "AI 수요 폭발로 삼성전자·SK하이닉스 실적 급등, 나머지 기업은?",
      "source": "공감신문",
      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBraEZtdmlMSS1seHNyOUQ3NXp1d1l5RTNwanA0SGVfRmlsZUNnRTVwbEp6REkxMVFQM2VMbFpVU1hYenJuS3k1TURHamFXUTUxSkN1d0dtTzVoSWVmM241WFZGcHVyZWFn?oc=5",
@@ -1391,15 +1400,6 @@
      "date": "2026-11-16",
      "time": "18:12",
      "published_at": "2026-11-16T18:12:43+09:00"
-    },
-    {
-     "keyword": "삼성전자 실적",
-     "title": "‘젠슨 황 없는’ 엔비디아 실적 발표… 코스피 반등 열쇠 될까",
-     "source": "아시아투데이",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE85M2RWOHY5dHRjdnJiRmRKVjgzZGRwLUFORENwZi02MlI2alBFT19Rdk5pTnBqMXg3MEQtTzBmSndqN3BtU2lDWTBkR2hkSllkcGUtUFlhTjc1ZDFJTUpkdkgtT25rRzMxamFMaERR?oc=5",
-     "date": "2026-11-16",
-     "time": "17:59",
-     "published_at": "2026-11-16T17:59:47+09:00"
     },
     {
      "keyword": "삼성전자 실적",
@@ -1420,7 +1420,7 @@
      "published_at": "2026-11-16T10:03:30+09:00"
     }
    ],
-   "fetched_at": "2026-11-17T08:38:30+09:00",
+   "fetched_at": "2026-11-17T10:32:50+09:00",
    "code": "005930"
   },
   "000660": {
@@ -1519,9 +1519,36 @@
      "date": "2026-11-13",
      "time": "08:46",
      "published_at": "2026-11-13T08:46:29+09:00"
+    },
+    {
+     "keyword": "현대차 실적",
+     "title": "현대차, 투자 1.8조 축소하고 판매 목표 16만대 줄여",
+     "source": "조선일보",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB0bTctbTJNWG5JMV9CVjNWeHd0Z1VtMTktNXlLNGRYOE1vdmM0MTFWM2hOVW1HYWcwNnJiUFA4TElieUlXNmlUenNQLTh6anYwa1E2UXAwM3Z5UE5YY25HWlJrb1Ywd2hnVTd1dkpJTjBhSXFTZi1Ld1pUWGJ3ZTA?oc=5",
+     "date": "2026-10-30",
+     "time": "16:00",
+     "published_at": "2026-10-30T16:00:00+09:00"
+    },
+    {
+     "keyword": "현대차 실적",
+     "title": "\"역대 최대 실적인데, 왜?\"...현대차그룹 주가 '주르륵'",
+     "source": "한국경제",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFB0blp2UnkxeFZob3I4UVZxTnpPMDg4aDdvSzFiR0lpVlhDdFNNcEl0cjROV0hvbDMydF9mZFZ6SkVyUXZDVXZQWVB1a0pISEYyOHFZQzB1QTFCQQ?oc=5",
+     "date": "2026-10-30",
+     "time": "16:00",
+     "published_at": "2026-10-30T16:00:00+09:00"
+    },
+    {
+     "keyword": "현대차 실적",
+     "title": "현대차, 실적 부진에 AI 협력 불확실…목표가 하향 [메리츠증권]",
+     "source": "에너지경제신문",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1JNU53TUVzQmdJZ3c1elBudDFsUDl1MXBLOWd3d3JoOFpaVUo1em1FeEY3eURLaGxfdG96N1dYYzRveFdKUkpaT0lEaTl6Y0pHa2ZQcDkyVW1KVHM?oc=5",
+     "date": "2026-10-30",
+     "time": "16:00",
+     "published_at": "2026-10-30T16:00:00+09:00"
     }
    ],
-   "fetched_at": "2026-11-17T08:32:05+09:00",
+   "fetched_at": "2026-11-17T10:32:55+09:00",
    "code": "005380"
   },
   "035420": {
@@ -2231,96 +2258,96 @@
    "articles": [
     {
      "keyword": "AI",
-     "title": "AI로 더 빠른 성장, 일자리도 늘까…美 연준이 따져 본 세 가지 미래",
-     "source": "조선일보",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQNU9GdUktM0pNb1I2dEVkY3pRTzQyZ3VlcnFMcjFHTTRPODVnN1JvRFBpSGNSYVJ5OHFIa2M5dGpMNGYyRGY0R2JUdGY5cXJxTTdxOExZY05LTzZUbEZEaURhT1VQOFpObUswY05CVnhUcXZ4YmUwTkJFMnNheDB3dWdwbk92aTFM?oc=5",
+     "title": "더 많은 과학자에게 AI 활용 기회를",
+     "source": "OpenAI",
+     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBVLUU1MnhVNlZfN3BFVVZUaThUdnRQSXIyLWdfY2VUX2h2Rll2RVAzVnJKOHpMbkVsOFVxakktYkFZZFhCa2JEZGdSenB0Y3FGalp3QXdwMHptMDFYTDdueEdhZl9iLU1vc1hheHF3V2hRbzhpYnFYWm5pS21Jdw?oc=5",
      "date": "2026-11-17",
-     "time": "08:13",
-     "published_at": "2026-11-17T08:13:00+09:00"
+     "time": "10:31",
+     "published_at": "2026-11-17T10:31:44+09:00"
     },
     {
      "keyword": "AI",
-     "title": "샘 올트먼, 삼성에 한 'AI칩 경고' 설명…앤트로픽 상장엔 \"걱정 안 해\" [IT썰] - 머니투데이",
-     "source": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1tUUdjOUp3YzFHazZlNGdUWk9BQ21uVmZJM0V1eFBIM1JVeGppeExLNlc5aDFkOVJDcjl6dnBNZk1BZlhRNTFNc3ZLU0dWb2dRb1UtcGxieWpFcE9HNWN6VzRYcmFVOXPSAWxBVV95cUxOVWc4T29YbWNfdi1LN1Z4UFhpU3IwZDZZRXJWU1JOeDRXVUZUU0xiS0NYblVaUzhueWI4c1lwenRHTGRjWnZyRFB1RFB0a1pzLUNJYnRhcGlwR3BGY05LZzM4eDkzdzBfUHEwdkM?oc=5",
+     "title": "EU, 고위험 AI 도입 전 기본권 영향평가 구체화…기업·공공기관용 질문지 초안 공개",
+     "source": "인공지능신문",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE42M2E1R0lWVWswZGs2c000bEd4dDZLNlFFaGdjRGZOaHZ1d0JPQWVJTFlnQUxHLWZxR2RhRUgtZ0VMMzZ4MGluMlUtblZnWXN5SXFVZTl1MWwwZ0VZS2g2d1RpVHEyYUU?oc=5",
      "date": "2026-11-17",
-     "time": "08:08",
-     "published_at": "2026-11-17T08:08:55+09:00"
+     "time": "10:17",
+     "published_at": "2026-11-17T10:17:10+09:00"
     },
     {
      "keyword": "AI",
-     "title": "챗GPT에 기업 입점시킨 오픈AI…네카오와 플랫폼 경쟁 예고",
-     "source": "연합인포맥스",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBHV2JpZ0xHeDFlbVZCZmtrZmlQdEl6cW1jdE9hQVNHQTZSQUk4ZGsxb2traVZTWjFHdWdBLWNGSG14MUJia2lWdGdZOWtuamJqU3NCOGNfOGo2cHJ4X0Q2WGtNaFF0dEhJdWExc3NQRko?oc=5",
+     "title": "30대 그룹, 타법인 투자 줄였어도 AI엔 1조 넘게 썼다",
+     "source": "경향신문",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA5NXV4UjRXZE9hU1c3WkxuWG55VER2OEJ6SFNaT0RPYXp0Y095aDNfMlJMVC1DaklwZi11bm84bUVmMDlZVm0yYWJlVm9HTTF3dV93N24zc25aUdIBX0FVX3lxTFBqLWpHN0JoQTZXNGRvUW9Zc1pKV0YtUXY2TmFtRWtaZGZxTWNOdVlvZGxiRzU0RkwzUUNTTWRJckg1TXpfT3pPWDRZR0x1ZXlTeU5kT1AxYjlIVjFRMnNF?oc=5",
      "date": "2026-11-17",
-     "time": "08:06",
-     "published_at": "2026-11-17T08:06:06+09:00"
+     "time": "10:16",
+     "published_at": "2026-11-17T10:16:00+09:00"
     },
     {
      "keyword": "AI",
-     "title": "美 캘리포니아, 안전장치 없이 AI 개발 이유로 오픈AI 상대 소송",
+     "title": "“절대 티 안나요” “전공시험 때 성공”…AI안경 대여 문의해보니",
+     "source": "한겨레",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9Zbm5QVjVBRjdOSnJ0NkpkNDNTUVNfbkRyc0ZQMFdVbmVvN2hNSi1KN2xZVFlXZkxvUnNBNlB1WTVmXzdGbjJWNTQ2R05aOFdBSWlpdHgxcWZFMG9fODFlQS1LSU9yUENlX21NZHBnYzVGZw?oc=5",
+     "date": "2026-11-17",
+     "time": "10:13",
+     "published_at": "2026-11-17T10:13:00+09:00"
+    },
+    {
+     "keyword": "AI",
+     "title": "[뉴스초점] 수능 앞 ’AI 커닝’ 불안…무너지는 시험 공정성",
+     "source": "연합뉴스TV",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9xSkpRQnNUcWczRXNBUFpweGtXVllHUlNDNmtLX2syWU1QVklieV91T2FCcUFqU29KaWs2bk8zYkgzVjB3WDlraml0akdVM3JETnE3STVuWW5ENlRpVWh4MWIwWWRsN1k?oc=5",
+     "date": "2026-11-17",
+     "time": "10:13",
+     "published_at": "2026-11-17T10:13:00+09:00"
+    },
+    {
+     "keyword": "AI",
+     "title": "與, AI 시험 부정행위에 무관 대응…'영구 응시자격 박탈'까지 거론",
+     "source": "매일일보",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9SQWh4N2NXYlJuWGFUVEpWd1JFV2hKalR6Yy1HVnZ5cEcwNmV1SFNVekM3YW9yS2ZRMndQby1uM3dCb2ktQmlaUVNkc2Yyc2VoR1dON1RfMzJZc3V5VlpiT0VtdWw?oc=5",
+     "date": "2026-11-17",
+     "time": "10:11",
+     "published_at": "2026-11-17T10:11:39+09:00"
+    },
+    {
+     "keyword": "AI",
+     "title": "강원대, 4개 캠퍼스 연결하는 통합 AI 포털 구축 착수",
      "source": "전자신문",
-     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBfRlBFOXhYZzBOSHhTbWxVX09MZmNiNXBWS3ZqdHhqbTlmTEl0YndtZEFpclk1TndzdENGc1kwQ1dSNmMxb1lZU0NfUy10Zw?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBjdktleG1UQ1hZOHBQRE9yMEp1Y05lWkVuMGZ0d2s5Nk5nZVMxZWNMY2xVcDNKSDE2NENlU1hBWnhvb3BfcmlLbm41MDFyUQ?oc=5",
      "date": "2026-11-17",
-     "time": "07:57",
-     "published_at": "2026-11-17T07:57:16+09:00"
+     "time": "10:07",
+     "published_at": "2026-11-17T10:07:05+09:00"
     },
     {
      "keyword": "AI",
-     "title": "생산성 도약부터 대량 실업까지…워시 \"AI 경제 영향, 3개 시나리오\" - 머니투데이",
-     "source": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE0tdDNjMXFJNUJ4TjBNU21uMGFRc1VCWldHV05HN19NaGNlN2pVeWZVM0xuRl9mekU0V1U5SGl1cUczRVFuWWJXRVVqczg4eUI5RnNHc2FlbkNZMVdIekZYNlBSTUdrUV9Z0gFuQVVfeXFMT2piVHVvSVVPaFdGU1o2MFRUZEZLUkVwNFlSV0Z0V3FNOHRGbDdDczJtVVV0SGQydi0yb1RvQnJZMl94ODhLUFJmZ0xGSHRHZTJ5X0hDT010dk4wbFFJMXZCWVJHSVk3cUloek82d1E?oc=5",
+     "title": "AI가 취약점 찾고 공격까지…구글 \"사람 없는 자율형 해킹 현실화\"",
+     "source": "조선일보",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNc0hRT1JBQTVMVlh4R3pwbS1LSDJ5OHMtWGVIR3ltY2hFcXBZdloyam5DSUdzanZ3bWhOaGdfblFjTTFCU2t1NGJVS1h4cmJ4aERaYS03S2hIR3RMVXZMVi12OTNNV0tjLU5TNC1aZHdiWS14YUpYVjgzWVNwc2NqaURWQQ?oc=5",
      "date": "2026-11-17",
-     "time": "07:57",
-     "published_at": "2026-11-17T07:57:12+09:00"
+     "time": "10:07",
+     "published_at": "2026-11-17T10:07:00+09:00"
     },
     {
      "keyword": "AI",
-     "title": "美, 해외서버 통한 中의 ‘AI칩 원격 이용’도 차단",
-     "source": "동아일보",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBjTDNPR1hxSFA1a1NUZlFGdVhoQ19uVG5pZVFGR2JFQU02RWVYZUFKaWR1WFFoNU5kZ2xpLU5zUlpiUEVieG1kRG5iMXh1VDhTaGxXRkFFVHNlVlV6UWlLS3RNRTdiZFhUYTRsdEV2a01wYlHSAWZBVV95cUxObzFKRFJ4c0JDTUlmTnF2WEhhVXFYVFVfd3VUQjdNMzFzUmRrbUhzZThwa3J6alJPbzVzSzZYenhHMG5rcjdmMlhfTmowOGZjZ2w2VmR4MmhTR1c3X1RyeWVIZEF6QlE?oc=5",
+     "title": "KT알파 쇼핑, 방송 화면 개편…AI 실시간 정보 서비스 도입",
+     "source": "전자신문",
+     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5PaDFTNnpFZC1Qd1l2YllRTTZzMTZzczhFQnFfMEt5bjJDcWVYQXpoX3VDRnlVYUc1ZEVfVUQ2TVB5VFNJakthcFZSYUkyZw?oc=5",
      "date": "2026-11-17",
-     "time": "06:49",
-     "published_at": "2026-11-17T06:49:29+09:00"
+     "time": "10:05",
+     "published_at": "2026-11-17T10:05:37+09:00"
     },
     {
      "keyword": "AI",
-     "title": "젠슨 황 CEO 복귀설 일축·오히려 AI 투자 금액 줄인다?...투자자가 알아야 할 5가지",
-     "source": "마켓인",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFAxM3ZpTWtVVTRHcnBjYUZOdm5uRE5CV3dCekFPUktVRUtNWTdmczdEbWoteTByZjFjN3VSd1BFVFpjSUZUQ2x5RVN0c09hNHVodktmTjM1OGtJMHR4YVBhd0Q4LWVwWHI5d1FpcTJBRzBMRlk?oc=5",
+     "title": "SK이노베이션, AI 스타트업 3곳 사업화 지원",
+     "source": "디일렉",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBIcTBOd3ZDTE96RXMwb1RRV2FoZFVPUWk0RWpWRi1OUTY2ZmVkNWVZQmRBVmNEdGRaVkxKeUtVblZMNi1IRHo4dEhVellBVThfZHlaQzZQc1dqNnB5VmNUZVYxOS1NUQ?oc=5",
      "date": "2026-11-17",
-     "time": "06:48",
-     "published_at": "2026-11-17T06:48:16+09:00"
-    },
-    {
-     "keyword": "AI",
-     "title": "[AI돋보기] 내 앞에서 몰래 촬영?…AI 안경 구별부터 대처까지",
-     "source": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1UTktNUXVJOEVuRFdDOUJvN29rdTNSVDQ5UnViZ2ozbTc0ZFdnd2JTeXpRc3R0eDl5Rm43cmF3TXR4azdfelBrWU9kTHo0Z19tOVJlVXEyMmdqUHfSAWBBVV95cUxNZmhSbUtpRmdvWXpLWXdVbWxSY0J5TWNLdGRXejFVaDBOM2dZNXBXYUhMdnctUnI2N3NqazdMSHlXazQ4R1NyLXlSeWd5WG9Cb3JRX0VVTTBERDNWc1dkVzQ?oc=5",
-     "date": "2026-11-17",
-     "time": "06:33",
-     "published_at": "2026-11-17T06:33:00+09:00"
-    },
-    {
-     "keyword": "AI",
-     "title": "AI 매도세 계속, 뉴욕증시 일제히 하락…엔비디아 4.1%↓",
-     "source": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9rcHVQSnFxNWNCTHZPam1uMElzX1NmZFZTM2RuY0pQS1RXUVVuX0VnVHhldDhWN3VleXVDTzBFUTlTRGJQRWw5NGs3WElRU25DdFk1V3I2MjFSeUHSAWBBVV95cUxPdU5lRHBvNGtmTmRER2ZteFZ4RXlCYktyUGpJa1F4dUxnbGF6OFl6bi1kVXhjSmZrM1BMR0dqS2JWRTZxRE1XUm5TQ0otZWQ3RjhCZzd0V3JXeFhqdXJ3V0g?oc=5",
-     "date": "2026-11-17",
-     "time": "06:15",
-     "published_at": "2026-11-17T06:15:30+09:00"
-    },
-    {
-     "keyword": "AI",
-     "title": "시진핑과 회담 앞둔 트럼프, AI ‘대중국 포위망’부터 폈다 [글로벌 모닝 브리핑]",
-     "source": "서울경제",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9MUVQ1WDNXaVVTVlVJNkQzeUxrem1LVWNOOFRYVUVuX3lIXzFYTm05VHJ2WUJISGVCZXhUc2VaM0U0dm1PSmxlU29fdVFETFRHSnfSAVNBVV95cUxNWm9kREU2Y0kwbXRCN1lBWWc0S19MU0dBZXBkNG9TYkIyQS1NRTZlN1RwakxYYUpRQTB0SEJuZElaRjhvWmxBVnlqMjgyY2swR29xOA?oc=5",
-     "date": "2026-11-17",
-     "time": "06:15",
-     "published_at": "2026-11-17T06:15:00+09:00"
+     "time": "10:02",
+     "published_at": "2026-11-17T10:02:46+09:00"
     }
    ],
-   "fetched_at": "2026-11-17T08:32:08+09:00",
+   "fetched_at": "2026-11-17T10:32:58+09:00",
    "keyword": "AI"
   },
   "HBM": {
@@ -2517,6 +2544,103 @@
    "fetched_at": "2026-11-17T08:38:39+09:00",
    "keyword": "금리"
   },
+  "환율": {
+   "query": "환율",
+   "articles": [
+    {
+     "keyword": "환율",
+     "title": "단기차입금 첫 '0원' 현대차, 환율 영향 줄인 기아…재무 체력 강화한다",
+     "source": "연합인포맥스",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8tcmFxOHN0bHNiU3FmTjRpU0JTay05SWNEM1ZoX1VoX09QdHlCcWVKZWZ0TkRvRkdSQ1Zia21aWXU0clZBaVlnMmJnWlNGcW9uV3pnMk5Ub3VqZllBTUs4a2s4M29uMmpfcTJpZXVwNko?oc=5",
+     "date": "2026-11-17",
+     "time": "10:13",
+     "published_at": "2026-11-17T10:13:26+09:00"
+    },
+    {
+     "keyword": "환율",
+     "title": "환율, 1330원대 중반서 보합권…달러 강세에도 제한적 움직임",
+     "source": "뉴스투데이",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9fU0Zxd01HbzhQMFM5VTVzN2pmX1BCQk4yMG5pMDAxcUlITXgxVXJheWhjbmt0OHZFbFlsdGZxSHdiWnZLb1EwQy1EMTBmcm1fZ0ZKeDQ3T0lIdTY5dnc?oc=5",
+     "date": "2026-11-17",
+     "time": "09:52",
+     "published_at": "2026-11-17T09:52:00+09:00"
+    },
+    {
+     "keyword": "환율",
+     "title": "환율, 1330원대 중반 등락…美 기술주 급락에 상승 압력",
+     "source": "아주경제",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1UQ2ZoR0wzQ0VnYXh5NG1jS2hOazluaTZlYzFYeGYxN25UNmswUExrWW51c1lFRkJvWTROdnlSZktSenF3UGt6Q05TcndRSWFJb2pMOWxUcHJSQdIBWEFVX3lxTE96eDRCT1RHbk83UEZvMUtGcGdDbFhIN3IxdElxYUpDY1FYX243QzFtTW5nZm5wZVk2RG51Uk5XTG13djdvbE1UM29PODl0WWdwN1NKOXN4cVk?oc=5",
+     "date": "2026-11-17",
+     "time": "09:40",
+     "published_at": "2026-11-17T09:40:12+09:00"
+    },
+    {
+     "keyword": "환율",
+     "title": "강달러에도 환율 1330원대…美 기술주 급락에 원화 약세 압력",
+     "source": "조세일보",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE83NzkzM2tsd2IyNHRjempQQlBaUWI0Z3hJWFF2Rk5JcS1EaEpaUmctaDlpZzA2UHcwbVdIYl90R1dOUjBVa3FlT2YtNXVUTTRwOWJzVUlxQzBOLW9lWFBCS0JrTlZjbTdaRlViRnd6Yw?oc=5",
+     "date": "2026-11-17",
+     "time": "09:37",
+     "published_at": "2026-11-17T09:37:34+09:00"
+    },
+    {
+     "keyword": "환율",
+     "title": "[표] LME 비철금속 및 환율 동향(11월 16일)",
+     "source": "철강금속신문",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5Mcks4LWlFTVJTa0FJTW5rWW5xVlYxZEc5ZUxJbExLRTFXSWduQlpKTHE1MzFkd3pxLUJBUXhZM29Gc2dJZHZIMV9hSjc4Uy1VcUZJclp5Z1k4bGktbkZHeUxxMFdUOUJzeEE?oc=5",
+     "date": "2026-11-17",
+     "time": "09:24",
+     "published_at": "2026-11-17T09:24:00+09:00"
+    },
+    {
+     "keyword": "환율",
+     "title": "[애널픽] 대주전자재료, 환율보다 성장성 주목…\"미국 진출 기대\"",
+     "source": "뷰어스",
+     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1qWHotLVItNmUxOTI4Vk8wdTBEbS1HZEd1dERvb2QtWnFzRE1zLUlKeVlwTXF5eDY5NGpkbFNreTJjVDlIX1dLeUtlZFg3cTU5OTFPd1lnbFo?oc=5",
+     "date": "2026-11-17",
+     "time": "09:15",
+     "published_at": "2026-11-17T09:15:00+09:00"
+    },
+    {
+     "keyword": "환율",
+     "title": "안전자산 선호에 외환시장도 눈치⋯\"달러 강세 속 상승 우위\" [환율전망]",
+     "source": "이투데이",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE8tRDBLYWJ5ZUxKNzg1QWhXWmtaTUlSeG9uOGlhYW4tbEVDelQtcDVlZXZvSTdkd2RBWEQzdjV2X3F6VnZrVlpFemwyMEY0cnBuNTlEWg?oc=5",
+     "date": "2026-11-17",
+     "time": "08:41",
+     "published_at": "2026-11-17T08:41:00+09:00"
+    },
+    {
+     "keyword": "환율",
+     "title": "상장 LCC 4사, 3Q 반등에도 재무 회복 ‘온도 차’…환율 착시 뒤 차환·정비·스텝업 부담",
+     "source": "에너지경제신문",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE93QnFuN1JNVjBoTnhKbFJDSk9CVzZFdnNKOHBXQ3hZT3o0RGdVTUUzRW5ZTHRxSUZoWW13b2RUd0p0S1NkNkZmRzg1bzRRYTFNOWJBdVlfX21PNVk?oc=5",
+     "date": "2026-11-17",
+     "time": "08:40",
+     "published_at": "2026-11-17T08:40:06+09:00"
+    },
+    {
+     "keyword": "환율",
+     "title": "금리·환율 변동에 투자 손익 '뚝'…교보·한화 줄줄이 적자",
+     "source": "연합인포맥스",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9jdnVoZzJaNUs3Z1gzREQ3RVNJWDlhSThieV9JN1JYQjZnMVhYZjBKYmFlaVE4ekREanFUSWhubUlFZFNwaVJDaVNPcXNDaUZOajRRVHE3dVA5QVYwVEtfYWZSekxSbjEtMGxrOVAxdjg?oc=5",
+     "date": "2026-11-17",
+     "time": "08:20",
+     "published_at": "2026-11-17T08:20:15+09:00"
+    },
+    {
+     "keyword": "환율",
+     "title": "[모닝 리포트] 달러/원 환율 상승 압력…강달러·증시 부진에 1340원선 등락 전망",
+     "source": "뉴스핌",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9lRkozOEE0RVBDSV9yR1JiWER5WFdsU2J4dHJYUDVOMThfbEVxRVlVRFY2ZWhXTUlSV3FkS3Rabmthc2xJaEZOR0N3Q3dwZ3IyOTQ4TVpOLWVCVnRv?oc=5",
+     "date": "2026-11-17",
+     "time": "08:17",
+     "published_at": "2026-11-17T08:17:00+09:00"
+    }
+   ],
+   "fetched_at": "2026-11-17T10:33:01+09:00",
+   "keyword": "환율"
+  },
   "비트코인": {
    "query": "비트코인",
    "articles": [
@@ -2613,6 +2737,103 @@
    ],
    "fetched_at": "2026-11-17T08:48:16+09:00",
    "keyword": "비트코인"
+  },
+  "현대차": {
+   "query": "현대차",
+   "articles": [
+    {
+     "keyword": "현대차",
+     "title": "[특징주] 현대차, 뚜렷한 악재 없이 장중 2%대 약세 : 기업주식정보",
+     "source": "재경일보",
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE8wajRIR0F0ZU8wc0RuZkpFQ212NWVobXBkRnJ1bWNKOE1URDVDc09EWV9tTUxJbFRwZWRFaFRFN2Mxb3pmcUdKTXhSOA?oc=5",
+     "date": "2026-11-17",
+     "time": "10:22",
+     "published_at": "2026-11-17T10:22:02+09:00"
+    },
+    {
+     "keyword": "현대차",
+     "title": "계양전기, 현대차 부품 공급업체 선정에 상한가",
+     "source": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1vMlliWVpyZmdjNGdSOThrQmIyYlBaQzF6QmNrYjVMd3lLQmlPN09ERGZJSUlwSVJmczdTR3gwelJ4UkxIamNPaFdlSjFvakJXVjVtMTNCRXpKbnFyNVAwNtIBeEFVX3lxTE1qWi1SOHoyNWtTZG13cUpkM19NcWZMM1hFd1J5c0gxVlRuNXZVRXFWb0E0SmxHcndaZ21XMFRwcE1kRzBMLU9ESGtpMERnU3p6bjYzMjRxOHc1VW9pNGltY2doZ1ltWTNobkpuT0p1a2U0bS1wdTVHVg?oc=5",
+     "date": "2026-11-17",
+     "time": "10:14",
+     "published_at": "2026-11-17T10:14:52+09:00"
+    },
+    {
+     "keyword": "현대차",
+     "title": "단기차입금 첫 '0원' 현대차, 환율 영향 줄인 기아…재무 체력 강화한다",
+     "source": "연합인포맥스",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8tcmFxOHN0bHNiU3FmTjRpU0JTay05SWNEM1ZoX1VoX09QdHlCcWVKZWZ0TkRvRkdSQ1Zia21aWXU0clZBaVlnMmJnWlNGcW9uV3pnMk5Ub3VqZllBTUs4a2s4M29uMmpfcTJpZXVwNko?oc=5",
+     "date": "2026-11-17",
+     "time": "10:13",
+     "published_at": "2026-11-17T10:13:26+09:00"
+    },
+    {
+     "keyword": "현대차",
+     "title": "[데일리카 컷] 안락한 승차감에 경제성은 ‘덤’..현대차 그랜저 3.5 LPG",
+     "source": "데일리카",
+     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE56dFlUcjhUaDgzZEUxVlZBbXppTERrOHh1UU0tT1hhR092UTgwWlNxR0p5dkVmNFl1R3Y2TU54a01kcjlJZy03UXJGOUdPSEl5TWp4NnRXaG9MMlRudUNocGNEMnRMUkx2SExIaXE3b1REdklob3c?oc=5",
+     "date": "2026-11-17",
+     "time": "10:12",
+     "published_at": "2026-11-17T10:12:36+09:00"
+    },
+    {
+     "keyword": "현대차",
+     "title": "‘파업 여파’ 현대차 국내 공장 가동률 94%로 하락…車 가격은 3% 안팎 올라",
+     "source": "조선일보",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1nOG1pendVbk1pY1pkSEotM0I5VlplRnE0QmQwX1l0ZTlRa2EzMFlHel9sc3Vka0JyQ1gwUk9Zd3FBWURmem03MUxfclNDRlZyeldRM0Z2TW00WWpmN2xsb1lGaklkcXhWM0Z2QmtwNEV1VWJ0VDJFNWJQMDVWUFU?oc=5",
+     "date": "2026-11-17",
+     "time": "10:07",
+     "published_at": "2026-11-17T10:07:00+09:00"
+    },
+    {
+     "keyword": "현대차",
+     "title": "현대차, 생산능력 3% 늘리고도 생산 6% 줄어…공장 가동률 86%로 하락",
+     "source": "중소기업신문",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA2b296NGlVN3dIRTRDZ3lHbUZPejdUUG8zSFRnVV9GRTB3UmFtUnRDdHQ0ZE1GODllN0w3VGp6MFVDSFFnaHVtTklSSk41SVE2Z1NEVlUzampuX0h2cjJMaktXa2RRb3lfWE9Qcg?oc=5",
+     "date": "2026-11-17",
+     "time": "10:05",
+     "published_at": "2026-11-17T10:05:46+09:00"
+    },
+    {
+     "keyword": "현대차",
+     "title": "현대차, 자율주행차도 위탁생산…현대차, 'AV 파운드리' 사업 확대",
+     "source": "뉴스핌",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE0zTnBDSWxIS0t2dXpmaXV4SkpwaTFMUldqWnlvQVZVczgzc3cwa1NrSmxQcF9uTmpCZGVwOU5jckNLa2VvMi1aSjJwem15N1BQb1ZRZ3d2RU1XcTZU?oc=5",
+     "date": "2026-11-17",
+     "time": "10:02",
+     "published_at": "2026-11-17T10:02:00+09:00"
+    },
+    {
+     "keyword": "현대차",
+     "title": "[속보] 계양전기, 현대차 5개 차종 자동차부품 공급업체 선정…전기차 포함",
+     "source": "CBC뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9oVktfOVZ5WTdsWml0SmZ0Y1RiRW1VbXhXcGo1REhSSW16SW1QQlEtc0dFRjZxeTlWbTdDQ3J0MzRSa1ZibnVON2hMUWVfUy1Dc1FBZjZxMzMtalRkZjJ4ckZUQWN0cWlu?oc=5",
+     "date": "2026-11-17",
+     "time": "10:00",
+     "published_at": "2026-11-17T10:00:37+09:00"
+    },
+    {
+     "keyword": "현대차",
+     "title": "현대차그룹, 보스턴다이나믹스 잔여 지분 9.65% 인수 완료…아틀라스 양산 채비",
+     "source": "마켓잉크",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5NMWt5RW81T1luaU5ocFVDNzFabUkxQl9maDZUekNnRDlIVnFjQmJSZnhLYjZ2NnJ4b1FlN3BXd3JjLW1OQzFKWjhlUFE1WmNkbk82bTFWSlFSWkJ5V2pxNWdVWkpXU1ZuX2FKRlpJcw?oc=5",
+     "date": "2026-11-17",
+     "time": "09:59",
+     "published_at": "2026-11-17T09:59:50+09:00"
+    },
+    {
+     "keyword": "현대차",
+     "title": "공장은 늘렸는데 생산은 줄었다…현대차 글로벌 생산기지 가동률 뚝",
+     "source": "아시아경제",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB5emI1WDU5VzNmMXctUXMxNlVZclpZOEYySnRCNlJGSTJmcjBNS0s4NXIyZnc3S0E0V2RNYTRyVXlQLWtSUzJFQUlwZzVjc25tVmVKcHctR200MWZYS0txNA?oc=5",
+     "date": "2026-11-17",
+     "time": "09:53",
+     "published_at": "2026-11-17T09:53:34+09:00"
+    }
+   ],
+   "fetched_at": "2026-11-17T10:33:14+09:00",
+   "keyword": "현대차"
   },
   "방산": {
    "query": "방산",
@@ -4266,7 +4487,7 @@
  },
  "errors": [],
  "briefing": {
-  "headline": "미국 증시 마감: 다우 51,608.17 (-1.41%), 나스닥 24,509.76 (-2.49%), S&P500 7,416.59 (-1.92%), SOX 9,610.65 (-5.28%) / 코스피 5,055.34 (-0.89%), 코스닥 659.73 (-0.89%)",
+  "headline": "미국 증시 마감: 다우 51,608.17 (-1.41%), 나스닥 24,509.76 (-2.49%), S&P500 7,416.59 (-1.92%), SOX 9,610.65 (-5.28%) / 코스피 5,029.62 (-1.39%), 코스닥 657.48 (-1.23%)",
   "checkpoints": [
    {
     "title": "반도체·기술주 흐름",
@@ -4278,11 +4499,11 @@
    },
    {
     "title": "금리·환율",
-    "detail": "미 10년물 5.133% (+1.21bp), 미 2년물 4.829%, 원/달러 1,342.00원 (+0.41%)."
+    "detail": "미 10년물 5.135% (+1.42bp), 미 2년물 4.829%, 원/달러 1,341.90원 (+0.40%)."
    },
    {
     "title": "국내 증시",
-    "detail": "국내 추적 종목 낙폭 최대는 두산에너빌리티 -3.12%."
+    "detail": "국내 추적 종목 낙폭 최대는 두산에너빌리티 -3.79%."
    }
   ],
   "sector_news": [
