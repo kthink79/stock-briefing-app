@@ -41,7 +41,16 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 
 NAVER_POLL = "https://polling.finance.naver.com/api/realtime"
 NAVER_PRODUCT = "https://m.stock.naver.com/front-api/marketIndex/productDetail"
+NAVER_LIST = "https://m.stock.naver.com/api/stocks/marketValue"
+DAUM_QUOTE = "https://finance.daum.net/api/quotes/A"
 GOOGLE_NEWS = "https://news.google.com/rss/search"
+
+# 전종목 검색·등록용 데이터 파일
+UNIVERSE_PATH = os.path.join(DATA_DIR, "stock_universe.json")
+FUND_PATH = os.path.join(DATA_DIR, "stock_fundamentals.json")
+US_SYMBOLS_PATH = os.path.join(DATA_DIR, "us_symbols.json")
+UNIVERSE_FUND_LIMIT = 900      # 재무지표(PER/PBR)를 수집할 국내 종목 수 (시가총액 상위)
+UNIVERSE_FUND_MIN_HOUR = 7     # KST 07시 이후에만 하루 1회 재무지표 갱신
 
 DEFAULT_CONFIG = {
     "kr_stocks": {
@@ -540,6 +549,262 @@ def build_briefing(market: dict, stock_map: dict, news: dict) -> dict:
 
 
 # --------------------------------------------------------------------------
+# 전종목 검색·등록 (종목 유니버스)
+# --------------------------------------------------------------------------
+def parse_market_list_item(item: dict) -> dict | None:
+    """네이버 전종목 시세 목록(m.stock.naver.com/api/stocks/marketValue)의 한 행을 정리한다."""
+    code = str(item.get("itemCode") or "").strip()
+    if not code or not code.isdigit():
+        return None
+    name = str(item.get("stockName") or "").strip()
+    if not name:
+        return None
+    market = (item.get("stockExchangeType") or {}).get("name")
+    if not market:
+        market = "KOSDAQ" if str(item.get("sosok")) == "1" else "KOSPI"
+    return {
+        "code": code,
+        "name": name,
+        "market": str(market).upper(),
+        "price": num(item.get("closePrice")),
+        "pct": num(item.get("fluctuationsRatio")),
+        "mcap_eok": num(item.get("marketValue")),   # 억원 단위
+        "volume": num(item.get("accumulatedTradingVolume")),
+        "as_of": item.get("localTradedAt"),
+        "status": item.get("marketStatus"),
+    }
+
+
+def fetch_kr_universe(page_size: int = 100, max_pages: int = 60) -> dict:
+    """코스피·코스닥 전 종목의 이름·코드·현재가·등락률·시가총액을 수집한다."""
+    out = {}
+    for market in ("KOSPI", "KOSDAQ"):
+        page = 1
+        while page <= max_pages:
+            url = f"{NAVER_LIST}/{market}?page={page}&pageSize={page_size}"
+            payload = get_json(url)
+            rows = payload.get("stocks") or []
+            if not rows:
+                break
+            for item in rows:
+                entry = parse_market_list_item(item)
+                if entry:
+                    out[entry["code"]] = entry
+            total = num(payload.get("totalCount")) or 0
+            if page * page_size >= total:
+                break
+            page += 1
+    return out
+
+
+def load_us_symbols() -> list:
+    data = load_json(US_SYMBOLS_PATH, {})
+    symbols = data.get("symbols") if isinstance(data, dict) else None
+    return [str(s).upper() for s in (symbols or [])]
+
+
+def parse_world_list_item(item: dict) -> dict | None:
+    """네이버 해외 종목 polling 응답 한 건을 정리한다 (reutersCode의 접미사 제거)."""
+    rcode = str(item.get("reutersCode") or "").strip()
+    if not rcode:
+        return None
+    symbol = rcode.split(".")[0].upper()
+    quote = parse_naver_quote(item, "USD")
+    exchange = (item.get("stockExchangeType") or {}).get("name") or "US"
+    return {
+        "symbol": symbol,
+        "reuters": rcode,
+        "name": quote.get("name") or symbol,
+        "market": str(exchange).upper(),
+        "price": quote.get("price"),
+        "pct": quote.get("pct"),
+        "mcap": quote.get("market_value"),
+        "volume": quote.get("volume"),
+        "as_of": quote.get("as_of"),
+        "status": quote.get("market_status"),
+    }
+
+
+def fetch_us_universe(symbols, chunk: int = 350) -> dict:
+    """미국 종목은 네이버 해외종목 코드 접미사(.O/.K, 접미사 없음)를 모두 시도해 찾는다."""
+    if not symbols:
+        return {}
+    wanted = set(s.upper() for s in symbols)
+    codes = []
+    for s in symbols:
+        s = s.upper()
+        codes.extend([s, s + ".O", s + ".K"])
+    out = {}
+    for i in range(0, len(codes), chunk):
+        url = f"{NAVER_POLL}/worldstock/stock/" + ",".join(codes[i:i + chunk])
+        payload = get_json(url)
+        for item in payload.get("datas", []):
+            entry = parse_world_list_item(item)
+            if not entry or entry["symbol"] not in wanted:
+                continue
+            # 접미사 없는 코드(정확히 일치)를 우선 채택
+            prev = out.get(entry["symbol"])
+            if prev is None or (prev.get("reuters") != entry["symbol"] and entry["reuters"] == entry["symbol"]):
+                out[entry["symbol"]] = entry
+    return out
+
+
+def parse_daum_fundamental(data: dict) -> dict | None:
+    """Daum 금융 종목 요약에서 PER/PBR/EPS/BPS를 뽑는다."""
+    if not isinstance(data, dict) or not data.get("tradePrice"):
+        return None
+    return {
+        "per": num(data.get("per")),
+        "pbr": num(data.get("pbr")),
+        "eps": num(data.get("eps")),
+        "bps": num(data.get("bps")),
+        "cap": num(data.get("marketCap")),
+        "sector": data.get("sectorName"),
+    }
+
+
+def fetch_daum_fundamental(code: str, timeout: int = 12) -> dict | None:
+    req = urllib.request.Request(
+        f"{DAUM_QUOTE}{code}?summary=false",
+        headers={"User-Agent": UA, "Referer": "https://finance.daum.net/"})
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        data = json.loads(resp.read().decode("utf-8", "replace"))
+    return parse_daum_fundamental(data)
+
+
+def refresh_fundamentals(codes, previous: dict, today: str,
+                         workers: int = 8, budget: int | None = None) -> dict:
+    """시가총액 상위 국내 종목의 PER/PBR/EPS/BPS를 하루 1회 갱신한다.
+
+    previous: 이전 stock_fundamentals.json ({"date": ..., "items": {code: {...}}})
+    """
+    from concurrent.futures import ThreadPoolExecutor
+
+    prev_items = dict(previous.get("items") or {})
+    targets = [c for c in codes if (prev_items.get(c) or {}).get("d") != today]
+    if budget is not None:
+        targets = targets[:budget]
+    if not targets:
+        return {"date": today, "items": prev_items}
+
+    def one(code):
+        for attempt in range(2):
+            try:
+                f = fetch_daum_fundamental(code)
+                if f is None:
+                    return code, None
+                f["d"] = today
+                return code, f
+            except Exception:
+                time.sleep(0.4 * (attempt + 1))
+        return code, None
+
+    done = 0
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        for code, f in ex.map(one, targets):
+            done += 1
+            if f:
+                prev_items[code] = f
+    print(f"[universe] 재무지표 갱신 {done}건 (시도 {len(targets)})", file=sys.stderr)
+    return {"date": today, "items": prev_items}
+
+
+def build_universe(kr: dict, us: dict, funds: dict) -> dict:
+    """앱이 바로 쓰는 검색·시세 인덱스를 만든다.
+
+    kr[code] = [이름, 시장, 현재가, 등락률, 시가총액(억원), PER, PBR, EPS, BPS]
+    us[sym]  = [이름, 거래소, 현재가, 등락률, 시가총액(USD), PER, PBR, EPS, BPS]
+    """
+    fund_items = funds.get("items") or {}
+    kr_rows = {}
+    as_of_kr = None
+    status_kr = None
+    for code, e in kr.items():
+        f = fund_items.get(code) or {}
+        kr_rows[code] = [
+            e["name"], e["market"], e.get("price"), e.get("pct"),
+            int(e["mcap_eok"]) if e.get("mcap_eok") else None,
+            _round(f.get("per")), _round(f.get("pbr")),
+            _round(f.get("eps")), _round(f.get("bps")),
+        ]
+        if e.get("as_of") and (as_of_kr is None or str(e["as_of"]) > as_of_kr):
+            as_of_kr = str(e["as_of"])
+        if e.get("status") and not status_kr:
+            status_kr = e["status"]
+
+    us_rows = {}
+    as_of_us = None
+    status_us = None
+    for sym, e in us.items():
+        us_rows[sym] = [
+            e["name"], e["market"], e.get("price"), e.get("pct"),
+            int(e["mcap"]) if e.get("mcap") else None,
+            None, None, None, None,
+        ]
+        if e.get("as_of") and (as_of_us is None or str(e["as_of"]) > as_of_us):
+            as_of_us = str(e["as_of"])
+        if e.get("status") and not status_us:
+            status_us = e["status"]
+
+    return {
+        "schema": 1,
+        "source": "네이버 금융 전종목 시세 + Daum 금융 재무지표",
+        "as_of": {"kr": as_of_kr, "us": as_of_us},
+        "status": {"kr": status_kr, "us": status_us},
+        "counts": {"kr": len(kr_rows), "us": len(us_rows), "fund": len(fund_items)},
+        "fund_date": funds.get("date"),
+        "kr": dict(sorted(kr_rows.items())),
+        "us": dict(sorted(us_rows.items())),
+    }
+
+
+def _round(v, digits: int = 2):
+    if v is None:
+        return None
+    try:
+        return round(float(v), digits)
+    except (TypeError, ValueError):
+        return None
+
+
+def collect_universe(fund_state: dict, prev_universe: dict) -> tuple:
+    """전종목 검색 인덱스 + 재무지표를 갱신한다. (universe, fund_state) 반환."""
+    errors = []
+    try:
+        kr = fetch_kr_universe()
+    except Exception as e:
+        kr = {}
+        errors.append(f"국내 전종목 수집 실패: {e}")
+    if not kr:
+        # 실패 시 직전 파일 유지
+        prev_kr = prev_universe.get("kr") or {}
+        kr = {code: {"code": code, "name": r[0], "market": r[1], "price": r[2], "pct": r[3],
+                     "mcap_eok": r[4]} for code, r in prev_kr.items()}
+        if prev_kr:
+            errors.append("직전 유니버스로 유지")
+
+    try:
+        us = fetch_us_universe(load_us_symbols())
+    except Exception as e:
+        us = {}
+        errors.append(f"해외 종목 수집 실패: {e}")
+
+    today = now_kst().strftime("%Y-%m-%d")
+    if kr and now_kst().hour >= UNIVERSE_FUND_MIN_HOUR and (fund_state.get("date") != today):
+        # 시가총액 상위 종목만 재무지표 대상으로 삼는다
+        ranked = sorted(kr.items(), key=lambda kv: (-(kv[1].get("mcap_eok") or 0), kv[0]))
+        codes = [c for c, e in ranked[:UNIVERSE_FUND_LIMIT]]
+        try:
+            fund_state = refresh_fundamentals(codes, fund_state, today)
+        except Exception as e:
+            errors.append(f"재무지표 갱신 실패: {e}")
+
+    universe = build_universe(kr, us, fund_state)
+    universe["errors"] = errors
+    return universe, fund_state
+
+
+# --------------------------------------------------------------------------
 # collection
 # --------------------------------------------------------------------------
 def load_json(path, default):
@@ -769,15 +1034,22 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true", help="파일 기록 없이 결과만 확인")
     parser.add_argument("--force-news", action="store_true", help="뉴스 캐시 무시하고 재수집")
+    parser.add_argument("--skip-universe", action="store_true", help="전종목 인덱스 수집 생략(빠른 확인용)")
     args = parser.parse_args(argv)
 
     cfg = load_config()
     prev_market = load_json(MARKET_PATH, {})
     prev_news = load_json(NEWS_PATH, {})
+    prev_universe = load_json(UNIVERSE_PATH, {})
+    fund_state = load_json(FUND_PATH, {})
 
     market = collect_market(cfg, prev_market)
     stock_names = {code: (q or {}).get("name") for code, q in market["stocks"].items()}
     news = collect_news(cfg, prev_news, stock_names, force=args.force_news)
+
+    universe = None
+    if not args.skip_universe:
+        universe, fund_state = collect_universe(fund_state, prev_universe)
 
     generated = now_kst()
     market_payload = {
@@ -827,6 +1099,11 @@ def main(argv=None) -> int:
         "company_news": len(news_payload["companies"]),
         "errors": len(market.get("errors", [])) + len(news.get("errors", [])),
     }
+    if universe:
+        counts["universe_kr"] = universe["counts"]["kr"]
+        counts["universe_us"] = universe["counts"]["us"]
+        counts["universe_fund"] = universe["counts"]["fund"]
+        counts["errors"] += len(universe.get("errors") or [])
 
     if args.check:
         print(json.dumps({"counts": counts,
@@ -847,6 +1124,13 @@ def main(argv=None) -> int:
     with open(NEWS_PATH, "w", encoding="utf-8") as f:
         json.dump(news_payload, f, ensure_ascii=False, indent=1)
         f.write("\n")
+    if universe:
+        with open(UNIVERSE_PATH, "w", encoding="utf-8") as f:
+            json.dump(universe, f, ensure_ascii=False, separators=(",", ":"))
+            f.write("\n")
+        with open(FUND_PATH, "w", encoding="utf-8") as f:
+            json.dump(fund_state, f, ensure_ascii=False, separators=(",", ":"))
+            f.write("\n")
 
     print(json.dumps({"counts": counts, "changed": changed,
                       "headline": market_payload["briefing"]["headline"]},
