@@ -107,12 +107,10 @@ GitHub App 토큰에는 `workflows` 권한이 없어 이 저장소로는 워크�
 `data/config.json`의 `trace_keywords`(기본 트레이스) · `keyword_pool`(사용자가 추가한 키워드용 예비 수집 목록) ·
 `kr_stocks` / `us_stocks`(기업 분석 목록)를 수정하면 다음 수집 주기부터 반영됩니다.
 
-### 배포된 워크플로 파일에 대해
-`.github/workflows/live-data.yml`은 **JSON 표기(한 줄)로 저장**되어 있습니다. YAML과 JSON은 같은 문법 계열이라
-GitHub이 그대로 실행하며, 실제로 2026-11-17 08:38 KST 수동 실행에서 시세·뉴스 수집과 자동 커밋까지 성공했습니다.
-(통합 GitHub App 토큰에 `workflows` 권한이 없어 CLI로 푸시할 수 없고, 웹 편집기의 YAML 자동 들여쓰기가
-내용을 망가뜨려 JSON 한 줄 형식으로 올렸습니다. 사람이 읽는 YAML 버전은 `docs/workflows/live-data.yml`, 배포본과 같은 JSON 원문은 `docs/workflows/live-data.json`에 있습니다.
-같은 내용을 고칠 때는 두 파일을 함께 고치고 웹에서는 편집기 대신 **Upload files**로 올리면 들여쓰기가 깨지지 않습니다.)
+### 워크플로 파일
+`.github/workflows/live-data.yml`은 표준 YAML 형식으로 저장소에 있으며(편집은 GitHub 웹의 **Upload files** 권장 —
+웹 편집기의 자동 들여쓰기가 내용을 망가뜨릴 수 있습니다), 같은 내용의 사본이 `docs/workflows/live-data.yml`에 있습니다.
+GitHub App 토큰에는 `workflows` 권한이 없어 CLI(`git push`)로는 이 파일을 올릴 수 없고, 사용자의 GitHub 웹 세션으로 올렸습니다.
 
 ### 운영 cadence
 - 시세: 10분마다 (`2,12,22,32,42,52` — GitHub 스케줄러가 혼잡한 정각을 피하도록 분 단위를 어긋나게 지정)
