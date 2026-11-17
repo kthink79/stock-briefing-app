@@ -2052,6 +2052,9 @@ function refreshCompanyPricesOnly(showFlash, showToast) {
 
 function refreshCurrentCompanyPriceManual() {
   showNotif('시세를 다시 조회하고 있습니다…');
+  // 전종목 인덱스·기업 뉴스도 함까 강제로 새로받는다 (10분 주기 데이터)
+  loadUniverse({ force: true });
+  loadCompanyNews({ force: true });
   loadMarketData({ flash: true }).then(function (payload) {
     if (!payload) { showNotif('시세 조회 실패 — 네트워크를 확인해 주세요.'); return; }
     const comp = currentSelectedCompany ? companiesDB[currentSelectedCompany] : null;
