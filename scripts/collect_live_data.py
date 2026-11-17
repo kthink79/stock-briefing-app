@@ -49,8 +49,13 @@ GOOGLE_NEWS = "https://news.google.com/rss/search"
 UNIVERSE_PATH = os.path.join(DATA_DIR, "stock_universe.json")
 FUND_PATH = os.path.join(DATA_DIR, "stock_fundamentals.json")
 US_SYMBOLS_PATH = os.path.join(DATA_DIR, "us_symbols.json")
+COMPANY_NEWS_PATH = os.path.join(DATA_DIR, "company_news.json")
 UNIVERSE_FUND_LIMIT = 900      # 재무지표(PER/PBR)를 수집할 국내 종목 수 (시가총액 상위)
 UNIVERSE_FUND_MIN_HOUR = 7     # KST 07시 이후에만 하루 1회 재무지표 갱신
+COMPANY_NEWS_KR_LIMIT = 120    # 뉴스를 미리 모아둘 국내 종목 수 (시가총액 상위)
+COMPANY_NEWS_US_LIMIT = 30     # 미국 종목 수
+COMPANY_NEWS_PER_RUN = 8       # 회전 수집: 한 실행에 새로 수집할 종목 수
+COMPANY_NEWS_REUSE_HOURS = 6   # 같은 종목 재수집 간격
 
 DEFAULT_CONFIG = {
     "kr_stocks": {
@@ -767,6 +772,74 @@ def _round(v, digits: int = 2):
         return None
 
 
+# --------------------------------------------------------------------------
+# 기업 뉴스 (임의 종목 카드용·회전 수집)
+# --------------------------------------------------------------------------
+def company_news_targets(universe: dict) -> dict:
+    """뉴스를 미리 모아둘 종목: 국내 시가총액 상위 + 미국 주요 종목. {code: 검색어}"""
+    kr = universe.get("kr") or {}
+    us = universe.get("us") or {}
+    ranked = sorted(kr.items(), key=lambda kv: (-(kv[1][4] or 0), kv[0]))
+    targets = {}
+    for code, row in ranked[:COMPANY_NEWS_KR_LIMIT]:
+        targets[code] = row[0]
+    us_ranked = sorted(us.items(), key=lambda kv: (-(kv[1][4] or 0), kv[0]))
+    for sym, row in us_ranked[:COMPANY_NEWS_US_LIMIT]:
+        targets[sym] = (row[0] or sym).split("(")[0].strip() or sym
+    return targets
+
+
+def select_company_news_targets(targets: dict, previous: dict, now=None) -> list:
+    """오래된 순으로 이번 실행에 수집할 종목을 고른다."""
+    now = now or now_kst()
+    prev = previous.get("companies") or {}
+    pending = []
+    for code in targets:
+        entry = prev.get(code) or {}
+        fetched = entry.get("fetched_at")
+        fresh = False
+        if fetched:
+            try:
+                dt = datetime.fromisoformat(str(fetched))
+                if dt.tzinfo is None:
+                    dt = dt.replace(tzinfo=KST)
+                fresh = (now - dt) < timedelta(hours=COMPANY_NEWS_REUSE_HOURS)
+            except ValueError:
+                fresh = False
+        if not fresh or not entry.get("articles"):
+            pending.append((fetched or "", code))
+    pending.sort()
+    return [code for _, code in pending[:COMPANY_NEWS_PER_RUN]]
+
+
+def collect_company_news(universe: dict, previous: dict, force: bool = False) -> dict:
+    """카드 뉴스용 기업별 기사를 회전 수집한다. 실패한 종목은 직전 기사를 유지한다."""
+    targets = company_news_targets(universe)
+    prev_companies = dict(previous.get("companies") or {})
+    selected = list(targets.keys()) if force else select_company_news_targets(targets, previous)
+    errors = []
+    fetched = 0
+    for code in selected:
+        name = targets.get(code) or code
+        try:
+            arts = fetch_news_for(name, max_age_days=10, limit=8,
+                                  require_tokens=keyword_tokens(name))
+        except Exception as e:
+            errors.append(f"{name} 뉴스 수집 실패: {e}")
+            continue
+        time.sleep(0.4)
+        fetched += 1
+        prev_companies[code] = {
+            "name": name,
+            "fetched_at": iso_kst(now_kst()),
+            "articles": arts[:4],
+        }
+    for code in list(prev_companies.keys()):
+        if code not in targets:
+            prev_companies.pop(code, None)
+    return {"companies": prev_companies, "fetched": fetched, "errors": errors}
+
+
 def collect_universe(fund_state: dict, prev_universe: dict) -> tuple:
     """전종목 검색 인덱스 + 재무지표를 갱신한다. (universe, fund_state) 반환."""
     errors = []
@@ -1048,8 +1121,17 @@ def main(argv=None) -> int:
     news = collect_news(cfg, prev_news, stock_names, force=args.force_news)
 
     universe = None
+    company_news = None
     if not args.skip_universe:
         universe, fund_state = collect_universe(fund_state, prev_universe)
+        if universe and universe.get("kr"):
+            try:
+                company_news = collect_company_news(
+                    universe, load_json(COMPANY_NEWS_PATH, {}))
+                if company_news.get("errors"):
+                    print("[warn] " + "; ".join(company_news["errors"][:3]), file=sys.stderr)
+            except Exception as e:
+                print(f"[warn] 기업 뉴스 수집 실패: {e}", file=sys.stderr)
 
     generated = now_kst()
     market_payload = {
@@ -1104,6 +1186,9 @@ def main(argv=None) -> int:
         counts["universe_us"] = universe["counts"]["us"]
         counts["universe_fund"] = universe["counts"]["fund"]
         counts["errors"] += len(universe.get("errors") or [])
+    if company_news:
+        counts["company_news_universe"] = len(company_news.get("companies") or {})
+        counts["errors"] += len(company_news.get("errors") or [])
 
     if args.check:
         print(json.dumps({"counts": counts,
@@ -1130,6 +1215,14 @@ def main(argv=None) -> int:
             f.write("\n")
         with open(FUND_PATH, "w", encoding="utf-8") as f:
             json.dump(fund_state, f, ensure_ascii=False, separators=(",", ":"))
+            f.write("\n")
+    if company_news:
+        with open(COMPANY_NEWS_PATH, "w", encoding="utf-8") as f:
+            json.dump({"schema": 1,
+                       "generated_at": iso_kst(generated),
+                       "source": "Google News RSS (news.google.com)",
+                       "companies": company_news.get("companies") or {}},
+                      f, ensure_ascii=False, separators=(",", ":"))
             f.write("\n")
 
     print(json.dumps({"counts": counts, "changed": changed,

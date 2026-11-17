@@ -22,6 +22,9 @@ const NEWS_FRESH_MS = 25 * 60 * 1000;   // 서버 뉴스가 25분 이내면 실�
 const UNIVERSE_PATH = 'data/stock_universe.json';
 const UNIVERSE_CACHE_KEY = 'stock_universe_cache_v1';
 const UNIVERSE_TTL_MS = 12 * 60 * 1000;  // 전종목 인덱스 재확인 주기(12분)
+const COMPANY_NEWS_PATH = 'data/company_news.json';
+const COMPANY_NEWS_CACHE_KEY = 'stock_company_news_cache_v1';
+const COMPANY_NEWS_TTL_MS = 12 * 60 * 1000;
 
 const LIVE = {
   market: null,
@@ -34,7 +37,8 @@ const LIVE = {
   busy: false,
   errors: [],
   lastSyncAt: 0,
-  universe: { payload: null, index: [], map: {}, at: 0, loading: null, error: null }
+  universe: { payload: null, index: [], map: {}, at: 0, loading: null, error: null },
+  companyNews: { map: {}, at: 0, loading: null }
 };
 
 /* ------------------------------------------------------------------ utils */
@@ -1175,6 +1179,64 @@ function universeLookup(code) {
   return (LIVE.universe.map || {})[code] || null;
 }
 
+/* ------------------------------------------------------------------ 기업별 뉴스 파일 */
+function readCompanyNewsCache() {
+  try {
+    const raw = localStorage.getItem(COMPANY_NEWS_CACHE_KEY);
+    if (!raw) return null;
+    const obj = JSON.parse(raw);
+    if (!obj || !obj.payload) return null;
+    return obj;
+  } catch (e) { return null; }
+}
+
+function applyCompanyNews(payload) {
+  if (!payload) return;
+  LIVE.companyNews.map = payload.companies || {};
+  LIVE.companyNews.at = Date.now();
+}
+
+async function loadCompanyNews(opts) {
+  opts = opts || {};
+  if (LIVE.companyNews.loading) return LIVE.companyNews.loading;
+  const cached = readCompanyNewsCache();
+  const age = cached ? (Date.now() - (cached.savedAt || 0)) : Infinity;
+  if (cached && !LIVE.companyNews.at) applyCompanyNews(cached.payload);
+  if (cached && !opts.force && age < COMPANY_NEWS_TTL_MS) return LIVE.companyNews.map;
+
+  const urls = dataUrls(COMPANY_NEWS_PATH);
+  LIVE.companyNews.loading = (async function () {
+    for (let i = 0; i < urls.length; i++) {
+      try {
+        const bucket = 'v=' + Math.floor(Date.now() / 600000);
+        const url = urls[i] + (urls[i].indexOf('?') === -1 ? '?' : '&') + bucket;
+        const payload = await fetchJSON(url, 10000);
+        if (payload && payload.companies) {
+          applyCompanyNews(payload);
+          try { localStorage.setItem(COMPANY_NEWS_CACHE_KEY, JSON.stringify({ savedAt: Date.now(), payload: payload })); } catch (e) {}
+          if (currentSelectedCompany) renderCompanyDetails(currentSelectedCompany, false);
+          return LIVE.companyNews.map;
+        }
+      } catch (e) { /* 다음 경로 */ }
+    }
+    return LIVE.companyNews.map;
+  })();
+  try {
+    return await LIVE.companyNews.loading;
+  } finally {
+    LIVE.companyNews.loading = null;
+  }
+}
+
+/* 한 종목의 최신 기사: 서버 수집분(기업 뉴스 파일) 우선 */
+function companyNewsArticles(code, name) {
+  const entry = (LIVE.companyNews.map || {})[code];
+  if (entry && Array.isArray(entry.articles) && entry.articles.length) {
+    return normalizeArticles(entry.articles, name || code);
+  }
+  return [];
+}
+
 /* 검색 우선순위: 코드/이름 정확 → 코드 접두 → 이름 접두 → 이름 포함 → 시가총액 순 */
 function searchCompanies(query, limit) {
   const q = normalizeSearchText(query);
@@ -1975,6 +2037,7 @@ function searchCustomCompany(retried) {
 
 function refreshCompanyPricesOnly(showFlash, showToast) {
   if (!LIVE.universe.index.length || (Date.now() - (LIVE.universe.at || 0)) > UNIVERSE_TTL_MS) loadUniverse();
+  if (!LIVE.companyNews.at || (Date.now() - (LIVE.companyNews.at || 0)) > COMPANY_NEWS_TTL_MS) loadCompanyNews();
   if (LIVE.market) applyMarketData(LIVE.market, { flash: !!showFlash });
   if (!LIVE.market || isStale(LIVE.marketAt)) {
     loadMarketData({ flash: !!showFlash });
@@ -2081,9 +2144,10 @@ function renderCompanyDetails(code, triggerFlash) {
 
   const newsList = document.getElementById('comp-news-list');
   if (newsList) {
-    const arts = companyArticlesFor(code, d.name).slice(0, 5);
+    const serverArts = companyArticlesFor(code, d.name);
+    const collected = companyNewsArticles(code, d.name);
     const liveArts = (d.liveArticles || []).slice(0, 5);
-    const picked = arts.length ? arts : liveArts;
+    const picked = (serverArts.length ? serverArts : (collected.length ? collected : liveArts)).slice(0, 5);
     if (picked.length) {
       newsList.innerHTML = picked.map(function (a) {
         return '<li><a href="' + escapeHtml(a.url) + '" target="_blank" rel="noopener" style="color:#c9d1d9; text-decoration:none;">' +
@@ -2098,7 +2162,10 @@ function renderCompanyDetails(code, triggerFlash) {
     } else {
       newsList.innerHTML = '<li style="color:#8b949e;">최근 10일 안에 이 종목을 다룬 기사를 찾지 못했습니다.</li>';
     }
-    if (!picked.length) hydrateCompanyNews(code);
+    if (!picked.length) {
+      if (!LIVE.companyNews.at) loadCompanyNews();
+      else hydrateCompanyNews(code);
+    }
   }
 }
 

@@ -166,5 +166,58 @@ class TestUniverseFileOnDisk(unittest.TestCase):
         self.assertIn("TSLA", symbols)
 
 
+class TestCompanyNews(unittest.TestCase):
+    """카드 뉴스 회전 수집 대상 선택 로직."""
+
+    def setUp(self):
+        self.universe = {
+            "kr": {
+                "005930": ["삼성전자", "KOSPI", 100.0, 1.0, 500000, 10.0, 1.0, 100.0, 1000.0],
+                "196170": ["알테오젠", "KOSDAQ", 100.0, 1.0, 400000, None, None, None, None],
+                "000001": ["소형주", "KOSDAQ", 100.0, 1.0, 10, None, None, None, None],
+            },
+            "us": {
+                "AMD": ["AMD(어드밴스드 마이크로 디바이시스)", "NASDAQ", 100.0, 1.0, 900000, None, None, None, None],
+            },
+        }
+
+    def test_targets_sorted_by_market_cap_and_us_name_cleaned(self):
+        targets = live.company_news_targets(self.universe)
+        self.assertEqual(list(targets.keys())[:2], ["005930", "196170"])
+        self.assertEqual(targets["AMD"], "AMD")
+
+    def test_missing_entries_are_selected_first(self):
+        targets = live.company_news_targets(self.universe)
+        selected = live.select_company_news_targets(targets, {"companies": {}})
+        self.assertEqual(len(selected), min(live.COMPANY_NEWS_PER_RUN, len(targets)))
+        self.assertIn("005930", selected)
+
+    def test_fresh_entries_are_skipped(self):
+        now = live.now_kst()
+        fresh = {code: {"fetched_at": live.iso_kst(now), "articles": [{"title": "x"}]}
+                 for code in live.company_news_targets(self.universe)}
+        self.assertEqual(live.select_company_news_targets(live.company_news_targets(self.universe), {"companies": fresh}), [])
+
+    def test_empty_articles_are_recollected(self):
+        now = live.now_kst()
+        stale = {code: {"fetched_at": live.iso_kst(now), "articles": []}
+                 for code in live.company_news_targets(self.universe)}
+        selected = live.select_company_news_targets(live.company_news_targets(self.universe), {"companies": stale})
+        self.assertEqual(len(selected), len(stale))
+
+    def test_collect_company_news_keeps_previous_on_failure(self):
+        previous = {"companies": {"005930": {"name": "삼성전자", "fetched_at": "2026-11-17T00:00:00+09:00",
+                                            "articles": [{"title": "옛 기사"}]}}}
+        orig = live.fetch_news_for
+        live.fetch_news_for = lambda *a, **k: (_ for _ in ()).throw(RuntimeError("blocked"))
+        try:
+            res = live.collect_company_news(self.universe, previous, force=True)
+        finally:
+            live.fetch_news_for = orig
+        self.assertEqual(res["fetched"], 0)
+        self.assertTrue(res["errors"])
+        self.assertEqual(res["companies"]["005930"]["articles"][0]["title"], "옛 기사")
+
+
 if __name__ == "__main__":
     unittest.main()
