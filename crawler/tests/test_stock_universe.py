@@ -137,6 +137,32 @@ class TestBuildUniverse(unittest.TestCase):
         self.assertLess(len(blob), 1000)
         self.assertEqual(json.loads(blob)["kr"]["005930"][0], "삼성전자")
 
+    def test_us_fundamentals_become_per_pbr(self):
+        us_funds = {"date": "2026-11-17", "items": {"AMD": {"eps": 4.6, "pbr": 12.81}}}
+        uni = live.build_universe(self.kr, self.us, self.funds, us_funds)
+        row = uni["us"]["AMD"]
+        self.assertAlmostEqual(row[5], round(504.28 / 4.6, 2))   # PER = 현재가 / TTM EPS
+        self.assertAlmostEqual(row[6], 12.81)
+        self.assertAlmostEqual(row[7], 4.6)
+        self.assertAlmostEqual(row[8], round(504.28 / 12.81, 2))  # BPS = 현재가 / PBR
+        self.assertEqual(uni["counts"]["us_fund"], 1)
+
+
+class TestUSFundamentals(unittest.TestCase):
+    def test_ttm_eps_is_last_four_quarters(self):
+        summary = {"chartEps": {"columns": [["x", "2025.09.27", "2025.12.27", "2026.03.28", "2026.06.27", "2026.09.26"],
+                                            ["EPS", "0.76", "0.92", "0.84", "1.38", "1.46"]]}}
+        quarter = {"rowList": [{"title": "매출액", "columns": {}},
+                                {"title": "PBR", "columns": {"2026.06.27": {"value": "12.00"},
+                                                               "2026.09.26": {"value": "12.81"}}}]}
+        f = live.parse_us_fundamentals(summary, quarter)
+        self.assertAlmostEqual(f["eps"], round(0.92 + 0.84 + 1.38 + 1.46, 4))
+        self.assertAlmostEqual(f["pbr"], 12.81)
+
+    def test_missing_data_returns_none(self):
+        self.assertIsNone(live.parse_us_fundamentals({}, {}))
+        self.assertIsNone(live.parse_us_fundamentals({"chartEps": {"columns": []}}, {}))
+
 
 class TestUniverseFileOnDisk(unittest.TestCase):
     """배포용 data/stock_universe.json 이 실제로 생성되어 있는지 확인한다."""

@@ -56,7 +56,7 @@ COMPANY_NEWS_KR_LIMIT = 120    # 뉴스를 미리 모아둘 국내 종목 수 (�
 COMPANY_NEWS_US_LIMIT = 30     # 미국 종목 수
 COMPANY_NEWS_PER_RUN = 8       # 회전 수집: 한 실행에 새로 수집할 종목 수
 COMPANY_NEWS_REUSE_HOURS = 6   # 같은 종목 재수집 간격
-
+US_FUND_LIMIT = 40             # 미국 종목 재무지표(PER/PBR) 수집 대상 (시가총액 상위)
 DEFAULT_CONFIG = {
     "kr_stocks": {
         "005930": "삼성전자",
@@ -714,7 +714,7 @@ def refresh_fundamentals(codes, previous: dict, today: str,
     return {"date": today, "items": prev_items}
 
 
-def build_universe(kr: dict, us: dict, funds: dict) -> dict:
+def build_universe(kr: dict, us: dict, funds: dict, us_funds: dict | None = None) -> dict:
     """앱이 바로 쓰는 검색·시세 인덱스를 만든다.
 
     kr[code] = [이름, 시장, 현재가, 등락률, 시가총액(억원), PER, PBR, EPS, BPS]
@@ -740,11 +740,22 @@ def build_universe(kr: dict, us: dict, funds: dict) -> dict:
     us_rows = {}
     as_of_us = None
     status_us = None
+    us_fund_items = (us_funds or {}).get("items") or {}
     for sym, e in us.items():
+        f = us_fund_items.get(sym) or {}
+        eps = f.get("eps")
+        pbr = f.get("pbr")
+        price = e.get("price")
+        per = None
+        if eps and eps > 0 and price:
+            per = round(float(price) / float(eps), 2)
+        bps = None
+        if pbr and pbr > 0 and price:
+            bps = round(float(price) / float(pbr), 2)
         us_rows[sym] = [
-            e["name"], e["market"], e.get("price"), e.get("pct"),
+            e["name"], e["market"], price, e.get("pct"),
             int(e["mcap"]) if e.get("mcap") else None,
-            None, None, None, None,
+            per, _round(pbr), _round(eps), _round(bps),
         ]
         if e.get("as_of") and (as_of_us is None or str(e["as_of"]) > as_of_us):
             as_of_us = str(e["as_of"])
@@ -756,7 +767,8 @@ def build_universe(kr: dict, us: dict, funds: dict) -> dict:
         "source": "네이버 금융 전종목 시세 + Daum 금융 재무지표",
         "as_of": {"kr": as_of_kr, "us": as_of_us},
         "status": {"kr": status_kr, "us": status_us},
-        "counts": {"kr": len(kr_rows), "us": len(us_rows), "fund": len(fund_items)},
+        "counts": {"kr": len(kr_rows), "us": len(us_rows), "fund": len(fund_items),
+                   "us_fund": len(us_fund_items)},
         "fund_date": funds.get("date"),
         "kr": dict(sorted(kr_rows.items())),
         "us": dict(sorted(us_rows.items())),
@@ -840,8 +852,77 @@ def collect_company_news(universe: dict, previous: dict, force: bool = False) ->
     return {"companies": prev_companies, "fetched": fetched, "errors": errors}
 
 
-def collect_universe(fund_state: dict, prev_universe: dict) -> tuple:
-    """전종목 검색 인덱스 + 재무지표를 갱신한다. (universe, fund_state) 반환."""
+def parse_us_fundamentals(summary: dict, quarter: dict) -> dict | None:
+    """네이버 해외종목 재무요약에서 TTM EPS와 PBR을 뽑는다."""
+    eps = None
+    chart = (summary or {}).get("chartEps") or {}
+    columns = chart.get("columns") or []
+    if len(columns) >= 2 and columns[1] and str(columns[1][0]).upper() == "EPS":
+        values = [num(v) for v in columns[1][1:]]
+        values = [v for v in values if v is not None]
+        if len(values) >= 4:
+            eps = round(sum(values[-4:]), 4)
+    pbr = None
+    for row in (quarter or {}).get("rowList") or []:
+        if str(row.get("title")).upper() != "PBR":
+            continue
+        cols = row.get("columns") or {}
+        for key in sorted(cols.keys()):
+            value = num((cols.get(key) or {}).get("value"))
+            if value is not None:
+                pbr = value
+        break
+    if eps is None and pbr is None:
+        return None
+    return {"eps": eps, "pbr": pbr}
+
+
+def fetch_us_fundamental(reuters_code: str, timeout: int = 12) -> dict | None:
+    base = f"https://api.stock.naver.com/stock/{reuters_code}"
+    try:
+        summary = get_json(f"{base}/finance/summary")
+    except Exception:
+        summary = {}
+    try:
+        quarter = get_json(f"{base}/finance/quarter")
+    except Exception:
+        quarter = {}
+    return parse_us_fundamentals(summary, quarter)
+
+
+def refresh_us_fundamentals(us: dict, previous: dict, today: str,
+                            workers: int = 6, limit: int = US_FUND_LIMIT) -> dict:
+    """시가총액 상위 미국 종목의 TTM EPS·PBR을 하루 1회 갚신한다."""
+    from concurrent.futures import ThreadPoolExecutor
+
+    prev_items = dict(previous.get("items") or {})
+    ranked = sorted(us.items(), key=lambda kv: (-(kv[1].get("mcap") or 0), kv[0]))[:limit]
+    targets = [(sym, e.get("reuters") or sym) for sym, e in ranked]
+    if not targets:
+        return {"date": today, "items": prev_items}
+
+    def one(item):
+        sym, reuters = item
+        try:
+            f = fetch_us_fundamental(reuters)
+            if f:
+                f["d"] = today
+            return sym, f
+        except Exception:
+            return sym, None
+
+    done = 0
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        for sym, f in ex.map(one, targets):
+            done += 1
+            if f:
+                prev_items[sym] = f
+    print(f"[universe] 미국 재무지표 갱신 {done}건", file=sys.stderr)
+    return {"date": today, "items": prev_items}
+
+
+def collect_universe(fund_state: dict, us_fund_state: dict, prev_universe: dict) -> tuple:
+    """전종목 검색 인덱스 + 재무지표를 갱신한다. (universe, fund_state, us_fund_state) 반환."""
     errors = []
     try:
         kr = fetch_kr_universe()
@@ -861,6 +942,13 @@ def collect_universe(fund_state: dict, prev_universe: dict) -> tuple:
     except Exception as e:
         us = {}
         errors.append(f"해외 종목 수집 실패: {e}")
+    if not us:
+        prev_us = prev_universe.get("us") or {}
+        for sym, row in prev_us.items():
+            us[sym] = {"symbol": sym, "name": row[0], "market": row[1], "price": row[2],
+                       "pct": row[3], "mcap": row[4], "as_of": None, "status": None}
+        if prev_us:
+            errors.append("직전 미국 종목 시세로 유지")
 
     today = now_kst().strftime("%Y-%m-%d")
     if kr and now_kst().hour >= UNIVERSE_FUND_MIN_HOUR and (fund_state.get("date") != today):
@@ -872,9 +960,15 @@ def collect_universe(fund_state: dict, prev_universe: dict) -> tuple:
         except Exception as e:
             errors.append(f"재무지표 갱신 실패: {e}")
 
-    universe = build_universe(kr, us, fund_state)
+    if us and now_kst().hour >= UNIVERSE_FUND_MIN_HOUR and (us_fund_state.get("date") != today):
+        try:
+            us_fund_state = refresh_us_fundamentals(us, us_fund_state, today)
+        except Exception as e:
+            errors.append(f"미국 재무지표 갱신 실패: {e}")
+
+    universe = build_universe(kr, us, fund_state, us_fund_state)
     universe["errors"] = errors
-    return universe, fund_state
+    return universe, fund_state, us_fund_state
 
 
 # --------------------------------------------------------------------------
@@ -1115,6 +1209,7 @@ def main(argv=None) -> int:
     prev_news = load_json(NEWS_PATH, {})
     prev_universe = load_json(UNIVERSE_PATH, {})
     fund_state = load_json(FUND_PATH, {})
+    us_fund_state = dict(fund_state.get("us") or {})
 
     market = collect_market(cfg, prev_market)
     stock_names = {code: (q or {}).get("name") for code, q in market["stocks"].items()}
@@ -1123,7 +1218,7 @@ def main(argv=None) -> int:
     universe = None
     company_news = None
     if not args.skip_universe:
-        universe, fund_state = collect_universe(fund_state, prev_universe)
+        universe, fund_state, us_fund_state = collect_universe(fund_state, us_fund_state, prev_universe)
         if universe and universe.get("kr"):
             try:
                 company_news = collect_company_news(
@@ -1185,6 +1280,7 @@ def main(argv=None) -> int:
         counts["universe_kr"] = universe["counts"]["kr"]
         counts["universe_us"] = universe["counts"]["us"]
         counts["universe_fund"] = universe["counts"]["fund"]
+        counts["universe_us_fund"] = universe["counts"].get("us_fund", 0)
         counts["errors"] += len(universe.get("errors") or [])
     if company_news:
         counts["company_news_universe"] = len(company_news.get("companies") or {})
@@ -1214,7 +1310,11 @@ def main(argv=None) -> int:
             json.dump(universe, f, ensure_ascii=False, separators=(",", ":"))
             f.write("\n")
         with open(FUND_PATH, "w", encoding="utf-8") as f:
-            json.dump(fund_state, f, ensure_ascii=False, separators=(",", ":"))
+            json.dump({"date": fund_state.get("date"),
+                       "items": fund_state.get("items") or {},
+                       "us": {"date": us_fund_state.get("date"),
+                              "items": us_fund_state.get("items") or {}}},
+                      f, ensure_ascii=False, separators=(",", ":"))
             f.write("\n")
     if company_news:
         with open(COMPANY_NEWS_PATH, "w", encoding="utf-8") as f:
