@@ -1858,8 +1858,8 @@ function applyUniverseQuoteToCompany(comp, e) {
     comp.geminiEval = '[' + comp.name + ' 실시간 요약] 현재가 ' + comp.price + ' (' + comp.change + '), ' +
       '시가총액 ' + comp.cap + ', PER ' + comp.per + ', PBR ' + comp.pbr + '. ' +
       (comp.quarter === '실적 공시 데이터 미수집'
-        ? '분기 실적(EPS ' + (comp.eps === null ? '-' : fmtNum(comp.eps, 0) + ' ' + comp.currency) +
-          ', BPS ' + (comp.bps === null ? '-' : fmtNum(comp.bps, 0) + ' ' + comp.currency) + ')은 시세·밸류에이션 수치만 자동 수집되며, 매출·영업이익 공시 요약은 제공되지 않습니다.'
+        ? '분기 실적(EPS ' + (comp.eps === null ? '-' : fmtNum(comp.eps, comp.currency === 'USD' ? 2 : 0) + ' ' + comp.currency) +
+          ', BPS ' + (comp.bps === null ? '-' : fmtNum(comp.bps, comp.currency === 'USD' ? 2 : 0) + ' ' + comp.currency) + ')은 시세·밸류에이션 수치만 자동 수집되며, 매출·영업이익 공시 요약은 제공되지 않습니다.'
         : '');
   }
   return comp;
