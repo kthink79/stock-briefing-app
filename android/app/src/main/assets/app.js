@@ -9,7 +9,7 @@
             임의의 가짜 시세·기사로 채우지 않는다.
    ========================================================================== */
 
-const APP_VERSION = 'v3.1 (전종목 검색·등록)';
+const APP_VERSION = 'v3.2 (관심기업 이름 표시 개선)';
 const MARKET_PATH = 'data/market_latest.json';
 const NEWS_PATH = 'data/news_latest.json';
 const REMOTE_BASE = 'https://kthink79.github.io/stock-briefing-app/';
@@ -25,6 +25,7 @@ const UNIVERSE_TTL_MS = 12 * 60 * 1000;  // 전종목 인덱스 재확인 주기
 const COMPANY_NEWS_PATH = 'data/company_news.json';
 const COMPANY_NEWS_CACHE_KEY = 'stock_company_news_cache_v1';
 const COMPANY_NEWS_TTL_MS = 12 * 60 * 1000;
+const NAME_CACHE_KEY = 'stock_company_names_v1';   // 종목코드 → 한글 종목명 (전종목 목록을 못 받아도 이름을 보여주기 위한 캐시)
 
 const LIVE = {
   market: null,
@@ -387,19 +388,8 @@ function applyMarketData(payload, opts) {
 }
 
 function applyBriefing(briefing) {
-  const summaryEl = document.getElementById('briefing-live-summary');
-  if (summaryEl) {
-    let html = '';
-    if (briefing.headline) {
-      html += '<div style="font-weight:700; color:#f0f6fc; margin-bottom:6px;">' + escapeHtml(briefing.headline) + '</div>';
-    }
-    (briefing.checkpoints || []).forEach(function (c) {
-      html += '<div style="margin-bottom:4px;">• <strong style="color:#79c0ff;">' + escapeHtml(c.title) +
-        '</strong> ' + escapeHtml(c.detail) + '</div>';
-    });
-    summaryEl.innerHTML = html || '<div>표시할 시황 데이터가 없습니다.</div>';
-  }
-
+  // '실시간 시장 체크포인트' 한 장으로만 보여준다.
+  // (예전의 '실시간 시황 요약' 카드는 같은 체크포인트를 한 번 더 나열해 중복이었으므로 삭제)
   const cpEl = document.getElementById('briefing-checkpoints');
   if (cpEl && Array.isArray(briefing.checkpoints)) {
     cpEl.innerHTML = briefing.checkpoints.map(function (c) {
@@ -1179,6 +1169,138 @@ function universeLookup(code) {
   return (LIVE.universe.map || {})[code] || null;
 }
 
+/* ------------------------------------------------------------------ 종목명 복원
+   관심기업의 이름은 저장된 레코드·전종목 목록·이름 캐시 중 어디서든 찾아서 보여준다.
+   전종목 목록(stock_universe.json)을 받지 못한 상태나, 예전에 이름 없이(코드만)
+   저장된 레코드도 항상 한글 종목명으로 복구되게 하는 것이 목적이다.
+   ========================================================================== */
+const NAME_CACHE_LIMIT = 400;      // 캐시(로컬 저장)에 쌓아둘 최대 종목 수
+let nameCacheMemo = null;
+
+function readNameCache() {
+  if (nameCacheMemo) return nameCacheMemo;
+  try {
+    const raw = localStorage.getItem(NAME_CACHE_KEY);
+    const obj = raw ? JSON.parse(raw) : null;
+    nameCacheMemo = (obj && typeof obj === 'object') ? obj : {};
+  } catch (e) {
+    nameCacheMemo = {};
+  }
+  return nameCacheMemo;
+}
+
+function rememberName(code, name) {
+  if (!code || !name) return;
+  const key = String(code);
+  const value = String(name).trim();
+  if (!value || /^\d{6}$/.test(value) || value.toUpperCase() === key.toUpperCase()) return;
+  const cache = readNameCache();
+  if (cache[key] === value) return;
+  cache[key] = value;
+  const keys = Object.keys(cache);
+  if (keys.length > NAME_CACHE_LIMIT) {
+    // 오래 쌓인 항목부터 정리 (삽입 순서 유지)
+    for (let i = 0; i < keys.length - NAME_CACHE_LIMIT; i++) delete cache[keys[i]];
+  }
+  try { localStorage.setItem(NAME_CACHE_KEY, JSON.stringify(cache)); } catch (e) { /* 용량 초과는 무시 */ }
+}
+
+/* 이름이 비었거나 '코드만' 남은 상태인지 (예: '006400', '종목(006400)') */
+function isBareCodeName(name, code) {
+  const n = String(name === null || name === undefined ? '' : name).trim();
+  if (!n) return true;
+  const c = String(code === null || code === undefined ? '' : code).trim();
+  if (c && n.toUpperCase() === c.toUpperCase()) return true;
+  if (/^종목\(.*\)$/.test(n)) return true;   // 예전에 만들어진 '종목(006400)' 빈 카드 이름
+  if (/^\d{6}$/.test(n)) return true;        // 코드만 남은 이름
+  return false;
+}
+
+/* 레코드·사전 DB·전종목 목록·이름 캐시 순으로 한글 종목명을 찾는다. */
+function resolveCompanyName(code, comp) {
+  const key = String(code || '');
+  const pre = predefinedCompaniesDB[key];
+  const uni = universeLookup(key);
+  const cached = readNameCache()[key];
+  const candidates = [
+    comp && comp.name,
+    pre && pre.name,
+    uni && uni.name,
+    cached
+  ];
+  for (let i = 0; i < candidates.length; i++) {
+    const n = String(candidates[i] === null || candidates[i] === undefined ? '' : candidates[i]).trim();
+    if (n && !isBareCodeName(n, key)) {
+      rememberName(key, n);
+      return n;
+    }
+  }
+  return key;
+}
+
+/* 관심기업 레코드를 얻는다(없으면 만들고, 이름이 코드로 남아 있으면 복구한다). */
+function healCompanyRecord(code) {
+  if (!code) return null;
+  let comp = companiesDB[code] || null;
+  const uni = universeLookup(code);
+  if (!comp) {
+    if (predefinedCompaniesDB[code]) comp = JSON.parse(JSON.stringify(predefinedCompaniesDB[code]));
+    else if (uni) comp = makeCompanyRecord(code);
+    else {
+      const cached = readNameCache()[code];
+      if (!cached) return null;
+      comp = makeCompanyRecord(code);   // 이름·통화만 남은 최소 레코드
+      comp.name = cached;
+    }
+    companiesDB[code] = comp;
+  }
+  const resolved = resolveCompanyName(code, comp);
+  if (resolved && comp.name !== resolved) comp.name = resolved;
+  if (uni) {
+    const liveStocks = (LIVE.market && LIVE.market.stocks) || {};
+    if (!(liveStocks[code] && !comp.fromUniverse)) {
+      if (comp.ticker !== uni.code) comp.ticker = uni.code;
+      applyUniverseQuoteToCompany(comp, uni);
+    }
+  }
+  if (isBareCodeName(comp.name, code) && !LIVE.universe.index.length) {
+    // 전종목 목록이 없어 이름을 모르는 상태 — 목록을 받으면 이름을 채워 다시 그린다
+    ensureNameRepair();
+  }
+  return comp;
+}
+
+let nameRepairing = false;
+let nameRepairTried = false;
+function registeredCompanyNamesBroken() {
+  const list = userCompanyList || [];
+  for (let i = 0; i < list.length; i++) {
+    const comp = companiesDB[list[i]] || predefinedCompaniesDB[list[i]];
+    if (!comp || isBareCodeName(comp.name, list[i])) return true;
+  }
+  return false;
+}
+
+function ensureNameRepair() {
+  if (nameRepairing || nameRepairTried) return;   // 페이지 로드당 한 번만 시도(반복 조회 방지)
+  nameRepairing = true;
+  nameRepairTried = true;
+  loadUniverse().then(function () {
+    let changed = false;
+    (userCompanyList || []).forEach(function (code) {
+      const before = companiesDB[code] ? companiesDB[code].name : null;
+      const comp = healCompanyRecord(code);
+      if (comp && comp.name !== before) changed = true;
+    });
+    nameRepairing = false;
+    if (changed) {
+      renderCompanyTags();
+      if (currentSelectedCompany) renderCompanyDetails(currentSelectedCompany, false);
+      saveCompaniesToStorage();
+    }
+  }).catch(function () { nameRepairing = false; });
+}
+
 /* ------------------------------------------------------------------ 기업별 뉴스 파일 */
 function readCompanyNewsCache() {
   try {
@@ -1266,12 +1388,16 @@ function applyUniverseQuotes() {
   (userCompanyList || []).forEach(function (code) {
     const e = universeLookup(code);
     if (!e) return;
-    if (liveStocks[code] && !(companiesDB[code] && companiesDB[code].fromUniverse)) return;
     if (!companiesDB[code]) {
       companiesDB[code] = makeCompanyRecord(code);
       touched = true;
     }
-    applyUniverseQuoteToCompany(companiesDB[code], e);
+    const comp = companiesDB[code];
+    const resolved = resolveCompanyName(code, comp);
+    if (resolved && comp.name !== resolved) { comp.name = resolved; touched = true; }
+    if (comp.ticker !== e.code) { comp.ticker = e.code; touched = true; }
+    if (liveStocks[code] && !comp.fromUniverse) return;   // 시장 파일 시세가 더 최신
+    applyUniverseQuoteToCompany(comp, e);
     touched = true;
   });
   if (touched) {
@@ -1644,15 +1770,40 @@ function loadCompaniesFromStorage() {
   } else {
     currentSelectedCompany = null;
   }
+
+  // 이름 없이(코드만) 저장된 관심기업은 이름 캐시로 바로 복구해 둔다
+  const nameCache = readNameCache();
+  (userCompanyList || []).forEach(function (code) {
+    const comp = companiesDB[code];
+    const cached = nameCache[code];
+    if (comp && cached && isBareCodeName(comp.name, code)) comp.name = cached;
+  });
 }
 
 function saveCompaniesToStorage() {
-  localStorage.setItem('stock_app_registered_companies', JSON.stringify(userCompanyList));
+  try {
+    localStorage.setItem('stock_app_registered_companies', JSON.stringify(userCompanyList));
+  } catch (e) { /* 저장 공간 부족 — 화면 상태는 유지한다 */ }
   const customDB = {};
   for (const k in companiesDB) {
     if (!predefinedCompaniesDB[k]) customDB[k] = companiesDB[k];
   }
-  try { localStorage.setItem('stock_custom_companies_db', JSON.stringify(customDB)); } catch (e) {}
+  try {
+    localStorage.setItem('stock_custom_companies_db', JSON.stringify(customDB));
+  } catch (e) {
+    // 용량 초과 시 기사 목록 등 큰 필드를 빼고 다시 저장한다(종목명·코드·시세는 반드시 남긴다)
+    const slim = {};
+    for (const k in customDB) {
+      const c = customDB[k] || {};
+      slim[k] = {
+        name: c.name, ticker: c.ticker, currency: c.currency, price: c.price, change: c.change,
+        isUp: c.isUp, per: c.per, pbr: c.pbr, div: c.div, eps: c.eps, bps: c.bps, cap: c.cap,
+        quarter: c.quarter, revOp: c.revOp, comment: c.comment, geminiEval: c.geminiEval,
+        fromUniverse: c.fromUniverse, asOf: c.asOf
+      };
+    }
+    try { localStorage.setItem('stock_custom_companies_db', JSON.stringify(slim)); } catch (e2) { /* 무시 */ }
+  }
 }
 
 function renderCompanyTags() {
@@ -1675,20 +1826,24 @@ function renderCompanyTags() {
 
   container.innerHTML = '';
   userCompanyList.forEach(function (code) {
-    const comp = companiesDB[code] || predefinedCompaniesDB[code] || { name: code, ticker: code };
+    // 이름이 코드로만 남아 있는 레코드도 여기서 한글 종목명으로 복구해 표시한다
+    const comp = healCompanyRecord(code) || predefinedCompaniesDB[code] || { name: code, ticker: code };
     const isActive = (code === currentSelectedCompany);
     const tagItem = document.createElement('div');
     tagItem.className = 'company-tag-item ' + (isActive ? 'active' : '');
     tagItem.onclick = function () { selectCompany(code); };
-    tagItem.innerHTML = '<span>' + escapeHtml(comp.name) + '</span>' +
-      '<span style="font-size: 0.7rem; opacity: 0.75;">(' + escapeHtml(comp.ticker) + ')</span>' +
-      '<span class="company-tag-del" title="' + escapeHtml(comp.name) + ' 삭제" onclick="event.stopPropagation(); deleteCompany(\'' + code + '\')">✕</span>';
+    tagItem.innerHTML = '<span>' + escapeHtml(comp.name || code) + '</span>' +
+      '<span style="font-size: 0.7rem; opacity: 0.75;">(' + escapeHtml(comp.ticker || code) + ')</span>' +
+      '<span class="company-tag-del" title="' + escapeHtml(comp.name || code) + ' 삭제" onclick="event.stopPropagation(); deleteCompany(\'' + code + '\')">✕</span>';
     container.appendChild(tagItem);
   });
 }
 
 function selectCompany(code) {
-  if (!companiesDB[code] && !predefinedCompaniesDB[code]) return;
+  if (!companiesDB[code] && !predefinedCompaniesDB[code]) {
+    healCompanyRecord(code);
+  }
+  if (!companiesDB[code]) return;
   if (!companiesDB[code] && predefinedCompaniesDB[code]) {
     companiesDB[code] = JSON.parse(JSON.stringify(predefinedCompaniesDB[code]));
     if (LIVE.market && LIVE.market.stocks && LIVE.market.stocks[code]) {
@@ -1777,6 +1932,13 @@ function registerCompanyByCode(code) {
   if (!code) return;
   const input = document.getElementById('company-search-input');
   if (!companiesDB[code]) companiesDB[code] = makeCompanyRecord(code);
+  const comp = companiesDB[code];
+  const resolved = resolveCompanyName(code, comp);
+  if (resolved && comp.name !== resolved) comp.name = resolved;
+  if (isBareCodeName(comp.name, code)) {
+    // 전종목 목록을 아직 못 받아 이름을 모르는 상태 — 목록을 받은 뒤 이름·시세를 채워 넣는다
+    ensureNameRepair();
+  }
 
   if (userCompanyList.indexOf(code) !== -1) {
     selectCompany(code);
@@ -1830,8 +1992,9 @@ function makeCompanyRecord(code) {
 function applyUniverseQuoteToCompany(comp, e) {
   if (!comp || !e) return comp;
   comp.currency = e.cur || comp.currency;
-  comp.name = comp.name || e.name;
-  comp.ticker = comp.ticker || e.code;
+  // 종목명은 코드만 남아 있으면 전종목 목록의 한글 이름으로 되살린다(예전에 이름 없이 저장된 관심기업 복구)
+  if (e.name && isBareCodeName(comp.name, e.code)) comp.name = e.name;
+  if (comp.ticker !== e.code) comp.ticker = e.code;
   if (e.price !== null && e.price !== undefined) {
     comp.livePrice = e.price;
     comp.price = formatPriceValue(e.price, comp.currency);
@@ -2066,6 +2229,7 @@ function renderCompanyDetails(code, triggerFlash) {
   const dataView = document.getElementById('company-data-view');
   const emptyState = document.getElementById('company-empty-state');
 
+  if (code && !companiesDB[code]) healCompanyRecord(code);
   if (!code || !companiesDB[code]) {
     if (dataView) dataView.style.display = 'none';
     if (emptyState) emptyState.style.display = 'block';
@@ -2353,6 +2517,8 @@ async function initApp() {
   loadCompaniesFromStorage();
   loadTracesFromStorage();
   renderCompanyTags();
+  // 예전에 이름 없이(코드만) 저장된 관심기업이 있으면 전종목 목록을 받아 이름을 복구한다
+  if (registeredCompanyNamesBroken()) ensureNameRepair();
   renderTraces();
   loadSavedSettings();
   if (typeof checkFullAppLockOnLoad === 'function') checkFullAppLockOnLoad();
