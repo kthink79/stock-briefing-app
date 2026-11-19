@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generated_at": "2026-11-19T18:34:18+09:00",
- "generated_at_kst": "2026-11-19(목) 18:34",
+ "generated_at": "2026-11-19T20:11:05+09:00",
+ "generated_at_kst": "2026-11-19(목) 20:11",
  "source": "네이버 금융 실시간 (polling.finance.naver.com)",
  "market": {
   "indices": {
@@ -13,7 +13,7 @@
     "pct": 1.39,
     "currency": "KRW",
     "market_status": "CLOSE",
-    "as_of": "2026-11-19T17:15:00+09:00",
+    "as_of": "2026-11-19T20:09:00+09:00",
     "high": 5137.89,
     "low": 4963.61,
     "open": 5090.04,
@@ -28,7 +28,7 @@
     "pct": 3.32,
     "currency": "KRW",
     "market_status": "CLOSE",
-    "as_of": "2026-11-19T17:15:00+09:00",
+    "as_of": "2026-11-19T20:09:00+09:00",
     "high": 684.81,
     "low": 650.39,
     "open": 668.31,
@@ -99,212 +99,212 @@
   "rates": {
    "US10Y": {
     "name": "미국 국채 10년",
-    "price": 5.078,
-    "change": 0.0124,
-    "pct": 0.24,
+    "price": 5.089,
+    "change": 0.0226,
+    "pct": 0.45,
     "currency": null,
     "market_status": "OPEN",
-    "as_of": "2026-11-19T04:29:03-05:00",
-    "bp": 1.24
+    "as_of": "2026-11-19T05:59:25-05:00",
+    "bp": 2.26
    },
    "US2Y": {
     "name": "미국 국채 2년",
-    "price": 4.809,
-    "change": 0.0086,
-    "pct": 0.18,
+    "price": 4.815,
+    "change": 0.0151,
+    "pct": 0.31,
     "currency": null,
     "market_status": "OPEN",
-    "as_of": "2026-11-19T04:29:26-05:00",
-    "bp": 0.86
+    "as_of": "2026-11-19T05:59:34-05:00",
+    "bp": 1.51
    }
   },
   "fx": {
    "USDKRW": {
     "name": "미국 USD",
-    "price": 1330.7,
-    "change": -3.3,
-    "pct": -0.25,
+    "price": 1328.6,
+    "change": -5.4,
+    "pct": -0.4,
     "currency": null,
     "market_status": "OPEN",
-    "as_of": "2026-11-19T18:29:23+09:00"
+    "as_of": "2026-11-19T20:05:33+09:00"
    }
   },
   "stocks": {
    "005930": {
     "name": "삼성전자",
-    "price": 196400.0,
+    "price": 197400.0,
     "prev_close": 194700.0,
-    "change": 1700.0,
-    "pct": 0.87,
+    "change": 2700.0,
+    "pct": 1.39,
     "currency": "KRW",
-    "market_status": "OPEN",
-    "as_of": "2026-11-19T18:32:43.195364+09:00",
-    "high": 197000.0,
+    "market_status": "CLOSE",
+    "as_of": "2026-11-19T20:00:00+09:00",
+    "high": 197600.0,
     "low": 189800.0,
     "open": 196000.0,
-    "volume": 10386841.0,
-    "market_value": 1148209118611200.0,
+    "volume": 10716076.0,
+    "market_value": 1154055397219200.0,
     "extended": {
      "session": "AFTER_MARKET",
-     "price": 196300.0,
-     "pct": 0.82,
-     "change": 1600.0,
-     "as_of": "2026-11-19T18:32:43.195447+09:00",
-     "volume": 4384664.0
+     "price": 197300.0,
+     "pct": 1.34,
+     "change": 2600.0,
+     "as_of": "2026-11-19T20:00:00.000000+09:00",
+     "volume": 4949470.0
     }
    },
    "000660": {
     "name": "SK하이닉스",
-    "price": 1183000.0,
+    "price": 1190000.0,
     "prev_close": 1144000.0,
-    "change": 39000.0,
-    "pct": 3.41,
+    "change": 46000.0,
+    "pct": 4.02,
     "currency": "KRW",
-    "market_status": "OPEN",
-    "as_of": "2026-11-19T18:32:43.195374+09:00",
-    "high": 1188000.0,
+    "market_status": "CLOSE",
+    "as_of": "2026-11-19T20:00:00+09:00",
+    "high": 1192000.0,
     "low": 1115000.0,
     "open": 1154000.0,
-    "volume": 2225950.0,
-    "market_value": 836143327019000.0,
+    "volume": 2270022.0,
+    "market_value": 841090920670000.0,
     "extended": {
      "session": "AFTER_MARKET",
-     "price": 1183000.0,
-     "pct": 3.41,
-     "change": 39000.0,
-     "as_of": "2026-11-19T18:32:43.195454+09:00",
-     "volume": 926964.0
+     "price": 1190000.0,
+     "pct": 4.02,
+     "change": 46000.0,
+     "as_of": "2026-11-19T20:00:00.000000+09:00",
+     "volume": 1013357.0
     }
    },
    "012450": {
     "name": "한화에어로스페이스",
-    "price": 629000.0,
+    "price": 630000.0,
     "prev_close": 632000.0,
-    "change": -3000.0,
-    "pct": -0.47,
+    "change": -2000.0,
+    "pct": -0.32,
     "currency": "KRW",
-    "market_status": "OPEN",
-    "as_of": "2026-11-19T18:32:43.195381+09:00",
+    "market_status": "CLOSE",
+    "as_of": "2026-11-19T20:00:00+09:00",
     "high": 633000.0,
     "low": 605000.0,
     "open": 633000.0,
-    "volume": 79024.0,
-    "market_value": 32433379229000.0,
+    "volume": 79553.0,
+    "market_value": 32484942630000.0,
     "extended": {
      "session": "AFTER_MARKET",
-     "price": 629000.0,
-     "pct": -0.47,
-     "change": -3000.0,
-     "as_of": "2026-11-19T18:32:43.195461+09:00",
-     "volume": 11680.0
+     "price": 630000.0,
+     "pct": -0.32,
+     "change": -2000.0,
+     "as_of": "2026-11-19T20:00:00.000000+09:00",
+     "volume": 12690.0
     }
    },
    "005380": {
     "name": "현대차",
-    "price": 267000.0,
+    "price": 267500.0,
     "prev_close": 267000.0,
-    "change": 0.0,
-    "pct": 0.0,
+    "change": 500.0,
+    "pct": 0.19,
     "currency": "KRW",
-    "market_status": "OPEN",
-    "as_of": "2026-11-19T18:32:43.195388+09:00",
+    "market_status": "CLOSE",
+    "as_of": "2026-11-19T20:00:00+09:00",
     "high": 271500.0,
     "low": 258500.0,
     "open": 268500.0,
-    "volume": 287941.0,
-    "market_value": 54325553364000.0,
+    "volume": 293377.0,
+    "market_value": 54427286610000.0,
     "extended": {
      "session": "AFTER_MARKET",
-     "price": 267000.0,
-     "pct": 0.0,
-     "change": 0.0,
-     "as_of": "2026-11-19T18:32:43.195468+09:00",
-     "volume": 115621.0
+     "price": 267500.0,
+     "pct": 0.19,
+     "change": 500.0,
+     "as_of": "2026-11-19T20:00:00.000000+09:00",
+     "volume": 126094.0
     }
    },
    "035420": {
     "name": "NAVER",
-    "price": 168800.0,
+    "price": 169200.0,
     "prev_close": 170300.0,
-    "change": -1500.0,
-    "pct": -0.88,
+    "change": -1100.0,
+    "pct": -0.65,
     "currency": "KRW",
-    "market_status": "OPEN",
-    "as_of": "2026-11-19T18:32:43.195394+09:00",
+    "market_status": "CLOSE",
+    "as_of": "2026-11-19T20:00:00+09:00",
     "high": 172400.0,
     "low": 167100.0,
     "open": 170300.0,
-    "volume": 464751.0,
-    "market_value": 25678960627200.0,
+    "volume": 481658.0,
+    "market_value": 25739811244800.0,
     "extended": {
      "session": "AFTER_MARKET",
-     "price": 168800.0,
-     "pct": -0.88,
-     "change": -1500.0,
-     "as_of": "2026-11-19T18:32:43.195474+09:00",
-     "volume": 203199.0
+     "price": 169200.0,
+     "pct": -0.65,
+     "change": -1100.0,
+     "as_of": "2026-11-19T20:00:00.000000+09:00",
+     "volume": 232432.0
     }
    },
    "042700": {
     "name": "한미반도체",
-    "price": 170400.0,
+    "price": 171900.0,
     "prev_close": 167700.0,
-    "change": 2700.0,
-    "pct": 1.61,
+    "change": 4200.0,
+    "pct": 2.5,
     "currency": "KRW",
-    "market_status": "OPEN",
-    "as_of": "2026-11-19T18:32:43.195403+09:00",
-    "high": 171400.0,
+    "market_status": "CLOSE",
+    "as_of": "2026-11-19T20:00:00+09:00",
+    "high": 171900.0,
     "low": 159600.0,
     "open": 167800.0,
-    "volume": 542567.0,
-    "market_value": 16241198880000.0,
+    "volume": 552815.0,
+    "market_value": 16384167180000.0,
     "extended": {
      "session": "AFTER_MARKET",
-     "price": 170500.0,
-     "pct": 1.67,
-     "change": 2800.0,
-     "as_of": "2026-11-19T18:32:43.195497+09:00",
-     "volume": 193838.0
+     "price": 171900.0,
+     "pct": 2.5,
+     "change": 4200.0,
+     "as_of": "2026-11-19T20:00:00.000000+09:00",
+     "volume": 209918.0
     }
    },
    "034020": {
     "name": "두산에너빌리티",
-    "price": 43650.0,
+    "price": 43850.0,
     "prev_close": 43050.0,
-    "change": 600.0,
-    "pct": 1.39,
+    "change": 800.0,
+    "pct": 1.86,
     "currency": "KRW",
-    "market_status": "OPEN",
-    "as_of": "2026-11-19T18:32:43.195413+09:00",
-    "high": 43800.0,
+    "market_status": "CLOSE",
+    "as_of": "2026-11-19T20:00:00+09:00",
+    "high": 43950.0,
     "low": 41700.0,
     "open": 43050.0,
-    "volume": 1726635.0,
-    "market_value": 27960494022900.0,
+    "volume": 1771689.0,
+    "market_value": 28088606252100.0,
     "extended": {
      "session": "AFTER_MARKET",
-     "price": 43650.0,
-     "pct": 1.39,
-     "change": 600.0,
-     "as_of": "2026-11-19T18:32:43.195504+09:00",
-     "volume": 886337.0
+     "price": 43800.0,
+     "pct": 1.74,
+     "change": 750.0,
+     "as_of": "2026-11-19T20:00:00.000000+09:00",
+     "volume": 976111.0
     }
    },
    "035720": {
     "name": "카카오",
-    "price": 31850.0,
+    "price": 31900.0,
     "prev_close": 31800.0,
-    "change": 50.0,
-    "pct": 0.16,
+    "change": 100.0,
+    "pct": 0.31,
     "currency": "KRW",
-    "market_status": "OPEN",
-    "as_of": "2026-11-19T18:32:43.195423+09:00",
+    "market_status": "CLOSE",
+    "as_of": "2026-11-19T20:00:00+09:00",
     "high": 32700.0,
     "low": 31450.0,
     "open": 32000.0,
-    "volume": 1061343.0,
-    "market_value": 14109566243500.0
+    "volume": 1084339.0,
+    "market_value": 14131716269000.0
    },
    "068270": {
     "name": "셀트리온",
@@ -313,20 +313,20 @@
     "change": 7000.0,
     "pct": 3.37,
     "currency": "KRW",
-    "market_status": "OPEN",
-    "as_of": "2026-11-19T18:32:43.195432+09:00",
+    "market_status": "CLOSE",
+    "as_of": "2026-11-19T20:00:00+09:00",
     "high": 215000.0,
     "low": 207000.0,
     "open": 207500.0,
-    "volume": 423096.0,
+    "volume": 432806.0,
     "market_value": 49791711040500.0,
     "extended": {
      "session": "AFTER_MARKET",
-     "price": 214000.0,
-     "pct": 3.13,
-     "change": 6500.0,
-     "as_of": "2026-11-19T18:32:43.195511+09:00",
-     "volume": 140630.0
+     "price": 214500.0,
+     "pct": 3.37,
+     "change": 7000.0,
+     "as_of": "2026-11-19T20:00:00.000000+09:00",
+     "volume": 152908.0
     }
    },
    "NVDA": {
@@ -345,10 +345,10 @@
     "market_value": 3638136000000.0,
     "extended": {
      "session": "PRE_MARKET",
-     "price": 153.06,
-     "pct": 1.39,
-     "change": 2.1,
-     "as_of": "2026-11-19T04:32:36-05:00",
+     "price": 153.96,
+     "pct": 1.99,
+     "change": 3.0,
+     "as_of": "2026-11-19T06:09:24-05:00",
      "volume": null
     }
    },
@@ -368,10 +368,10 @@
     "market_value": 1516752279039.0,
     "extended": {
      "session": "PRE_MARKET",
-     "price": 389.68,
-     "pct": 1.55,
-     "change": 5.96,
-     "as_of": "2026-11-19T04:32:30-05:00",
+     "price": 389.98,
+     "pct": 1.63,
+     "change": 6.26,
+     "as_of": "2026-11-19T06:05:42-05:00",
      "volume": null
     }
    },
@@ -391,10 +391,10 @@
     "market_value": 5121867545900.0,
     "extended": {
      "session": "PRE_MARKET",
-     "price": 353.6,
-     "pct": 0.33,
-     "change": 1.15,
-     "as_of": "2026-11-19T04:31:33-05:00",
+     "price": 353.95,
+     "pct": 0.43,
+     "change": 1.5,
+     "as_of": "2026-11-19T06:08:58-05:00",
      "volume": null
     }
    },
@@ -414,10 +414,10 @@
     "market_value": 869475855245.0,
     "extended": {
      "session": "PRE_MARKET",
-     "price": 542.67,
-     "pct": 2.36,
-     "change": 12.53,
-     "as_of": "2026-11-19T04:32:36-05:00",
+     "price": 547.68,
+     "pct": 3.31,
+     "change": 17.54,
+     "as_of": "2026-11-19T06:09:26-05:00",
      "volume": null
     }
    },
@@ -437,10 +437,10 @@
     "market_value": 1690103653703.0,
     "extended": {
      "session": "PRE_MARKET",
-     "price": 362.5,
-     "pct": 2.39,
-     "change": 8.45,
-     "as_of": "2026-11-19T04:31:21-05:00",
+     "price": 365.07,
+     "pct": 3.11,
+     "change": 11.02,
+     "as_of": "2026-11-19T06:09:06-05:00",
      "volume": null
     }
    },
@@ -460,16 +460,16 @@
     "market_value": 797958848727.0,
     "extended": {
      "session": "PRE_MARKET",
-     "price": 730.5,
-     "pct": 3.58,
-     "change": 25.23,
-     "as_of": "2026-11-19T04:32:36-05:00",
+     "price": 743.29,
+     "pct": 5.39,
+     "change": 38.02,
+     "as_of": "2026-11-19T06:09:25-05:00",
      "volume": null
     }
    }
   },
   "session": {
-   "kr": "OPEN",
+   "kr": "CLOSE",
    "us": "CLOSE"
   },
   "errors": []
@@ -477,179 +477,179 @@
  "stocks": {
   "005930": {
    "name": "삼성전자",
-   "price": 196400.0,
+   "price": 197400.0,
    "prev_close": 194700.0,
-   "change": 1700.0,
-   "pct": 0.87,
+   "change": 2700.0,
+   "pct": 1.39,
    "currency": "KRW",
-   "market_status": "OPEN",
-   "as_of": "2026-11-19T18:32:43.195364+09:00",
-   "high": 197000.0,
+   "market_status": "CLOSE",
+   "as_of": "2026-11-19T20:00:00+09:00",
+   "high": 197600.0,
    "low": 189800.0,
    "open": 196000.0,
-   "volume": 10386841.0,
-   "market_value": 1148209118611200.0,
+   "volume": 10716076.0,
+   "market_value": 1154055397219200.0,
    "extended": {
     "session": "AFTER_MARKET",
-    "price": 196300.0,
-    "pct": 0.82,
-    "change": 1600.0,
-    "as_of": "2026-11-19T18:32:43.195447+09:00",
-    "volume": 4384664.0
+    "price": 197300.0,
+    "pct": 1.34,
+    "change": 2600.0,
+    "as_of": "2026-11-19T20:00:00.000000+09:00",
+    "volume": 4949470.0
    }
   },
   "000660": {
    "name": "SK하이닉스",
-   "price": 1183000.0,
+   "price": 1190000.0,
    "prev_close": 1144000.0,
-   "change": 39000.0,
-   "pct": 3.41,
+   "change": 46000.0,
+   "pct": 4.02,
    "currency": "KRW",
-   "market_status": "OPEN",
-   "as_of": "2026-11-19T18:32:43.195374+09:00",
-   "high": 1188000.0,
+   "market_status": "CLOSE",
+   "as_of": "2026-11-19T20:00:00+09:00",
+   "high": 1192000.0,
    "low": 1115000.0,
    "open": 1154000.0,
-   "volume": 2225950.0,
-   "market_value": 836143327019000.0,
+   "volume": 2270022.0,
+   "market_value": 841090920670000.0,
    "extended": {
     "session": "AFTER_MARKET",
-    "price": 1183000.0,
-    "pct": 3.41,
-    "change": 39000.0,
-    "as_of": "2026-11-19T18:32:43.195454+09:00",
-    "volume": 926964.0
+    "price": 1190000.0,
+    "pct": 4.02,
+    "change": 46000.0,
+    "as_of": "2026-11-19T20:00:00.000000+09:00",
+    "volume": 1013357.0
    }
   },
   "012450": {
    "name": "한화에어로스페이스",
-   "price": 629000.0,
+   "price": 630000.0,
    "prev_close": 632000.0,
-   "change": -3000.0,
-   "pct": -0.47,
+   "change": -2000.0,
+   "pct": -0.32,
    "currency": "KRW",
-   "market_status": "OPEN",
-   "as_of": "2026-11-19T18:32:43.195381+09:00",
+   "market_status": "CLOSE",
+   "as_of": "2026-11-19T20:00:00+09:00",
    "high": 633000.0,
    "low": 605000.0,
    "open": 633000.0,
-   "volume": 79024.0,
-   "market_value": 32433379229000.0,
+   "volume": 79553.0,
+   "market_value": 32484942630000.0,
    "extended": {
     "session": "AFTER_MARKET",
-    "price": 629000.0,
-    "pct": -0.47,
-    "change": -3000.0,
-    "as_of": "2026-11-19T18:32:43.195461+09:00",
-    "volume": 11680.0
+    "price": 630000.0,
+    "pct": -0.32,
+    "change": -2000.0,
+    "as_of": "2026-11-19T20:00:00.000000+09:00",
+    "volume": 12690.0
    }
   },
   "005380": {
    "name": "현대차",
-   "price": 267000.0,
+   "price": 267500.0,
    "prev_close": 267000.0,
-   "change": 0.0,
-   "pct": 0.0,
+   "change": 500.0,
+   "pct": 0.19,
    "currency": "KRW",
-   "market_status": "OPEN",
-   "as_of": "2026-11-19T18:32:43.195388+09:00",
+   "market_status": "CLOSE",
+   "as_of": "2026-11-19T20:00:00+09:00",
    "high": 271500.0,
    "low": 258500.0,
    "open": 268500.0,
-   "volume": 287941.0,
-   "market_value": 54325553364000.0,
+   "volume": 293377.0,
+   "market_value": 54427286610000.0,
    "extended": {
     "session": "AFTER_MARKET",
-    "price": 267000.0,
-    "pct": 0.0,
-    "change": 0.0,
-    "as_of": "2026-11-19T18:32:43.195468+09:00",
-    "volume": 115621.0
+    "price": 267500.0,
+    "pct": 0.19,
+    "change": 500.0,
+    "as_of": "2026-11-19T20:00:00.000000+09:00",
+    "volume": 126094.0
    }
   },
   "035420": {
    "name": "NAVER",
-   "price": 168800.0,
+   "price": 169200.0,
    "prev_close": 170300.0,
-   "change": -1500.0,
-   "pct": -0.88,
+   "change": -1100.0,
+   "pct": -0.65,
    "currency": "KRW",
-   "market_status": "OPEN",
-   "as_of": "2026-11-19T18:32:43.195394+09:00",
+   "market_status": "CLOSE",
+   "as_of": "2026-11-19T20:00:00+09:00",
    "high": 172400.0,
    "low": 167100.0,
    "open": 170300.0,
-   "volume": 464751.0,
-   "market_value": 25678960627200.0,
+   "volume": 481658.0,
+   "market_value": 25739811244800.0,
    "extended": {
     "session": "AFTER_MARKET",
-    "price": 168800.0,
-    "pct": -0.88,
-    "change": -1500.0,
-    "as_of": "2026-11-19T18:32:43.195474+09:00",
-    "volume": 203199.0
+    "price": 169200.0,
+    "pct": -0.65,
+    "change": -1100.0,
+    "as_of": "2026-11-19T20:00:00.000000+09:00",
+    "volume": 232432.0
    }
   },
   "042700": {
    "name": "한미반도체",
-   "price": 170400.0,
+   "price": 171900.0,
    "prev_close": 167700.0,
-   "change": 2700.0,
-   "pct": 1.61,
+   "change": 4200.0,
+   "pct": 2.5,
    "currency": "KRW",
-   "market_status": "OPEN",
-   "as_of": "2026-11-19T18:32:43.195403+09:00",
-   "high": 171400.0,
+   "market_status": "CLOSE",
+   "as_of": "2026-11-19T20:00:00+09:00",
+   "high": 171900.0,
    "low": 159600.0,
    "open": 167800.0,
-   "volume": 542567.0,
-   "market_value": 16241198880000.0,
+   "volume": 552815.0,
+   "market_value": 16384167180000.0,
    "extended": {
     "session": "AFTER_MARKET",
-    "price": 170500.0,
-    "pct": 1.67,
-    "change": 2800.0,
-    "as_of": "2026-11-19T18:32:43.195497+09:00",
-    "volume": 193838.0
+    "price": 171900.0,
+    "pct": 2.5,
+    "change": 4200.0,
+    "as_of": "2026-11-19T20:00:00.000000+09:00",
+    "volume": 209918.0
    }
   },
   "034020": {
    "name": "두산에너빌리티",
-   "price": 43650.0,
+   "price": 43850.0,
    "prev_close": 43050.0,
-   "change": 600.0,
-   "pct": 1.39,
+   "change": 800.0,
+   "pct": 1.86,
    "currency": "KRW",
-   "market_status": "OPEN",
-   "as_of": "2026-11-19T18:32:43.195413+09:00",
-   "high": 43800.0,
+   "market_status": "CLOSE",
+   "as_of": "2026-11-19T20:00:00+09:00",
+   "high": 43950.0,
    "low": 41700.0,
    "open": 43050.0,
-   "volume": 1726635.0,
-   "market_value": 27960494022900.0,
+   "volume": 1771689.0,
+   "market_value": 28088606252100.0,
    "extended": {
     "session": "AFTER_MARKET",
-    "price": 43650.0,
-    "pct": 1.39,
-    "change": 600.0,
-    "as_of": "2026-11-19T18:32:43.195504+09:00",
-    "volume": 886337.0
+    "price": 43800.0,
+    "pct": 1.74,
+    "change": 750.0,
+    "as_of": "2026-11-19T20:00:00.000000+09:00",
+    "volume": 976111.0
    }
   },
   "035720": {
    "name": "카카오",
-   "price": 31850.0,
+   "price": 31900.0,
    "prev_close": 31800.0,
-   "change": 50.0,
-   "pct": 0.16,
+   "change": 100.0,
+   "pct": 0.31,
    "currency": "KRW",
-   "market_status": "OPEN",
-   "as_of": "2026-11-19T18:32:43.195423+09:00",
+   "market_status": "CLOSE",
+   "as_of": "2026-11-19T20:00:00+09:00",
    "high": 32700.0,
    "low": 31450.0,
    "open": 32000.0,
-   "volume": 1061343.0,
-   "market_value": 14109566243500.0
+   "volume": 1084339.0,
+   "market_value": 14131716269000.0
   },
   "068270": {
    "name": "셀트리온",
@@ -658,20 +658,20 @@
    "change": 7000.0,
    "pct": 3.37,
    "currency": "KRW",
-   "market_status": "OPEN",
-   "as_of": "2026-11-19T18:32:43.195432+09:00",
+   "market_status": "CLOSE",
+   "as_of": "2026-11-19T20:00:00+09:00",
    "high": 215000.0,
    "low": 207000.0,
    "open": 207500.0,
-   "volume": 423096.0,
+   "volume": 432806.0,
    "market_value": 49791711040500.0,
    "extended": {
     "session": "AFTER_MARKET",
-    "price": 214000.0,
-    "pct": 3.13,
-    "change": 6500.0,
-    "as_of": "2026-11-19T18:32:43.195511+09:00",
-    "volume": 140630.0
+    "price": 214500.0,
+    "pct": 3.37,
+    "change": 7000.0,
+    "as_of": "2026-11-19T20:00:00.000000+09:00",
+    "volume": 152908.0
    }
   },
   "NVDA": {
@@ -690,10 +690,10 @@
    "market_value": 3638136000000.0,
    "extended": {
     "session": "PRE_MARKET",
-    "price": 153.06,
-    "pct": 1.39,
-    "change": 2.1,
-    "as_of": "2026-11-19T04:32:36-05:00",
+    "price": 153.96,
+    "pct": 1.99,
+    "change": 3.0,
+    "as_of": "2026-11-19T06:09:24-05:00",
     "volume": null
    }
   },
@@ -713,10 +713,10 @@
    "market_value": 1516752279039.0,
    "extended": {
     "session": "PRE_MARKET",
-    "price": 389.68,
-    "pct": 1.55,
-    "change": 5.96,
-    "as_of": "2026-11-19T04:32:30-05:00",
+    "price": 389.98,
+    "pct": 1.63,
+    "change": 6.26,
+    "as_of": "2026-11-19T06:05:42-05:00",
     "volume": null
    }
   },
@@ -736,10 +736,10 @@
    "market_value": 5121867545900.0,
    "extended": {
     "session": "PRE_MARKET",
-    "price": 353.6,
-    "pct": 0.33,
-    "change": 1.15,
-    "as_of": "2026-11-19T04:31:33-05:00",
+    "price": 353.95,
+    "pct": 0.43,
+    "change": 1.5,
+    "as_of": "2026-11-19T06:08:58-05:00",
     "volume": null
    }
   },
@@ -759,10 +759,10 @@
    "market_value": 869475855245.0,
    "extended": {
     "session": "PRE_MARKET",
-    "price": 542.67,
-    "pct": 2.36,
-    "change": 12.53,
-    "as_of": "2026-11-19T04:32:36-05:00",
+    "price": 547.68,
+    "pct": 3.31,
+    "change": 17.54,
+    "as_of": "2026-11-19T06:09:26-05:00",
     "volume": null
    }
   },
@@ -782,10 +782,10 @@
    "market_value": 1690103653703.0,
    "extended": {
     "session": "PRE_MARKET",
-    "price": 362.5,
-    "pct": 2.39,
-    "change": 8.45,
-    "as_of": "2026-11-19T04:31:21-05:00",
+    "price": 365.07,
+    "pct": 3.11,
+    "change": 11.02,
+    "as_of": "2026-11-19T06:09:06-05:00",
     "volume": null
    }
   },
@@ -805,10 +805,10 @@
    "market_value": 797958848727.0,
    "extended": {
     "session": "PRE_MARKET",
-    "price": 730.5,
-    "pct": 3.58,
-    "change": 25.23,
-    "as_of": "2026-11-19T04:32:36-05:00",
+    "price": 743.29,
+    "pct": 5.39,
+    "change": 38.02,
+    "as_of": "2026-11-19T06:09:25-05:00",
     "volume": null
    }
   }
@@ -826,34 +826,34 @@
    },
    {
     "title": "금리·환율",
-    "detail": "미 10년물 5.078% (+1.24bp), 미 2년물 4.809%, 원/달러 1,330.70원 (-0.25%)."
+    "detail": "미 10년물 5.089% (+2.26bp), 미 2년물 4.815%, 원/달러 1,328.60원 (-0.40%)."
    },
    {
     "title": "국내 증시",
-    "detail": "국내 추적 종목 낙폭 최대는 NAVER -0.88%, 장전 시간외 삼성전자 +0.82%, SK하이닉스 +3.41%, 한화에어로스페이스 -0.47%."
+    "detail": "국내 추적 종목 낙폭 최대는 NAVER -0.65%, 장전 시간외 삼성전자 +1.34%, SK하이닉스 +4.02%, 한화에어로스페이스 -0.32%."
    }
   ],
   "sector_news": [
    {
     "tag": "반도체",
-    "text": "80년 만에 일군 '수출 1조달러'",
+    "text": "FT \"TSMC·삼성전자, 일부 중국 고객사에 반도체 출하 중단…美 수출 규제 여파\"",
     "date": "2026-11-19",
-    "source": "뉴스토마토",
-    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE14Z3oxVmYzeUFxRVRYRFo2el9kcWRYd245aENpVi1kbWpHc1NuZTZRbm1RMHB2M2wtMnVkMHl4Z2I3NmZ1S3hraTV3bWpYaFNhT0MwTWhVdU9iTl9HSWRBMQ?oc=5"
+    "source": "뉴스핌",
+    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9LbUFWYW9VMEF1Vlgwd1R1NGpEUXAwWlhnZlByaGgyUmhLclhxbGxwaEFfNGd1LXU2ZE9MbGlZcFlHUTAzTEpqMHJPUEZEZFNSWndXenlGS01jLXRw?oc=5"
    },
    {
     "tag": "국내증시",
-    "text": "앤트로픽 상장 앞둔 코스피, 거래대금 연중 최저치",
+    "text": "[증시분석] 장중 5,000선 무너진 코스피, 외국인은 닷새째 팔았다",
     "date": "2026-11-19",
-    "source": "https://www.2news.co.kr/",
-    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBrdnVaNlpnejZQMzhFNThMeW5SNjVwdXNETDVyWE5lcjJHTWVJZmxseHhkUGJCLTNDaTJVWUx6TlJ5WXhFY2IwdkFfRUFsdE9xX1htSmJDLUJVT1NFbFVsaXZ3eVdoTG5F?oc=5"
+    "source": "강릉뉴스",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE40R0I3U1NVZDJCaDhBTzR5UjdtTGx4eW9paHcxWWhyZnYwbWNhaHpqcU1obEhyNU1pVVBKZlVpUGE2cEE4dWZxZTIzRlhFQ0p1TllCczhXTzRwVjY4ZmRucXItV3kwNTNhZ2JOT01xdw?oc=5"
    },
    {
     "tag": "AI",
-    "text": "AI붐 정점 찍었나…\"세계 기업, 내년 이익증가율 반토막\"",
+    "text": "법무법인 지평, DB월드와 AI 데이터센터 사업 협력 업무협약",
     "date": "2026-11-19",
-    "source": "한국경제",
-    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBVa2ZpSEQweS1Wd090MWhYVTZ3M0w0clhxalRwRFRyTHVja1AwSXMtUFl1UFNrd0FxcUc1V0IxOEpSSzh2VzVmNFQ4TjVUN2FkelNPY3ZnZENMdw?oc=5"
+    "source": "Chosunbiz",
+    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNdmVhR3hGRG9jc0J5Xy1hSmo5NHpWc1BzbTZseVlxbVdOR19tLW5wRVgwZlVObDVleERIRWhKZDdZc3pCNUp2Y19DX3JHOV9oR2UzMjdLOVU2bUVpUXEwTlZ0ZndRczBMbE4ydmNNMkNOVHZJTVZ1ZHl0VXFONS00dnBHTdIBlwFBVV95cUxNUlNMVGhmVVFGekdoY0ZiMWVtMUJUNlJFYTI4RVR3OHVwb3RpQjRJU3pWWTdCTHZIRDlYRUpXWGJmNWdfYlZmRkdMUk9weEduc2FvaTJhX05pcXJnRGRrNGxCTkQ2WjYzby1IOTB2UGNDQldrOENpMEthTU5WU1hKUGlLNTdtX3RiN2xFYW0ydFlQV1N6RnAw?oc=5"
    }
   ]
  }
