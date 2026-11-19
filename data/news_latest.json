@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-19T10:51:42+09:00",
+ "generated_at": "2026-11-19T11:06:42+09:00",
  "source": "Google News RSS (news.google.com)",
  "match": [
   "엔비디아",
@@ -1367,6 +1367,42 @@
    "articles": [
     {
      "keyword": "삼성전자 실적",
+     "title": "엔비디아 매출 1158억달러…또 최대 실적…삼성전자·SK하이닉스에 HBM4 기회 : 기업·산업",
+     "source": "재경일보",
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5LM1lHQ3NaaThTNE9zby1NVmtoNXpBZmJZV2dKcXpuRU1xSWszQUpFczJSSUFnZlpJZ0wwbEc0TzBiUzJtSF81SUhJQQ?oc=5",
+     "date": "2026-11-19",
+     "time": "09:26",
+     "published_at": "2026-11-19T09:26:00+09:00"
+    },
+    {
+     "keyword": "삼성전자 실적",
+     "title": "[반도체반등] 엔비디아 실적 훈풍에 삼성전자·SK하이닉스 일제히 반등…\"젠슨 황 복귀 불발 끄떡없다\"",
+     "source": "CBC뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBkTTF5dVJqNjNFZnAyR3FWN0Z0ZmlTNXZ2VkxrRjRBY0loWnlYWE81WDVlSHc5WVNqRmR5MXl1ME40SGxxWW80TndmZ0VIbTFuVkNVTlB5U0ZFbS1TWG1EQWM0UGNMUTBG?oc=5",
+     "date": "2026-11-19",
+     "time": "00:05",
+     "published_at": "2026-11-19T00:05:00+09:00"
+    },
+    {
+     "keyword": "삼성전자 실적",
+     "title": "코스피 실적 착시… 삼성전자·하이닉스 빼면 영업익 21% 감소",
+     "source": "한국일보",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE44TlVQaVpEeVVtT2dxQ2I5TDRvNnFCUi00dWtpdVhJQW1DazBBRkUxWXdVaWU5MDNRVGRTUE1LTmJqOXVyOThZTlR6b2hjRkRVSjNaeDNpZEJTNzJtZmQtcWZmaG0wM083cWVqa2xB0gFzQVVfeXFMTWhibjZTV0VTY3NtX3RqZ3FiR2V6S215aXFLVm4xMmVINGRoeTZMVjRoX0VFd1g1cE5sd1BzMzl1OVZ6MF9OOTdpc25uMm51SW50REsyOE1GaWM1S0pIa3NtOWVUa05ZbzFzQkFtcGhRVjI0Zw?oc=5",
+     "date": "2026-11-18",
+     "time": "16:01",
+     "published_at": "2026-11-18T16:01:00+09:00"
+    },
+    {
+     "keyword": "삼성전자 실적",
+     "title": "삼성전자와 SK하이닉스, 실적은 개선됐지만 순이익은 하락한 이유는?",
+     "source": "공감신문",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5LV3h2QllOeEN1WHhPLWZuMUN2Uy1kR3Z4Y2g3U21PQ0tLWDBvZTRTeWQ2TkstQjVOeUM1U0NiSWVORTR0UFVWSUh2VDkyWmZJMWhYU0dVZGo2OXA1WjVCaUU4RDJ3VTY0?oc=5",
+     "date": "2026-11-18",
+     "time": "14:57",
+     "published_at": "2026-11-18T14:57:00+09:00"
+    },
+    {
+     "keyword": "삼성전자 실적",
      "title": "'삼전닉스' 삼성전자·SK하이닉스 주가 엇갈려…엔비디아 실적 호조에도 희비",
      "source": "CBC뉴스",
      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9tZWhrRmFRTklDazBvQ3luSlc3d19XLXdoQVZEZFhwR1k3aFMzektqR0psS0ZwNm8tb1YzUkVXQmJORVRjY0hjS215Q1BJQWgtcW5VM25SM2VXRXRpQlZLZ0lxenN4ZkRk?oc=5",
@@ -1382,45 +1418,9 @@
      "date": "2026-11-18",
      "time": "08:50",
      "published_at": "2026-11-18T08:50:49+09:00"
-    },
-    {
-     "keyword": "삼성전자 실적",
-     "title": "iM證 “엔비디아 실적 호조에 삼성전자·SK하이닉스 반등 시도”",
-     "source": "이투데이",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFB0SGVFdFNuUzNsdzdyNHhyeW5oOW1vZVd1Y3otSThDLXBEaWFuVXBYN0tPUHRJMS1ZVFdMU01iMkc2bU16a1p3ZnBBdllNZkF6SW9VSA?oc=5",
-     "date": "2026-11-18",
-     "time": "08:02",
-     "published_at": "2026-11-18T08:02:00+09:00"
-    },
-    {
-     "keyword": "삼성전자 실적",
-     "title": "삼성전자 주가 19만원선 하락…엔비디아 실적 호조, HBM4·2나노 수혜는",
-     "source": "톱스타뉴스",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5wb0NvS2NjV3A5ZTYwejhXTlIwajgwTE1Bb1B1R3NTbFZxdUIwcVpYMjNTUTlVMTFtSm5VYXRFTm02N3p6QW5mTDZSaUN1dnI4MDdkdXE5SlZxVEoydlg0TUprLXlncG9VTldHTkVhbDZtUQ?oc=5",
-     "date": "2026-11-18",
-     "time": "07:36",
-     "published_at": "2026-11-18T07:36:55+09:00"
-    },
-    {
-     "keyword": "삼성전자 실적",
-     "title": "[오늘 증시] 엔비디아 실적 전망에 AI 반도체주 촉각…삼성전자·SK하이닉스 반등 변수 될까",
-     "source": "톱뉴스",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBwYlVFa19RS1ZWSE1ScF9lVG13T0FXY1VMRVYyVzF2LU50bTRfVVlmWUlwMTBtS3R4Y212LTd2RVlpNWxrYTlNazB5Tl81aC1NOTJvOGRCODZwbktVRlNHaFpteXJSRGt2V2E0eGZOVQ?oc=5",
-     "date": "2026-11-18",
-     "time": "07:25",
-     "published_at": "2026-11-18T07:25:19+09:00"
-    },
-    {
-     "keyword": "삼성전자 실적",
-     "title": "[오늘 증시 전망] 코스피 5000선 회복할까…엔비디아 실적 호조에 삼성전자·SK하이닉스 주목",
-     "source": "톱스타뉴스",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBoQUFKR1lYTUoyN1hVVGVtaXFTS0FmbEZVWkRORURaclRPZF9kRi1fLWQ0SS1UVHNNOGluWk9iTVM3SlFQNnpoLU1uTmVCOWtPbURqWUpYcExlNzRSSkhRaDNGczkxYWxMU2U2MVMzT09RUQ?oc=5",
-     "date": "2026-11-18",
-     "time": "07:11",
-     "published_at": "2026-11-18T07:11:52+09:00"
     }
    ],
-   "fetched_at": "2026-11-18T14:07:29+09:00",
+   "fetched_at": "2026-11-19T11:05:25+09:00",
    "code": "005930"
   },
   "000660": {
@@ -1987,6 +1987,15 @@
    "articles": [
     {
      "keyword": "브로드컴 실적",
+     "title": "TradingKey 데일리 마켓 브리프: 미국 3대 지수 급락, 브로드컴과 Arm 역주행, 엔비디아 실적 예상치 상회",
+     "source": "TradingKey",
+     "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQMW05SXFIRDYyQnlWOXR0a1lETnNhTzhmYnlfVDZqdm9oZVNpV0RaQW5YXzZ2STV3bWNxeXNOYTlVYWFHS3UwOGNTbnV5OVBmTG05NlEzQkxHUGtmdk9nemg3Y2VnOHByNGJxclBMX1VlcXBfMGZMYkdoZFlNUk5vcWVfRER5TkZ2QjFZc0FoV3RzejZKM3FGSTQzbzlfSXRxMG9hMjFoS0tOZDBXZExoRVlVbnlrRlhLQTV4bnJZTWE3RE1ONnBmNHNxSkY0TXZMM3YyM3FqdmlqMUFnTWNrZF82NA?oc=5",
+     "date": "2026-11-17",
+     "time": "17:14",
+     "published_at": "2026-11-17T17:14:00+09:00"
+    },
+    {
+     "keyword": "브로드컴 실적",
      "title": "엔비디아 사태로 브로드컴을 비롯한 다른 칩 제조업체들이 주가 상승",
      "source": "EBC Financial Group",
      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBwTXdUdDRyeVcwdjBCcjBsdkpVS3ptR3ljSTh0bkRVSDNpS2RpajNYMExQYzdCSjhsU2IydHd3czhvSWRnb092MTlrV0V4UWJ2WVE?oc=5",
@@ -2002,18 +2011,9 @@
      "date": "2026-11-16",
      "time": "12:12",
      "published_at": "2026-11-16T12:12:30+09:00"
-    },
-    {
-     "keyword": "브로드컴 실적",
-     "title": "AMD·브로드컴도 못 피한 젠슨황 쇼크…17일 엔비디아 실적 주목",
-     "source": "국민일보",
-     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5BZzBWektWQVVZd0ppTk1rQkV5aHhaR2VzOTVLQ25MbUFVaE9fajVpV0lfOWo4WkIyWlBZZU5aNDhxcURYbjdWRTJFZmRlV0gyOUNpbUh6VXo?oc=5",
-     "date": "2026-11-14",
-     "time": "18:17",
-     "published_at": "2026-11-14T18:17:19+09:00"
     }
    ],
-   "fetched_at": "2026-11-18T13:05:53+09:00",
+   "fetched_at": "2026-11-19T11:05:28+09:00",
    "code": "AVGO"
   },
   "MU": {
@@ -2718,96 +2718,96 @@
    "articles": [
     {
      "keyword": "비트코인",
-     "title": "비트코인 6만 4천 달러, 장기 투자자에 매수 기회? 그레이스케일 “매력적 진입점”",
+     "title": "스트래티지, 비트코인 약세 속 수요일 주가 6% 이상 하락",
      "source": "Benzinga",
-     "url": "https://news.google.com/rss/articles/CBMizwJBVV95cUxOcVZhSDlvVk85dW82TlhTd1VicUhEVXpsQXFTQmVYN2U1TmtpdjhhQ3gwRzFBbXdyR09JZjN3Tk0zc19Ub2NwS0NZbEZxMGVQZUw3QmpvWjJvSG1IblNrNklabE1UT0t4RW1QNEJLamdXV04wQzRhRjFnX2UwclEwNUVlLTdJd3UtSDAzbmg3TUVDcmZ0anZoWm81OVREVUluckZCSmowcEdYVE9NNEF3S0VsYmtqMzVEQlo3ZHdhOTJQOHF3dEVEd1RnQW9JWFJ1ZlhUZnlrV1NTby1LdjVoOHFZaGVsX0RmRjlwRW51OGpabkpmRENLZlBZV1picVdxY2J4NE9JTEw3MzREYmpXeTk2ZUdIVnR6eDFmU2RaNFhvWjhYUUI2dnBCQ0ZFMXBQUzZURWI0NFVvNl8wT25UaUJUZTQ1OWJOcXJzUW4wdw?oc=5",
-     "date": "2026-11-18",
-     "time": "11:45",
-     "published_at": "2026-11-18T11:45:40+09:00"
+     "url": "https://news.google.com/rss/articles/CBMi3AJBVV95cUxORElhOWJBVWFlWFJnVjFrUXoxUkRGbnppZkVXYkVGamRNMGlmMnNsbXZhVDg2WTZjWDB0Vk1GU3pkTUtNQmhoaC1FdHZGVUpkZURMQXZXWk42cEJqQm12M1o4U05xeWhJaVFkRlNXd3VVajJPTjBpbTk3elEwcGliT3M3bWlUbll3R0F3RjdWVzQ5OVk2SVBEcDRGQ2l0WnJXblBnd1lBR0lTcmxzdjNWR3pfZDJjWmVIZ2p3UlQ5TzExSHlEemhCaUFlVDI3aWZ0cE9JeXI5WFdBaWlfT2M4UFJiR09fVTRPd2dpSDgxbHFveXJuRGpCbFVDWE5sR0wzMXhOQ08wOFBlS0ctcmttOEJCSkNxR3lzSXhrQTViUlNvNWtENmxpRWltMXc0YVZzbjFHLVlQNlFWbFQ0NnR2OFVGYm9BTjhhYnNuczQwbV9rSEF6ZlIwLXFESnM?oc=5",
+     "date": "2026-11-19",
+     "time": "10:25",
+     "published_at": "2026-11-19T10:25:26+09:00"
     },
     {
      "keyword": "비트코인",
-     "title": "\"AI 거품 붕괴, 비트코인 반등 촉매 될 수도\"",
-     "source": "블루밍비트",
-     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5zTnlZWXlLZUMzWHctZ3BnYndpeUs2SHpCNTBMUWJ3V2VDZGJHT3JxWmphNE9vdGJ3U3d5VnJIUFFPUFR1NWhyWkQ4YXdpaERK?oc=5",
-     "date": "2026-11-18",
-     "time": "11:12",
-     "published_at": "2026-11-18T11:12:21+09:00"
-    },
-    {
-     "keyword": "비트코인",
-     "title": "그레이스케일, 비트코인(BTC) 폭락설에 반박..\"앤트로픽 탓 아니다\"",
-     "source": "코인리더스",
-     "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5pNzJENURLNURtOW5CeDVSVDEyQkh6NzJaN3BXZTN6ZGNjZVkwVktiV1FVcDUtOHlzNkt1anE5eDNEaVpBRFZkbHln?oc=5",
-     "date": "2026-11-18",
-     "time": "11:10",
-     "published_at": "2026-11-18T11:10:00+09:00"
-    },
-    {
-     "keyword": "비트코인",
-     "title": "“5만달러까지 추락 가능” 비트코인, 반등에도 꺼지지 않은 하락 공포",
-     "source": "한양경제",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBwTWNnX0x0TjlZcnk2VjRTZEpPZE04VmI4MldfUW8wd3ZYVXVFNzc2OEZYWEJkald4cFBmNGZKVEswTnBBZ1h3VjkwZzY4S3hIMnI5M3dqOFYtMGxnaTQycGtITnhfZi1sMTZ1emI1M1R5UQ?oc=5",
-     "date": "2026-11-18",
-     "time": "11:02",
-     "published_at": "2026-11-18T11:02:38+09:00"
-    },
-    {
-     "keyword": "비트코인",
-     "title": "투자기업 트웬티원, 올해 첫 비트코인 매입 공개…154BTC 확보",
+     "title": "美 연준 매파 기조에 비트코인 '흔들'…ETF 자금 유출도 부담",
      "source": "디지털투데이",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5WVU1kRnpMZDhWVjRoMTlLQUlOY1ZtS003ekVvYktEWWNYZ2ZfelV0N0VHWDlHMkEyZEN5d3BYUGdtOUlldWc3cTYyOTNobXBhdFlna2pJNV9yVkdWZHZXOVJOTS0xb3B3Sk0zWGt1WDM1dG8?oc=5",
-     "date": "2026-11-18",
-     "time": "11:00",
-     "published_at": "2026-11-18T11:00:55+09:00"
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBaMk9HMXpxWktnRVhHWkoxXzhUakY2NHFITEEyR2d1QnhXZ1hObXhJRDQtOWJ0aV9mZ3puMi1vOWUtdUVvM21COG10cC1DZWt6RTc2R19BQkhzQUdzdVN6dXpPMFJ5Y2wyZEQ2TGhmeXVOOXM?oc=5",
+     "date": "2026-11-19",
+     "time": "10:20",
+     "published_at": "2026-11-19T10:20:25+09:00"
     },
     {
      "keyword": "비트코인",
-     "title": "비트코인, 앤트로픽 IPO 앞두고 또 급락···스페이스X 때와 다른 하락 원인은?",
-     "source": "Benzinga",
-     "url": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxPYjQxZHNHTnk4bkdKeUI4RkpXTFJLVVR4ZFdhanFRXy1IQ2w5MlRvVVNPOTVaMWxyLUtkRnJDbFJoNTR6d3NPWHpURmZrQ0NPZ1RKVEpoaDhxY3hyT2VwM3VIaGw0UHdXV21hOTk1Zm1mc3NMLWkzOUFEOXRtVzFQajlvb0hCR2JtNmh5QjdERTM4UzBqeUZEVlBRajZBeFlKZWxQcE9GQkliRDktNkxhbDhwTVcyeFYwQ1ZkREVUZm8yZ01MV3lPcERIS2JkZUtQZC13QmN6WUpzbWwxSjJkanYtcUVRdzQ3ZXVIRXgzbTJFdmNEWWt0eXpDWkhyN2JzWEpidnctY2pqSDEteTV5VUFldVBJb01lZW1LS3d0ZlJ2SHJXSWhLSU1BamtLcHBkdVM1X0VKSWNzUWIyRlhaZXlTcw?oc=5",
-     "date": "2026-11-18",
-     "time": "11:00",
-     "published_at": "2026-11-18T11:00:19+09:00"
+     "title": "블랙록 IBIT 자금 이탈 지속…11월 비트코인 ETF 순유출 87% 차지",
+     "source": "디지털투데이",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5vNnZSaGl5dC04YXN1RU9WU1ZmR0N4UVRRWm9jalN4UUE1U3lPclI2LXgyMy1aV1BON2RVcFpna2R3M1FhOTBuTVBDSDhKYXNkZHNXNnZVLWM3VlhCUmNlX0E5TkhITU9jTGlCTEdzWXhlczg?oc=5",
+     "date": "2026-11-19",
+     "time": "10:19",
+     "published_at": "2026-11-19T10:19:29+09:00"
     },
     {
      "keyword": "비트코인",
-     "title": "비트코인, 급락 이후 6.4만달러대 횡보…\"6.8만달러 뚫어야 반등\"[코인브리핑]",
+     "title": "비트코인 10만달러 전망 후퇴…씨티, 목표가 하향",
+     "source": "센머니",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9BQ3ZJMEtrUUJlVlpLbEFObmw1WF9xaDc2NUNWYTQwOXJCMmVOdmxmZEtVWkVZM0pjdHd1a01CTUc0Tk81SDZMa1d5NGN1OTBERFltWE9ITWRYTTdyQTJ6UU9WRXlHTmFGZlkxYg?oc=5",
+     "date": "2026-11-19",
+     "time": "10:15",
+     "published_at": "2026-11-19T10:15:00+09:00"
+    },
+    {
+     "keyword": "비트코인",
+     "title": "업비트, 코인모으기 '1조' 기념 이벤트…최대 200만원 상당 비트코인 지급",
      "source": "뉴스1",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE11VElMZmpYLXJlS2J2UmdzelRMZ05DNVpWZkpPX2xoQ0tfcmZHVEc4RmN6SlExNkFlMkgwLTJobEhiRWdMRXdwU3doSE92N2w1aTVTSnhrSEstOHBJZlJKUkFzRnVydw?oc=5",
-     "date": "2026-11-18",
-     "time": "10:46",
-     "published_at": "2026-11-18T10:46:47+09:00"
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1ZSUxDRlc1UUc4TzRzUFZnNkw0N3NGNHhwcGtwVlpyN042VjNMNVdTVm15VWdlR0JhcElodkpIeHpiLXJNeXZiZjJuNUY1Z2dtak9JWXN5dmlUMWxhZmR1QUZHUGdzQQ?oc=5",
+     "date": "2026-11-19",
+     "time": "10:14",
+     "published_at": "2026-11-19T10:14:00+09:00"
     },
     {
      "keyword": "비트코인",
-     "title": "[분석] \"비트코인 약세장 재진입…6만2000~6만5000달러 지지 주목\"",
-     "source": "블루밍비트",
-     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFAyOGtzQkJkZ0pWdlVtV0hPdFFHQTBSdnVZLWVfeUt6X0ZxVy05QXB3S05BUUpyb20wTXVGY1g4M1VQY1dQODBUbXJNZjBtcDNz?oc=5",
-     "date": "2026-11-18",
-     "time": "10:46",
-     "published_at": "2026-11-18T10:46:21+09:00"
+     "title": "\"앤트로픽 IPO, 비트코인 추가 하락 압력될 수도\"",
+     "source": "연합인포맥스",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1sVm1ZVFQ0Q21QcmstRHhnOWtvaTVEbTJDc3Z1NDNNbHNsVkhLWl9YUDVEX0tDb1kxTDJETDFzLUQ2YmtpNVhPNmJObVFlaTc2V3U0X3ZEdWVKcm5NNEdiVXJrWTZpY21hWjE3QU5BQnk?oc=5",
+     "date": "2026-11-19",
+     "time": "10:04",
+     "published_at": "2026-11-19T10:04:30+09:00"
     },
     {
      "keyword": "비트코인",
-     "title": "업비트 ‘코인모으기’ 1조원 돌파…매수 1위는 비트코인",
-     "source": "논객닷컴",
-     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE8wT2JFSklwV1gzV0RMajI0c1lRbFFmTjU5bUVLbWdrbkdLUjhpLWJONmFUd2Z2SjJtNGlNRnVZVnA5bER1RjdSdVVxWFFnZmN3RDlteXFrVUFoWDNDaW1vbVVXODZ5bUlr0gFrQVVfeXFMTjNITEgwU3M4X3hxRVpnNUlPaEptMTM1U0d6ZXBoSXQ1VmhKdGNtdWNTWkM0WWNoWW4wRUxBV2M1NUJEMEhCLWZlU1NDeXpkdnBZZENGbFJMa3ZsNGhkVDd0Unk1aTExZkU4OFU?oc=5",
-     "date": "2026-11-18",
-     "time": "10:44",
-     "published_at": "2026-11-18T10:44:04+09:00"
-    },
-    {
-     "keyword": "비트코인",
-     "title": "윈터뮤트 \"비트코인, 아직 약세장 못 벗어나…5만달러대 열어둬야\"",
+     "title": "금·은 급락에 1조4000억달러 증발…비트코인 시총 웃돌아",
      "source": "디지털투데이",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1uX0NxX3RhWWctQ0c4bmtRQmJ3YlJadVhGRkYtU1dhc2tMZzZ4LWFlWnI1Um44YjdqcnUyVHJjNDhJcVVaNTFjNWs3Y2RDQkZYRG9zd0lNUzRuc3NUN2xRNW1obkVuWVJTMHFEVjdkMUx1Mnc?oc=5",
-     "date": "2026-11-18",
-     "time": "10:17",
-     "published_at": "2026-11-18T10:17:45+09:00"
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1HSzU2b09xeEhvUS1uM3pCZldzYmNUempVXzJ0N2VNVkpuQTRSc0JDU1Q5ejJ4b0RVYUlNR2prYU04cjVpZmZOc2p3Mi00azR6WFA2MnJ6TjJ0QzdNUHNFRWFHYlZtX2pSSmdfMGN0eldCczQ?oc=5",
+     "date": "2026-11-19",
+     "time": "10:01",
+     "published_at": "2026-11-19T10:01:41+09:00"
+    },
+    {
+     "keyword": "비트코인",
+     "title": "[게시판] 업비트, 최대 200만원어치 비트코인 주는 '코인모으기' 행사",
+     "source": "연합뉴스 한민족센터",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1DVWVTSDBXOUVVOFJxVHNmVkJSMUNhWFRnS3c3T1JHOFBrZXpMLXBhUXFVVDEwbUtGaFpxczZPTnJEMmFQb0YtdWdKM3BHOHRaYng2ZElfNDk5dXV2QkN1Qk1GRWdCWnJwcFhBTFAtOGl5WXJ4?oc=5",
+     "date": "2026-11-19",
+     "time": "09:37",
+     "published_at": "2026-11-19T09:37:06+09:00"
+    },
+    {
+     "keyword": "비트코인",
+     "title": "두나무, ‘코인모으기’ 1조원 돌파…비트코인 경품 이벤트",
+     "source": "헤럴드경제",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1rZUdDZkw3QzhacFRaUmxpdEthMF9WX3hHaWJZZmtuR3dJLVowRnhraVFQX0F6QnR6VURnRXBRcjFNQzZSc2V3TVdZd203ckhzRGFaOGlR?oc=5",
+     "date": "2026-11-19",
+     "time": "09:14",
+     "published_at": "2026-11-19T09:14:26+09:00"
+    },
+    {
+     "keyword": "비트코인",
+     "title": "비트코인(BTC) 6만 2,000달러 지지선 지킬까…ETF 자금 유출·금리 우려 부담",
+     "source": "코인리더스",
+     "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFA5d2Z1S1ZnRzJ1ejdIR0lwMU1MYVFQRi15QVh6VVU3NzhaOGNxMnpvZ25wYld6d1h2d3l2ZFY3YUhtUUM2cnZtMW13?oc=5",
+     "date": "2026-11-19",
+     "time": "09:02",
+     "published_at": "2026-11-19T09:02:29+09:00"
     }
    ],
-   "fetched_at": "2026-11-18T13:05:56+09:00",
+   "fetched_at": "2026-11-19T11:05:31+09:00",
    "keyword": "비트코인"
   },
   "현대차": {
@@ -3934,96 +3934,96 @@
    "articles": [
     {
      "keyword": "바이오",
-     "title": "한국보건산업진흥원, '바이오 유럽 2026'서 국내 기업 글로벌 진출 지원",
-     "source": "팜뉴스",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE53YkJSSFZsOTF0eE95bm9lbnR5ZnVLWEZHQTQ5MHBSLVpFZnd1LWJoQkE3OUtNZGZtV0RlVjhLY0hOeXBaYUQ5blM0bU15aFZyMmxHM2Y3U0plQk5uUHFlUHZRUTRQVEFxQnR4Mw?oc=5",
-     "date": "2026-11-18",
-     "time": "12:06",
-     "published_at": "2026-11-18T12:06:40+09:00"
-    },
-    {
-     "keyword": "바이오",
-     "title": "세계가 찾는 K-바이오시밀러, 한국 의료현장 처방 침투율 겨우 33%",
-     "source": "히트뉴스",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFB0Qkt4TVJpeVJRam04bFd0NG13bERScEtFQXl3bEE2VzFKMERrOFVpdVZ5aXozbS1RZk5YY2dLTWc5b2hZOG00d0RKRFdsc0otYkQzTklZXzVWaWMyQTh4cTFLaXp0TW9zSnp3?oc=5",
-     "date": "2026-11-18",
-     "time": "12:04",
-     "published_at": "2026-11-18T12:04:00+09:00"
-    },
-    {
-     "keyword": "바이오",
-     "title": "롯데바이오, 송도 1공장 준공…신규 빅파마 후속 수주 관건",
-     "source": "전자신문",
-     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE03bXJSdlhMY3BTVEVaYjd6WmZVSUYzWXhZbG0wY1dUVTFlcV9PcFl0YjhjNzEyU1RmVFYyX0RRV0cza1ZiSlp3V3ZFMW9sUQ?oc=5",
-     "date": "2026-11-18",
-     "time": "11:36",
-     "published_at": "2026-11-18T11:36:26+09:00"
-    },
-    {
-     "keyword": "바이오",
-     "title": "현대바이오 \"내성 생긴 전립선암 항암제 효과 되살렸다\"",
+     "title": "파이안바이오·경희대, 미토콘드리아 뇌 전달 높여 파킨슨병 치료 가능성 확인",
      "source": "한국경제",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE83VHRqYWxFZnBXWWJ0dVFOQTZaOWUxOWEwTmplOGdfOTF2U2JWMFUzOGZrMmt4NnpONGVMdTFHeldraDBHaDJhTzJzYk5KQXRsLS1fTmNoM2FuZw?oc=5",
-     "date": "2026-11-18",
-     "time": "11:31",
-     "published_at": "2026-11-18T11:31:26+09:00"
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE44eUR4RWNiRlUzRmpHVEctVml4NzJLYThCbnJhN2htMEVndmxGS3dWRGFsN2Z6cDJ2REZUWkszaS16TDROZC1aSVE2MEVMc2dTbVlEdGstVjJtdw?oc=5",
+     "date": "2026-11-19",
+     "time": "10:57",
+     "published_at": "2026-11-19T10:57:17+09:00"
     },
     {
      "keyword": "바이오",
-     "title": "삼성바이오 노조, 한국노총 가입…조합원 88% 찬성",
-     "source": "매일경제 마켓",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9oeUtiV2lEbkI5eGo0ZEZRMlZVNFAyUFMwYS1MTzVxSFlNaVQtYk5uaG5qaFZ2aWs1RHc3ZUFlak41Ym9QUDVfSVNHbVJTRHFwZVE?oc=5",
-     "date": "2026-11-18",
-     "time": "11:29",
-     "published_at": "2026-11-18T11:29:15+09:00"
+     "title": "동구바이오제약, 혁신형 제약기업 인증 2029년까지 연장",
+     "source": "메디포뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBNRDgxTEIxQ250ay10LVJkT2xNazBEMEN0OWJjMW9oVjZDc3p3X0RCd3hXUHRWZDVJZDVETTJoczBtYWJTdHN6ajg2VU5xRWpLdm9VM2p3a3lQQk5LVXprM0JTU2g?oc=5",
+     "date": "2026-11-19",
+     "time": "10:54",
+     "published_at": "2026-11-19T10:54:21+09:00"
     },
     {
      "keyword": "바이오",
-     "title": "[특징주] 아리바이오랩, 치매약 임상 3상 기준 통과.. '급등'",
-     "source": "글로벌이코노믹",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQWlNoXzZJRUVRSkJWemI5UnU0djFkM0hGZHFJNURxeDBSRnhnS0RST1hudEpFTXNtaGhOdUtGMDFuUDh3MVRZdVV0enZURFlUZnJqQzVYa19xMzh3NURoSmFvbUNmXzdNVndrOUlELUtJNHBWbjJWVXNYU3ZweDRIX1VQSVVyLVct?oc=5",
-     "date": "2026-11-18",
-     "time": "11:27",
-     "published_at": "2026-11-18T11:27:58+09:00"
+     "title": "“제약·바이오, 2027년 방어주에 집중…셀트리온 최선호”",
+     "source": "한국경제",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBzRFFDaWszWUUzQlJmRjdCZEZLRXcyTlVpbl9nODQ2Q0VLcHFzVmxEd3d4emJpQ0hydFQ4YTF0enRBN2tyN00yZVJBUGZfSWp1Um5qNlFJczRTZw?oc=5",
+     "date": "2026-11-19",
+     "time": "10:50",
+     "published_at": "2026-11-19T10:50:32+09:00"
     },
     {
      "keyword": "바이오",
-     "title": "삼성바이오 노조, 한국노총 가입…노사 교섭 갈등 ‘평행선’",
-     "source": "뉴스토마토",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB5OV9lbkJPdHBMSjlhWmxOeWJ3aFRqZ2N0aktFcEs2YlU4RzAtTUtlMXkzTUpnRVc1aF9OWmo3LXdxQlRpR2RueVlZSGpZU2N3WjBlblJaNldtbno5X3lDbg?oc=5",
-     "date": "2026-11-18",
-     "time": "11:15",
-     "published_at": "2026-11-18T11:15:32+09:00"
+     "title": "세포랩 바이오제닉 에센스, 누적 판매액 3000억원 돌파",
+     "source": "지디넷코리아",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBjZnFnSGctdkl1V3RzMFV0dHlwV0R4STg2LWpQZURyaktEc0NxYldOMUx6OFJ6R0hoYnhKNlFnZ2xWc3dLRmd1bXF3NjZVSjl1VnRwdVlR?oc=5",
+     "date": "2026-11-19",
+     "time": "10:48",
+     "published_at": "2026-11-19T10:48:48+09:00"
     },
     {
      "keyword": "바이오",
-     "title": "삼진제약 “아리바이오 치매약 임상 3상 성공 판단…상업화 속도”",
-     "source": "Chosunbiz",
-     "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQTzB5dGFna2U3cnVYRnU0N3l4MFhMa1o5T29UUkJuOWJFUjlRdFBVVXhaWmNXRHVsWHFva2NtaXJZdHRxcmN0RUFkMC1zcmlIRnozalZJbkZSYU5mMk52RVVDNFR0ZGNnU1ZiWlZhaUZqcFd4X0tOSVFRUDdRa3h4X1Q2N0F2MXfSAZsBQVVfeXFMT19SbktraFFzYnhNVDRMdG11dllqN1RuUTNHcGhxQW5kbk5qZjlhRFEyM1JFNWpyTGVBbVpPN1d2OXlPRzYxRXpDcnUtTEJkVU1LQUp1U1o4SW5sbEdyQ2pWV0ZJakJmYzZqdEZ2YlFKd3IzMnNOWEFrM2RnQXR4Q0w2aFc1V0Z0UnozVjRwZnhRUVZYS3huRXBFbzA?oc=5",
-     "date": "2026-11-18",
-     "time": "11:14",
-     "published_at": "2026-11-18T11:14:00+09:00"
+     "title": "'바이오 자족도시' 시흥 월곶역세권 개발 본격화…2031년 준공",
+     "source": "연합뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1BQW9NZW1lRzItTzE4bzlWWTllNDBWMklob0tsMWs4aUFtZnVmVmVwY3V5MWVwVXg5SXo3SS1yS0J6RlVWZHJna19LSEZSaW4tQUpneHl0cUhSTGPSAWBBVV95cUxNUzRsT2lZdW0yYVZja0lPOFgzZ2FpRnlsbHJRTzFNenI0bmNGeTdLdGpHV1J5MEk4T01JMmQyUjF4aG9LZS13VFNNdnFtZ0xwNmJLUHpFQ1NfbkNTOEtxT1g?oc=5",
+     "date": "2026-11-19",
+     "time": "10:46",
+     "published_at": "2026-11-19T10:46:32+09:00"
     },
     {
      "keyword": "바이오",
-     "title": "엘엔씨바이오, '리투오·리투오 파인' 파라과이 인허가 획득",
-     "source": "히트뉴스",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE15clc3YXV6cTN5MzViWWVaMHo2NmFuTDFiRnVYTWZTZXMyRkRfbzYwdkowb3I4S3lLalVLNDNyVGN1dWs5QldTWW5rbXZybk9CLXNhOTZrcThLX2lqWFNOS1FGSU95V1UwV2cw?oc=5",
-     "date": "2026-11-18",
-     "time": "11:05",
-     "published_at": "2026-11-18T11:05:22+09:00"
+     "title": "넥스트바이오메디컬, 넥스피어에프 FDA 허가용 임상 126명 시술 완료",
+     "source": "MEDI:GATE NEWS",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBhdTJLYWw4N2lBSFZtaVdBdmNrX19jRU9wYXRzUkdkd3hQbS1Tek9QMWdGNjI5c1pBQ0J6VHhmYzNVYVJSZnhDQkNWU05UVUtoc0QwOUs0MA?oc=5",
+     "date": "2026-11-19",
+     "time": "10:42",
+     "published_at": "2026-11-19T10:42:00+09:00"
     },
     {
      "keyword": "바이오",
-     "title": "삼진제약 \"아리바이오 AR1001 임상 3상 성공 판단…상업화 속도\"",
-     "source": "히트뉴스",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5UYjBKODU0UFdCNm11ZU9SRS1vY2ZlZ1B4Zi02clhmU1VteVBVUWVsZzF2WWplQTNkSTFkVTVULWNadWp1LTZLTWF5c1BSUWNXQkVoWXlVMzZSQVIzdlU5dG9IcmdpY1c4Z004?oc=5",
-     "date": "2026-11-18",
-     "time": "11:02",
-     "published_at": "2026-11-18T11:02:08+09:00"
+     "title": "롯데바이오로직스, 송도 공장 문 열었다…‘연매출 1조’ 구상 실현될까",
+     "source": "비즈한국",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBUS1NkeDBrcndnS2dzZDVoc1Z2T2dCMWJfcDJLalUxcEU0aEh0UVQ5VTdfM3lKb0JwcDlub0x3NExkR3ZsWTZqTDZnOTJpTklwOE9WT3lrQS1pcGFoR3c5ZE1STnV5bnJMMzBKZzhVNG9FbmFhZk94d3NvTQ?oc=5",
+     "date": "2026-11-19",
+     "time": "10:37",
+     "published_at": "2026-11-19T10:37:03+09:00"
+    },
+    {
+     "keyword": "바이오",
+     "title": "메타바이오메드 “CeraSeal, 세계일류상품에 선정”",
+     "source": "덴탈투데이",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1pSEpiaXVFXzZtYlFzMkxQWTVPSlpCZzRNazBYTE9mNUF4QUp6Wkp0WkZIVzlkZFM2RU1Lcmo2THFwOWJIR3ZrWHVWb2pjYVItSXlwUWRMNDhkRjM3ZDZTd1ljVjYxdldz?oc=5",
+     "date": "2026-11-19",
+     "time": "10:33",
+     "published_at": "2026-11-19T10:33:25+09:00"
+    },
+    {
+     "keyword": "바이오",
+     "title": "춘천시, 361억원 투입 '바이오 융복합 산업화 지원센터' 개관",
+     "source": "전자신문",
+     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE12OUo0WndBa3RLZEZkV2JEQXRYZ0tVOVRZaHU1bktYTFNldVpDcE5xSWxDa1dRSFdxVmplR0NNNGF2dEpsOG5lallVR0JCdw?oc=5",
+     "date": "2026-11-19",
+     "time": "10:31",
+     "published_at": "2026-11-19T10:31:31+09:00"
+    },
+    {
+     "keyword": "바이오",
+     "title": "‘상업생산 2028년부터’ 롯데바이오로직스, 송도 1공장 준공…고객 중심 내세운다",
+     "source": "동아일보",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBHcHpBZlFOX1c0ajNLTzRaUTJRQXJOUTA4eEpGUEhwRGNmOTE1X1BycmZmckRhWG0wN0E1a1VKcUhqNGRNemV6cWk1QUlIR0JVSXlLc013UFdJZi1zQUNpS0I5YU40WnFqZEZWQjZlQdIBZkFVX3lxTE9kTkF0QmJiWVNvQk1UbTdQZnR3U0ZkbklkSUJoeHhLMS1XMWtzQUkzYUJNbVlfUXR1dXFYYzctRi15RjJaNURyeEdHdEtOREZ6Q2lya3BDa2ltNzlidVlWOXpKRXlOdw?oc=5",
+     "date": "2026-11-19",
+     "time": "10:19",
+     "published_at": "2026-11-19T10:19:51+09:00"
     }
    ],
-   "fetched_at": "2026-11-18T12:20:38+09:00",
+   "fetched_at": "2026-11-19T11:05:34+09:00",
    "keyword": "바이오"
   },
   "우주항공": {
@@ -4128,96 +4128,96 @@
    "articles": [
     {
      "keyword": "메모리",
-     "title": "SK하이닉스 “휴머노이드용 메모리 포트폴리오 강화할 것”",
-     "source": "헤럴드경제",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE15dTdSaUprelI0WExORlVfdXQyYVlaVVV2aVZJazhWUHk5V0U1d2VmWHFPZ2g5ZzlSVm04bUNuMjZEYURlcVBKT2NpQWExQVBCM19RVkp3?oc=5",
-     "date": "2026-11-18",
-     "time": "12:00",
-     "published_at": "2026-11-18T12:00:14+09:00"
+     "title": "삼성전자, AI 서버용 저전력 메모리 승부수…차세대 '소캠2' 키운다.",
+     "source": "현대경제",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1tUVNSZGFFdE81cFZuYXZsRXNZX2k2ZW1LdFVKd2FqVEdXbnN4THNhckl6VERET1JmWVlheWFiLTRvUFpTZ3J4MVYzNUEydko2SHB6dkRPaGhTaFhwTHRTRG50bERmMWJzM0lj?oc=5",
+     "date": "2026-11-19",
+     "time": "10:56",
+     "published_at": "2026-11-19T10:56:58+09:00"
     },
     {
      "keyword": "메모리",
-     "title": "AI 반도체 수요 확대…한국 메모리·일본 제조장비 수출 동반 성장",
-     "source": "한국공공정책신문",
-     "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE53S2p5MnBDOGx1TGJjeEFwdEpFSHFPOTV2dTdhZHI2NnlKNC03Nl8yb0ZZVGFCejluOXM5WEg4dndTc00?oc=5",
-     "date": "2026-11-18",
-     "time": "11:41",
-     "published_at": "2026-11-18T11:41:59+09:00"
+     "title": "ETRI, 데이터센터 메모리 한계 넘는다...미국 USC서 기술 실증",
+     "source": "디트NEWS24",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBXcWFQUFZPSllaMnQyb2JTMU9wN3dEWnhxM3ZFNzdIbFp3aXNTWHU0UlVlS3VRWnlaMVVqUk1KU3pQQ2xFYTIyNDlYTWk0dkVDNEhBSXBINWl0VHYzaXkyZmtkbWhLUmRPTFJn?oc=5",
+     "date": "2026-11-19",
+     "time": "10:50",
+     "published_at": "2026-11-19T10:50:19+09:00"
     },
     {
      "keyword": "메모리",
-     "title": "컴트랙스, 화정엔지니어링과 팀그룹 산업용 메모리·SSD 공급",
-     "source": "IT조선",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBucVA4aGNsYWhKMGJLeGgxT29DbEdtOGozOHk1d21rTkp1aktQTjZ3b3VvSGhpOHJIVzJsVXlwUXN3X3MyYTdja01qaGxLcm9OaFdxZkcxX1dxZFotVDdxa3RWdnNkTDl1MGRBQkJWVU_SAXRBVV95cUxNRkZQZGRzRjlNdTRjVjJNdXNXX0phYTZmUmp3MjQyLXpNVkVQTUpkOEhHenlra1JsaXNIQ1hGeUNubkx0NnRycVBIbXdfRVFCeEp4b0lkbnZJN1JxNkVaX3ZsYUFyRjB4N1FRQUk5dkpxWUxHbg?oc=5",
-     "date": "2026-11-18",
-     "time": "11:06",
-     "published_at": "2026-11-18T11:06:35+09:00"
+     "title": "ETRI, 서버 메모리 한계 넘는 공유 기술 개발…448GB 서버로 1.8TB 유전체 분석 성공",
+     "source": "인공지능신문",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1KUFk2ekl4WXdYUXRTeFF0ODlKU2VqZGppT0ZXWTVXWXBHclcyd3ctUmF1N0hCOTl0UDdlaVY2YnhKQWxWLVVjOWtlYU5WcS1jU1RxVTh1dF9LTTZMcVBRWmFTaDdVZDg?oc=5",
+     "date": "2026-11-19",
+     "time": "10:46",
+     "published_at": "2026-11-19T10:46:15+09:00"
     },
     {
      "keyword": "메모리",
-     "title": "애플도 '메모리 줄서기'···삼성·SK, 공급자 우위 굳힌다",
-     "source": "뉴스웨이",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBaN0RpZmhiaFVwNW1HREdYYzBheWNFV3kxLUV2Z01rVy13aDlDRmZrQk9ONVFnSDlqaVJOck5FWHNjYkswa3B0dWhpNDJPdDc1QXBBQ1JVN05lZ2l1Wm5vMVF4UC1IMWQxVVE?oc=5",
-     "date": "2026-11-18",
-     "time": "11:02",
-     "published_at": "2026-11-18T11:02:42+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "AI 인프라 투자 확대에 메모리반도체 2026년 1조 달러 시대 개막",
-     "source": "기계신문",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1Zc3ZjLW82V1FoN3d3U3Zjbkx6MERHdG5KWHVyQXVYRnBlOE1TNi0yUG9fdl9MN25MeVBOYUpBemttWTFFXzgxNTFCTGItVmdwemxiRjFZV3JhSnA4QUlWRndjaVJwZw?oc=5",
-     "date": "2026-11-18",
-     "time": "10:20",
-     "published_at": "2026-11-18T10:20:31+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "동남아 스마트폰 시장 36% 급감…메모리 공급난 직격탄",
-     "source": "테크월드",
-     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5CUFJUbHU3S1ZJUmo3WXdRamQ2bGRmb1NWTXRqd0xCLXdkdFRLRmp2blVBRVNldlJmcEVvNl8wUUhzRzBUcXFVSDFkNVFxV2VuckxBcUlWdzNJMVFsVUs0QlRObTB0emFk?oc=5",
-     "date": "2026-11-18",
-     "time": "10:00",
-     "published_at": "2026-11-18T10:00:00+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "삼성, 동남아 스마트폰 1위에도 출하량 20%↓…메모리값 상승 직격탄 - 머니투데이",
-     "source": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBxRGpLOWRzTTdPOVo2Tld2cFVhdlM1RnZBc2JlSW1qRlFVUS1YZEZZX1h2Q1dBdS00NGUzVlBRczBvM2tvNGZ0OUxaak1ua1JqOTFsQmVCblc0X1hBT2JvbDBfU1g3TUHSAWxBVV95cUxOQ1c5ZC0ybGZxWmxUM0loR0tGekhJY1dGeFZXQzV2aVYzNWJiUk9rcHFiYzJTZ0t6Wk13cDVONGV4eDNCLXZlaG55VFpZb1dXSnpHOEVUanhvSU1JOGYxbW9wUi11Rm1uYXBPY0E?oc=5",
-     "date": "2026-11-18",
-     "time": "09:59",
-     "published_at": "2026-11-18T09:59:49+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "엔비디아, 부품 확보에 148조 원 추가 베팅...메모리 다년 계약",
-     "source": "YTN",
-     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBfOHVoaHkyYk8zWEZ4cXdvcXdJRk9jVjI3bGNzUFBwb3dwQ2lHRGg5LWc1OUY0dmhTRWtFTU00cEJWVmRuWE1KMVp3cktZNXNIc01tQWh1NlN5T0wwMVE?oc=5",
-     "date": "2026-11-18",
-     "time": "09:44",
-     "published_at": "2026-11-18T09:44:00+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "메리츠證 \"코리아써키트, 목표가 11만원으로↑…새로운 메모리 기판 업사이클 중심\"",
-     "source": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5SZHQ4Vk8wTlg4ZFkzTk1IZDNlYmlGc3laSGo2VzJnUnFBRzF1NlY4SjhxSF9mQ3NjMy13X3M0V2EtbTd3dDdvd1ZmWXkzWkQ5Q1VsNmstYlFtXzRiSDE0U9IBeEFVX3lxTE9sejl2cnhiWUxsMmttam82d2NEc1ItR3BrdEF3Y3hQN3hDdmVJQWY2VUVQSmtDLUlzMUdPVzBDc1VFMlNqTnp2dXZQVF9LbjhYT0djdlBtZk5pUDdIN1B6Mkw2Qm5uNXZRTnk2aGxvZ2hOSUNJRXpNUQ?oc=5",
-     "date": "2026-11-18",
-     "time": "09:00",
-     "published_at": "2026-11-18T09:00:22+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "\"젠슨 떠나도 문제없다\"…엔비디아, 메모리·패키징 공급 확보",
+     "title": "삼성전자, 에이전틱 AI 시대 서버 메모리로 '소캠2' 제시",
      "source": "아이뉴스24",
-     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9ENGgtMHJqRHBrNGx2TlE2Z0VXZ19oTEc5ajZHa2FmLW52WkE2OVY1VWxsUnNEcWJoUnN6U2pFNjBscjNRYUhlWmZkVQ?oc=5",
-     "date": "2026-11-18",
-     "time": "08:56",
-     "published_at": "2026-11-18T08:56:52+09:00"
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1rZDdJYmpZd2NVUVdodmRhVk1rcEpQa3VUeEpMR0RVcWpWWGlGemxMMXNrcjFtcUJlZU1Vby1IYXk1cFFaLUVHcDRwOA?oc=5",
+     "date": "2026-11-19",
+     "time": "10:38",
+     "published_at": "2026-11-19T10:38:17+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "ETRI, 서버 유휴 메모리 공유 기술 개발…미국 대형 데이터센터서 실증",
+     "source": "워크투데이",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE4tdFJkMGNKTzZVbzdLQVRWV29HRUxXeDM4Uk5IbTFfZmIyamNJenhTVk5mUFJJRTlTWXdRV3cxOFhCTXlDTG4waEVSTjVROGNOQ1JEZjFONjZWU3duVWNtZ0l5bmkzbVpXaVNMeg?oc=5",
+     "date": "2026-11-19",
+     "time": "10:34",
+     "published_at": "2026-11-19T10:34:57+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "삼성전자, 에이전틱 AI 시대 메모리 해법으로 소캠2 제시",
+     "source": "연합뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9EM2IzM1hIWjg2RThiTGRabURfM1o4VFBnZ0g4UklFbV9SM1pOaTY1bVNaZWtxTkZVNWVmYkRaUkczaGhxLTVYRHZjT2ZGRW5oeUU3aFNrTlowZFnSAWBBVV95cUxOaDQ0bzB4LTdlN29OSzNhb1ZlUml6TkpKcDk2WHhmeVF4N3ZNUmY0bmR6eGFoQnNDVEIxUlphRDZ2UWF5ZDNVQk11Z1d5b1RGNUxwdFVXWUJLU2tvMnJqdEk?oc=5",
+     "date": "2026-11-19",
+     "time": "10:25",
+     "published_at": "2026-11-19T10:25:10+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "삼성전자, 사장단 인사 임박…메모리·모바일 리더십 변화 주목 By EBN",
+     "source": "Investing.com 한국어",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5WNUluNnAwd1k3QThiZGhRUXgzNU1fNENMaWo1TUNfaUJpSm51cGlVSzJMM1N0c2FieXpRUGVWUHdnT05Yb0NnbHhRaGJuZVJHUnBCYUdQb09xcU5HS2tIUmZhUm9scFYtaThsT00tUEc?oc=5",
+     "date": "2026-11-19",
+     "time": "10:18",
+     "published_at": "2026-11-19T10:18:00+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "코리아써키트, 내년 국내 유일 ‘메모리 모듈 PCB 증설 효과’",
+     "source": "금융소비자뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBadXFoTmRFVXRhQkVPc0ZJWWZ1M2ttZXRjRzdPRGlNcmtNempCYndQbUdDYVJ1RTBOM1VMNzl0ZUFUSS1FalIyZUREeFRyQjMyTVdFQ3JIOUJMellSSlFrZmFtSng1NkVyWXc?oc=5",
+     "date": "2026-11-19",
+     "time": "10:16",
+     "published_at": "2026-11-19T10:16:36+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "삼성전자, 이르면 20일 사장단 인사…메모리·MX 리더십 강화 주목",
+     "source": "더트래커",
+     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBHSWlJVG5RaGtXdy01VG1Yb3BveE85aHFVUlJLQ2hTT3AyRDFHNWE3cGxKWm5ERmQyTUcyZDNTOHJMcGN4c2RGemtBdzVIWXpfNllZMUlGWkI?oc=5",
+     "date": "2026-11-19",
+     "time": "10:05",
+     "published_at": "2026-11-19T10:05:49+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "서린씨앤아이, 게일 PRISTINE V DDR5 JEDEC 메모리 신제품 출시",
+     "source": "보드나라",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5TLTZXbTNvWXJROXZFcHhlNk5tWmxOMW1hRXRPZ3d0OFZkZzBGU3RKUnhuVTFkQXdFRXFlcnlUYnByb0tBQlUwd3VYbUxhY19KYWRRQmJJS3JXT0RROWJwNzEwNA?oc=5",
+     "date": "2026-11-19",
+     "time": "09:57",
+     "published_at": "2026-11-19T09:57:47+09:00"
     }
    ],
-   "fetched_at": "2026-11-18T12:20:41+09:00",
+   "fetched_at": "2026-11-19T11:05:36+09:00",
    "keyword": "메모리"
   },
   "엔비디아": {
@@ -4514,7 +4514,7 @@
  },
  "errors": [],
  "briefing": {
-  "headline": "미국 증시 마감: 다우 50,198.17 (-1.11%), 나스닥 24,429.89 (+0.42%), S&P500 7,323.63 (-0.23%), SOX 9,652.80 (+0.10%) / 코스피 4,996.47 (-1.40%), 코스닥 654.71 (-1.22%)",
+  "headline": "미국 증시 마감: 다우 50,198.17 (-1.11%), 나스닥 24,429.89 (+0.42%), S&P500 7,323.63 (-0.23%), SOX 9,652.80 (+0.10%) / 코스피 5,014.94 (-1.04%), 코스닥 656.06 (-1.02%)",
   "checkpoints": [
    {
     "title": "반도체·기술주 흐름",
@@ -4526,11 +4526,11 @@
    },
    {
     "title": "금리·환율",
-    "detail": "미 10년물 5.068% (+0.23bp), 미 2년물 4.798%, 원/달러 1,331.90원 (-0.16%)."
+    "detail": "미 10년물 5.068% (+0.23bp), 미 2년물 4.800%, 원/달러 1,331.70원 (-0.17%)."
    },
    {
     "title": "국내 증시",
-    "detail": "국내 추적 종목 낙폭 최대는 한화에어로스페이스 -3.96%."
+    "detail": "국내 추적 종목 낙폭 최대는 한미반도체 -3.76%."
    }
   ],
   "sector_news": [
