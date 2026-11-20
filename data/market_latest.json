@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generated_at": "2026-11-21T01:57:08+09:00",
- "generated_at_kst": "2026-11-21(토) 01:57",
+ "generated_at": "2026-11-21T08:01:17+09:00",
+ "generated_at_kst": "2026-11-21(토) 08:01",
  "source": "네이버 금융 실시간 (polling.finance.naver.com)",
  "market": {
   "indices": {
@@ -37,60 +37,60 @@
    },
    "DOW": {
     "name": "다우존스",
-    "price": 48864.02,
+    "price": 48147.33,
     "prev_close": 49097.06,
-    "change": -233.04,
-    "pct": -0.47,
+    "change": -949.73,
+    "pct": -1.93,
     "currency": "USD",
-    "market_status": "OPEN",
-    "as_of": "2026-11-20T11:55:25-05:00",
+    "market_status": "CLOSE",
+    "as_of": "2026-11-20T16:35:59-05:00",
     "high": 49594.9,
-    "low": 48824.51,
+    "low": 47998.86,
     "open": 49071.82,
     "volume": null,
     "market_value": null
    },
    "NASDAQ": {
     "name": "나스닥 종합",
-    "price": 23082.3,
+    "price": 22617.73,
     "prev_close": 23879.2,
-    "change": -796.9,
-    "pct": -3.34,
+    "change": -1261.47,
+    "pct": -5.28,
     "currency": "USD",
-    "market_status": "OPEN",
-    "as_of": "2026-11-20T11:55:25-05:00",
+    "market_status": "CLOSE",
+    "as_of": "2026-11-20T17:15:59-05:00",
     "high": 23837.76,
-    "low": 23080.81,
+    "low": 22513.01,
     "open": 23592.67,
     "volume": null,
     "market_value": null
    },
    "SP500": {
     "name": "S&P 500",
-    "price": 7037.44,
+    "price": 6910.39,
     "prev_close": 7175.83,
-    "change": -138.39,
-    "pct": -1.93,
+    "change": -265.44,
+    "pct": -3.7,
     "currency": "USD",
-    "market_status": "OPEN",
-    "as_of": "2026-11-20T11:55:25-05:00",
+    "market_status": "CLOSE",
+    "as_of": "2026-11-20T16:35:54-05:00",
     "high": 7198.67,
-    "low": 7032.66,
+    "low": 6882.66,
     "open": 7150.39,
     "volume": null,
     "market_value": null
    },
    "SOX": {
     "name": "필라델피아 반도체",
-    "price": 8603.59,
+    "price": 8408.59,
     "prev_close": 9419.72,
-    "change": -816.13,
-    "pct": -8.66,
+    "change": -1011.13,
+    "pct": -10.73,
     "currency": "USD",
-    "market_status": "OPEN",
-    "as_of": "2026-11-20T11:55:25-05:00",
+    "market_status": "CLOSE",
+    "as_of": "2026-11-20T17:15:59-05:00",
     "high": 9204.42,
-    "low": 8603.59,
+    "low": 8342.21,
     "open": 9160.8,
     "volume": null,
     "market_value": null
@@ -99,34 +99,34 @@
   "rates": {
    "US10Y": {
     "name": "미국 국채 10년",
-    "price": 4.946,
-    "change": -0.1062,
-    "pct": -2.1,
+    "price": 4.95,
+    "change": -0.1022,
+    "pct": -2.02,
     "currency": null,
     "market_status": "OPEN",
-    "as_of": "2026-11-20T11:49:46-05:00",
-    "bp": -10.62
+    "as_of": "2026-11-20T17:05:00-05:00",
+    "bp": -10.22
    },
    "US2Y": {
     "name": "미국 국채 2년",
-    "price": 4.645,
-    "change": -0.1343,
-    "pct": -2.81,
+    "price": 4.649,
+    "change": -0.13,
+    "pct": -2.72,
     "currency": null,
     "market_status": "OPEN",
-    "as_of": "2026-11-20T11:49:56-05:00",
-    "bp": -13.43
+    "as_of": "2026-11-20T17:05:00-05:00",
+    "bp": -13.0
    }
   },
   "fx": {
    "USDKRW": {
     "name": "미국 USD",
-    "price": 1342.3,
-    "change": 6.8,
-    "pct": 0.51,
+    "price": 1346.5,
+    "change": 11.0,
+    "pct": 0.82,
     "currency": null,
     "market_status": "OPEN",
-    "as_of": "2026-11-21T01:53:43+09:00"
+    "as_of": "2026-11-21T06:28:19+09:00"
    }
   },
   "stocks": {
@@ -331,93 +331,141 @@
    },
    "NVDA": {
     "name": "엔비디아",
-    "price": 135.78,
-    "prev_close": 145.99,
-    "change": -10.21,
-    "pct": -6.99,
+    "price": 125.53,
+    "prev_close": 145.98,
+    "change": -20.45,
+    "pct": -14.01,
     "currency": "USD",
-    "market_status": "OPEN",
-    "as_of": "2026-11-20T11:55:23-05:00",
+    "market_status": "CLOSE",
+    "as_of": "2026-11-20T16:00:00-05:00",
     "high": 143.73,
-    "low": 135.44,
-    "open": 143.54,
-    "volume": 217502066.0,
-    "market_value": 3272177500000.0
+    "low": 124.5,
+    "open": 143.52,
+    "volume": 616222328.0,
+    "market_value": 3025273000000.0,
+    "extended": {
+     "session": "AFTER_MARKET",
+     "price": 129.27,
+     "pct": 2.98,
+     "change": 3.74,
+     "as_of": "2026-11-20T17:57:57-05:00",
+     "volume": null
+    }
    },
    "TSLA": {
     "name": "테슬라",
-    "price": 353.8,
+    "price": 345.82,
     "prev_close": 374.41,
-    "change": -20.61,
-    "pct": -5.5,
+    "change": -28.59,
+    "pct": -7.64,
     "currency": "USD",
-    "market_status": "OPEN",
-    "as_of": "2026-11-20T11:55:23-05:00",
+    "market_status": "CLOSE",
+    "as_of": "2026-11-20T16:00:00-05:00",
     "high": 373.88,
-    "low": 353.7,
-    "open": 370.0,
-    "volume": 18026730.0,
-    "market_value": 1398485761295.0
+    "low": 344.33,
+    "open": 370.43,
+    "volume": 44680437.0,
+    "market_value": 1366942752886.0,
+    "extended": {
+     "session": "AFTER_MARKET",
+     "price": 350.09,
+     "pct": 1.24,
+     "change": 4.27,
+     "as_of": "2026-11-20T17:57:02-05:00",
+     "volume": null
+    }
    },
    "AAPL": {
     "name": "애플",
-    "price": 346.0,
+    "price": 342.56,
     "prev_close": 349.21,
-    "change": -3.21,
-    "pct": -0.92,
+    "change": -6.65,
+    "pct": -1.9,
     "currency": "USD",
-    "market_status": "OPEN",
-    "as_of": "2026-11-20T11:55:23-05:00",
-    "high": 354.3,
-    "low": 345.91,
-    "open": 353.0,
-    "volume": 23028926.0,
-    "market_value": 5028134972000.0
+    "market_status": "CLOSE",
+    "as_of": "2026-11-20T16:00:00-05:00",
+    "high": 354.34,
+    "low": 340.56,
+    "open": 352.87,
+    "volume": 79741863.0,
+    "market_value": 4978144265920.0,
+    "extended": {
+     "session": "AFTER_MARKET",
+     "price": 344.08,
+     "pct": 0.44,
+     "change": 1.52,
+     "as_of": "2026-11-20T17:57:29-05:00",
+     "volume": null
+    }
    },
    "AMD": {
     "name": "AMD(어드밴스드 마이크로 디바이시스)",
-    "price": 434.7,
+    "price": 424.39,
     "prev_close": 489.19,
-    "change": -54.49,
-    "pct": -11.14,
+    "change": -64.8,
+    "pct": -13.25,
     "currency": "USD",
-    "market_status": "OPEN",
-    "as_of": "2026-11-20T11:55:23-05:00",
+    "market_status": "CLOSE",
+    "as_of": "2026-11-20T16:00:00-05:00",
     "high": 474.79,
-    "low": 432.59,
-    "open": 469.34,
-    "volume": 31667425.0,
-    "market_value": 712945928010.0
+    "low": 418.76,
+    "open": 471.73,
+    "volume": 69461883.0,
+    "market_value": 696036628452.0,
+    "extended": {
+     "session": "AFTER_MARKET",
+     "price": 436.88,
+     "pct": 2.94,
+     "change": 12.49,
+     "as_of": "2026-11-20T17:57:48-05:00",
+     "volume": null
+    }
    },
    "AVGO": {
     "name": "브로드컴",
-    "price": 309.63,
+    "price": 304.41,
     "prev_close": 346.65,
-    "change": -37.02,
-    "pct": -10.68,
+    "change": -42.24,
+    "pct": -12.19,
     "currency": "USD",
-    "market_status": "OPEN",
-    "as_of": "2026-11-20T11:55:23-05:00",
-    "high": 342.9,
-    "low": 309.62,
-    "open": 342.9,
-    "volume": 21125283.0,
-    "market_value": 1478059015100.0
+    "market_status": "CLOSE",
+    "as_of": "2026-11-20T16:00:00-05:00",
+    "high": 343.01,
+    "low": 301.02,
+    "open": 343.01,
+    "volume": 58556622.0,
+    "market_value": 1453140667205.0,
+    "extended": {
+     "session": "AFTER_MARKET",
+     "price": 310.33,
+     "pct": 1.94,
+     "change": 5.92,
+     "as_of": "2026-11-20T17:57:10-05:00",
+     "volume": null
+    }
    },
    "MU": {
     "name": "마이크론 테크놀로지",
-    "price": 603.32,
+    "price": 594.51,
     "prev_close": 690.44,
-    "change": -87.12,
-    "pct": -12.62,
+    "change": -95.93,
+    "pct": -13.89,
     "currency": "USD",
-    "market_status": "OPEN",
-    "as_of": "2026-11-20T11:55:23-05:00",
-    "high": 668.99,
-    "low": 602.0,
-    "open": 666.5,
-    "volume": 25750034.0,
-    "market_value": 682610365406.0
+    "market_status": "CLOSE",
+    "as_of": "2026-11-20T16:00:00-05:00",
+    "high": 669.0,
+    "low": 585.25,
+    "open": 665.46,
+    "volume": 58478697.0,
+    "market_value": 672642413766.0,
+    "extended": {
+     "session": "AFTER_MARKET",
+     "price": 607.99,
+     "pct": 2.27,
+     "change": 13.48,
+     "as_of": "2026-11-20T17:57:49-05:00",
+     "volume": null
+    }
    }
   },
   "policy_rates": {
@@ -430,7 +478,7 @@
     "url": "https://markets.newyorkfed.org/api/rates/unsecured/effr/last/1.json",
     "status": "ok",
     "stale": false,
-    "checked_at": "2026-11-21T01:55:27+09:00"
+    "checked_at": "2026-11-21T07:58:02+09:00"
    },
    "KR": {
     "rate": 3.0,
@@ -439,12 +487,12 @@
     "url": "https://www.bok.or.kr/portal/singl/baseRate/list.do?dataSeCd=01&menuNo=200643",
     "status": "ok",
     "stale": false,
-    "checked_at": "2026-11-21T01:55:27+09:00"
+    "checked_at": "2026-11-21T07:58:02+09:00"
    }
   },
   "session": {
    "kr": "CLOSE",
-   "us": "OPEN"
+   "us": "CLOSE"
   },
   "errors": []
  },
@@ -650,109 +698,157 @@
   },
   "NVDA": {
    "name": "엔비디아",
-   "price": 135.78,
-   "prev_close": 145.99,
-   "change": -10.21,
-   "pct": -6.99,
+   "price": 125.53,
+   "prev_close": 145.98,
+   "change": -20.45,
+   "pct": -14.01,
    "currency": "USD",
-   "market_status": "OPEN",
-   "as_of": "2026-11-20T11:55:23-05:00",
+   "market_status": "CLOSE",
+   "as_of": "2026-11-20T16:00:00-05:00",
    "high": 143.73,
-   "low": 135.44,
-   "open": 143.54,
-   "volume": 217502066.0,
-   "market_value": 3272177500000.0
+   "low": 124.5,
+   "open": 143.52,
+   "volume": 616222328.0,
+   "market_value": 3025273000000.0,
+   "extended": {
+    "session": "AFTER_MARKET",
+    "price": 129.27,
+    "pct": 2.98,
+    "change": 3.74,
+    "as_of": "2026-11-20T17:57:57-05:00",
+    "volume": null
+   }
   },
   "TSLA": {
    "name": "테슬라",
-   "price": 353.8,
+   "price": 345.82,
    "prev_close": 374.41,
-   "change": -20.61,
-   "pct": -5.5,
+   "change": -28.59,
+   "pct": -7.64,
    "currency": "USD",
-   "market_status": "OPEN",
-   "as_of": "2026-11-20T11:55:23-05:00",
+   "market_status": "CLOSE",
+   "as_of": "2026-11-20T16:00:00-05:00",
    "high": 373.88,
-   "low": 353.7,
-   "open": 370.0,
-   "volume": 18026730.0,
-   "market_value": 1398485761295.0
+   "low": 344.33,
+   "open": 370.43,
+   "volume": 44680437.0,
+   "market_value": 1366942752886.0,
+   "extended": {
+    "session": "AFTER_MARKET",
+    "price": 350.09,
+    "pct": 1.24,
+    "change": 4.27,
+    "as_of": "2026-11-20T17:57:02-05:00",
+    "volume": null
+   }
   },
   "AAPL": {
    "name": "애플",
-   "price": 346.0,
+   "price": 342.56,
    "prev_close": 349.21,
-   "change": -3.21,
-   "pct": -0.92,
+   "change": -6.65,
+   "pct": -1.9,
    "currency": "USD",
-   "market_status": "OPEN",
-   "as_of": "2026-11-20T11:55:23-05:00",
-   "high": 354.3,
-   "low": 345.91,
-   "open": 353.0,
-   "volume": 23028926.0,
-   "market_value": 5028134972000.0
+   "market_status": "CLOSE",
+   "as_of": "2026-11-20T16:00:00-05:00",
+   "high": 354.34,
+   "low": 340.56,
+   "open": 352.87,
+   "volume": 79741863.0,
+   "market_value": 4978144265920.0,
+   "extended": {
+    "session": "AFTER_MARKET",
+    "price": 344.08,
+    "pct": 0.44,
+    "change": 1.52,
+    "as_of": "2026-11-20T17:57:29-05:00",
+    "volume": null
+   }
   },
   "AMD": {
    "name": "AMD(어드밴스드 마이크로 디바이시스)",
-   "price": 434.7,
+   "price": 424.39,
    "prev_close": 489.19,
-   "change": -54.49,
-   "pct": -11.14,
+   "change": -64.8,
+   "pct": -13.25,
    "currency": "USD",
-   "market_status": "OPEN",
-   "as_of": "2026-11-20T11:55:23-05:00",
+   "market_status": "CLOSE",
+   "as_of": "2026-11-20T16:00:00-05:00",
    "high": 474.79,
-   "low": 432.59,
-   "open": 469.34,
-   "volume": 31667425.0,
-   "market_value": 712945928010.0
+   "low": 418.76,
+   "open": 471.73,
+   "volume": 69461883.0,
+   "market_value": 696036628452.0,
+   "extended": {
+    "session": "AFTER_MARKET",
+    "price": 436.88,
+    "pct": 2.94,
+    "change": 12.49,
+    "as_of": "2026-11-20T17:57:48-05:00",
+    "volume": null
+   }
   },
   "AVGO": {
    "name": "브로드컴",
-   "price": 309.63,
+   "price": 304.41,
    "prev_close": 346.65,
-   "change": -37.02,
-   "pct": -10.68,
+   "change": -42.24,
+   "pct": -12.19,
    "currency": "USD",
-   "market_status": "OPEN",
-   "as_of": "2026-11-20T11:55:23-05:00",
-   "high": 342.9,
-   "low": 309.62,
-   "open": 342.9,
-   "volume": 21125283.0,
-   "market_value": 1478059015100.0
+   "market_status": "CLOSE",
+   "as_of": "2026-11-20T16:00:00-05:00",
+   "high": 343.01,
+   "low": 301.02,
+   "open": 343.01,
+   "volume": 58556622.0,
+   "market_value": 1453140667205.0,
+   "extended": {
+    "session": "AFTER_MARKET",
+    "price": 310.33,
+    "pct": 1.94,
+    "change": 5.92,
+    "as_of": "2026-11-20T17:57:10-05:00",
+    "volume": null
+   }
   },
   "MU": {
    "name": "마이크론 테크놀로지",
-   "price": 603.32,
+   "price": 594.51,
    "prev_close": 690.44,
-   "change": -87.12,
-   "pct": -12.62,
+   "change": -95.93,
+   "pct": -13.89,
    "currency": "USD",
-   "market_status": "OPEN",
-   "as_of": "2026-11-20T11:55:23-05:00",
-   "high": 668.99,
-   "low": 602.0,
-   "open": 666.5,
-   "volume": 25750034.0,
-   "market_value": 682610365406.0
+   "market_status": "CLOSE",
+   "as_of": "2026-11-20T16:00:00-05:00",
+   "high": 669.0,
+   "low": 585.25,
+   "open": 665.46,
+   "volume": 58478697.0,
+   "market_value": 672642413766.0,
+   "extended": {
+    "session": "AFTER_MARKET",
+    "price": 607.99,
+    "pct": 2.27,
+    "change": 13.48,
+    "as_of": "2026-11-20T17:57:49-05:00",
+    "volume": null
+   }
   }
  },
  "briefing": {
-  "headline": "미국 증시 마감: 다우 48,864.02 (-0.47%), 나스닥 23,082.30 (-3.34%), S&P500 7,037.44 (-1.93%), SOX 8,603.59 (-8.66%) / 코스피 4,869.96 (-5.21%), 코스닥 645.68 (-5.71%)",
+  "headline": "미국 증시 마감: 다우 48,147.33 (-1.93%), 나스닥 22,617.73 (-5.28%), S&P500 6,910.39 (-3.70%), SOX 8,408.59 (-10.73%) / 코스피 4,869.96 (-5.21%), 코스닥 645.68 (-5.71%)",
   "checkpoints": [
    {
     "title": "반도체·기술주 흐름",
-    "detail": "필라델피아 반도체 지수 8,603.59 (-8.66%), 추적 기술주 중 낙폭 최대는 마이크론 테크놀로지 -12.62%."
+    "detail": "필라델피아 반도체 지수 8,408.59 (-10.73%), 추적 기술주 중 낙폭 최대는 엔비디아 -14.01%."
    },
    {
     "title": "상대 강세 종목",
-    "detail": "추적 기술주 중 애플 -0.92% (346.00) 가 가장 견조했습니다."
+    "detail": "추적 기술주 중 애플 -1.90% (342.56) 가 가장 견조했습니다."
    },
    {
     "title": "금리·환율",
-    "detail": "미 10년물 4.946% (-10.62bp), 미 2년물 4.645%, 원/달러 1,342.30원 (+0.51%)."
+    "detail": "미 10년물 4.950% (-10.22bp), 미 2년물 4.649%, 원/달러 1,346.50원 (+0.82%)."
    },
    {
     "title": "국내 증시",
@@ -762,24 +858,24 @@
   "sector_news": [
    {
     "tag": "반도체",
-    "text": "美 \"시진핑, 정상회담서 반도체 수출통제 거론 안 해\"…中 보복 근거 없어\"",
+    "text": "4년 만에 대중 무역흑자 돌아섰지만…반도체 빼면 적자 확대",
     "date": "2026-11-21",
-    "source": "뉴스1",
-    "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5fMWRZc012c3VrcWZrSjJVZFpZUDUxbEk1QTVob0tFS0dwbmZOR1FCQ2taMVNxcWhKbEUxbWRGbnhkRWM4dlZINnUxOG5IZFFGQnFLZmxlRnQ?oc=5"
+    "source": "연합뉴스",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFA4eU53eDhweVhVOTFoYkZtOGtxcXhiM3RlRWFFTXhhdnJjZWtjOVV0cTg3UTJlXzBOdkg5ZXRibTRlb1JNQTJ4UEUyYkk0em40S2NnZFVNYTRQbzTSAWBBVV95cUxOUTRTdHpsaHQtcy0yQUpKQzllVFZDNm0zX1Y3TllCVElDd2lTT2ljbFl0MGw2MGp2ZlF2SGVlYkFsaVJoV00wdkFtakM5NDlVR2twUUUzZ3lIRnp1VzFnUHU?oc=5"
    },
    {
     "tag": "국내증시",
-    "text": "\"삼전 7% 폭락보다 무서운 45조\"…외국인은 왜 한국 주식을 버리나 [머니 시그널]",
-    "date": "2026-11-20",
-    "source": "파이낸셜뉴스",
-    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE40SFJoZG5NZllPbW9weU0ybUNQNnhTRXJuQXp3dVhmT1dMeDJSUlBBR2I0Y0RGWVBEVGlIR0k3VUo4aWdhMkNiLVpWUDNVZjVhNHFVX2xqMW1jZw?oc=5"
+    "text": "“코스피 올라도 하락에 베팅”…외국인 공매도 16조원, SK하이닉스 잔고 42배",
+    "date": "2026-11-21",
+    "source": "데일리25",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5XdEs4Tko5VUFSdUxvdHcxX2FpZE02ZmpFY0ZadU1ieXNhOVAxVU11ejEyZ3F0c3EzLXphOE40eGZGcHM2bW1MMnowOHBCSDRLUWFqMHY0dzRHMHhBZnRxcWNkNndvd1NhV1QycQ?oc=5"
    },
    {
     "tag": "AI",
-    "text": "반도체 및 AI 데이터센터 프로젝트에 대한 추가 투자 인센티브.",
+    "text": "AI 거품 공포에 뉴욕증시 급락…나스닥 5.28% 폭락",
     "date": "2026-11-21",
-    "source": "Vietnam.vn",
-    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNQm1ubEhLMV92cUx4YjIyQVhFYTQwc3MyeThVT0dMQnpLY0FhNng0VW05N0tZRVNvUTNEbFliR2RlSHRDdGkwWmRfYkFfWjYzc0I3Y2J3N0ctcTY1cE1YMGRwZk5kLU9kQ1BEd2EtdERmYVJxMzhndDVheFZqaC1Ea1F6Y1psZzlJS3NuSTBISQ?oc=5"
+    "source": "뉴시안",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5mTlpNUTJaNFN6WnJDZWpKR1Z0ei1GTXFNSm10cWhKMkgwS2pEZnV6R2swQUVGdVllYXRhLUVWcVdiQmN5eXpRbjc1c3ZDVHBCamJIWkFfSnBFZ28ta3EwUF83eE9GUUxpcVpUaQ?oc=5"
    }
   ]
  }
