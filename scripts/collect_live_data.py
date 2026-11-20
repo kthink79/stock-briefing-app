@@ -45,6 +45,13 @@ NAVER_LIST = "https://m.stock.naver.com/api/stocks/marketValue"
 DAUM_QUOTE = "https://finance.daum.net/api/quotes/A"
 GOOGLE_NEWS = "https://news.google.com/rss/search"
 
+# 기준금리(정책금리) 공식 소스 — 하드코딩 금지, 조회 실패 시 직전 성공값 유지
+NYFED_EFFR = "https://markets.newyorkfed.org/api/rates/unsecured/effr/last/1.json"
+FRED_TARGET_CSV = "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFEDTARU,DFEDTARL"
+BOK_BASE_RATE = ("https://www.bok.or.kr/portal/singl/baseRate/list.do"
+                 "?dataSeCd=01&menuNo=200643")
+POLICY_RATE_REUSE_MINUTES = 60   # 기준금리는 하루 몇 번만 바뀐다 — 1시간 캐시 후 재조회
+
 # 전종목 검색·등록용 데이터 파일
 UNIVERSE_PATH = os.path.join(DATA_DIR, "stock_universe.json")
 FUND_PATH = os.path.join(DATA_DIR, "stock_fundamentals.json")
@@ -315,6 +322,165 @@ def fetch_fx(mapping: dict) -> dict:
         if q:
             out[key] = q
     return out
+
+
+# --------------------------------------------------------------------------
+# 기준금리(정책금리): 연준 목표범위 · 한국은행 기준금리
+#   - 값과 함께 '기준일'(연준 적용일 / 한은 변경일)과 출처를 남긴다.
+#   - 조회가 실패하면 절대 임의의 기본값으로 되돌리지 않고,
+#     직전 성공값을 stale=True 로 유지하거나 status='unavailable' 로 비운다.
+# --------------------------------------------------------------------------
+def parse_nyfed_policy(payload: dict) -> dict | None:
+    """뉴욕연은 markets API(refRates) → 연준 목표범위."""
+    rows = (payload or {}).get("refRates") or []
+    if not rows:
+        return None
+    row = rows[0] or {}
+    low = num(row.get("targetRateFrom"))
+    high = num(row.get("targetRateTo"))
+    if low is None and high is None:
+        return None
+    if low is not None and high is not None and low > high:
+        low, high = high, low
+    return {
+        "low": low,
+        "high": high,
+        "effr": num(row.get("percentRate")),
+        "as_of": row.get("effectiveDate"),
+        "source": "미 연방준비제도 목표범위 (뉴욕연은 공표 EFFR)",
+        "url": NYFED_EFFR,
+    }
+
+
+def parse_fred_target(csv_text: str) -> dict | None:
+    """FRED fredgraph.csv(DFEDTARU/DFEDTARL) → 연준 목표범위(보조 소스)."""
+    lines = [ln.strip() for ln in (csv_text or "").splitlines() if ln.strip()]
+    if len(lines) < 2:
+        return None
+    header = [h.strip().strip('"').lower() for h in lines[0].split(",")]
+    try:
+        i_up = header.index("dfedtaru")
+        i_low = header.index("dfedtarl")
+    except ValueError:
+        return None
+    for line in reversed(lines[1:]):
+        cells = [c.strip().strip('"') for c in line.split(",")]
+        if len(cells) <= max(i_up, i_low):
+            continue
+        low, high = num(cells[i_low]), num(cells[i_up])
+        if low is None and high is None:
+            continue
+        return {
+            "low": low,
+            "high": high,
+            "effr": None,
+            "as_of": cells[0],
+            "source": "미 연방준비제도 목표범위 (FRED DFEDTARU/DFEDTARL)",
+            "url": FRED_TARGET_CSV,
+        }
+    return None
+
+
+_BOK_ROW_RE = re.compile(
+    r"<td[^>]*>\s*(\d{4})\s*</td>\s*<td[^>]*>\s*(\d{1,2})\s*월\s*(\d{1,2})\s*일\s*</td>"
+    r"\s*<td[^>]*>\s*(\d+(?:\.\d+)?)\s*</td>")
+
+
+def parse_bok_base_rate(html: str) -> dict | None:
+    """한국은행 '기준금리 추이' 표 → 가장 최근 변경 기준금리.
+
+    표의 첫 행이 최신 변경이며, 그 행의 연/월/일이 곧 현재 기준금리의 기준일이다.
+    """
+    m = _BOK_ROW_RE.search(html or "")
+    if not m:
+        return None
+    year, month, day, rate = m.groups()
+    value = num(rate)
+    if value is None or not (0 < value < 30):
+        return None
+    return {
+        "rate": value,
+        "as_of": f"{int(year):04d}-{int(month):02d}-{int(day):02d}",
+        "source": "한국은행 기준금리 추이 (bok.or.kr)",
+        "url": BOK_BASE_RATE,
+    }
+
+
+def fetch_us_policy_rate() -> dict:
+    """연준 기준금리 목표범위: 뉴욕연은 API → FRED 순으로 시도."""
+    errors = []
+    try:
+        parsed = parse_nyfed_policy(get_json(NYFED_EFFR))
+        if parsed:
+            return parsed
+        errors.append("뉴욕연은 응답에 목표범위 없음")
+    except Exception as e:
+        errors.append(f"뉴욕연은 조회 실패: {e}")
+    try:
+        csv_text = http_get(FRED_TARGET_CSV, timeout=10, retries=1).decode("utf-8", "replace")
+        parsed = parse_fred_target(csv_text)
+        if parsed:
+            return parsed
+        errors.append("FRED 응답에 목표범위 없음")
+    except Exception as e:
+        errors.append(f"FRED 조회 실패: {e}")
+    raise RuntimeError("; ".join(errors))
+
+
+def fetch_kr_policy_rate() -> dict:
+    """한국은행 기준금리: 기준금리 추이 표 파싱."""
+    html = http_get(BOK_BASE_RATE, timeout=20, retries=1).decode("utf-8", "replace")
+    parsed = parse_bok_base_rate(html)
+    if not parsed:
+        raise RuntimeError("한국은행 기준금리 표를 찾지 못했습니다")
+    return parsed
+
+
+def _carry_policy_rate(old: dict, checked_at: str) -> dict:
+    """직전 성공값을 그대로 유지하되 stale 표시(가짜 기본값으로 대체하지 않는다)."""
+    kept = dict(old)
+    kept["status"] = "stale"
+    kept["stale"] = True
+    kept["checked_at"] = checked_at
+    return kept
+
+
+def collect_policy_rates(previous: dict) -> tuple[dict, list]:
+    """미/한 기준금리를 공식 소스에서 조회한다.
+
+    반환: ({'US': {...}, 'KR': {...}}, errors)
+    각 항목은 status(ok|stale|unavailable)·as_of(기준일)·source·checked_at 를 갖는다.
+    """
+    prev = ((previous or {}).get("market") or {}).get("policy_rates") or {}
+    checked_at = iso_kst(now_kst())
+    out = {}
+    errors = []
+    for key, fn, label in (("US", fetch_us_policy_rate, "미국 기준금리"),
+                           ("KR", fetch_kr_policy_rate, "한국 기준금리")):
+        old = prev.get(key) or {}
+        has_value = (old.get("low") is not None or old.get("high") is not None
+                     or old.get("rate") is not None)
+        # 값은 하루 몇 번만 바뀌므로 신선하면 재조회하지 않는다(소스 서버 부담·시간 절약)
+        if has_value and old.get("status") == "ok" and is_fresh(old.get("checked_at"),
+                                                               POLICY_RATE_REUSE_MINUTES):
+            out[key] = old
+            continue
+        try:
+            fresh = fn()
+            fresh["status"] = "ok"
+            fresh["stale"] = False
+            fresh["checked_at"] = checked_at
+            out[key] = fresh
+        except Exception as e:
+            errors.append(f"{label} 조회 실패: {e}")
+            if has_value:
+                out[key] = _carry_policy_rate(old, checked_at)
+                errors.append(f"{label} 직전 성공값 유지({old.get('as_of') or '기준일 미상'})")
+            else:
+                out[key] = {"status": "unavailable", "stale": True,
+                            "checked_at": checked_at, "as_of": None,
+                            "error": str(e)}
+    return out, errors
 
 
 # --------------------------------------------------------------------------
@@ -1034,6 +1200,11 @@ def collect_market(cfg: dict, previous: dict) -> dict:
         errors.append("환율 수집 실패")
         market["fx"] = previous.get("market", {}).get("fx") or {}
 
+    # 기준금리(정책금리): 공식 소스 실시간 조회 + 실패 시 직전 성공값 유지
+    policy_rates, pr_errors = collect_policy_rates(previous)
+    market["policy_rates"] = policy_rates
+    errors.extend(pr_errors)
+
     # 실패한 종목은 직전 값 유지 + stale 표시
     for code, name in name_map.items():
         if code not in market["stocks"]:
@@ -1193,6 +1364,10 @@ def significant_change(old: dict, new: dict) -> bool:
             q.pop("stale", None)
         for q in (payload.get("market", {}).get("indices") or {}).values():
             q.pop("as_of", None)
+        for q in (payload.get("market", {}).get("policy_rates") or {}).values():
+            # 조회 시각·상태는 매 실행마다 바뀐다 — 실제 값(as_of·금리)만 비교한다
+            for k in ("checked_at", "stale", "status", "error"):
+                q.pop(k, None)
         return payload
     return strip(old) != strip(new)
 

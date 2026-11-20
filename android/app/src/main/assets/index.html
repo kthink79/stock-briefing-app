@@ -42,6 +42,8 @@
     .metric-box { background: var(--tag-bg); padding: 10px; border-radius: 8px; }
     .metric-name { font-size: 0.75rem; color: var(--text-sub); }
     .metric-val { font-size: 1.05rem; font-weight: 700; margin-top: 4px; }
+    .metric-sub { font-size: 0.66rem; color: #8b949e; margin-top: 3px; line-height: 1.35; }
+    .metric-sub.warn { color: #d29922; }
     .up { color: #f85149; font-weight: 700; }
     .down { color: #58a6ff; font-weight: 700; }
 
@@ -242,7 +244,7 @@
     <div class="card">
       <div class="card-title">
         <span>📊 글로벌 금리 & 통화정책 현황</span>
-        <span style="font-size: 0.75rem; color: #8b949e;">실시간 조회값 (국채는 직전 마감 기준)</span>
+        <span style="font-size: 0.75rem; color: #8b949e;">국채 실시간 · 기준금리 공식 발표값</span>
       </div>
       <div class="grid-2">
         <div class="metric-box">
@@ -255,15 +257,17 @@
         </div>
         <div class="metric-box">
           <div class="metric-name">미국 기준금리 (연준)</div>
-          <div class="metric-val">5.25 ~ 5.50%</div>
+          <div id="policy-us-val" class="metric-val">—</div>
+          <div id="policy-us-asof" class="metric-sub">조회 중…</div>
         </div>
         <div class="metric-box">
           <div class="metric-name">한국 기준금리 (한은)</div>
-          <div class="metric-val">3.25%</div>
+          <div id="policy-kr-val" class="metric-val">—</div>
+          <div id="policy-kr-asof" class="metric-sub">조회 중…</div>
         </div>
       </div>
       <div style="background: var(--tag-bg); border-radius: 6px; padding: 8px 12px; font-size: 0.78rem; color: #8b949e; line-height: 1.4;">
-        ⚡ 위 수치는 네이버 금융 실시간 조회값입니다. 국채 금리는 직전 마감 고시값이며, 기준 시각은 상단 상태 표시에서 확인할 수 있습니다.
+        ⚡ 국채 금리는 네이버 금융 직전 마감 고시값, 기준금리는 <strong>연준(뉴욕연은 공표)·한국은행 공식 발표값</strong>을 자동 수집한 값입니다. 각 항목 아래에 반영 기준일을 표시하며, 조회가 실패하면 값을 임의로 바꾸지 않고 마지막 성공값과 그 기준일을 유지합니다(⚠ 표시).
       </div>
     </div>
 

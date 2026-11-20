@@ -218,5 +218,155 @@ class TestConfig(unittest.TestCase):
         self.assertTrue(any(k["keyword"] == "엔비디아" for k in cfg["trace_keywords"]))
 
 
+class TestPolicyRates(unittest.TestCase):
+    """기준금리: 공식 소스 파싱 + 실패 시 직전 성공값 유지(하드코딩 복귀 금지)."""
+
+    def test_parse_nyfed_policy(self):
+        payload = {"refRates": [{"effectiveDate": "2026-11-18", "type": "EFFR",
+                               "percentRate": 3.88,
+                               "targetRateFrom": 3.75, "targetRateTo": 4.00}]}
+        p = live.parse_nyfed_policy(payload)
+        self.assertEqual(p["low"], 3.75)
+        self.assertEqual(p["high"], 4.00)
+        self.assertEqual(p["effr"], 3.88)
+        self.assertEqual(p["as_of"], "2026-11-18")
+        self.assertIn("뉴욕연은", p["source"])
+
+    def test_parse_nyfed_without_range_is_none(self):
+        self.assertIsNone(live.parse_nyfed_policy({"refRates": []}))
+        self.assertIsNone(live.parse_nyfed_policy({"refRates": [{"effectiveDate": "2026-11-18"}]}))
+
+    def test_parse_fred_target_takes_last_row(self):
+        csv_text = ("observation_date,DFEDTARU,DFEDTARL\n"
+                    "2026-10-28,4.25,4.00\n"
+                    "2026-10-29,4.00,3.75\n")
+        p = live.parse_fred_target(csv_text)
+        self.assertEqual(p["low"], 3.75)
+        self.assertEqual(p["high"], 4.00)
+        self.assertEqual(p["as_of"], "2026-10-29")
+
+    def test_parse_fred_target_skips_empty_cells(self):
+        csv_text = "observation_date,DFEDTARU,DFEDTARL\n2026-11-19,4.00,3.75\n2026-11-20,,\n"
+        p = live.parse_fred_target(csv_text)
+        self.assertEqual((p["low"], p["high"], p["as_of"]), (3.75, 4.00, "2026-11-19"))
+        self.assertIsNone(live.parse_fred_target("nope"))
+
+    def test_parse_bok_base_rate(self):
+        html = ('<div class="table tac"><table class="fixed">'
+                '<thead><tr><th colspan="2">변경일자</th><th class="fb">기준금리</th></tr></thead>'
+                '<tbody>'
+                '<tr><td class="fb">2026</td><td>08월 27일</td><td>3.00</td></tr>\n'
+                '<tr><td class="fb">2026</td><td>07월 16일</td><td>2.75</td></tr>\n'
+                '</tbody></table></div>')
+        p = live.parse_bok_base_rate(html)
+        self.assertEqual(p["rate"], 3.00)
+        self.assertEqual(p["as_of"], "2026-08-27")
+        self.assertIn("한국은행", p["source"])
+        self.assertIsNone(live.parse_bok_base_rate("<html>표 없음</html>"))
+
+    def test_collect_uses_live_values(self):
+        orig_us, orig_kr = live.fetch_us_policy_rate, live.fetch_kr_policy_rate
+        try:
+            live.fetch_us_policy_rate = lambda: {"low": 3.75, "high": 4.00, "effr": 3.88,
+                                                 "as_of": "2026-11-18", "source": "s"}
+            live.fetch_kr_policy_rate = lambda: {"rate": 3.00, "as_of": "2026-08-27", "source": "s"}
+            out, errors = live.collect_policy_rates({})
+        finally:
+            live.fetch_us_policy_rate, live.fetch_kr_policy_rate = orig_us, orig_kr
+        self.assertEqual(errors, [])
+        self.assertEqual(out["US"]["status"], "ok")
+        self.assertFalse(out["US"]["stale"])
+        self.assertEqual(out["KR"]["rate"], 3.00)
+        self.assertTrue(out["US"]["checked_at"])
+
+    def test_collect_keeps_last_success_on_failure(self):
+        """조회 실패 시 하드코딩 기본값(5.25~5.50 / 3.25)으로 되돌아가면 안 된다."""
+        previous = {"market": {"policy_rates": {
+            "US": {"low": 3.75, "high": 4.00, "as_of": "2026-11-18",
+                   "status": "stale", "stale": True, "checked_at": "2026-11-20T09:00:00+09:00"},
+            "KR": {"rate": 3.00, "as_of": "2026-08-27",
+                   "status": "stale", "stale": True, "checked_at": "2026-11-20T09:00:00+09:00"}}}}
+
+        def boom():
+            raise RuntimeError("network down")
+
+        orig_us, orig_kr = live.fetch_us_policy_rate, live.fetch_kr_policy_rate
+        try:
+            live.fetch_us_policy_rate = boom
+            live.fetch_kr_policy_rate = boom
+            out, errors = live.collect_policy_rates(previous)
+        finally:
+            live.fetch_us_policy_rate, live.fetch_kr_policy_rate = orig_us, orig_kr
+        self.assertEqual((out["US"]["low"], out["US"]["high"]), (3.75, 4.00))
+        self.assertEqual(out["KR"]["rate"], 3.00)
+        self.assertEqual(out["US"]["as_of"], "2026-11-18")
+        self.assertTrue(out["US"]["stale"])
+        self.assertEqual(out["US"]["status"], "stale")
+        self.assertTrue(any("유지" in e for e in errors))
+
+    def test_collect_without_previous_marks_unavailable(self):
+        def boom():
+            raise RuntimeError("network down")
+
+        orig_us, orig_kr = live.fetch_us_policy_rate, live.fetch_kr_policy_rate
+        try:
+            live.fetch_us_policy_rate = boom
+            live.fetch_kr_policy_rate = boom
+            out, _ = live.collect_policy_rates({})
+        finally:
+            live.fetch_us_policy_rate, live.fetch_kr_policy_rate = orig_us, orig_kr
+        self.assertEqual(out["US"]["status"], "unavailable")
+        self.assertIsNone(out["US"].get("low"))
+
+    def test_collect_reuses_fresh_cache(self):
+        previous = {"market": {"policy_rates": {
+            "US": {"low": 3.75, "high": 4.00, "as_of": "2026-11-18", "status": "ok",
+                   "stale": False, "checked_at": live.iso_kst(live.now_kst())},
+            "KR": {"rate": 3.00, "as_of": "2026-08-27", "status": "ok",
+                   "stale": False, "checked_at": live.iso_kst(live.now_kst())}}}}
+
+        def boom():
+            raise RuntimeError("should not be called")
+
+        orig_us, orig_kr = live.fetch_us_policy_rate, live.fetch_kr_policy_rate
+        try:
+            live.fetch_us_policy_rate = boom
+            live.fetch_kr_policy_rate = boom
+            out, errors = live.collect_policy_rates(previous)
+        finally:
+            live.fetch_us_policy_rate, live.fetch_kr_policy_rate = orig_us, orig_kr
+        self.assertEqual(errors, [])
+        self.assertEqual(out["US"]["status"], "ok")
+
+    def test_significant_change_ignores_check_time(self):
+        a = {"generated_at": "a", "market": {"policy_rates": {
+            "US": {"low": 3.75, "high": 4.00, "as_of": "2026-11-18", "status": "ok",
+                   "stale": False, "checked_at": "2026-11-20T09:00:00+09:00"}}}}
+        b = {"generated_at": "b", "market": {"policy_rates": {
+            "US": {"low": 3.75, "high": 4.00, "as_of": "2026-11-18", "status": "ok",
+                   "stale": True, "checked_at": "2026-11-20T10:00:00+09:00"}}}}
+        c = {"generated_at": "b", "market": {"policy_rates": {
+            "US": {"low": 3.50, "high": 3.75, "as_of": "2026-12-10", "status": "ok",
+                   "stale": False, "checked_at": "2026-11-20T10:00:00+09:00"}}}}
+        self.assertFalse(live.significant_change(a, b))
+        self.assertTrue(live.significant_change(a, c))
+
+    def test_html_has_no_hardcoded_policy_rates(self):
+        """카드에 하드코딩된 5.25~5.50 / 3.25 가 남아 있으면 실시간화가 아니다."""
+        for rel in ("index.html", os.path.join("android", "app", "src", "main", "assets", "index.html")):
+            with open(os.path.join(ROOT, rel), encoding="utf-8") as f:
+                html = f.read()
+            self.assertNotIn("5.25 ~ 5.50%", html, rel)
+            self.assertNotIn(">3.25%<", html, rel)
+            self.assertIn('id="policy-us-val"', html, rel)
+            self.assertIn('id="policy-kr-val"', html, rel)
+
+    def test_app_js_renders_policy_rates(self):
+        with open(os.path.join(ROOT, "app.js"), encoding="utf-8") as f:
+            js = f.read()
+        self.assertIn("renderPolicyRates", js)
+        self.assertIn("market.policy_rates", js)
+
+
 if __name__ == "__main__":
     unittest.main()

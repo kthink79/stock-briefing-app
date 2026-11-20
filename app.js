@@ -346,6 +346,57 @@ function setRateMetric(id, quote) {
   el.className = 'metric-val ' + (pct > 0 ? 'up' : (pct < 0 ? 'down' : ''));
 }
 
+/* 기준금리(정책금리): 값 + 반영 기준일 + 출처. 실패 시 마지막 성공값 유지(⚠) */
+function fmtPolicyDate(iso) {
+  if (!iso) return null;
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso));
+  if (!m) return String(iso);
+  return m[1] + '.' + m[2] + '.' + m[3];
+}
+
+function renderPolicyRate(valId, asofId, entry, kind) {
+  const el = document.getElementById(valId);
+  const sub = document.getElementById(asofId);
+  if (!el) return;
+  entry = entry || {};
+  let valueText = null;
+  if (kind === 'US') {
+    if (entry.low !== null && entry.low !== undefined &&
+        entry.high !== null && entry.high !== undefined) {
+      valueText = fmtNum(entry.low, 2) + ' ~ ' + fmtNum(entry.high, 2) + '%';
+    }
+  } else if (entry.rate !== null && entry.rate !== undefined) {
+    valueText = fmtNum(entry.rate, 2) + '%';
+  }
+  const stale = !!entry.stale || entry.status === 'stale';
+  if (!valueText) {
+    el.textContent = '—';
+    el.className = 'metric-val';
+    if (sub) {
+      sub.textContent = entry.error ? '공식 발표값 조회 실패' : '기준금리 데이터 없음';
+      sub.className = 'metric-sub warn';
+    }
+    return;
+  }
+  el.textContent = valueText;
+  el.className = 'metric-val';
+  if (!sub) return;
+  const asof = fmtPolicyDate(entry.as_of);
+  if (stale) {
+    sub.textContent = '⚠ 직전 확인값' + (asof ? ' · 기준 ' + asof : '') + ' (최신 조회 실패)';
+    sub.className = 'metric-sub warn';
+  } else {
+    sub.textContent = (asof ? '기준일 ' + asof : '기준일 미상') + (entry.effr !== null && entry.effr !== undefined ? ' · EFFR ' + fmtNum(entry.effr, 2) + '%' : '');
+    sub.className = 'metric-sub';
+  }
+}
+
+function renderPolicyRates(policyRates) {
+  policyRates = policyRates || {};
+  renderPolicyRate('policy-us-val', 'policy-us-asof', policyRates.US, 'US');
+  renderPolicyRate('policy-kr-val', 'policy-kr-asof', policyRates.KR, 'KR');
+}
+
 function setMetric(id, quote, digits) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -374,6 +425,7 @@ function applyMarketData(payload, opts) {
   setMetric('kosdaq-val', indices.KOSDAQ, 2);
   setRateMetric('rate-10y-val', rates.US10Y);
   setRateMetric('rate-2y-val', rates.US2Y);
+  renderPolicyRates(market.policy_rates);
   setMetric('fx-val', fx.USDKRW, 2);
 
   const stocks = payload.stocks || {};
