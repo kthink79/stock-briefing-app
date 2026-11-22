@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generated_at": "2026-11-23T00:37:23+09:00",
- "generated_at_kst": "2026-11-23(월) 00:37",
+ "generated_at": "2026-11-23T03:42:06+09:00",
+ "generated_at_kst": "2026-11-23(월) 03:42",
  "source": "네이버 금융 실시간 (polling.finance.naver.com)",
  "market": {
   "indices": {
@@ -478,7 +478,7 @@
     "url": "https://markets.newyorkfed.org/api/rates/unsecured/effr/last/1.json",
     "status": "ok",
     "stale": false,
-    "checked_at": "2026-11-23T00:35:57+09:00"
+    "checked_at": "2026-11-23T03:40:21+09:00"
    },
    "KR": {
     "rate": 3.0,
@@ -487,7 +487,7 @@
     "url": "https://www.bok.or.kr/portal/singl/baseRate/list.do?dataSeCd=01&menuNo=200643",
     "status": "ok",
     "stale": false,
-    "checked_at": "2026-11-23T00:35:57+09:00"
+    "checked_at": "2026-11-23T03:40:21+09:00"
    }
   },
   "session": {
@@ -858,24 +858,24 @@
   "sector_news": [
    {
     "tag": "반도체",
-    "text": "[사설] 커지는 AI 거품 우려, 불안한 수출 1조 달러",
+    "text": "\"'엔비디아 사태', 휴전 두달 남은 美中 무역전쟁 재점화할수도\"",
     "date": "2026-11-23",
-    "source": "한국일보",
-    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBVSC12ckpwMklmbDVDc1lWV3A1c0NyLUxFTWlleGJ0MjA1R2F5ODdUOF9XSkg2UGo2c3hiVXpxZVhnbFNxMi1nTTEtUU1YNDQ1QnRIejRjX0FmN1E0bFhEUlp3RFUzVlRXdXpNc0Rn0gFzQVVfeXFMTkcxRFV5R2lQT3FZS3FRendNTDdLNmIxMkR5aWxUZHY1dVNBRU9sbXg5ekJnUXE4VGZCZ1QwY00zMHBhdVFaRkprc0Q1NzR5YzJmblNKbWM3U0RnbGhrUzNkV1hYWldZMF9Wc2Ffc09HMmRyMA?oc=5"
+    "source": "연합뉴스",
+    "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9RQTFKY0xhMGlpLW03RDVhRHR1WUhwLUtqeW5GZnhKX1M3YUNwVWJCanlnMDk0S0FDZGJLMmkwV0xHWXZJczI0QkZSOUwwZlYzVkFRSEo1RVJnSVXSAWBBVV95cUxOWTVTNVJqajBKSWN1anFsOWN6cVUzc3o5bFN0VEIwS2dJUXczXzJQeE0zcjBnTlI5UTR0YUxoYXVJbmNmNklRRVB6SzFkdHBtdmpHUWFhcXpENDQ2b0p1blM?oc=5"
    },
    {
     "tag": "국내증시",
-    "text": "코스피 다시 5000선 붕괴…美 물가·외국인 수급에 반등 달렸다 [증시 예보]",
-    "date": "2026-11-22",
-    "source": "헤럴드경제",
-    "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9ETi1od3VOc2FBZExnaXA4NzI0YW93N2M3Q0ZWcllYLXdyZzMxU2h2NnY3Q2ZHVXplNlhrTVV2T1ZlQ1RFeERlT3AxY2RWLTFTa3dnbll3?oc=5"
+    "text": "개미들 563조 잃고 빚더미… 외국인은 224조 팔아 수익",
+    "date": "2026-11-23",
+    "source": "조선일보",
+    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxONnlXamJFWENDSU1ZSjNodXFrTWFWZHRKZUY2NUZzcE05LUs1Zjh6UElwaVlMUEk5M3pIbmpMVTUwZUg1QmJabUphVE9XdlZuLVdJUExrWk1jdW5iUU5nVkdfSFRKSmozdDgwTjhPNzM4NnJKUTJrUXp6X3B3THF6emZsclkyTmtqcWFj?oc=5"
    },
    {
     "tag": "AI",
-    "text": "\"울산 SK AI데이터센터 속도전 강조…글로벌 투자 마중물 돼야\"",
+    "text": "AI 데이터센터 사업이 없다면 Oracle의 가치는 얼마일까?",
     "date": "2026-11-23",
-    "source": "경상일보",
-    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1WSzY5ZXlTXzhnYmlwN3VQWEpZTnFGaHkyRVFIRjhGOV8waEpWWkFWaFVORk9rU0pRcFh0SUxVTEZCTnlqSUF3ZE9UV1lQZGZCNGtDYWRLWXB6RXdpclB5TVVYUFFQXy05REh6RA?oc=5"
+    "source": "Investing.com 한국어",
+    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBCQ0VhdzZ6dzJPUDJNcklpWGRzQllMQnZDMjd6N29pWlZkRWFwMXFnN01BTzJKWTBKNDFOdlRkeTlrcUxyNjFfSk5VcWJkbkRLRVVNdGpEdHpPalphY3dYaGVOQnBGenB4cFpHYktB?oc=5"
    }
   ]
  }
