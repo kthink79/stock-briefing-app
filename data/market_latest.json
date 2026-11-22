@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generated_at": "2026-11-22T20:43:58+09:00",
- "generated_at_kst": "2026-11-22(일) 20:43",
+ "generated_at": "2026-11-23T00:37:23+09:00",
+ "generated_at_kst": "2026-11-23(월) 00:37",
  "source": "네이버 금융 실시간 (polling.finance.naver.com)",
  "market": {
   "indices": {
@@ -478,7 +478,7 @@
     "url": "https://markets.newyorkfed.org/api/rates/unsecured/effr/last/1.json",
     "status": "ok",
     "stale": false,
-    "checked_at": "2026-11-22T20:42:33+09:00"
+    "checked_at": "2026-11-23T00:35:57+09:00"
    },
    "KR": {
     "rate": 3.0,
@@ -487,7 +487,7 @@
     "url": "https://www.bok.or.kr/portal/singl/baseRate/list.do?dataSeCd=01&menuNo=200643",
     "status": "ok",
     "stale": false,
-    "checked_at": "2026-11-22T20:42:33+09:00"
+    "checked_at": "2026-11-23T00:35:57+09:00"
    }
   },
   "session": {
@@ -858,10 +858,10 @@
   "sector_news": [
    {
     "tag": "반도체",
-    "text": "\"中 국가안전부, 2년 전부터 첨단 칩 확보위해 비밀 작전\"",
-    "date": "2026-11-22",
-    "source": "매일경제 마켓",
-    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1rcTVCOHFDYThFX1BJekpvdFJlTzlpM2YyRHNXeE9LSkVTOUdBZW16ZlZzNVZwYjlDb3J6eWJ4aHJLOXVnT2JDbE9YYzNmZ1VoWUE?oc=5"
+    "text": "[사설] 커지는 AI 거품 우려, 불안한 수출 1조 달러",
+    "date": "2026-11-23",
+    "source": "한국일보",
+    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBVSC12ckpwMklmbDVDc1lWV3A1c0NyLUxFTWlleGJ0MjA1R2F5ODdUOF9XSkg2UGo2c3hiVXpxZVhnbFNxMi1nTTEtUU1YNDQ1QnRIejRjX0FmN1E0bFhEUlp3RFUzVlRXdXpNc0Rn0gFzQVVfeXFMTkcxRFV5R2lQT3FZS3FRendNTDdLNmIxMkR5aWxUZHY1dVNBRU9sbXg5ekJnUXE4VGZCZ1QwY00zMHBhdVFaRkprc0Q1NzR5YzJmblNKbWM3U0RnbGhrUzNkV1hYWldZMF9Wc2Ffc09HMmRyMA?oc=5"
    },
    {
     "tag": "국내증시",
@@ -872,10 +872,10 @@
    },
    {
     "tag": "AI",
-    "text": "이 대통령, 울산 찾아 대규모 데이터센터 건설 현장 점검, 전통시장 두 곳 잇달아 방문",
-    "date": "2026-11-22",
-    "source": "정경시사 FOCUS",
-    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9aUWNQX1dYZ0ZWeE5vemhzQmVCOVZSNFBsWmhkaGlROE9JUjFkc1JRUnp0aG1fOVVqYUVzR3JBS2liUmg0a1R6aFN5cmRhaS1iUktVR2oxWHNnRXJSd2stRnlPYTR4Z2J4?oc=5"
+    "text": "\"울산 SK AI데이터센터 속도전 강조…글로벌 투자 마중물 돼야\"",
+    "date": "2026-11-23",
+    "source": "경상일보",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1WSzY5ZXlTXzhnYmlwN3VQWEpZTnFGaHkyRVFIRjhGOV8waEpWWkFWaFVORk9rU0pRcFh0SUxVTEZCTnlqSUF3ZE9UV1lQZGZCNGtDYWRLWXB6RXdpclB5TVVYUFFQXy05REh6RA?oc=5"
    }
   ]
  }
