@@ -140,6 +140,23 @@ GitHub App 토큰에는 `workflows` 권한이 없어 CLI(`git push`)로는 이 �
 - 기본 키워드 뉴스: 20분마다 / 섹터·기업 뉴스: 60분마다(회전 수집) / 주제 풀: 120분마다
 - 값이 실제로 바뀐 실행에서만 커밋하고, 변화가 없는 야간에는 30분에 한 번만 타임스탬프를 갱신합니다. (`data/.last_run.json`은 커밋하지 않습니다)
 
+### 수집 시간 상한(멈춤 방지)
+2026-11-22 03:17 KST 실행(run `44934697099`)이 10분간 아무 출력 없이 멈춰 취소된 뒤로,
+`scripts/collect_live_data.py`는 모든 외부 호출에 세 겹의 시간 상한을 둡니다.
+
+| 단계 | 기본값 | 환경변수 |
+| --- | --- | --- |
+| 소켓 connect/read 타임아웃 | 10초 | `COLLECT_HTTP_TIMEOUT` |
+| 호출 1회 벽시계 상한(DNS 조회·느린 응답 포함) | 20초 | `COLLECT_MAX_CALL_SECONDS` |
+| 필수 수집 실행 예산 | 300초 | `COLLECT_BUDGET_SECONDS` |
+| 뉴스 / 전종목 / 재무지표 구간 예산 | 150 / 120 / 90초 | `COLLECT_NEWS_BUDGET_SECONDS` 등 |
+| 워치독 강제 종료 | 420초 | `COLLECT_HARD_LIMIT_SECONDS` |
+
+- 진행 로그를 stderr 로 즉시 남기므로(`[market] 5.8초`, `[news] 수집: HBM` …) 멈추면 어느 단계인지 바로 보입니다.
+- 종목·지표·키워드 하나가 실패하거나 예산을 넘기면 그 항목만 건너뛰고 **직전 값 유지(`stale`)** 로 실행을 끝까지 진행합니다.
+- 워크플로는 수집 스텝 `timeout-minutes: 8` / job `timeout-minutes: 12` 로 걸려 있어 스크립트가 멈춰도 10분을 넘기지 않습니다.
+- 회귀 테스트: `python3 -m unittest discover -s crawler/tests` — `test_live_data_resilience.py` 가 무응답·drip 서버 차단, 부분 실패 유지, 예산 준수를 검증합니다.
+
 ### 자동 실행 확인
 ```bash
 gh run list -R kthink79/stock-briefing-app -w live-data --event schedule -L 3

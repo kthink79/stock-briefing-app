@@ -20,7 +20,10 @@ import argparse
 import json
 import os
 import re
+import signal
+import socket
 import sys
+import threading
 import time
 import urllib.error
 import urllib.parse
@@ -51,6 +54,37 @@ FRED_TARGET_CSV = "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFEDTARU,D
 BOK_BASE_RATE = ("https://www.bok.or.kr/portal/singl/baseRate/list.do"
                  "?dataSeCd=01&menuNo=200643")
 POLICY_RATE_REUSE_MINUTES = 60   # 기준금리는 하루 몇 번만 바뀐다 — 1시간 캐시 후 재조회
+
+# --------------------------------------------------------------------------
+# 네트워크 타임아웃 · 실행 예산
+#   2026-11-22 03:17 KST 실행(run 44934697099)에서 스크립트가 10분간 아무 출력 없이
+#   멈춰 job timeout 으로 취소됐다. urllib 의 timeout 은 소켓 읽기에는 걸리지만
+#   DNS 조회나 아주 느린 응답(drip)에는 걸리지 않아 한 번의 호출이 실행 전체를
+#   붙잡을 수 있다. 그래서 모든 외부 호출에 (1) 소켓 타임아웃, (2) 호출 1회
+#   벽시계(wall-clock) 상한, (3) 실행 전체 예산을 함께 둔다. 환경변수로 조정 가능.
+# --------------------------------------------------------------------------
+def _env_number(name: str, default: float) -> float:
+    try:
+        value = float(os.environ.get(name, default))
+    except (TypeError, ValueError):
+        return float(default)
+    return value if value > 0 else float(default)
+
+
+HTTP_TIMEOUT = _env_number("COLLECT_HTTP_TIMEOUT", 10)          # connect/read (socket)
+HTTP_RETRIES = int(_env_number("COLLECT_HTTP_RETRIES", 1))     # 추가 재시도 횟수
+MAX_CALL_SECONDS = _env_number("COLLECT_MAX_CALL_SECONDS", 20)  # 호출 1회 벽시계 상한
+RUN_BUDGET_SECONDS = _env_number("COLLECT_BUDGET_SECONDS", 300)  # 필수 수집 예산
+HARD_LIMIT_SECONDS = _env_number("COLLECT_HARD_LIMIT_SECONDS", 420)  # 워치독 강제 종료
+NEWS_BUDGET_SECONDS = _env_number("COLLECT_NEWS_BUDGET_SECONDS", 150)
+UNIVERSE_BUDGET_SECONDS = _env_number("COLLECT_UNIVERSE_BUDGET_SECONDS", 120)
+FUND_BUDGET_SECONDS = _env_number("COLLECT_FUND_BUDGET_SECONDS", 90)
+MAX_RESPONSE_BYTES = 8 * 1024 * 1024
+STARTED_AT = time.monotonic()
+
+# timeout 인자를 빠뜨린 라이브러리도 최소한 소켓 단계에서 무한 대기하지 않도록 한다.
+if socket.getdefaulttimeout() is None:
+    socket.setdefaulttimeout(HTTP_TIMEOUT)
 
 # 전종목 검색·등록용 데이터 파일
 UNIVERSE_PATH = os.path.join(DATA_DIR, "stock_universe.json")
@@ -128,6 +162,92 @@ def now_kst() -> datetime:
     return datetime.now(KST)
 
 
+def log(message: str) -> None:
+    """진행 로그는 stderr 로 즉시 flush — 멈춘 지점을 로그만 보고 알 수 있게 한다."""
+    print(message, file=sys.stderr, flush=True)
+
+
+def elapsed_seconds() -> float:
+    return time.monotonic() - STARTED_AT
+
+
+def budget_left(limit: float | None = None) -> float:
+    """실행 시작 후 남은 시간(초). limit=None 이면 필수 수집 예산 기준."""
+    limit = RUN_BUDGET_SECONDS if limit is None else limit
+    return limit - elapsed_seconds()
+
+
+class FetchTimeout(TimeoutError):
+    """한 번의 외부 호출이 정해진 시간 안에 끝나지 않았을 때."""
+
+
+def _can_use_alarm() -> bool:
+    return (hasattr(signal, "setitimer") and hasattr(signal, "SIGALRM")
+            and threading.current_thread() is threading.main_thread())
+
+
+def run_with_timeout(fn, seconds: float, label: str = "fetch"):
+    """fn() 을 seconds 초 안에 끝내고 결과를 돌려준다. 넘기면 FetchTimeout.
+
+    메인 스레드에서는 SIGALRM 으로 DNS 조회·느린 응답까지 끊고, 신호를 쓸 수 없는
+    워커 스레드에서는 데몬 스레드로 실행해 기다리다가 포기한다(멈춘 스레드는
+    데몬이므로 프로세스 종료를 막지 않는다).
+    """
+    seconds = float(seconds)
+    if seconds <= 0:
+        raise FetchTimeout(f"{label}: 시간 예산 소진")
+    if _can_use_alarm():
+        def _on_alarm(signum, frame):  # noqa: ANN001
+            raise FetchTimeout(f"{label}: {seconds:.1f}초 초과")
+
+        previous = signal.signal(signal.SIGALRM, _on_alarm)
+        signal.setitimer(signal.ITIMER_REAL, seconds)
+        try:
+            return fn()
+        finally:
+            signal.setitimer(signal.ITIMER_REAL, 0)
+            signal.signal(signal.SIGALRM, previous)
+
+    box: dict = {}
+
+    def _target():
+        try:
+            box["value"] = fn()
+        except BaseException as e:  # noqa: BLE001 - 워커 오류를 호출자에게 그대로 전달
+            box["error"] = e
+
+    worker = threading.Thread(target=_target, daemon=True, name=f"fetch-{label[:24]}")
+    worker.start()
+    worker.join(seconds)
+    if worker.is_alive():
+        raise FetchTimeout(f"{label}: {seconds:.1f}초 초과")
+    if "error" in box:
+        raise box["error"]
+    return box.get("value")
+
+
+def install_watchdog(limit: float | None = None) -> threading.Thread:
+    """최후의 안전장치: limit 초를 넘기면 로그를 남기고 프로세스를 끝낸다.
+
+    정상 경로에서는 각 구간이 예산을 지켜 먼저 끝나므로 이 워치독은 발동하지 않는다.
+    """
+    limit = HARD_LIMIT_SECONDS if limit is None else float(limit)
+
+    def _watch():
+        time.sleep(limit)
+        log(f"[fatal] 수집이 {limit:.0f}초를 넘겨 강제 종료합니다 — 이번 실행 데이터는 갱신되지 않았습니다")
+        try:
+            sys.stdout.flush()
+            sys.stderr.flush()
+        except Exception:  # noqa: BLE001
+            pass
+        os._exit(2)
+
+    thread = threading.Thread(target=_watch, name="collect-watchdog", daemon=True)
+    thread.start()
+    return thread
+
+
 def num(value):
     """'1,234.5' / '-0.24%' / '-' 등을 float로 변환. 값이 없으면 None."""
     if value is None:
@@ -143,31 +263,62 @@ def num(value):
         return None
 
 
-def http_get(url: str, timeout: int = 15, retries: int = 2) -> bytes:
+def _urlopen_read(req: urllib.request.Request, timeout: float, limit: float,
+                  label: str) -> bytes:
+    """요청 1회를 벽시계 상한 안에서 수행한다.
+
+    urlopen(timeout=) 은 connect/read 소켓에만 걸리므로, DNS 조회나
+    바이트를 조금씩 보내는 서버까지 막으려면 바깥에서 한 번 더 시간을 잡는다.
+    """
+    def _do():
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return resp.read(MAX_RESPONSE_BYTES + 1)
+
+    body = run_with_timeout(_do, min(timeout, limit) + 1.0, label=label)
+    if body is not None and len(body) > MAX_RESPONSE_BYTES:
+        raise RuntimeError(f"응답이 너무 큽니다({len(body)} bytes): {label}")
+    return body
+
+
+def http_get(url: str, timeout: float | None = None, retries: int | None = None,
+             max_seconds: float | None = None) -> bytes:
+    """외부 HTTP GET — 소켓 타임아웃 + 호출별 벽시계 상한 + 재시도 상한.
+
+    한 엔드포인트가 멈춰도 이 호출만 실패하고, 실행 전체는 예산 안에서 계속된다.
+    """
+    timeout = HTTP_TIMEOUT if timeout is None else float(timeout)
+    retries = HTTP_RETRIES if retries is None else int(retries)
+    per_call = MAX_CALL_SECONDS if max_seconds is None else float(max_seconds)
+    label = url.split("?")[0]
     last_err = None
     for attempt in range(retries + 1):
+        left = min(budget_left(), per_call)
+        if left <= 0.2:
+            last_err = last_err or f"시간 예산 소진 ({url})"
+            break
         req = urllib.request.Request(url, headers={
             "User-Agent": UA,
             "Accept": "*/*",
             "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.8",
         })
         try:
-            with urllib.request.urlopen(req, timeout=timeout) as resp:
-                return resp.read()
+            return _urlopen_read(req, timeout, left, label)
         except urllib.error.HTTPError as e:  # 429/500 등
             last_err = f"HTTP {e.code} {url}"
-            if e.code in (429, 500, 502, 503, 504):
-                time.sleep(1.5 * (attempt + 1))
+            if e.code in (429, 500, 502, 503, 504) and attempt < retries:
+                time.sleep(min(1.5 * (attempt + 1), max(0.0, budget_left() - 0.5)))
                 continue
-            raise
-        except Exception as e:  # urllib.error.URLError ...
+            raise RuntimeError(last_err)
+        except Exception as e:  # 타임아웃·DNS·연결·응답 오류
             last_err = f"{type(e).__name__}: {e} ({url})"
-            time.sleep(1.0 * (attempt + 1))
+            log(f"[warn] HTTP 실패 {attempt + 1}/{retries + 1}: {last_err}")
+            if attempt < retries:
+                time.sleep(min(1.0 * (attempt + 1), max(0.0, budget_left() - 0.5)))
     raise RuntimeError(last_err or f"request failed: {url}")
 
 
-def get_json(url: str) -> dict:
-    return json.loads(http_get(url).decode("utf-8", "replace"))
+def get_json(url: str, **kwargs) -> dict:
+    return json.loads(http_get(url, **kwargs).decode("utf-8", "replace"))
 
 
 def iso_kst(dt: datetime) -> str:
@@ -286,7 +437,8 @@ def fetch_product(category: str, reuters_code: str) -> dict | None:
     query = urllib.parse.urlencode({"category": category, "reutersCode": reuters_code})
     try:
         payload = get_json(f"{NAVER_PRODUCT}?{query}")
-    except Exception:
+    except Exception as e:  # noqa: BLE001 - 한 상품 실패는 다른 상품을 막지 않는다
+        log(f"[warn] {category} {reuters_code} 조회 실패: {e}")
         return None
     result = payload.get("result") or {}
     price = num(result.get("closePrice"))
@@ -417,7 +569,8 @@ def fetch_us_policy_rate() -> dict:
     except Exception as e:
         errors.append(f"뉴욕연은 조회 실패: {e}")
     try:
-        csv_text = http_get(FRED_TARGET_CSV, timeout=10, retries=1).decode("utf-8", "replace")
+        csv_text = http_get(FRED_TARGET_CSV, timeout=8, retries=1,
+                            max_seconds=12).decode("utf-8", "replace")
         parsed = parse_fred_target(csv_text)
         if parsed:
             return parsed
@@ -429,7 +582,8 @@ def fetch_us_policy_rate() -> dict:
 
 def fetch_kr_policy_rate() -> dict:
     """한국은행 기준금리: 기준금리 추이 표 파싱."""
-    html = http_get(BOK_BASE_RATE, timeout=20, retries=1).decode("utf-8", "replace")
+    html = http_get(BOK_BASE_RATE, timeout=12, retries=1,
+                    max_seconds=18).decode("utf-8", "replace")
     parsed = parse_bok_base_rate(html)
     if not parsed:
         raise RuntimeError("한국은행 기준금리 표를 찾지 못했습니다")
@@ -574,7 +728,8 @@ def fetch_news_for(query: str, max_age_days: int = 10, limit: int = 30,
     params = urllib.parse.urlencode({
         "q": query, "hl": "ko", "gl": "KR", "ceid": "KR:ko",
     })
-    xml_bytes = http_get(f"{GOOGLE_NEWS}?{params}", timeout=25, retries=3)
+    xml_bytes = http_get(f"{GOOGLE_NEWS}?{params}", timeout=8, retries=1,
+                         max_seconds=15)
     articles = parse_google_news_rss(xml_bytes, query, max_age_days * 2, limit * 3)
     if require_tokens:
         articles = filter_relevant(articles, require_tokens)
@@ -746,14 +901,20 @@ def parse_market_list_item(item: dict) -> dict | None:
     }
 
 
-def fetch_kr_universe(page_size: int = 100, max_pages: int = 60) -> dict:
+def fetch_kr_universe(page_size: int = 100, max_pages: int = 60,
+                      budget_seconds: float | None = None) -> dict:
     """코스피·코스닥 전 종목의 이름·코드·현재가·등락률·시가총액을 수집한다."""
+    seconds = UNIVERSE_BUDGET_SECONDS if budget_seconds is None else float(budget_seconds)
+    deadline = time.monotonic() + max(1.0, min(seconds, budget_left()))
     out = {}
     for market in ("KOSPI", "KOSDAQ"):
         page = 1
         while page <= max_pages:
+            if time.monotonic() >= deadline:
+                log(f"[universe] {market} 목록 수집 시간 예산({seconds:.0f}초) 소진 — page {page} 에서 중단")
+                break
             url = f"{NAVER_LIST}/{market}?page={page}&pageSize={page_size}"
-            payload = get_json(url)
+            payload = get_json(url, timeout=8, max_seconds=12)
             rows = payload.get("stocks") or []
             if not rows:
                 break
@@ -762,9 +923,10 @@ def fetch_kr_universe(page_size: int = 100, max_pages: int = 60) -> dict:
                 if entry:
                     out[entry["code"]] = entry
             total = num(payload.get("totalCount")) or 0
-            if page * page_size >= total:
+            if total and page * page_size >= total:
                 break
             page += 1
+        log(f"[universe] {market} 목록 {len(out)}종목 수집(마지막 page {page})")
     return out
 
 
@@ -807,8 +969,11 @@ def fetch_us_universe(symbols, chunk: int = 350) -> dict:
         codes.extend([s, s + ".O", s + ".K"])
     out = {}
     for i in range(0, len(codes), chunk):
+        if budget_left() <= 1:
+            log("[universe] 미국 종목 수집 시간 예산 소진 — 남은 구간 건너뜀")
+            break
         url = f"{NAVER_POLL}/worldstock/stock/" + ",".join(codes[i:i + chunk])
-        payload = get_json(url)
+        payload = get_json(url, timeout=10, max_seconds=15)
         for item in payload.get("datas", []):
             entry = parse_world_list_item(item)
             if not entry or entry["symbol"] not in wanted:
@@ -834,31 +999,44 @@ def parse_daum_fundamental(data: dict) -> dict | None:
     }
 
 
-def fetch_daum_fundamental(code: str, timeout: int = 12) -> dict | None:
+def fetch_daum_fundamental(code: str, timeout: float | None = None) -> dict | None:
+    timeout = HTTP_TIMEOUT if timeout is None else float(timeout)
     req = urllib.request.Request(
         f"{DAUM_QUOTE}{code}?summary=false",
         headers={"User-Agent": UA, "Referer": "https://finance.daum.net/"})
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        data = json.loads(resp.read().decode("utf-8", "replace"))
+
+    def _do():
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return json.loads(resp.read(MAX_RESPONSE_BYTES).decode("utf-8", "replace"))
+
+    data = run_with_timeout(_do, timeout + 2.0, label=f"daum:{code}")
     return parse_daum_fundamental(data)
 
 
 def refresh_fundamentals(codes, previous: dict, today: str,
-                         workers: int = 8, budget: int | None = None) -> dict:
+                         workers: int = 8, budget: int | None = None,
+                         budget_seconds: float | None = None) -> dict:
     """시가총액 상위 국내 종목의 PER/PBR/EPS/BPS를 하루 1회 갱신한다.
 
     previous: 이전 stock_fundamentals.json ({"date": ..., "items": {code: {...}}})
+    시간 예산을 넘기면 남은 종목은 다음 실행에서 이어 받는다(complete=False).
     """
-    from concurrent.futures import ThreadPoolExecutor
+    from concurrent.futures import (ThreadPoolExecutor, TimeoutError as FutureTimeout,
+                                    as_completed)
 
     prev_items = dict(previous.get("items") or {})
     targets = [c for c in codes if (prev_items.get(c) or {}).get("d") != today]
     if budget is not None:
         targets = targets[:budget]
     if not targets:
-        return {"date": today, "items": prev_items}
+        return {"date": today, "items": prev_items, "complete": True}
+
+    seconds = FUND_BUDGET_SECONDS if budget_seconds is None else float(budget_seconds)
+    deadline = time.monotonic() + max(1.0, min(seconds, budget_left()))
 
     def one(code):
+        if time.monotonic() >= deadline:
+            return code, None
         for attempt in range(2):
             try:
                 f = fetch_daum_fundamental(code)
@@ -866,18 +1044,32 @@ def refresh_fundamentals(codes, previous: dict, today: str,
                     return code, None
                 f["d"] = today
                 return code, f
-            except Exception:
-                time.sleep(0.4 * (attempt + 1))
+            except Exception:  # noqa: BLE001 - 개별 종목 실패는 전체를 멈추지 않는다
+                if attempt == 0 and time.monotonic() < deadline:
+                    time.sleep(0.4)
         return code, None
 
     done = 0
-    with ThreadPoolExecutor(max_workers=workers) as ex:
-        for code, f in ex.map(one, targets):
+    pool = ThreadPoolExecutor(max_workers=workers)
+    try:
+        futures = {pool.submit(one, code): code for code in targets}
+        for fut in as_completed(futures,
+                                timeout=max(0.5, deadline - time.monotonic())):
+            try:
+                code, f = fut.result()
+            except Exception:  # noqa: BLE001
+                continue
             done += 1
             if f:
                 prev_items[code] = f
-    print(f"[universe] 재무지표 갱신 {done}건 (시도 {len(targets)})", file=sys.stderr)
-    return {"date": today, "items": prev_items}
+    except FutureTimeout:
+        log(f"[universe] 재무지표 수집 시간 예산({seconds:.0f}초) 소진 — 나머지는 다음 실행에서")
+    finally:
+        pool.shutdown(wait=False, cancel_futures=True)
+
+    complete = all((prev_items.get(c) or {}).get("d") == today for c in codes)
+    log(f"[universe] 재무지표 갱신 {done}건 (시도 {len(targets)}, 오늘 완료={complete})")
+    return {"date": today, "items": prev_items, "complete": complete}
 
 
 def build_universe(kr: dict, us: dict, funds: dict, us_funds: dict | None = None) -> dict:
@@ -997,15 +1189,21 @@ def collect_company_news(universe: dict, previous: dict, force: bool = False) ->
     selected = list(targets.keys()) if force else select_company_news_targets(targets, previous)
     errors = []
     fetched = 0
+    deadline = time.monotonic() + max(1.0, min(NEWS_BUDGET_SECONDS, budget_left()))
     for code in selected:
+        if time.monotonic() >= deadline:
+            log("[company-news] 시간 예산 소진 — 남은 종목은 다음 실행에서")
+            errors.append("기업 뉴스 시간 예산 소진 — 남은 종목 다음 실행")
+            break
         name = targets.get(code) or code
         try:
             arts = fetch_news_for(name, max_age_days=10, limit=8,
                                   require_tokens=keyword_tokens(name))
         except Exception as e:
+            log(f"[warn] {name} 뉴스 수집 실패: {e}")
             errors.append(f"{name} 뉴스 수집 실패: {e}")
             continue
-        time.sleep(0.4)
+        _pace_sleep(0.4, deadline)
         fetched += 1
         prev_companies[code] = {
             "name": name,
@@ -1043,48 +1241,70 @@ def parse_us_fundamentals(summary: dict, quarter: dict) -> dict | None:
     return {"eps": eps, "pbr": pbr}
 
 
-def fetch_us_fundamental(reuters_code: str, timeout: int = 12) -> dict | None:
+def fetch_us_fundamental(reuters_code: str, timeout: float | None = None) -> dict | None:
+    timeout = HTTP_TIMEOUT if timeout is None else float(timeout)
     base = f"https://api.stock.naver.com/stock/{reuters_code}"
     try:
-        summary = get_json(f"{base}/finance/summary")
+        summary = get_json(f"{base}/finance/summary", timeout=timeout, max_seconds=timeout + 3)
     except Exception:
         summary = {}
     try:
-        quarter = get_json(f"{base}/finance/quarter")
+        quarter = get_json(f"{base}/finance/quarter", timeout=timeout, max_seconds=timeout + 3)
     except Exception:
         quarter = {}
     return parse_us_fundamentals(summary, quarter)
 
 
 def refresh_us_fundamentals(us: dict, previous: dict, today: str,
-                            workers: int = 6, limit: int = US_FUND_LIMIT) -> dict:
-    """시가총액 상위 미국 종목의 TTM EPS·PBR을 하루 1회 갚신한다."""
-    from concurrent.futures import ThreadPoolExecutor
+                            workers: int = 6, limit: int = US_FUND_LIMIT,
+                            budget_seconds: float | None = None) -> dict:
+    """시가총액 상위 미국 종목의 TTM EPS·PBR을 하루 1회 갱신한다."""
+    from concurrent.futures import (ThreadPoolExecutor, TimeoutError as FutureTimeout,
+                                    as_completed)
 
     prev_items = dict(previous.get("items") or {})
     ranked = sorted(us.items(), key=lambda kv: (-(kv[1].get("mcap") or 0), kv[0]))[:limit]
-    targets = [(sym, e.get("reuters") or sym) for sym, e in ranked]
+    targets = [(sym, e.get("reuters") or sym) for sym, e in ranked
+               if (prev_items.get(sym) or {}).get("d") != today]
     if not targets:
-        return {"date": today, "items": prev_items}
+        return {"date": today, "items": prev_items, "complete": True}
+
+    seconds = FUND_BUDGET_SECONDS if budget_seconds is None else float(budget_seconds)
+    deadline = time.monotonic() + max(1.0, min(seconds, budget_left()))
 
     def one(item):
         sym, reuters = item
+        if time.monotonic() >= deadline:
+            return sym, None
         try:
             f = fetch_us_fundamental(reuters)
             if f:
                 f["d"] = today
             return sym, f
-        except Exception:
+        except Exception:  # noqa: BLE001
             return sym, None
 
     done = 0
-    with ThreadPoolExecutor(max_workers=workers) as ex:
-        for sym, f in ex.map(one, targets):
+    pool = ThreadPoolExecutor(max_workers=workers)
+    try:
+        futures = {pool.submit(one, item): item[0] for item in targets}
+        for fut in as_completed(futures,
+                                timeout=max(0.5, deadline - time.monotonic())):
+            try:
+                sym, f = fut.result()
+            except Exception:  # noqa: BLE001
+                continue
             done += 1
             if f:
                 prev_items[sym] = f
-    print(f"[universe] 미국 재무지표 갱신 {done}건", file=sys.stderr)
-    return {"date": today, "items": prev_items}
+    except FutureTimeout:
+        log(f"[universe] 미국 재무지표 시간 예산({seconds:.0f}초) 소진 — 나머지는 다음 실행에서")
+    finally:
+        pool.shutdown(wait=False, cancel_futures=True)
+
+    complete = all((prev_items.get(s) or {}).get("d") == today for s, _ in targets)
+    log(f"[universe] 미국 재무지표 갱신 {done}건 (시도 {len(targets)}, 오늘 완료={complete})")
+    return {"date": today, "items": prev_items, "complete": complete}
 
 
 def collect_universe(fund_state: dict, us_fund_state: dict, prev_universe: dict) -> tuple:
@@ -1117,7 +1337,8 @@ def collect_universe(fund_state: dict, us_fund_state: dict, prev_universe: dict)
             errors.append("직전 미국 종목 시세로 유지")
 
     today = now_kst().strftime("%Y-%m-%d")
-    if kr and now_kst().hour >= UNIVERSE_FUND_MIN_HOUR and (fund_state.get("date") != today):
+    if kr and now_kst().hour >= UNIVERSE_FUND_MIN_HOUR and (
+            fund_state.get("date") != today or fund_state.get("complete") is False):
         # 시가총액 상위 종목만 재무지표 대상으로 삼는다
         ranked = sorted(kr.items(), key=lambda kv: (-(kv[1].get("mcap_eok") or 0), kv[0]))
         codes = [c for c, e in ranked[:UNIVERSE_FUND_LIMIT]]
@@ -1126,7 +1347,8 @@ def collect_universe(fund_state: dict, us_fund_state: dict, prev_universe: dict)
         except Exception as e:
             errors.append(f"재무지표 갱신 실패: {e}")
 
-    if us and now_kst().hour >= UNIVERSE_FUND_MIN_HOUR and (us_fund_state.get("date") != today):
+    if us and now_kst().hour >= UNIVERSE_FUND_MIN_HOUR and (
+            us_fund_state.get("date") != today or us_fund_state.get("complete") is False):
         try:
             us_fund_state = refresh_us_fundamentals(us, us_fund_state, today)
         except Exception as e:
@@ -1174,28 +1396,42 @@ def collect_market(cfg: dict, previous: dict) -> dict:
         market["stocks"].update(fetch_domestic_stocks(kr_codes))
     except Exception as e:
         errors.append(f"국내 주가 수집 실패: {e}")
+        log(f"[warn] 국내 주가 수집 실패: {e}")
 
     try:
         market["stocks"].update(fetch_world_stocks(cfg["us_stocks"]))
     except Exception as e:
         errors.append(f"해외 주가 수집 실패: {e}")
+        log(f"[warn] 해외 주가 수집 실패: {e}")
 
     try:
         market["indices"].update(fetch_domestic_index(cfg["kr_indices"]))
     except Exception as e:
         errors.append(f"국내 지수 수집 실패: {e}")
+        log(f"[warn] 국내 지수 수집 실패: {e}")
 
     try:
         market["indices"].update(fetch_world_index(cfg["us_indices"]))
     except Exception as e:
         errors.append(f"해외 지수 수집 실패: {e}")
+        log(f"[warn] 해외 지수 수집 실패: {e}")
 
-    market["rates"] = fetch_rates(cfg["rates"])
+    try:
+        market["rates"] = fetch_rates(cfg["rates"])
+    except Exception as e:  # noqa: BLE001
+        market["rates"] = {}
+        errors.append(f"금리 수집 실패: {e}")
+        log(f"[warn] 금리 수집 실패: {e}")
     if not market["rates"]:
         errors.append("금리 수집 실패")
         market["rates"] = previous.get("market", {}).get("rates") or {}
 
-    market["fx"] = fetch_fx(cfg["fx"])
+    try:
+        market["fx"] = fetch_fx(cfg["fx"])
+    except Exception as e:  # noqa: BLE001
+        market["fx"] = {}
+        errors.append(f"환율 수집 실패: {e}")
+        log(f"[warn] 환율 수집 실패: {e}")
     if not market["fx"]:
         errors.append("환율 수집 실패")
         market["fx"] = previous.get("market", {}).get("fx") or {}
@@ -1233,25 +1469,40 @@ def collect_market(cfg: dict, previous: dict) -> dict:
     return market
 
 
-def _paced_fetch(state: dict, query: str, max_age: int, limit: int) -> list:
-    if state["fetched"]:
-        time.sleep(2.5)
-    state["fetched"] += 1
-    return fetch_news_for(query, max_age, limit)
+def _pace_sleep(seconds: float, deadline: float | None = None) -> None:
+    """요청 사이 간격. 남은 예산보다 길게 잠들지 않는다."""
+    if deadline is not None:
+        seconds = min(seconds, max(0.0, deadline - time.monotonic()))
+    if seconds > 0:
+        time.sleep(seconds)
 
 
 def _refresh_entry(prev, query, reuse, max_age, limit, errors, label, force, state,
-                   require_tokens=None):
-    """캐시가 신선하면 재사용, 아니면 실제 수집. 실패하면 직전 값 유지(stale)."""
+                   require_tokens=None, deadline: float | None = None):
+    """캐시가 신선하면 재사용, 아니면 실제 수집. 실패하면 직전 값 유지(stale).
+
+    deadline 을 넘기면 더 이상 수집하지 않고 직전 값을 그대로 쓴다 — 뉴스는
+    부가 정보이므로 전체 실행을 붙잡을 가치가 없다.
+    """
     if prev and not force and is_fresh(prev.get("fetched_at"), reuse) and prev.get("articles"):
         return prev
+    if deadline is not None and time.monotonic() >= deadline:
+        log(f"[news] 시간 예산 소진 — '{label}' 수집 건너뜀(직전 값 유지)")
+        errors.append(f"뉴스 수집 시간 예산 소진({label}) — 직전 값 유지")
+        if prev:
+            carried = dict(prev)
+            carried["stale"] = True
+            return carried
+        return None
     try:
         if state.get("fetched"):
-            time.sleep(2.5)
+            _pace_sleep(2.5, deadline)
         state["fetched"] = state.get("fetched", 0) + 1
+        log(f"[news] 수집: {label}")
         arts = fetch_news_for(query, max_age, limit, require_tokens)
         return {"query": query, "articles": arts, "fetched_at": iso_kst(now_kst())}
     except Exception as e:
+        log(f"[warn] 뉴스 수집 실패({label}): {e}")
         errors.append(f"뉴스 수집 실패({label}): {e}")
         if prev:
             carried = dict(prev)
@@ -1271,6 +1522,8 @@ def collect_news(cfg: dict, previous: dict, stock_names: dict | None = None,
     limit = int(cfg.get("news_per_keyword", 30))
     state = {"fetched": 0}
     errors = []
+    # 뉴스는 부가 정보 — 정해진 시간 안에서만 수집하고, 넘기면 캐시를 그대로 쓴다.
+    deadline = time.monotonic() + max(1.0, min(NEWS_BUDGET_SECONDS, budget_left()))
 
     # 1) 기본 키워드 트레이스
     keywords = {}
@@ -1280,7 +1533,8 @@ def collect_news(cfg: dict, previous: dict, stock_names: dict | None = None,
         entry = _refresh_entry(prev_kw.get(label), query,
                                int(cfg.get("news_reuse_minutes", 20)),
                                max_age, limit, errors, label, force, state,
-                               kw.get("require") or keyword_tokens(label))
+                               kw.get("require") or keyword_tokens(label),
+                               deadline=deadline)
         if entry:
             entry = dict(entry)
             entry.update({"keyword": label, "id": kw.get("id")})
@@ -1293,7 +1547,8 @@ def collect_news(cfg: dict, previous: dict, stock_names: dict | None = None,
         query = sec.get("query") or tag
         entry = _refresh_entry(prev_sectors.get(tag), query,
                                int(cfg.get("sector_reuse_minutes", 60)),
-                               max_age, 15, errors, tag, force, state)
+                               max_age, 15, errors, tag, force, state,
+                               deadline=deadline)
         if entry:
             entry = dict(entry)
             entry["tag"] = tag
@@ -1317,7 +1572,8 @@ def collect_news(cfg: dict, previous: dict, stock_names: dict | None = None,
     for code, query in company_queries.items():
         prev = prev_companies.get(code)
         if code in selected:
-            entry = _refresh_entry(prev, query, 0, max_age, 8, errors, query, True, state)
+            entry = _refresh_entry(prev, query, 0, max_age, 8, errors, query, True, state,
+                                   deadline=deadline)
         else:
             entry = prev
         if entry:
@@ -1340,7 +1596,7 @@ def collect_news(cfg: dict, previous: dict, stock_names: dict | None = None,
         prev = prev_pool.get(kw)
         if kw in selected_pool:
             entry = _refresh_entry(prev, kw, 0, max_age, 20, errors, kw, True, state,
-                                   keyword_tokens(kw))
+                                   keyword_tokens(kw), deadline=deadline)
         else:
             entry = prev
         if entry:
@@ -1348,6 +1604,7 @@ def collect_news(cfg: dict, previous: dict, stock_names: dict | None = None,
             entry["keyword"] = kw
             pool[kw] = entry
 
+    log(f"[news] 수집 {state['fetched']}회, 오류 {len(errors)}건 (소요 {elapsed_seconds():.0f}초)")
     return {"keywords": keywords, "sectors": sectors, "companies": companies,
             "pool": pool, "errors": errors}
 
@@ -1372,12 +1629,60 @@ def significant_change(old: dict, new: dict) -> bool:
     return strip(old) != strip(new)
 
 
+def _carry_market(prev_payload: dict) -> dict:
+    """수집이 통째로 실패해도 앱이 빈 화면이 되지 않도록 직전 파일 값으로 채운다."""
+    prev_payload = prev_payload or {}
+    prev_market = prev_payload.get("market") or {}
+    return {
+        "indices": prev_market.get("indices") or {},
+        "rates": prev_market.get("rates") or {},
+        "fx": prev_market.get("fx") or {},
+        "stocks": prev_payload.get("stocks") or prev_market.get("stocks") or {},
+        "session": prev_market.get("session") or {},
+        "policy_rates": prev_market.get("policy_rates") or {},
+        "errors": ["시세 수집 실패 — 직전 값 유지"],
+    }
+
+
+def _carry_news(prev_payload: dict) -> dict:
+    """뉴스 수집이 통째로 실패했을 때 직전 파일 값으로 채운다."""
+    prev_payload = prev_payload or {}
+    return {
+        "keywords": prev_payload.get("keywords") or {},
+        "sectors": prev_payload.get("sectors") or [],
+        "companies": prev_payload.get("companies") or {},
+        "pool": prev_payload.get("pool") or {},
+        "errors": ["뉴스 수집 실패 — 직전 값 유지"],
+    }
+
+
+def _timed(label: str, fn, fallback=None):
+    """구간을 돌리고 소요 시간을 로그로 남긴다. 실패해도 실행 전체가 멈추지 않는다."""
+    started = time.monotonic()
+    try:
+        return fn()
+    except Exception as e:  # noqa: BLE001 - 한 구간의 실패가 전체를 막지 않는다
+        log(f"[warn] {label} 실패: {type(e).__name__}: {e}")
+        return fallback() if callable(fallback) else fallback
+    finally:
+        log(f"[{label}] {time.monotonic() - started:.1f}초")
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true", help="파일 기록 없이 결과만 확인")
     parser.add_argument("--force-news", action="store_true", help="뉴스 캐시 무시하고 재수집")
     parser.add_argument("--skip-universe", action="store_true", help="전종목 인덱스 수집 생략(빠른 확인용)")
     args = parser.parse_args(argv)
+
+    # 출력을 라인 단위로 즉시 내보낸다 — Actions 로그에서 멈춘 지점을 바로 본다.
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(line_buffering=True)
+        except Exception:  # noqa: BLE001
+            pass
+    install_watchdog()
+    log(f"[start] 라이브 데이터 수집 시작 (예산 {RUN_BUDGET_SECONDS:.0f}초)")
 
     cfg = load_config()
     prev_market = load_json(MARKET_PATH, {})
@@ -1386,22 +1691,35 @@ def main(argv=None) -> int:
     fund_state = load_json(FUND_PATH, {})
     us_fund_state = dict(fund_state.get("us") or {})
 
-    market = collect_market(cfg, prev_market)
+    market = _timed("market", lambda: collect_market(cfg, prev_market),
+                    lambda: _carry_market(prev_market))
     stock_names = {code: (q or {}).get("name") for code, q in market["stocks"].items()}
-    news = collect_news(cfg, prev_news, stock_names, force=args.force_news)
+    news = _timed("news", lambda: collect_news(cfg, prev_news, stock_names,
+                                               force=args.force_news),
+                  lambda: _carry_news(prev_news))
 
     universe = None
     company_news = None
-    if not args.skip_universe:
-        universe, fund_state, us_fund_state = collect_universe(fund_state, us_fund_state, prev_universe)
-        if universe and universe.get("kr"):
+    if args.skip_universe:
+        pass
+    elif budget_left() <= 5:
+        log("[universe] 실행 예산 소진 — 전종목 인덱스 수집 건너뜀(직전 파일 유지)")
+    else:
+        try:
+            universe, fund_state, us_fund_state = _timed(
+                "universe", lambda: collect_universe(fund_state, us_fund_state, prev_universe))
+        except Exception as e:  # noqa: BLE001
+            log(f"[warn] 전종목 인덱스 수집 실패: {type(e).__name__}: {e}")
+            universe = None
+        if universe and universe.get("kr") and budget_left() > 8:
             try:
-                company_news = collect_company_news(
-                    universe, load_json(COMPANY_NEWS_PATH, {}))
+                company_news = _timed("company-news", lambda: collect_company_news(
+                    universe, load_json(COMPANY_NEWS_PATH, {})))
                 if company_news.get("errors"):
-                    print("[warn] " + "; ".join(company_news["errors"][:3]), file=sys.stderr)
-            except Exception as e:
-                print(f"[warn] 기업 뉴스 수집 실패: {e}", file=sys.stderr)
+                    log("[warn] " + "; ".join(company_news["errors"][:3]))
+            except Exception as e:  # noqa: BLE001
+                log(f"[warn] 기업 뉴스 수집 실패: {e}")
+                company_news = None
 
     generated = now_kst()
     market_payload = {
@@ -1486,8 +1804,10 @@ def main(argv=None) -> int:
             f.write("\n")
         with open(FUND_PATH, "w", encoding="utf-8") as f:
             json.dump({"date": fund_state.get("date"),
+                       "complete": fund_state.get("complete"),
                        "items": fund_state.get("items") or {},
                        "us": {"date": us_fund_state.get("date"),
+                              "complete": us_fund_state.get("complete"),
                               "items": us_fund_state.get("items") or {}}},
                       f, ensure_ascii=False, separators=(",", ":"))
             f.write("\n")
@@ -1500,9 +1820,10 @@ def main(argv=None) -> int:
                       f, ensure_ascii=False, separators=(",", ":"))
             f.write("\n")
 
+    log(f"[done] 생성 {market_payload['generated_at']} · 변경감지={changed} · 소요 {elapsed_seconds():.0f}초")
     print(json.dumps({"counts": counts, "changed": changed,
                       "headline": market_payload["briefing"]["headline"]},
-                     ensure_ascii=False))
+                     ensure_ascii=False), flush=True)
     # 워크플로가 커밋 여부를 판단할 수 있도록 출력 파일로도 남긴다
     meta_path = os.path.join(DATA_DIR, ".last_run.json")
     with open(meta_path, "w", encoding="utf-8") as f:
