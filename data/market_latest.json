@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generated_at": "2026-11-22T08:30:46+09:00",
- "generated_at_kst": "2026-11-22(일) 08:30",
+ "generated_at": "2026-11-22T12:23:37+09:00",
+ "generated_at_kst": "2026-11-22(일) 12:23",
  "source": "네이버 금융 실시간 (polling.finance.naver.com)",
  "market": {
   "indices": {
@@ -478,7 +478,7 @@
     "url": "https://markets.newyorkfed.org/api/rates/unsecured/effr/last/1.json",
     "status": "ok",
     "stale": false,
-    "checked_at": "2026-11-22T08:27:16+09:00"
+    "checked_at": "2026-11-22T12:22:04+09:00"
    },
    "KR": {
     "rate": 3.0,
@@ -487,7 +487,7 @@
     "url": "https://www.bok.or.kr/portal/singl/baseRate/list.do?dataSeCd=01&menuNo=200643",
     "status": "ok",
     "stale": false,
-    "checked_at": "2026-11-22T08:27:16+09:00"
+    "checked_at": "2026-11-22T12:22:04+09:00"
    }
   },
   "session": {
@@ -858,24 +858,24 @@
   "sector_news": [
    {
     "tag": "반도체",
-    "text": "수출 1조달러 돌파에도 반도체 쏠림…삼양식품·실리콘투·현대로템이 주목받는 이유",
+    "text": "수출 1조달러 한국... 반도체 의존도 최고 수준",
     "date": "2026-11-22",
-    "source": "핀포인트뉴스",
-    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1lQzBSNmtrc0Y5T19YV19iTWVwbGFCZ2tVY0lpdGlxQk1SenZUUURvS1JwaW5GUWNlVlhyRXA0YW94YmszTTdBQ3NsVTByVkVEeDRkcEp5ZThRbmFBckYyVHdGV1FGdmR3UndxZzhyUGxnZ2fSAXdBVV95cUxOU012QlJqdWVQcWtReU5XUWsxVngxUUN0Z29KcDdCbFpwMlBVWmlQM0pqallmeHlWdXd6X19UUG1MVTk3ZHg0ckFwMnhNY1hoR1RheEVOV0oxR3NrRVpFR3RJNXdiYnFUbHROQlF0Z0c0U3M5WVZxZw?oc=5"
+    "source": "여성신문",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1IS1I5M2M5Z1dYa2JnYU05aFNsd0FXeE9kLTM3aEVXa2NUVlJkcGlQTWZ1MXRDbW9DVTF2YzNyWFUtYTU2d05wSjZNZGVUTUN4ZmphdkptSHlNZ3RMUktBVDZPaGtWSnNmeUV4LVNXVdIBc0FVX3lxTE5xVTQ2VlZ4RTR2anp6ZEM1S1JuLXFfSVpzRmc5T0tENFdGSzlISlk3Qm1ZZ1JraU9fVmVnZzRCM19wSHE4SDZ6WVFjaFpBMThHZlFxdXhuWmpfQzFyVE1reWZ0M0FNdFdMZ0xSMkJ6MlhIU1k?oc=5"
    },
    {
     "tag": "국내증시",
-    "text": "[증시전망] 5000선마저 무너진 코스피...금리·외국인 수급이 관건",
+    "text": "엔비디아 호실적도 안 통했다…5000선 무너진 코스피, 반등 변수는 '금리·외국인'",
     "date": "2026-11-22",
-    "source": "디지털투데이",
-    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1rZ3VJZlFVRVo4dW1PSnVoTUctckp6MldCcVFEc0R1WEJiVUw3UHBMQnFmZkRjT2NPN2plSmNZR195VnFBcWt6eHFqbEs0bDVhTHBTQTdEeExmSkd3WlpsQkI0OE5WUVBhVjhQMjhKMG5ud0U?oc=5"
+    "source": "신아일보",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE40blUwd3BQbUg0ejBqZzBwbFMzZ29FZmROVVdBV2ptaF9udDBGT252ODdSZ2w1cUhYT1VyUnlJR2I4ZHI0Vm1taktXeTNvYkQ5c29wYXhkX3BCVmNjNS1IMElUTjRGelJVQmdxZWpZMTQ?oc=5"
    },
    {
     "tag": "AI",
-    "text": "[美 AI 투자 시험대] ③ 빚으로 쌓은 AI, 회사채만 4890억달러…고금리에 '부메랑'",
+    "text": "오라클 \"오픈AI 데이터센터 계약 자금 확보 완료\"…추가 조달 우려 반박",
     "date": "2026-11-22",
-    "source": "뉴스핌",
-    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9JTVVZTGJwVnM2aDZGTk4tWkptMS1Ddy1Sb3VfbEZOc2NmN0FMRFBOSEtaZVBoZVYxQVlhM1J5MlFNV0JuTnU5STJHNHpPQnFMUF9MdXcwRGVKZE52?oc=5"
+    "source": "AI타임스",
+    "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBJMkpKY1JIbDhFaGpPdDlFR29DRTJvYzdBejRVZEhPVDlQYXFjNHRRTW04a3piNk44Q2NIS1RLTklQMUR6R1U2QW5JdEpGRWpENklVaU5TdU41UzUwUnhTNmN0QWVVMmxKckE?oc=5"
    }
   ]
  }
