@@ -2537,6 +2537,20 @@ function renderCompanyDetails(code, triggerFlash) {
     } else {
       newsList.innerHTML = '<li style="color:#8b949e;">최근 10일 안에 이 종목을 다룬 기사를 찾지 못했습니다.</li>';
     }
+    // SAVE 연동 기사: 최신 구글 기사에 밀려 잘릴 수 있으므로 종목 태깅 기사를 2건까지 덧붙인다
+    const shown = {};
+    picked.forEach(function (a) { shown[normalizeKeyword(a.title)] = true; });
+    const saveOwn = saveNewsList().filter(function (a) {
+      return (a.companies || []).indexOf(code) !== -1 && !shown[normalizeKeyword(a.title)];
+    }).slice(0, 2);
+    if (saveOwn.length) {
+      newsList.innerHTML += saveOwn.map(function (a) {
+        return '<li>' + saveBadgeHtml(a.badge, true) + ' ' +
+          '<a href="' + escapeHtml(a.url) + '" target="_blank" rel="noopener" style="color:#c9d1d9; text-decoration:none;">' +
+          escapeHtml(a.title) + '</a> <span style="color:#8b949e; font-size:0.75rem;">(' +
+          escapeHtml(a.source) + ' · ' + escapeHtml(a.date) + ')</span></li>';
+      }).join('');
+    }
     if (!picked.length) {
       if (!LIVE.companyNews.at) loadCompanyNews();
       else hydrateCompanyNews(code);
