@@ -14,7 +14,7 @@ const MARKET_PATH = 'data/market_latest.json';
 const NEWS_PATH = 'data/news_latest.json';
 const REMOTE_BASE = 'https://kthink79.github.io/stock-briefing-app/';
 const CACHE_KEY = 'stock_live_cache_v3';
-const TRACE_STORAGE_VERSION = 'v7.2_20261117_relevance2';
+const TRACE_STORAGE_VERSION = 'v7.3_20261123_save';
 const STALE_MS = 15 * 60 * 1000;      // 15분 지난 데이터는 '스냅샷'으로 표시
 const MARKET_WATCH_MS = 5 * 60 * 1000; // 5분마다 시세 파일 재확인
 const TRACE_REFRESH_MS = 30 * 60 * 1000;
@@ -501,8 +501,9 @@ function renderLiveStatus() {
       (function () {
         const save = LIVE.news && LIVE.news.save;
         if (!save || save.status === 'disabled') return '';
-        const label = save.status === 'live' ? '실시간' : (save.status === 'cached' ? '저장 스냅샷' : '연동 대기');
-        const color = save.status === 'live' ? '#3fb950' : (save.status === 'cached' ? '#d29922' : '#8b949e');
+        const age = saveAgeLabel(save);
+        const label = save.status === 'unavailable' ? '연동 대기' : age.text;
+        const color = save.status === 'unavailable' ? '#8b949e' : age.color;
         return '<div>· SAVE 연동: <strong style="color:' + color + ';">' + escapeHtml(label) + '</strong> · 기사 ' +
           (save.count || 0) + '건' + (save.fetched_at ? ' (기준 ' + escapeHtml(fmtFullStamp(save.fetched_at)) + ')' : '') + '</div>';
       })() +
@@ -656,6 +657,16 @@ function savePayload() {
 function saveNewsList() {
   const save = savePayload();
   return (save && Array.isArray(save.news)) ? save.news : [];
+}
+
+function saveAgeLabel(save) {
+  // SAVE 데이터 신선도를 '몇 분/몇 시간 전'으로 보여준다(상태 문자열보다 실제 경과가 정확하다)
+  const at = save && save.fetched_at ? Date.parse(save.fetched_at) : NaN;
+  if (isNaN(at)) return { text: '시각 정보 없음', color: '#8b949e', stale: true };
+  const mins = Math.max(0, Math.round((Date.now() - at) / 60000));
+  if (mins <= 90) return { text: mins < 1 ? '방금 수집' : '최신 · ' + mins + '분 전', color: '#3fb950', stale: false };
+  const hours = Math.round(mins / 60);
+  return { text: '스냅샷 · ' + hours + '시간 전', color: hours <= 24 ? '#d29922' : '#8b949e', stale: true };
 }
 
 function saveBadgeHtml(badge, small) {
@@ -1113,11 +1124,10 @@ function renderSaveStrip() {
   }
   el.style.display = 'block';
   const status = save.status || 'unavailable';
-  const meta = {
-    live: { label: '실시간 수집', color: '#3fb950', bg: 'rgba(63,185,80,0.12)' },
-    cached: { label: '저장 스냅샷', color: '#d29922', bg: 'rgba(210,153,34,0.12)' },
-    unavailable: { label: '연동 대기', color: '#8b949e', bg: 'rgba(139,148,158,0.12)' }
-  }[status] || { label: status, color: '#8b949e', bg: 'rgba(139,148,158,0.12)' };
+  const age = saveAgeLabel(save);
+  const meta = status === 'unavailable'
+    ? { label: '연동 대기', color: '#8b949e', bg: 'rgba(139,148,158,0.12)' }
+    : { label: age.text, color: age.color, bg: 'rgba(139,148,158,0.12)' };
 
   const top = (Array.isArray(save.top_stories) ? save.top_stories : []).slice(0, 4);
   const fallback = (Array.isArray(save.news) ? save.news : []).slice(0, 4);
