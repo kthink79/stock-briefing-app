@@ -655,8 +655,27 @@ function savePayload() {
 }
 
 function saveNewsList() {
-  const save = savePayload();
-  return (save && Array.isArray(save.news)) ? save.news : [];
+  // SAVE 기사 목록: 서버가 키워드·기업 버킷에 병합해 둔 origin='SAVE' 기사를 모은다
+  // (news.save.news 가 있으면 함께 포함). 같은 제목은 한 번만.
+  const news = LIVE.news;
+  if (!news) return [];
+  const out = [];
+  const seen = {};
+  const push = function (a) {
+    if (!a || a.origin !== 'SAVE') return;
+    const key = normalizeKeyword(a.title).slice(0, 40);
+    if (!key || seen[key]) return;
+    seen[key] = true;
+    out.push(a);
+  };
+  Object.keys(news.keywords || {}).forEach(function (k) {
+    ((news.keywords[k] || {}).articles || []).forEach(push);
+  });
+  Object.keys(news.companies || {}).forEach(function (c) {
+    ((news.companies[c] || {}).articles || []).forEach(push);
+  });
+  if (news.save && Array.isArray(news.save.news)) news.save.news.forEach(push);
+  return out;
 }
 
 function saveAgeLabel(save) {
