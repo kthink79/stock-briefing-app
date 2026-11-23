@@ -25,7 +25,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 349,
+     "view_count": 350,
      "summary": "",
      "keywords": [
       "엔비디아"
@@ -48,7 +48,7 @@
      "labels": [
       "정보"
      ],
-     "view_count": 29092,
+     "view_count": 29468,
      "summary": "파이낸셜타임스(FT)는 엔비디아 전 CEO 젠슨 황과 연인 관계로 알려진 중국인 사업가 앨리스 황이 미국의 수출 규제를 우회해 엔비디아 AI 반...",
      "keywords": [
       "엔비디아"
@@ -56,7 +56,7 @@
      "companies": [
       "NVDA"
      ],
-     "is_top_story": true
+     "is_top_story": false
     },
     {
      "keyword": "엔비디아",
@@ -92,7 +92,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 21673,
+     "view_count": 22227,
      "summary": "베센트 미 재무장관은 CBS '페이스 더 네이션' 인터뷰에서 엔비디아의 대중국 반도체 판매 의혹과 관련해 아직 명확한 답변을 얻지 못했다며, 엔...",
      "keywords": [
       "엔비디아"
@@ -113,7 +113,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 1190,
+     "view_count": 1194,
      "summary": "워싱턴, 11월 22일(로이터) - 스콧 베센트 재무장관은 일요일 트럼프 행정부가 엔비디아의 NVDA.O 칩 판매에 관한 정보를 여전히 필요로 ...",
      "keywords": [
       "엔비디아",
@@ -135,7 +135,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 1617,
+     "view_count": 1635,
      "summary": "3~9번째 문단에 베센트 발언과 배경 추가 캐서린 잭슨 기자 워싱턴, 11월 22일 (로이터) - 미국은 엔비디아 NVDA.O의 대중국 ...",
      "keywords": [
       "엔비디아"
@@ -649,6 +649,25 @@
    "articles": [
     {
      "keyword": "미국 이란 전쟁",
+     "title": "[칼럼] 유가의 이란 전쟁 회복세가 고질적인 디젤 부족을 가려: 부소",
+     "source": "로이터",
+     "url": "https://www.saveticker.com/news/news_Qf6CMl6rfl3p",
+     "date": "2026-11-23",
+     "time": "20:00",
+     "published_at": "2026-11-23T20:00:38+09:00",
+     "origin": "SAVE",
+     "badge": "SAVE",
+     "labels": [],
+     "view_count": 184,
+     "summary": "추가 구독자에게 변경 없이 재전송한다. 여기에 표현된 견해는 로이터 칼럼니스트인 필자의 견해다. 론 부소 런던, 11월 23일 (로이터)...",
+     "keywords": [
+      "미국 이란 전쟁"
+     ],
+     "companies": [],
+     "is_top_story": false
+    },
+    {
+     "keyword": "미국 이란 전쟁",
      "title": "[칼럼] 석유 시장의 이란 전쟁 이후 회복세가 끈질긴 디젤 부족을 가린다: 부소",
      "source": "로이터",
      "url": "https://www.saveticker.com/news/news_iAGB0DMsSAEH",
@@ -679,14 +698,14 @@
      "labels": [
       "속보"
      ],
-     "view_count": 22129,
+     "view_count": 29803,
      "summary": "트럼프 대통령은 폭스뉴스 인터뷰에서 이란과의 간접 협상이 계속 진행 중임을 시사함 - 그러면서도 합의가 이뤄지지 않을 경우 새해 이후 이란을...",
      "keywords": [
       "미국 이란 전쟁",
       "트럼프"
      ],
      "companies": [],
-     "is_top_story": false
+     "is_top_story": true
     },
     {
      "keyword": "이란",
@@ -1014,7 +1033,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 1190,
+     "view_count": 1194,
      "summary": "워싱턴, 11월 22일(로이터) - 스콧 베센트 재무장관은 일요일 트럼프 행정부가 엔비디아의 NVDA.O 칩 판매에 관한 정보를 여전히 필요로 ...",
      "keywords": [
       "엔비디아",
@@ -1038,14 +1057,14 @@
      "labels": [
       "속보"
      ],
-     "view_count": 22129,
+     "view_count": 29803,
      "summary": "트럼프 대통령은 폭스뉴스 인터뷰에서 이란과의 간접 협상이 계속 진행 중임을 시사함 - 그러면서도 합의가 이뤄지지 않을 경우 새해 이후 이란을...",
      "keywords": [
       "미국 이란 전쟁",
       "트럼프"
      ],
      "companies": [],
-     "is_top_story": false
+     "is_top_story": true
     },
     {
      "keyword": "트럼프",
@@ -1561,7 +1580,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 490,
+     "view_count": 578,
      "summary": "코스피 하락, 외국인 순매도 원화, 달러 대비 강세 한국 기준 국채 수익률 하락 정오 보고서는 L2N47400B를 클릭해 확인 서...",
      "keywords": [],
      "companies": [
@@ -1582,7 +1601,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 3399,
+     "view_count": 3417,
      "summary": "업데이트 1-한국, 코스피 10개월 만의 최저치 기록 후 시장 안정화 기금 준비 2문단에 발언 추가, 3문단부터 세부 내용과 맥락 추가 서울...",
      "keywords": [],
      "companies": [
@@ -1656,7 +1675,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 6777,
+     "view_count": 6781,
      "summary": "",
      "keywords": [],
      "companies": [
@@ -1675,7 +1694,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 2694,
+     "view_count": 2697,
      "summary": "정정-소프트뱅크 손 회장, SK하이닉스 1조 달러 인수 검토했다고 디인포메이션 보도 2문단의 주체를 회사가 아닌 손 회장으로 정정 11월 2...",
      "keywords": [],
      "companies": [
@@ -1694,7 +1713,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 4832,
+     "view_count": 4837,
      "summary": "11월 20일 (로이터) - 소프트뱅크의 손 마사요시, SK하이닉스의 1조 달러 규모 인수 검토 - 디 인포메이션 : 소프트뱅크의 손 마...",
      "keywords": [],
      "companies": [
@@ -1713,7 +1732,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 4620,
+     "view_count": 4628,
      "summary": "업데이트 1-소프트뱅크 손 회장, SK하이닉스 1조 달러 인수 검토…인포메이션 보도, 4문단부터 SK하이닉스·소프트뱅크의 답변 추가 11월 ...",
      "keywords": [],
      "companies": [
@@ -1732,7 +1751,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 3399,
+     "view_count": 3417,
      "summary": "업데이트 1-한국, 코스피 10개월 만의 최저치 기록 후 시장 안정화 기금 준비 2문단에 발언 추가, 3문단부터 세부 내용과 맥락 추가 서울...",
      "keywords": [],
      "companies": [
@@ -1754,14 +1773,14 @@
      "labels": [
       "정보"
      ],
-     "view_count": 18868,
+     "view_count": 20281,
      "summary": "파이낸셜타임스(FT)는 소식통을 인용해, 델·HPE·레노버·슈퍼마이크로 등 주요 서버 공급업체들이 계약 체결 수개월 뒤 실제 납품 시점에 엔비...",
      "keywords": [],
      "companies": [
       "MU",
       "000660"
      ],
-     "is_top_story": false
+     "is_top_story": true
     }
    ],
    "fetched_at": "2026-11-23T13:49:05+09:00",
@@ -1833,7 +1852,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 490,
+     "view_count": 578,
      "summary": "코스피 하락, 외국인 순매도 원화, 달러 대비 강세 한국 기준 국채 수익률 하락 정오 보고서는 L2N47400B를 클릭해 확인 서...",
      "keywords": [],
      "companies": [
@@ -2076,7 +2095,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 1490,
+     "view_count": 1496,
      "summary": "S&P 500이 조정장에 진입했음을 확인한 내용 추가, 4문단, 전반적인 시장 수치 업데이트 나스닥은 연초 이후 현재 2% 넘게 하락, 10...",
      "keywords": [],
      "companies": [
@@ -2096,7 +2115,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 1993,
+     "view_count": 1997,
      "summary": "최신 비트코인 움직임과 배경 추가 11월 21일(로이터) - 시가총액 기준 세계 최대 암호화폐인 비트코인은 토요일 장중 앞서 2년 만에 최저...",
      "keywords": [],
      "companies": [
@@ -2117,7 +2136,7 @@
      "labels": [
       "정보"
      ],
-     "view_count": 29092,
+     "view_count": 29468,
      "summary": "파이낸셜타임스(FT)는 엔비디아 전 CEO 젠슨 황과 연인 관계로 알려진 중국인 사업가 앨리스 황이 미국의 수출 규제를 우회해 엔비디아 AI 반...",
      "keywords": [
       "엔비디아"
@@ -2125,7 +2144,7 @@
      "companies": [
       "NVDA"
      ],
-     "is_top_story": true
+     "is_top_story": false
     },
     {
      "keyword": "엔비디아 실적",
@@ -2140,7 +2159,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 21673,
+     "view_count": 22227,
      "summary": "베센트 미 재무장관은 CBS '페이스 더 네이션' 인터뷰에서 엔비디아의 대중국 반도체 판매 의혹과 관련해 아직 명확한 답변을 얻지 못했다며, 엔...",
      "keywords": [
       "엔비디아"
@@ -2161,7 +2180,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 1190,
+     "view_count": 1194,
      "summary": "워싱턴, 11월 22일(로이터) - 스콧 베센트 재무장관은 일요일 트럼프 행정부가 엔비디아의 NVDA.O 칩 판매에 관한 정보를 여전히 필요로 ...",
      "keywords": [
       "엔비디아",
@@ -2183,7 +2202,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 1617,
+     "view_count": 1635,
      "summary": "3~9번째 문단에 베센트 발언과 배경 추가 캐서린 잭슨 기자 워싱턴, 11월 22일 (로이터) - 미국은 엔비디아 NVDA.O의 대중국 ...",
      "keywords": [
       "엔비디아"
@@ -2393,7 +2412,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 1490,
+     "view_count": 1496,
      "summary": "S&P 500이 조정장에 진입했음을 확인한 내용 추가, 4문단, 전반적인 시장 수치 업데이트 나스닥은 연초 이후 현재 2% 넘게 하락, 10...",
      "keywords": [],
      "companies": [
@@ -2459,14 +2478,14 @@
      "labels": [
       "정보"
      ],
-     "view_count": 18868,
+     "view_count": 20281,
      "summary": "파이낸셜타임스(FT)는 소식통을 인용해, 델·HPE·레노버·슈퍼마이크로 등 주요 서버 공급업체들이 계약 체결 수개월 뒤 실제 납품 시점에 엔비...",
      "keywords": [],
      "companies": [
       "MU",
       "000660"
      ],
-     "is_top_story": false
+     "is_top_story": true
     },
     {
      "keyword": "마이크론 테크놀로지 실적",
@@ -4973,10 +4992,51 @@
  "save": {
   "status": "live",
   "stale": false,
-  "fetched_at": "2026-11-23T17:07:05+09:00",
+  "fetched_at": "2026-11-23T21:05:54+09:00",
   "fetched_via": "browser-session",
   "count": 40,
   "top_stories": [
+   {
+    "keyword": "",
+    "title": "크라우드스트라이크, 지스케일러 439억 달러에 인수…전액 주식 교환 방식",
+    "source": "SAVE PICK",
+    "url": "https://www.saveticker.com/news/news_lXVs6tq3YGX4",
+    "date": "2026-11-23",
+    "time": "19:34",
+    "published_at": "2026-11-23T19:34:55+09:00",
+    "origin": "SAVE",
+    "badge": "SAVE PICK",
+    "labels": [
+     "속보"
+    ],
+    "view_count": 8679,
+    "summary": "크라우드스트라이크는 지스케일러를 인수하는 최종 계약을 체결했다고 밝힘 - 전액 주식 교환 방식이며 지스케일러 가치를 약 439억 달러로 평가...",
+    "keywords": [],
+    "companies": [],
+    "is_top_story": true
+   },
+   {
+    "keyword": "미국 이란 전쟁",
+    "title": "트럼프, 이란과 간접 협상 지속 시사…\"합의 없으면 새해 이후 타격 무게\"",
+    "source": "FOX뉴스",
+    "url": "https://www.saveticker.com/news/news_WZSdlgFcjt5T",
+    "date": "2026-11-23",
+    "time": "02:39",
+    "published_at": "2026-11-23T02:39:40+09:00",
+    "origin": "SAVE",
+    "badge": "SAVE PICK",
+    "labels": [
+     "속보"
+    ],
+    "view_count": 29803,
+    "summary": "트럼프 대통령은 폭스뉴스 인터뷰에서 이란과의 간접 협상이 계속 진행 중임을 시사함 - 그러면서도 합의가 이뤄지지 않을 경우 새해 이후 이란을...",
+    "keywords": [
+     "미국 이란 전쟁",
+     "트럼프"
+    ],
+    "companies": [],
+    "is_top_story": true
+   },
    {
     "keyword": "",
     "title": "이코노미스트 - 2027년 주목해야 할 10대 트렌드",
@@ -4991,32 +5051,31 @@
      "정보",
      "분석"
     ],
-    "view_count": 17964,
+    "view_count": 19924,
     "summary": "이코노미스트의 연례 전망서 '더 월드 어헤드 2027'을 맡은 톰 스탠디지 편집자는 2027년에 주목해야 할 10가지 주요 흐름을 제시함 포...",
     "keywords": [],
     "companies": [],
     "is_top_story": true
    },
    {
-    "keyword": "엔비디아",
-    "title": "(카더라) 앨리스 황, 엔비디아 AI 반도체 중국 밀반출망 연루 의혹",
+    "keyword": "",
+    "title": "(카더라) 델·HPE 등, 계약 체결 수개월 뒤 AI 서버 가격 최대 45% 인상 요구",
     "source": "파이낸셜타임스",
-    "url": "https://www.saveticker.com/news/news_Bl4bmL_LrlB6",
+    "url": "https://www.saveticker.com/news/news_kYms9hmh1qIr",
     "date": "2026-11-22",
-    "time": "15:42",
-    "published_at": "2026-11-22T15:42:47+09:00",
+    "time": "22:37",
+    "published_at": "2026-11-22T22:37:17+09:00",
     "origin": "SAVE",
     "badge": "SAVE PICK",
     "labels": [
      "정보"
     ],
-    "view_count": 29092,
-    "summary": "파이낸셜타임스(FT)는 엔비디아 전 CEO 젠슨 황과 연인 관계로 알려진 중국인 사업가 앨리스 황이 미국의 수출 규제를 우회해 엔비디아 AI 반...",
-    "keywords": [
-     "엔비디아"
-    ],
+    "view_count": 20281,
+    "summary": "파이낸셜타임스(FT)는 소식통을 인용해, 델·HPE·레노버·슈퍼마이크로 등 주요 서버 공급업체들이 계약 체결 수개월 뒤 실제 납품 시점에 엔비...",
+    "keywords": [],
     "companies": [
-     "NVDA"
+     "MU",
+     "000660"
     ],
     "is_top_story": true
    },
@@ -5033,33 +5092,29 @@
     "labels": [
      "일정"
     ],
-    "view_count": 23015,
+    "view_count": 23435,
     "summary": "",
     "keywords": [],
     "companies": [],
     "is_top_story": true
    },
    {
-    "keyword": "엔비디아",
-    "title": "(카더라) 미 SEC, 엔비디아 회계 문제 조사…잠재적 회계 처리 위반 여부에 초점",
-    "source": "로이터",
-    "url": "https://www.saveticker.com/news/news_slpnQtB48a7Z",
+    "keyword": "",
+    "title": "(카더라) 크라우드스트라이크, 사이버보안 업체 지스케일러 인수 협상 중",
+    "source": "블룸버그",
+    "url": "https://www.saveticker.com/news/news_NVehMpW5r7KZ",
     "date": "2026-11-21",
-    "time": "04:16",
-    "published_at": "2026-11-21T04:16:20+09:00",
+    "time": "06:07",
+    "published_at": "2026-11-21T06:07:00+09:00",
     "origin": "SAVE",
     "badge": "SAVE PICK",
     "labels": [
      "속보"
     ],
-    "view_count": 39980,
-    "summary": "로이터는 사안에 정통한 소식통을 인용해, 미국 증권거래위원회(SEC)가 엔비디아의 잠재적인 회계 처리 문제를 조사하고 있다고 보도함 - 앞서...",
-    "keywords": [
-     "엔비디아"
-    ],
-    "companies": [
-     "NVDA"
-    ],
+    "view_count": 6367,
+    "summary": "블룸버그 통신은 복수의 소식통을 인용해 사이버보안 기업 크라우드스트라이크가 지스케일러 인수를 위한 협상을 진행 중이라고 보도함 - 양사는 ...",
+    "keywords": [],
+    "companies": [],
     "is_top_story": true
    }
   ],
@@ -5561,7 +5616,7 @@
   },
   "added": {
    "keywords": 1,
-   "companies": 2
+   "companies": 0
   },
   "errors": [],
   "site": "https://www.saveticker.com"
