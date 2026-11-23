@@ -285,3 +285,27 @@ class SaveSnapshotPdfScriptTest(unittest.TestCase):
             self.assertEqual(mod.extract_save_json(path)["events"][0]["title"], "FOMC ★★★")
         finally:
             os.unlink(path)
+
+
+class SaveMergeRefreshTest(unittest.TestCase):
+    """같은 SAVE 기사가 새 스냅샷에서 출처·배지가 바뀌었을 때 갱신되는지."""
+
+    def test_existing_save_article_is_refreshed_not_duplicated(self):
+        old = {"keyword": "엔비디아", "title": "엔비디아 신제품 공개",
+               "source": "reuters(SAVE)", "badge": "SAVE·로이터", "origin": "SAVE",
+               "url": "https://www.saveticker.com/news/news_old",
+               "published_at": live.iso_kst(NOW - timedelta(hours=3))}
+        news = {"keywords": {"엔비디아": {"query": "엔비디아", "articles": [old]}},
+                "companies": {}, "errors": []}
+        art = live.parse_save_item(_raw(id="news_new", title="엔비디아 신제품 공개", source="reuters",
+                                        hours_ago=3),
+                                   live.save_keyword_rules(CFG), live.save_ticker_codes(CFG), now=NOW)
+        snap = {"status": "live", "fetched_at": live.iso_kst(NOW), "news": [art],
+                "top_stories": [], "calendar": [], "errors": []}
+        merged = live.merge_save_news(news, snap, CFG)
+        arts = merged["keywords"]["엔비디아"]["articles"]
+        self.assertEqual(len(arts), 1)
+        self.assertEqual(arts[0]["source"], "로이터")
+        self.assertEqual(arts[0]["badge"], "SAVE")
+        self.assertEqual(arts[0]["url"], "https://www.saveticker.com/news/news_new")
+        self.assertEqual(merged["save"]["added"]["keywords"], 0)

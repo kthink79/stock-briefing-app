@@ -1140,26 +1140,18 @@ def merge_save_news(news: dict, snapshot: dict, cfg: dict | None = None,
                 bucket = keyword_buckets.get(label)
                 if not bucket:
                     continue
-                if _bucket_has(bucket, art["title"]):
-                    continue
-                if sum(1 for a in bucket.get("articles") or [] if a.get("origin") == "SAVE") >= SAVE_PER_BUCKET:
-                    continue
                 merged = dict(art)
                 merged["keyword"] = label
-                bucket.setdefault("articles", []).insert(0, merged)
-                added["keywords"] += 1
+                if _bucket_put(bucket, merged):
+                    added["keywords"] += 1
             for code in art.get("companies") or []:
                 bucket = company_buckets.get(code)
                 if not bucket:
                     continue
-                if _bucket_has(bucket, art["title"]):
-                    continue
-                if sum(1 for a in bucket.get("articles") or [] if a.get("origin") == "SAVE") >= SAVE_PER_BUCKET:
-                    continue
                 merged = dict(art)
                 merged["keyword"] = bucket.get("query") or code
-                bucket.setdefault("articles", []).insert(0, merged)
-                added["companies"] += 1
+                if _bucket_put(bucket, merged):
+                    added["companies"] += 1
     news["save"] = {
         "status": snapshot.get("status") or "unavailable",
         "stale": bool(snapshot.get("stale")) or (snapshot.get("status") == "cached"),
@@ -1176,14 +1168,24 @@ def merge_save_news(news: dict, snapshot: dict, cfg: dict | None = None,
     return news
 
 
-def _bucket_has(bucket: dict, title: str) -> bool:
-    key = title_key(title)
-    if not key:
-        return True
-    for a in bucket.get("articles") or []:
-        if title_key(a.get("title") or "") == key:
-            return True
-    return False
+def _bucket_put(bucket: dict, article: dict) -> bool:
+    """버킷에 SAVE 기사를 넣는다. 같은 제목이 이미 있으면:
+
+    · 기존 기사도 SAVE 것이면 내용을 최신 스냅샷 값으로 갱신한다(출처·배지·시각 등)
+    · 구글 뉴스 기사면 중복이므로 건너뛴다
+    반환값은 '새로 추가했는가'.
+    """
+    key = title_key(article.get("title") or "")
+    articles = bucket.setdefault("articles", [])
+    for idx, a in enumerate(articles):
+        if key and title_key(a.get("title") or "") == key:
+            if a.get("origin") == "SAVE":
+                articles[idx] = dict(article, keyword=a.get("keyword") or article.get("keyword"))
+            return False
+    if sum(1 for a in articles if a.get("origin") == "SAVE") >= SAVE_PER_BUCKET:
+        return False
+    articles.insert(0, article)
+    return True
 
 
 # --------------------------------------------------------------------------
