@@ -118,5 +118,21 @@
  "company_reuse_minutes": 60,
  "company_per_run": 2,
  "pool_reuse_minutes": 120,
- "pool_per_run": 3
+ "pool_per_run": 3,
+ "save": {
+  "enabled": true,
+  "keywords": [
+   "엔비디아",
+   "HBM",
+   "미국 이란 전쟁",
+   "트럼프"
+  ],
+  "tickers": [
+   "005930.KR",
+   "000660.KR",
+   "012450.KR",
+   "NVDA"
+  ],
+  "note": "saveticker.com 알림 설정에 실제 등록된 관심 종목·키워드 (2026-11-23 슈탱구리 계정)"
+ }
 }

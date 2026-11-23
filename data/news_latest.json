@@ -4892,7 +4892,7 @@
  "save": {
   "status": "cached",
   "stale": true,
-  "fetched_at": "2026-11-23T13:43:14+09:00",
+  "fetched_at": "2026-11-23T13:51:03+09:00",
   "fetched_via": "browser-session",
   "count": 40,
   "top_stories": [
@@ -4918,7 +4918,7 @@
    {
     "keyword": "엔비디아",
     "title": "(카더라) 미 SEC, 엔비디아 회계 문제 조사…잠재적 회계 처리 위반 여부에 초점",
-    "source": "로이터 · SAVE",
+    "source": "로이터",
     "url": "https://www.saveticker.com/news/news_slpnQtB48a7Z",
     "date": "2026-11-21",
     "time": "04:16",
@@ -5518,27 +5518,14 @@
     "005930.KR",
     "000660.KR",
     "012450.KR",
-    "005380.KR",
-    "035420.KR",
-    "042700.KR",
-    "034020.KR",
-    "035720.KR",
-    "068270.KR",
-    "NVDA",
-    "TSLA",
-    "AAPL",
-    "AMD",
-    "AVGO",
-    "MU"
+    "NVDA"
    ]
   },
   "added": {
    "keywords": 0,
-   "companies": 6
+   "companies": 0
   },
-  "errors": [
-   "SAVE 직접 조회 불가: Cloudflare 봇 차단(Just a moment) — 익명 요청으로는 접근 불가"
-  ],
+  "errors": [],
   "site": "https://www.saveticker.com"
  },
  "errors": [],

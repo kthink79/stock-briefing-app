@@ -848,6 +848,18 @@ def save_ticker_codes(cfg: dict) -> dict:
     return out
 
 
+def save_interests(cfg: dict) -> tuple:
+    """SAVE 계정에 실제로 등록된 관심 키워드·종목.
+
+    config.json 의 save 블록이 기준이고, 없으면 트레이스 키워드와 추적 종목으로 대체한다.
+    (앱의 전체 추적 목록을 SAVE 관심 설정으로 보이게 하지 않기 위해 분리했다)
+    """
+    conf = cfg.get("save") or {}
+    keywords = conf.get("keywords") or [k.get("keyword") for k in (cfg.get("trace_keywords") or [])]
+    tickers = conf.get("tickers") or list(save_symbols(cfg).values())
+    return ([k for k in keywords if k], [t for t in tickers if t])
+
+
 def save_ticker_label(raw: dict) -> str:
     return str(raw.get("symbol") or "").upper()
 
@@ -864,13 +876,11 @@ def save_article_kind(raw: dict) -> str:
 
 
 def save_article_source(raw: dict) -> str:
-    """화면에 보일 출처 이름 — SAVE 편집 기사는 매체명, 로이터는 로이터."""
+    """화면에 보일 출처 — 매체명. SAVE 여부는 배지(SAVE/SAVE PICK)로 구분한다."""
     source = (raw.get("source") or "").strip()
     if not source:
         return "SAVE PICK" if (raw.get("channel") or "") == "save-pick" else "SAVE"
-    if source.lower() == "reuters":
-        return "로이터(SAVE)"
-    return f"{source} · SAVE"
+    return source
 
 
 def save_datetime(raw: dict) -> datetime | None:
@@ -1014,8 +1024,8 @@ def build_save_snapshot(payloads: dict, cfg: dict, fetched_at: str,
         "fetched_at": fetched_at,
         "fetched_via": payloads.get("via") or "live",
         "interests": {
-            "keywords": [k.get("keyword") for k in (cfg.get("trace_keywords") or [])],
-            "tickers": list(save_symbols(cfg).values()),
+            "keywords": save_interests(cfg)[0],
+            "tickers": save_interests(cfg)[1],
         },
         "count": len(items),
         "news": items,
@@ -1031,8 +1041,7 @@ def build_save_snapshot(payloads: dict, cfg: dict, fetched_at: str,
 
 def fetch_save_bundle(cfg: dict) -> dict:
     """SAVE API 4종 조회. 하나라도 차단되면 SaveFetchError 로 빠르게 실패한다."""
-    symbols = [s for s in save_symbols(cfg).values()]
-    keywords = [k.get("keyword") for k in (cfg.get("trace_keywords") or []) if k.get("keyword")]
+    keywords, symbols = save_interests(cfg)
     base = {"page": 1, "page_size": 20, "sort": "created_at_desc"}
     bundle = {}
     bundle["top"] = save_http_json(SAVE_TOP_URL)
@@ -1059,7 +1068,8 @@ def collect_save(cfg: dict, previous: dict | None) -> dict:
     어떤 경우에도 예외를 밖으로 던지지 않는다(부가 정보가 본 수집을 막지 않게).
     """
     previous = previous or {}
-    if cfg.get("save_enabled") is False:
+    conf = cfg.get("save") if isinstance(cfg.get("save"), dict) else {}
+    if cfg.get("save_enabled") is False or conf.get("enabled") is False:
         return {"schema": 1, "status": "disabled", "news": [], "top_stories": [],
                 "calendar": [], "count": 0, "errors": []}
     try:

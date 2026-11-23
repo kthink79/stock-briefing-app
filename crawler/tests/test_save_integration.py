@@ -247,3 +247,38 @@ class SaveFallbackTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SaveSnapshotPdfScriptTest(unittest.TestCase):
+    """브라우저 인쇄본(PDF) 텍스트 복원 — 스냅샷 재생성 스크립트."""
+
+    def _script(self):
+        import importlib.util as iu
+        path = os.path.join(ROOT, "scripts", "save_snapshot_from_pdfs.py")
+        spec = iu.spec_from_file_location("save_snapshot_from_pdfs", path)
+        mod = iu.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+
+    def test_repair_restores_json_text(self):
+        mod = self._script()
+        printed = ('{"news_list": [{"title": "엔비디아\x01실적\x01발표",'
+                   '"content": "본문\\n둘째줄"}]}\u0001pretty\x01print\x01적용\n'
+                   '{"id": 1}\npretty\x01print\x01적용')
+        repaired = mod.repair_text(printed)
+        self.assertNotIn("\x01", repaired)
+        self.assertNotIn("pretty", repaired)
+        self.assertNotIn("\n", repaired)
+        self.assertIn("엔비디아 실적 발표", repaired)
+
+    def test_extract_json_from_file(self):
+        import tempfile
+        mod = self._script()
+        payload = {"events": [{"id": "1", "title": "FOMC ★★★", "event_date": "2026-11-25T22:30:00"}]}
+        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False)
+            path = f.name
+        try:
+            self.assertEqual(mod.extract_save_json(path)["events"][0]["title"], "FOMC ★★★")
+        finally:
+            os.unlink(path)
