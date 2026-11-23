@@ -1167,7 +1167,8 @@ function renderSaveStrip() {
       '</div>' +
       '<div style="font-size:0.72rem; color:#8b949e; margin-bottom:8px;">' +
         (save.fetched_at ? '기준 ' + escapeHtml(fmtFullStamp(save.fetched_at)) : '수집 시각 정보 없음') +
-        (save.stale ? ' · 저장본(직접 조회 차단 시 마지막 성공 데이터)' : '') +
+        (save.fetched_via === 'browser-session' ? ' · SAVE 계정 세션에서 수집' : '') +
+        (age.stale ? ' · 직전 수집본' : '') +
       '</div>';
 
   if (items.length) {
