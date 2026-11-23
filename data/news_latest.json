@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-23T13:50:16+09:00",
+ "generated_at": "2026-11-23T13:54:56+09:00",
  "source": "Google News RSS (news.google.com) + SAVE(세이브티커)",
  "match": [
   "엔비디아",
@@ -1534,13 +1534,13 @@
     {
      "keyword": "삼성전자 실적",
      "title": "[2보] 코스피 10개월 만에 최저치 기록 후 한국, 시장 안정화 기금 준비",
-     "source": "로이터(SAVE)",
+     "source": "로이터",
      "url": "https://www.saveticker.com/news/news_ROtBc676qrdi",
      "date": "2026-11-22",
      "time": "20:14",
      "published_at": "2026-11-22T20:14:22+09:00",
      "origin": "SAVE",
-     "badge": "SAVE·로이터",
+     "badge": "SAVE",
      "labels": [],
      "view_count": 3367,
      "summary": "업데이트 1-한국, 코스피 10개월 만의 최저치 기록 후 시장 안정화 기금 준비 2문단에 발언 추가, 3문단부터 세부 내용과 맥락 추가 서울...",
@@ -1550,6 +1550,24 @@
       "005930"
      ],
      "is_top_story": false
+    },
+    {
+     "keyword": "삼성전자 실적",
+     "title": "무극선생 “삼성전자·SK하이닉스 손절 늦었다…내년 1월 초 실적이 변곡점”",
+     "source": "스페셜타임스",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9XcjVjR0dlMXNfUm9YQ2dneWE1Vzc5TE1YalZSWHFVTHdpQ1RpZnBZR1REb0VyLWNKTF9hSi1sVjRrS09DN3ljUDdIVWFvaE1pZzRwU3VNTUdrZjhVU2FjdjJTRkttQ0l2MGloQjFOV2FuUQ?oc=5",
+     "date": "2026-11-23",
+     "time": "11:09",
+     "published_at": "2026-11-23T11:09:53+09:00"
+    },
+    {
+     "keyword": "삼성전자 실적",
+     "title": "삼성전자·SK하이닉스 급락 후 낙폭 축소…AI 버블 우려에도 반도체 실적은 성장",
+     "source": "톱스타뉴스",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9HMncwUEVFZk9Yb0IydnFScW9falZHM0dlNWlOYm50ZlljOGdadWRlTG5pN3pIV2JVal9ZUlZQeDdxR0FiZFhjVWU0UlVlS2xnOHlhTUsySDBLSldqUjgxcng0WkdkZnkzTTZOU2cxNl9WQQ?oc=5",
+     "date": "2026-11-23",
+     "time": "09:29",
+     "published_at": "2026-11-23T09:29:03+09:00"
     },
     {
      "keyword": "삼성전자 실적",
@@ -1577,27 +1595,9 @@
      "date": "2026-11-23",
      "time": "01:09",
      "published_at": "2026-11-23T01:09:00+09:00"
-    },
-    {
-     "keyword": "삼성전자 실적",
-     "title": "AI로 호황이라더니⋯삼성전자 기부금 203억 늘릴 때 SK하이닉스 20% 줄여",
-     "source": "엠투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9hajZqZkd0dzY3dmZrNXdiSUR3MmlpUERLcnRXYlg5bWpTenFCNFRMRjNwM1NrOXZzQ1c1MkNUS3dPQ3JjQnNnaFpfSlk2SUVmdDc5VHZhR3VZRjhmallwTW9zMkJNRGdtU01VSVdvNA?oc=5",
-     "date": "2026-11-22",
-     "time": "17:40",
-     "published_at": "2026-11-22T17:40:02+09:00"
-    },
-    {
-     "keyword": "삼성전자 실적",
-     "title": "[오하은의 기업주주되기] 삼성전자 주식을 산다는 것…반도체부터 미래 성장동력까지",
-     "source": "하이뉴스",
-     "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1yUjNwMWZJQU1Jd1hKMGxBQzdTUFp5dDBtSWFCUFRtYVBvd2otUDgtY2JXdm02M3o1cEdQYjhhZlEtbDNabXc3TzZkZ3JfYU1HQkhyVEVfNlZZTVk4VEdfanI5bTlSZXRBYWIwMVczZ2F3NkNwUy1F?oc=5",
-     "date": "2026-11-22",
-     "time": "14:05",
-     "published_at": "2026-11-22T14:05:02+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T09:06:19+09:00",
+   "fetched_at": "2026-11-23T13:53:32+09:00",
    "code": "005930"
   },
   "000660": {
@@ -1874,15 +1874,6 @@
     },
     {
      "keyword": "카카오 실적",
-     "title": "[카카오家] 카카오 주가 왜 이러나?:인적분할과 소액주주 불신이 만든 딜레마",
-     "source": "https://www.climatepol.com/",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9Xel90NWFwb3Yydjd5ZVNGS19zTUdVMHZ4cUhaZnJSODRESnZLdzJrazBfOU9fSUc1Um40cjVnYWpRY1FPNEU3cEdTSm1ncTFXTXoxTWpVbEl6Ym1KUnl1YjF6ZDZ4dHQzOG5KRA?oc=5",
-     "date": "2026-11-21",
-     "time": "17:00",
-     "published_at": "2026-11-21T17:00:00+09:00"
-    },
-    {
-     "keyword": "카카오 실적",
      "title": "중소형 증권사 절반 이상 순익 감소…토스·카카오페이증권은 선방",
      "source": "녹색경제신문",
      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBDcWpUZkpwdkhKSnZkNXBHenRXTUtjcWdxR2FRaUNVVE12Z2ZfQmZ4b2s5Nks3M0tDNnFrQl9UQ0hPOGYxdTd2cWQ4MnFRSm44Y05oTTg0bjJwWHRSYUhUVWNqRndWYi1C?oc=5",
@@ -1892,33 +1883,42 @@
     },
     {
      "keyword": "카카오 실적",
-     "title": "카카오게임즈, ‘도깨비의세계’ 흥행 발판…내년 신작·해외 사업 확대",
-     "source": "지디넷코리아",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE8ySTVpWlhhR19IVF91TlNGY0gtRUhxSEdmNnJNcDhyN0tuQmFidlFFMmx1UjV4MEtzSU5rcC1YZzZHdmVQR2FtV0VPQlVWTmNocjd1LWd3?oc=5",
-     "date": "2026-11-17",
-     "time": "10:57",
-     "published_at": "2026-11-17T10:57:44+09:00"
+     "title": "카카오, 3분기 기준 최대실적…매출 6%·영업익 7% 증가",
+     "source": "동아일보",
+     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE14TjJJNU5laTA3TWZEV0thc1c1OGlJdGtVNE9ScGtFaUpGQzkwa0RoM25RYVVIQW4xOWZUYlFDM1dueGVmejVaV2RsUlVHWl9JVVhBMG1LR0JMNFhlb3kxYXVaUnhRaGdkMjBxQUx4WEtzQzJXdVHSAWZBVV95cUxOQW1jcU1jTkRpcEVrMEI0QnpMNHE3bzFmS1BuSHhYSjctS0Vhb0FMcTl0aG5GcTFvRzZfRkV2VUh5ZzFLUFZxLXFvNHJyQWhScXJMSWRtWGoxZ1N4U1VxSGdhLXNVNEE?oc=5",
+     "date": "2026-11-05",
+     "time": "17:00",
+     "published_at": "2026-11-05T17:00:00+09:00"
     },
     {
      "keyword": "카카오 실적",
-     "title": "매출만 키운 네이버, 이익만 늘린 카카오…엇갈린 실적 왜?",
-     "source": "한겨레",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBuSk9fRXNOMDlaX0tnaDdweVJqODRETGxmRUxsMWFJS09TcWptOU1hRERYam4ydzk2eHZYakk5RFY1X1RfenQ2cm9ycHlOWkg5ZmVrb2tXdU94UTVFZ0N1QQ?oc=5",
-     "date": "2026-11-12",
+     "title": "카카오 실적 이끈 광고·커머스… 내년 AI 앞세워 수익화 집중",
+     "source": "파이낸셜뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5ESkpreGhvbnR3U21vdDVYRkkxeXYxNjJLaUFVNC1FeUtPcGpPSkJmcFRYWFdmMW9kWTZXN1dDbEFydWRsaWJNbDBlc3FZS0dGT1A0aTl1ZUxuUQ?oc=5",
+     "date": "2026-11-05",
      "time": "17:00",
-     "published_at": "2026-11-12T17:00:00+09:00"
+     "published_at": "2026-11-05T17:00:00+09:00"
     },
     {
      "keyword": "카카오 실적",
-     "title": "최대 실적 카카오뱅크…ROE 15% 달성까지 과제 산적",
-     "source": "톱데일리",
-     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBMaGk3X2w2azFXRm54STNVTjltOC1BMkRnWGNKUnB0cXlVWlBuaFdUWmdKbHlfYUxSQk1kV1pNR0JEeHBQclZLcHFRdnBWdHd3?oc=5",
-     "date": "2026-11-06",
+     "title": "[특징주] 카카오, 실적 성장에 주주환원까지…장 초반 8%대 급등",
+     "source": "아주경제",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5MQnNVV0Q3NlZabTRMN0lzRXNrQUVkVWZNVDk4QXlKTVNnRDY3ckNGbEZNbDVqOGNFc1hScEwyZG53ZHVHWEwwQmVJN1hoVUs3NXFJX255Q2d5QdIBWEFVX3lxTE1yYXVUbGNIaXg4OFVxNVF1dWNuR05ldGFDZ1NzeW5jWHl3cXhQZkNKS2NjeHZGUENrbUtDU2ZTM0dvSG5fMXZSdWNySW12UWxNd0pZTFQxSEo?oc=5",
+     "date": "2026-11-05",
      "time": "17:00",
-     "published_at": "2026-11-06T17:00:00+09:00"
+     "published_at": "2026-11-05T17:00:00+09:00"
+    },
+    {
+     "keyword": "카카오 실적",
+     "title": "카카오 3분기 기준 최대 실적...1500억원 규모 자사주 매입·소각",
+     "source": "조선일보",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPM05nMjluUmk4VF9XTktxQ0FHbFlhZ1A0S0dfODBCczFhMmxMNWs2MjFTak5ZQ0ExdTAzLVloeHRGdHFhT3BiRnZIUTNRdHBrbnZtUUlFTXAwZWo1R3NYM2VuMktzbXZyN3Noay1fR2JyX1NueFlwYzh3Qkh4LVpsWW9WNA?oc=5",
+     "date": "2026-11-05",
+     "time": "17:00",
+     "published_at": "2026-11-05T17:00:00+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T08:50:58+09:00",
+   "fetched_at": "2026-11-23T13:53:35+09:00",
    "code": "035720"
   },
   "068270": {
@@ -2698,96 +2698,96 @@
    "articles": [
     {
      "keyword": "AI",
-     "title": "같은 심부전 치료제, 누구에게 더 효과적일까?… AI로 예측한다",
-     "source": "BRIC",
-     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5DYVJOdmtpeGd0dm84cUVnSHU0Mkd3TWZBVi1XU0RnWTZYY09VRFN4UHgtYmFkR1B4dFRGbWJFZzQxek1MY0ZsbzQwT045eERyMDFJYW9RdkQ5bTJaUGNHeDJSU2lTTV9KNXRKU21OcGFiTlBtckxSeEc2dDEtdw?oc=5",
+     "title": "“AI 성능에 상한선 두자”…오픈AI, 내년 AI 자체 개발 가속 우려",
+     "source": "동아일보",
+     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE16eUF0Y2paMHdUb0pzQldCY0tLR3ZUaUhfUDUtQklwNzBVZjZWWV82M0VucVpmMmZ5YndtTWFqUHRreXdvS1JFS2phVndfcHd0R1daUVF2VzZzSUJGdW0wb08zclZCdzNEbldxaTZpdjZWTVVTNWfSAWZBVV95cUxNNjYyVVFTandTdmlRcU1RSUtaRDlnN3VKN3lyX2NpTDdFZXJKOUE0Wllzd3J6dXVNd2sxakpMWi05T09vMjVSckV5SEVuMnZVWktFaEJiMldqajNGa0RtdDJxQ2g4aHc?oc=5",
      "date": "2026-11-23",
-     "time": "08:41",
-     "published_at": "2026-11-23T08:41:38+09:00"
+     "time": "13:39",
+     "published_at": "2026-11-23T13:39:25+09:00"
     },
     {
      "keyword": "AI",
-     "title": "[칼럼] AI 시대가 요구하는 사람의 힘",
-     "source": "SK텔레콤 뉴스룸",
-     "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1LM3JrYVZaQ1NPZWdVN1ZBQ3N1aFg4MUtNc2p2dmpQV0VRZkhncEs0bTF2RGU3MkpEMjVvNEFQTzh3RzJveXlQRw?oc=5",
+     "title": "머스크 “AI 기업, 내년 현금 부족 사태” 경고",
+     "source": "중앙일보",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9vU2pNTXZaMjBfWjdOSHl3QkRKZjBaQkJxQWVTWDBXd0dKRmxsV1BZMVVtZ05Jc19abWg3YngtbFpReTAyOFBYcklueEpYVWZ5bExDbkJR?oc=5",
      "date": "2026-11-23",
-     "time": "08:32",
-     "published_at": "2026-11-23T08:32:49+09:00"
+     "time": "13:38",
+     "published_at": "2026-11-23T13:38:57+09:00"
     },
     {
      "keyword": "AI",
-     "title": "[기고] AI 부정행위 막을 수 없을 때 바꿔 볼 질문",
-     "source": "뉴스핌",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE16ZjRJRWdHX3BQUzRud09mR3dSc1g2VXV0WFF1TmNZdEg4bXlqUFpCanpqdHUxMmtVWkkyeE5qZTQ3Y290VnhidEUwUGc2eFg4cnI5a2NQNkZoTTRa?oc=5",
+     "title": "‘AI 산업, 지자체 경쟁력’…김포시 AI 기반시설 구축 시급",
+     "source": "경기일보",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1nXzdxRkxNN1lrdHRWXzc3dzU1UVhfVUh5alFteEZMMUJRam4wRlAyRmw3THlwdjVwZWQ3QThZc1ZTR3VsYzQ3WEZhaFY5S2RhQWEtMkxabS1mMmc?oc=5",
      "date": "2026-11-23",
-     "time": "08:30",
-     "published_at": "2026-11-23T08:30:00+09:00"
+     "time": "13:36",
+     "published_at": "2026-11-23T13:36:26+09:00"
     },
     {
      "keyword": "AI",
-     "title": "골드만삭스, 스페이스X 320억 달러 채권 발행 지원…AI 반도체 조달 위한 새 금융모델 제시",
-     "source": "더구루",
-     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFAwcTV2Y3dadWowZkJJU09URUxNbUFFY25WX3FMNXFMS1NLVW1xbUdxUXZWX3RNZk1vYndqQzFsSm83M0hZY0o0QWpza3BYY1RhUUVaR0JObkk4bzYteUlsZUxmVQ?oc=5",
-     "date": "2026-11-23",
-     "time": "08:24",
-     "published_at": "2026-11-23T08:24:46+09:00"
-    },
-    {
-     "keyword": "AI",
-     "title": "마크 잔디 \"AI주 급락 지속되면 美 소비·성장 빠르게 타격\"",
+     "title": "\"한국말 몰라도 척척\"…오픈AI, 건설현장 통역사로",
      "source": "연합인포맥스",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9fZTdDU0ZKOGlYcENIanFfWUdQWEhfMGM1Vy1EemZqZlpsS29ZTjlDUmxCTlhRTk85c0xGNXluQjRoYWpSNlkzM1lMZU44b0FibWI3ZWRkSGpBSnVJZFRLalFqMkdDYU5mc3J5d09Hc0k?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFByTkxLYUdYMDZuSEJWSmp4cGd1Q0pMQ1RYeTV1R1Q0MEctTmhPNV9CZEZxeXJ2dHdJNXlWUzBPWWp3TDlwMEF1cGNqWE9TYVR3Q1F4eDk1enVhbV9rUlNGazhXSnY5NDcwVmRMYkRPaXA?oc=5",
      "date": "2026-11-23",
-     "time": "08:20",
-     "published_at": "2026-11-23T08:20:40+09:00"
+     "time": "13:35",
+     "published_at": "2026-11-23T13:35:11+09:00"
     },
     {
      "keyword": "AI",
-     "title": "[증시 AI충격파] 삼성증권 \"코스피, 하단 지지선 4,300선 될 것\"",
+     "title": "네이버·카카오, AI 에이전트 내달 출격…API·CUA 병행해 안전성 강화",
+     "source": "전자신문",
+     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBXcTZmeENVcWFZTjZPMjBmdUdQUXpaSHk0V2FqNFVtMS1lOWlYUkJkcF9WRmdXTWRJcmEzSU44VHFCUC1vbG1Ga3lucG1DZw?oc=5",
+     "date": "2026-11-23",
+     "time": "13:24",
+     "published_at": "2026-11-23T13:24:11+09:00"
+    },
+    {
+     "keyword": "AI",
+     "title": "카카오도 도입한 AI 면접관 앞에서 커닝해보니…결과는 '신뢰불가'",
+     "source": "전자신문",
+     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1VVFdiRGcyQ0J2VnpsTmZrd1EzbGZic1dFOVhlTUpNeURjSW5FWnRTWldPMVJ3VGFidnpubko3RG5MS2RtX3MtdWlOVHRqZw?oc=5",
+     "date": "2026-11-23",
+     "time": "13:23",
+     "published_at": "2026-11-23T13:23:46+09:00"
+    },
+    {
+     "keyword": "AI",
+     "title": "메모리값 400% 급등…AI 서버업체, 계약 후 가격 인상",
+     "source": "한국경제",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE15a1BlbUlMWWIzSUJxSmVxSlRWWV96TlpkOFBtNWR6amdONUJTWnBKUnB1LUhWclV4R1ZIS0VDUm9vN20wR3FVV1ZwaXFuOFd3RXZ0Vl9URXhpZw?oc=5",
+     "date": "2026-11-23",
+     "time": "13:17",
+     "published_at": "2026-11-23T13:17:21+09:00"
+    },
+    {
+     "keyword": "AI",
+     "title": "AI 데이터센터 IPO 잇단 차질…데이원도 50억달러 미국 상장 보류",
+     "source": "AI타임스",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFA5RndzX3h6V2k0dkxlYXNoQjh2S0FZMTBLaWdpZU5kTjJoYzVBUmJnaXBzRVNoX2l0NDdjVUNYN00tOWFUTUlxSkJsa051bnhaMUpDdWNra3B4cTdOMTRiaGdnOGl1aF9tRUE?oc=5",
+     "date": "2026-11-23",
+     "time": "13:16",
+     "published_at": "2026-11-23T13:16:58+09:00"
+    },
+    {
+     "keyword": "AI",
+     "title": "캐피털 이코노믹스 \"S&P 500, 연말 6,500…시총 절반이 AI에 노출\"",
      "source": "연합인포맥스",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1QTmZaQ0Vna3ZZUV9zVW5BcV9IMlVaS1JxWGJqNkJ3d2U5RHFYdFluX3UyaU51dUtSMjlzUXVmSERSQ2d0SzhORFVYeUpieWh1NVdad1BRVHhudkVqaUR4aGQ4RjNOaFIyWl9JY3BoMFY?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE02bUJQcUZHUG5YNFZUNjFlNzVpUEFtamNnRnJ2dDhiVWRvZnB6OTJwUkpKeDdiTV9NT1dRR1paSTRoZTk3NlJGbFVkenpGSUR6ckN2OXpsZ1FZUFMxNXdsMFlFSmkza3ZzZGVna2RLMTU?oc=5",
      "date": "2026-11-23",
-     "time": "08:19",
-     "published_at": "2026-11-23T08:19:48+09:00"
+     "time": "13:14",
+     "published_at": "2026-11-23T13:14:52+09:00"
     },
     {
      "keyword": "AI",
-     "title": "[증시 AI충격파] 키움증권 \"코스피, 최악 시나리오 대비…저점 4,200선\"",
-     "source": "연합인포맥스",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBNVXBQeUFhcHNiMTNqeFVGTW5vdlY4ay13QTdtTXFrTlNwZ3NCV2N5b1NFRzc5SFVSdFkzMjB0aGQ1WDB6MUdsVTNoTno0TG0xQTNWaHhtU0s0ZEY1STJIU2EyZGdfSUU0ejhQTDV6b2k?oc=5",
+     "title": "AI로 이명환자 3가지 유형 분류…맞춤치료 가능성 제시",
+     "source": "헬스경향",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1CblhHLWdMSWVWeUJITjhNN0ZRVy1LZG9adkpkUmFxWlZZYlpxeHl1NXgwM3I2NTBxMVkweU1QeVVXVUlqSzRNdVFKSDRfRVd3aE9oSEJvSVBqemR1YWdxT1h3LUJKSVJ1ZlFn?oc=5",
      "date": "2026-11-23",
-     "time": "08:18",
-     "published_at": "2026-11-23T08:18:45+09:00"
-    },
-    {
-     "keyword": "AI",
-     "title": "[증시 AI충격파] '블랙먼데이' 현실화하나…韓투자자들 '초긴장'",
-     "source": "연합인포맥스",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE45d2MxQVpKMkhBVGFkTjB5b2daelg2U3U3Nzl6b19RSURfS2R4dTl6REFNSlNkdEpmeHVDRG42c1hKUFFRdmtkUXdiMExSbk85TGI5cmZGZmlTaDFaNDZ5cldaZ2IxalBzRnRjTFVnSUY?oc=5",
-     "date": "2026-11-23",
-     "time": "08:13",
-     "published_at": "2026-11-23T08:13:17+09:00"
-    },
-    {
-     "keyword": "AI",
-     "title": "[증시 AI충격파]DB증권 \"신용재평가 국면…사이클 훼손보다 차입점검 필요\"",
-     "source": "KB Think",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE03R1RfTFpCeWIxcS1oTVpqekZxTGcyWHd5NWpGMHFMU01CWXFueUtCc2w1VWYzdnJyUTZuTDUtUUpkcGJXWExFcUFDNkZ2THlXWXRaRGJESm12bUtuMGxkdjZ4Uk9kLTRpcXVYSUhJVU5GQQ?oc=5",
-     "date": "2026-11-23",
-     "time": "08:13",
-     "published_at": "2026-11-23T08:13:10+09:00"
-    },
-    {
-     "keyword": "AI",
-     "title": "LG유플러스, 조직개편 단행…AI 사업 성과 창출·통신 경쟁력 강화",
-     "source": "매일일보",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1Ka1UwaFhBZW9ocks5V3dpTzZXeUtmS003Y2JiRHRGTTZIcFp4RndoVHYxdENRMEt2d0xTRUNRdFZoVGtGYkYwSHZBV2p2eFNGTnc0MnlYZ3JLZGE5OXQyZ2xLR0U?oc=5",
-     "date": "2026-11-23",
-     "time": "08:09",
-     "published_at": "2026-11-23T08:09:36+09:00"
+     "time": "13:08",
+     "published_at": "2026-11-23T13:08:13+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T08:51:00+09:00",
+   "fetched_at": "2026-11-23T13:53:38+09:00",
    "keyword": "AI"
   },
   "HBM": {
@@ -3668,96 +3668,96 @@
    "articles": [
     {
      "keyword": "관세",
-     "title": "美 연말까지 301조 조사 완료…'관세 12.5%' 韓 추가폭탄 촉각 - 머니투데이",
-     "source": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5ZdjVjRmtTeE51NTVCWjhsXzhSTTRSNnY5RG9kSUZ2V1FxdzQ0VmpCTk1id2txRndfNVc4aVlDVk41UkZBTFZTMGIxWlB1YXdRRW5mLU5HaU9hYURKeE8welZQeHpwYU140gFuQVVfeXFMTlRNeWRyREZFQ20tZGhwM3U1eFdNejNvcnljWlBCOFMzTEJiVEVWYUxCXzJiYUkwVjhKenVGM2hSaEVjUGNHNUx4d1diN09wZjBDY0VoQy1MSk94aVdLQWNEbThkU2tvLVdkS014eFE?oc=5",
-     "date": "2026-11-22",
-     "time": "21:43",
-     "published_at": "2026-11-22T21:43:59+09:00"
-    },
-    {
-     "keyword": "관세",
-     "title": "EU, 빅테크 디지털세 제안…트럼프 “관세 100% 부과할 것”",
-     "source": "서울경제",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5SaGd5QXVoUlMtc2JlTi1sSmlSYTVzVXhsQ1lXb21fZVFnWFF6YVhoS3Zoa1hDMmFrUkhSeklvd21OM1lNN1g3TFB1SHJQcVljUHfSAVNBVV95cUxQejZQVlBtNXl5ek04M2ZOMFFBTlhPMVZmQ3JGczhtZ016dEpMcFI5NHpwWUlYb3FGUWp4eERsSldYdkV3bkFVd1g2NUNyLXFuODlrUQ?oc=5",
-     "date": "2026-11-22",
-     "time": "19:54",
-     "published_at": "2026-11-22T19:54:52+09:00"
-    },
-    {
-     "keyword": "관세",
-     "title": "[글로벌 리스크 예측] ‘캐나다가 미국 이용’…알루미늄 고관세 확률 55%, 3%p↑",
+     "title": "[글로벌 리스크 예측] 캐나다산 알루미늄 50% 관세 유지 확률 69%…하루 새 22%p 상승",
      "source": "코인리더스",
-     "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFByQzJFSS11NWdlQmVfVnJiRWpwbnNOZ0FmNVdNeEpwUW1kTWlMYzZpMWE4MzJsMkZsaFQtMmltX1BoZUJPd1lhZGF3?oc=5",
-     "date": "2026-11-22",
-     "time": "19:04",
-     "published_at": "2026-11-22T19:04:32+09:00"
+     "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9EYmZ1ZVRfTkxycl9LakZzZ3NzczJyZ29CVTBGb0o2NXNRWHRBb0E2cHlOUHA4V1pzY3ItVHZyN1JlbTRnN1RRT2RR?oc=5",
+     "date": "2026-11-23",
+     "time": "13:04",
+     "published_at": "2026-11-23T13:04:54+09:00"
     },
     {
      "keyword": "관세",
-     "title": "中 후판 반덤핑 관세 면제 확대…K-철강, 수익성 악화 우려 커져",
-     "source": "아주경제",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBKSWd2Z25Zb01UbjVkNjdQbmFyclF3WnZKaWhoUUhhd2diMEdmeFJVSzVtbzJUNzdNaTQ5QkJNd29QSVoxeElWazZHWWpDOFJXeFRkTzBxQWF0d9IBWEFVX3lxTE9yYTV3NnNHRFdBNWt2ZFIwN1MtRVBrRmxSRVlydnVOYlh2R3hrWGp6Vm91WmFfbkhnRjVjZTBUczJQNVBFN1VpZHVfallKenhrSzNUQUttZG0?oc=5",
-     "date": "2026-11-22",
-     "time": "17:00",
-     "published_at": "2026-11-22T17:00:00+09:00"
+     "title": "관세청, CAREC 회원국 대상 능력배양 워크숍 개최",
+     "source": "헤럴드경제",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBSWDBhR0UxdDBfcVN4VkRFdzhDTWF4c3k0RmRFRkxZcTMzMzdud1BST29fQ29hazFGZll6NFZ6anFSQXhLeFAyeUFRM2lkYUxFaHlJVVpn?oc=5",
+     "date": "2026-11-23",
+     "time": "13:03",
+     "published_at": "2026-11-23T13:03:03+09:00"
     },
     {
      "keyword": "관세",
-     "title": "EUㆍ인니, 10년간 협상 끝에 무역협정 체결⋯상품 90% 이상 관세 철폐",
-     "source": "이투데이",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5TcVNUejIyR0htNWxidGlUNWlyQ011SHpab090aG5ZZzVfaERiOHVUdWQ1NUxwY1QtZno1Vm14Y1V0ODlNS3Y1SnFiMk1LQk1ScU8xXw?oc=5",
-     "date": "2026-11-22",
-     "time": "15:12",
-     "published_at": "2026-11-22T15:12:00+09:00"
+     "title": "관세청-중앙아시아 10개국, 디지털 통관 협력 강화 ‘앞장’",
+     "source": "충남일보",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBoNWs0ak5GaWxTckYtUGJoUmlyLXU2TGc1bHZneGtEWnpyQy01dTBaLU93TmFLOHNXYk91T0dVM0o0Z3RqWWxUNFVvWWhEMnc4Y3FUdVIyS0lNN0ZDRGNQd1NWRlNFaGdPbXZtT2JEZTZlcms?oc=5",
+     "date": "2026-11-23",
+     "time": "12:46",
+     "published_at": "2026-11-23T12:46:32+09:00"
     },
     {
      "keyword": "관세",
-     "title": "美 127.5%·EU 45% 관세 칠 때 韓은 8%⋯ 중국산 전기차 ‘집중 표적’ 된 한국",
-     "source": "브릿지경제",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE85RlBRZmN3dGVzaUlyZUM4NF9LZHMtTW5kWlhwWFRlQWZUS2loT1FIN2s2YjYwT1RUQXFhSGo4NE5sZjlia2NTUm04UjI5dlBiRzlmclRnbFZMQQ?oc=5",
-     "date": "2026-11-22",
-     "time": "13:51",
-     "published_at": "2026-11-22T13:51:00+09:00"
+     "title": "관세청, 중앙아시아경제협력체 대표단과 관세행정 현대화 워크숍",
+     "source": "한국경제",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE50OXFIQ0Uxb3BCMUk5bXJ2LUVzV3N6ZmxEOUg1eVNJNV84azVFUGJzalRWdEFYWnZUbkpFRFZMd19UNUVTNldBelV2eHlBTEtvYmN0WVZaN3l1QQ?oc=5",
+     "date": "2026-11-23",
+     "time": "12:32",
+     "published_at": "2026-11-23T12:32:50+09:00"
     },
     {
      "keyword": "관세",
-     "title": "관세 장벽 쌓는 美·EU·日… 한국은 中 전기차에 무방비",
-     "source": "동아일보",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1fVVcyMXJYWlNWWGhERE5sTjVNdlZVSUh1OUtlWjJzckNGaGo0c0xrV0NNSnd6Q1g2X3VkS1pLejJDVlZDTXVibHY3MGFINVNob19JSFVNV2ptcXYyMmk3S01IRjJMYWhVbmFocWRXTEZ4Z9IBZkFVX3lxTFBWeHNvNUk5MVZhQU9nZlhTS1NRRW1ETDlDbGdoTDdWSVhXenprbzU1TGJra3dOM3M3WU5VNnFtVTZMNlJOU0dMNGE5Z05TSExuQUpCODdPNWxPRXdRUGxnSHY0X1FWQQ?oc=5",
-     "date": "2026-11-22",
-     "time": "13:49",
-     "published_at": "2026-11-22T13:49:41+09:00"
+     "title": "관세청, 중앙아시아경제협력체 10개국 관세행정현대화 워크숍 개최",
+     "source": "서프라이즈뉴스",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBHVVV4V2Z4N21GSHlQc1RRN056VEdZZnR5MTVjM3JOSmlBaFBRYlN6b1FDNElycm9RU3FfXzBHSkZlNFZiMEVmcGFMM1dnajJkaWlfU1JJV09EdXZxQW9nT1pBNjIxN3VUaGNqUFByTQ?oc=5",
+     "date": "2026-11-23",
+     "time": "12:03",
+     "published_at": "2026-11-23T12:03:12+09:00"
     },
     {
      "keyword": "관세",
-     "title": "미·유럽 50% 관세에 갇힌 K-철강…현지화 3년 공백 생존 전략 고심",
-     "source": "매일일보",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE03ZldMUHV5Z3Y4Y2dnakpncDlWd2JTdGo5U3ZrcEpTanhrQzdEdWU4eVI4YXRFczhXZVZUbmdHcHNZZU5IVThob2VpMkVuRFBMbGZLRXZ0V0dKRDBnTWxabWJWbWw?oc=5",
-     "date": "2026-11-22",
-     "time": "13:00",
-     "published_at": "2026-11-22T13:00:00+09:00"
+     "title": "[뉴스핌 이 시각 글로벌 PICK] 美민주, 트럼프 관세 정책 정조준 外",
+     "source": "뉴스핌",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE54RE51RXFKX1EyREY3d3hGUzZFZWRWZlJJTDFBQlEzejBxZWdYU2NFOXhvQmE0R3ZfdDh0WWNmNjVZelN4elI3WUttMGdYS1ZsM3J3Q0wzLUU1OTVL?oc=5",
+     "date": "2026-11-23",
+     "time": "10:39",
+     "published_at": "2026-11-23T10:39:00+09:00"
     },
     {
      "keyword": "관세",
-     "title": "美로 빨려들던 구리, 이제 中으로 '역류'…트럼프 관세 물 건너가나",
-     "source": "마켓인",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9KakFWU0FoNVMybEJiT0Jndi0xUnVrUXdXSjhkTEtOWnl2TlhiYURrR1FCaHVSR3kzYnB1QVF2SklqaFlTX0ZvQ0lLdVBQcV9qVW1RMDJEMk5JRTQ0eUxqNVY1M0VodUxmYU5fZWd5Wm16N00?oc=5",
-     "date": "2026-11-22",
-     "time": "11:37",
-     "published_at": "2026-11-22T11:37:21+09:00"
+     "title": "호주산 관세 24%에 미국산 소고기 수입 40% 폭증 … 무관세에도 소고기값 뛴다",
+     "source": "뉴데일리 경제",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBsT1NmcXZaWHlnMHB4MkdFaUZnNC1UT29NWWRZdVRUTlBBVTkxUTQ4MFQwa09sbG5WaDZkSnlZZjhHMUJiUUtMU0R5QXlZTlBDZGNiRXVNWXdQQ28yU1U2bjQwQ3J4UmRWUUhWaWJEbmdxdHpyR25Hb2Yza9IBgAFBVV95cUxPTkF4QUlHYktVRFAySHFIcGgzbEtZS0owY3ZfVjFVNXp4U1pWMTJsLVNEdzlXSndtd1A1Z1l5STNWbkNWdXphSEZBZEp5ektsTGFlSlVHRnFRdTdaYXMzVXlCTVRrRDlJdmZhcG43ak91eXRvaXd4dzNFSnBjSE5ldg?oc=5",
+     "date": "2026-11-23",
+     "time": "10:21",
+     "published_at": "2026-11-23T10:21:00+09:00"
     },
     {
      "keyword": "관세",
-     "title": "中 태양광 수출 급등…美 관세 부과 막판 사재기",
-     "source": "지디넷코리아",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBUTllaVjllNTZqZDdFNU54QWNBUFItMExkc3dfZFdVRUMwUFBJMUxCWWo0eDZnNllqMnB6TE1fYTdsNzd4d2NIc1FrTG5WZVhzMF9VOTZB?oc=5",
-     "date": "2026-11-22",
-     "time": "11:31",
-     "published_at": "2026-11-22T11:31:19+09:00"
+     "title": "내년 다수당 美민주, 트럼프 관세 정책 정조준…韓·日 대미 투자 합의도 본다",
+     "source": "뉴스핌",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE92OU5ZTHl1aUs1TEh3blRNeDlCeFFxSUhOV1lIeDdPcVdTTF9ZOUxGOEFudzJMS2VrVVRDQWJkQTQ2X0FBaDhxMTNjY3hXNElFMzNYNFYxbEpxT3Jk?oc=5",
+     "date": "2026-11-23",
+     "time": "10:13",
+     "published_at": "2026-11-23T10:13:00+09:00"
+    },
+    {
+     "keyword": "관세",
+     "title": "[모닝 리포트] \"세아베스틸지주, 특수강 관세 효과 내년 본격화\"",
+     "source": "뉴스핌",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFA0czhRdXQ3eS13SVE1Si1OcDhkcnliUkV2VFhaMjVSaXY0UENlVDlqWlN4aUZ2REw1bTF1M2JXZ0VNQXMzcTVBLXpFc2lkdWI3WkdaZXdpTWF2cGRy?oc=5",
+     "date": "2026-11-23",
+     "time": "08:31",
+     "published_at": "2026-11-23T08:31:00+09:00"
+    },
+    {
+     "keyword": "관세",
+     "title": "\"美민주당, 트럼프 감세·관세 전면 뒤집기…韓 투자협정도 조사\"",
+     "source": "데일리안",
+     "url": "https://news.google.com/rss/articles/CBMiowJBVV95cUxOZHExaHdDdFpybTFMQlhPcktDNVF0UG8xNjRWLURPSkNlc1hLaXNFYmk1ZkVfZFRGSVc2VDMycDNBeFpaUmo3TloyZTRLOEhlQnFTN0tadUNvdXNtME5KaEx5OHVfb3FzbGhpcmdPSm9sUll0VzM3NWtPUWd4QXpiRGZPWHltZjRnaFBRQXhOTERuTmlwRXl0LXdzSHBPTG5WSnB4SkQ2QjU3MmlXdUZSbWFWWVVza0d1V2FHXzlFc1BadDliNVBJczQyU0hUUFNSa2FfZXRuNHBRSGVlT3ZxMkNkakdVbDdRUnBXTlFOWmNocUhxaG5RbWdRaVhMRzZhRUtuR09ZYktvOUpvTzJSUlRyVE9RU1htTUtOUm12OEdIYlE?oc=5",
+     "date": "2026-11-23",
+     "time": "08:27",
+     "published_at": "2026-11-23T08:27:00+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T03:40:54+09:00",
+   "fetched_at": "2026-11-23T13:53:41+09:00",
    "keyword": "관세"
   },
   "연준": {
@@ -3862,96 +3862,96 @@
    "articles": [
     {
      "keyword": "물가",
-     "title": "美 물가·성장률 25일 동시 발표…가계 구매력 시험대",
-     "source": "글로벌이코노믹",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOUHN0Yi04S2RhWlFYeDBtb3RDcHNDSlo3T1pZSWYxclhiR1hQUkFISjZLSE5ackJId2pzMV9hQU1GSW1URndWMzIwM0RuaXpWOWhSV0ttek1sUkxwVlhPSTBERGpQRmdpc08wdnBQcDVwZDBZSXczdFpuYnJmc0Rrb2VjOFhwdzJm?oc=5",
+     "title": "정선군, 농어촌 기본소득 지급 따른 물가 실태조사 추진 > 뉴스데스크",
+     "source": "MBC 강원영동",
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBkZHZFaGxzamE5bHpDekt3Q2Q3ZGx1OFZsc0NheUd2TlpiSU14eUZfZHpzUFZsTk1EQlVtb2gzTnFYTVlNazdWYUpLcw?oc=5",
      "date": "2026-11-23",
-     "time": "03:00",
-     "published_at": "2026-11-23T03:00:00+09:00"
+     "time": "13:45",
+     "published_at": "2026-11-23T13:45:00+09:00"
     },
     {
      "keyword": "물가",
-     "title": "장날이란 말에 호계공설시장 즉석 방문 결정, 장바구니 물가점검·골목상권 목소리 청취도",
-     "source": "울산일보",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1LWVFSdHB3ZGJVWFYtem9NdGxJankyZ2VLZ2k3VDdCb0FBbE1QS3RpN3puaW5udjlIakM1djVnQk9nc3lQR1dzX1RhbU5QS0JSUXFHWFRPOUt2clFrMHRTMDVqcnVSSFZyeGFieEJn?oc=5",
+     "title": "월가서 연준 '2% 물가 목표' 회의론…\"정책적 선택일뿐\"",
+     "source": "연합인포맥스",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE93RnBoUW5rWEZDYmFTWE0tUHdOVFRuV0ttclM4ZzdyOHliNTdxb0dzRVlyR0lFRzFuVlVScGNWQXpjVEJSSFpZeUZnamVIQVdIa3BoaDhoVGF5X3BhU3d1dG90X01wcGpYSEM1SHJXZS0?oc=5",
      "date": "2026-11-23",
-     "time": "00:03",
-     "published_at": "2026-11-23T00:03:11+09:00"
+     "time": "12:32",
+     "published_at": "2026-11-23T12:32:45+09:00"
     },
     {
      "keyword": "물가",
-     "title": "코스피 다시 5000선 붕괴…美 물가·외국인 수급에 반등 달렸다 [증시 예보]",
-     "source": "헤럴드경제",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9ETi1od3VOc2FBZExnaXA4NzI0YW93N2M3Q0ZWcllYLXdyZzMxU2h2NnY3Q2ZHVXplNlhrTVV2T1ZlQ1RFeERlT3AxY2RWLTFTa3dnbll3?oc=5",
-     "date": "2026-11-22",
-     "time": "19:40",
-     "published_at": "2026-11-22T19:40:00+09:00"
+     "title": "정선군, 농어촌 기본소득 지급에 '생활물가' 관리 총력",
+     "source": "이뉴스투데이",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBnRXJ1UW91aEc2MW5hajBmc1R4Vnota0ljLThFWXk2RXVzMjFGQUFKVEh2UmlHSlNvUVNEOGRBTGxIbVNHVFBjYVZJai04V2FXU1BlUkFoRmhPMnBjczhjNkJGNFBDekFyc2YzdDN1MkjSAXRBVV95cUxPN2hIeXB2RlY2N1g5VXVobWg1YWgwREZ6eUJqc3lrTFktemtuR1RNT1hsQ29YZmoySU1feGw1UDNOVmpFVUc0MkZwcmxVbG0yYmVwbHJId0JFU1FNVXYtczNVUWRwR1pLdjZyWTNUOXo2bUN3bg?oc=5",
+     "date": "2026-11-23",
+     "time": "11:35",
+     "published_at": "2026-11-23T11:35:05+09:00"
     },
     {
      "keyword": "물가",
-     "title": "[주간증시전망] AI 쇼크 이후 관건은 금리… 美 물가 지표 주목",
+     "title": "美 물가·성장 지표, 연준의 12월 금리 판단을 바꿀까?",
+     "source": "내외뉴스통신",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE45bUgwQk1UZ1h0ckI1eks2ZkcyNWszdkxqeUwxSGtzRVg3M3ZFMExwbTBWeDlZMzNNMlJkRzEwSTZQQmQzVF9URGRVS1oxeXItMWxLVGRTRHlTYjZfRGwtcUVaVHUwMzlQNHgtYtIBcEFVX3lxTE5vd2JvY3FrSHJ6bnY2RzhZcEx2MVBQV0VGY0dRdkRtWlFlZnhZeVRSUzViMmdHZEVQeWFSRDNsNDgwUjdZZXAtbVZ6U2laOVhVV1J2bmZKd19TUlNaYkZrLWVXbllaeVpZWjBkaWtTT3I?oc=5",
+     "date": "2026-11-23",
+     "time": "11:23",
+     "published_at": "2026-11-23T11:23:18+09:00"
+    },
+    {
+     "keyword": "물가",
+     "title": "美 증시, 유가 21% 폭락에도 '울상'...물가 압력·금리 인상 공포에 위축",
+     "source": "코인리더스",
+     "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE55RnhrZ1FmNzFKMTNEWHdWOTBJS1hwSXRjWkozWmIxMGFEUHJXdEViU09ZN1FveVp2MS02WU9wM2RpM3BYeWVKdkdn?oc=5",
+     "date": "2026-11-23",
+     "time": "11:10",
+     "published_at": "2026-11-23T11:10:00+09:00"
+    },
+    {
+     "keyword": "물가",
+     "title": "전월세 물가 상승 속 ‘더샵 일산센트로’ 장기민간임대 229가구 공급",
      "source": "Chosunbiz",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPbmVBNWdPRW5LSm85Q1J0UHJpNGduUG5PTUlWUEh6SUpsUUxPeEc0TTVWLXhFZWNxY0hZOHFuZVJtVGExbnBCSm85MmdOZmpqaXRlcmROak9RZThGXzhUWlZxRWlOVE4wRFlvclBERHJBejBVSVItODhZTUNuaUdLZ0RfOWNGbmpo0gGcAUFVX3lxTFBoV1RiX01zVTVhQTNJTHlCOHB2elBoZ1Y3TW9uSjk5bXhrbVlqZEJLTFJ1ZVFnMEh5bmVjTmctLVhrTlJjVTEzbzNxU2Z3YkoxUmt1aDZXU1JVMkVmNUYwY0NxNkxTUW43LTFlTU56OEhiM2FRWjBHcDJ0bm9Ed3RJekNMeFUxMFZaek5zdlQyemJnWU9xNzdrWEFaaw?oc=5",
-     "date": "2026-11-22",
-     "time": "18:51",
-     "published_at": "2026-11-22T18:51:00+09:00"
+     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQeV81UTl4cUVSMDh0aHpvdnpGRnZPdmtYLXdqdDdyQjZwZm1fSzd2eEFEWnNWWEpLSnhDZUFGalRqQy1Bbmo3eVpldWVPWUFfN1hpakdEeEdVU2ZoOXR2Smpremw4SjJ3bjM3UnotQjdmeUR2eXQydUxJMW9ZVHRBQVdlS0VhYm9oTWZlctIBoAFBVV95cUxNeGR6MTdFNGpUR1VJQUtpZF8tUl9BQXV6ZTNJLVNQT0FPd3ZySmU0b01tNk9PZ2V4UlMtY182WjdTbC1XU05JdmZOekRVMnFsQXk4YTJQRFJrVjQySHFaR3FNNkpCdm9acTJ6T2UxOGozQmh5SjhtT29IOWJjanVVcWhRSHRvallkY3l4RlROZnZhSzFkdXpsQVVaREJKT0JQ?oc=5",
+     "date": "2026-11-23",
+     "time": "10:38",
+     "published_at": "2026-11-23T10:38:00+09:00"
     },
     {
      "keyword": "물가",
-     "title": "AI 논란이 최대변수…美물가도 지켜봐야[주간 증시 전망]",
-     "source": "파이낸셜뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBxNjN5Z0hTVFBvb0NwYnZTT2FtZjBVTjBGRUJEQkY1ZVBDdWstd2xZVUhhSjRqV2s4bVB5RTZmbFBOVkJEbW0yVFk1V2lWbzk5RjhhbHBkVXhyQQ?oc=5",
-     "date": "2026-11-22",
-     "time": "18:11",
-     "published_at": "2026-11-22T18:11:51+09:00"
+     "title": "기본소득 풀리자 물가부터 챙긴다…정선군, 지역가격 전수 점검",
+     "source": "www.reporternside.com",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBvRWlUUDhocENGQm9qWTZfZjJQUGZNWjFEZTN2cl8xeGdkdlNiWFdqc3VKU1Q1MXdtLVpBUnIyVzBkZVE2ODdNZTI1U3YtSE5pYzZlQVc5cWVsbUg3aWNKSHcyOWNQbnA3bHdfRU05SWcyZw?oc=5",
+     "date": "2026-11-23",
+     "time": "10:09",
+     "published_at": "2026-11-23T10:09:51+09:00"
     },
     {
      "keyword": "물가",
-     "title": "스위스 인플레이션 가속화…SNB, 광범위한 물가 압력 우려",
-     "source": "Investing.com 한국어",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5vRUlRd1JCbWp0WW1oTjdhUFBmY20zYmo5bEo4MUl3djhvTk1UWTh6NnhpamNYandJeWZzeW9zaXFMcllPZER0SW0zX3BfajE2N2NUYUJqdVVhSFdFbXNFdzBiSlF1cnhxNl9YeHJzVUY?oc=5",
-     "date": "2026-11-22",
-     "time": "17:51",
-     "published_at": "2026-11-22T17:51:00+09:00"
+     "title": "전쟁 중단 결의안 부결…유가·물가 부담은 어떻게 이어질까?",
+     "source": "아시아경제",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1EYXQxaThaMldRMUNZRm1tc3VZUXRlVUdyWjhRZU42MXFIRnZCbHZZc0ZWU01FQlBWTm03cHlVUEx6Z2tXRGsyQ3BZRnVPN1NQTHlfbWd5SkFXOGgxTlpCRg?oc=5",
+     "date": "2026-11-23",
+     "time": "09:53",
+     "published_at": "2026-11-23T09:53:00+09:00"
     },
     {
      "keyword": "물가",
-     "title": "\"고물가에 추가 긴축 유력 … 26일 기준금리 0.25%P↑\"",
-     "source": "매일경제 마켓",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBVeks3MXFKRnhvcVhaOUxjVlgyRFFlS1l3TWxHNWFMbU5tWnJOaXZXZjZWOEM0V2xaNFJoaDBxSlRUR29tOEViRDJsb2M2d2xad2c?oc=5",
-     "date": "2026-11-22",
-     "time": "17:36",
-     "published_at": "2026-11-22T17:36:00+09:00"
+     "title": "정선군 농어촌 기본소득 지급에 따른 지역물가 안정 총력",
+     "source": "시사줌뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE95dUtEUWJXajM5MENKOWhudmF0V2dNVFctbGhrOFVQVWZKTmFNZHA3UnhIUTk2SEdKLUpVZ2o3RHliWlhhdVpj?oc=5",
+     "date": "2026-11-23",
+     "time": "09:46",
+     "published_at": "2026-11-23T09:46:00+09:00"
     },
     {
      "keyword": "물가",
-     "title": "10월 생산자 물가 0.1% 하락…전년 동월 대비 7.2% 상승",
-     "source": "유스연합",
-     "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5ubXJUZHUtdzdrWEdyZ21VZWQzS1UyVk4wMDQtSFl4RnhGalhtY1NRTjFBRWRCQmtoT2dCeFVuQnlfZ3kzRHRvNUMyMWZtUU14Vks0?oc=5",
-     "date": "2026-11-22",
-     "time": "17:19",
-     "published_at": "2026-11-22T17:19:05+09:00"
-    },
-    {
-     "keyword": "물가",
-     "title": "[주간증시전망] '검은 금요일' 딛고 반등할까···AI 쇼크·美물가 '관건'",
-     "source": "서울파이낸스",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE03UG1JYWdzYWZ1dVNycURXUXdsYVJYVzJxNFVnemNQSkltMXNTcElYcTIyUUpYcmMtWFNuWlpUdmc5V1cxOUNaNGR2MkJJbjRLc1JkdUdEV0VRcDRsakZqaXYwRUp2RllVb3c?oc=5",
-     "date": "2026-11-22",
-     "time": "17:00",
-     "published_at": "2026-11-22T17:00:00+09:00"
-    },
-    {
-     "keyword": "물가",
-     "title": "‘새로운 필리핀’은 어디에…물가 치솟고 부패 얼룩진 마르코스 정부",
-     "source": "매일경제",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5NdVVFYl8zamZ6ekR1RW9YbkFXZlJNSVZoS3NnYi1SZGZGRlE0Nmt3TDAzT0V5WUJTUFNFbFJxaURITDZMTTVqSnJ3NFYzUHRMLWc?oc=5",
-     "date": "2026-11-22",
-     "time": "15:28",
-     "published_at": "2026-11-22T15:28:29+09:00"
+     "title": "[주간 뉴욕증시] AI 거품 공포 속 추수감사절…美 물가지표에 촉각",
+     "source": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1pUGRoOUNpY2R0TVhwbVh1cElySy1aQ0dpeHRxck4xYUQ3c3FUV1llRTFZdHNIVTZLaVNQQTNraDcxY1dCM0NZRks4YVg4eU95RWMtb205T0stNTlXWE5vUNIBeEFVX3lxTE85Q2NzTDQtdmM0Y05Rd2xZdHVuNV9pS2lLSU9kWUFDNnhCYWNFVFAyWWctX082cTFNemlDczF4bU1PdHpHRERKaDFjNUtfUXdqTTJQcVlwRDVLZ3h3c0NPSXdvdkpwbFhZNUhpUlZOR1pFcHQyY1piRw?oc=5",
+     "date": "2026-11-23",
+     "time": "09:30",
+     "published_at": "2026-11-23T09:30:46+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T03:40:57+09:00",
+   "fetched_at": "2026-11-23T13:53:44+09:00",
    "keyword": "물가"
   },
   "코스피": {
@@ -4890,8 +4890,8 @@
   }
  },
  "save": {
-  "status": "live",
-  "stale": false,
+  "status": "cached",
+  "stale": true,
   "fetched_at": "2026-11-23T13:52:55+09:00",
   "fetched_via": "browser-session",
   "count": 40,
@@ -5523,14 +5523,16 @@
   },
   "added": {
    "keywords": 0,
-   "companies": 0
+   "companies": 1
   },
-  "errors": [],
+  "errors": [
+   "SAVE 직접 조회 불가: Cloudflare 봇 차단(Just a moment) — 익명 요청으로는 접근 불가"
+  ],
   "site": "https://www.saveticker.com"
  },
  "errors": [],
  "briefing": {
-  "headline": "미국 증시 마감: 다우 48,147.33 (-1.93%), 나스닥 22,617.73 (-5.28%), S&P500 6,910.39 (-3.70%), SOX 8,408.59 (-10.73%) / 코스피 4,713.23 (-3.22%), 코스닥 640.60 (-0.79%)",
+  "headline": "미국 증시 마감: 다우 48,147.33 (-1.93%), 나스닥 22,617.73 (-5.28%), S&P500 6,910.39 (-3.70%), SOX 8,408.59 (-10.73%) / 코스피 4,721.35 (-3.05%), 코스닥 641.92 (-0.58%)",
   "checkpoints": [
    {
     "title": "반도체·기술주 흐름",
@@ -5542,11 +5544,11 @@
    },
    {
     "title": "금리·환율",
-    "detail": "미 10년물 4.950% (-10.22bp), 미 2년물 4.649%, 원/달러 1,350.00원 (+0.37%)."
+    "detail": "미 10년물 4.950% (-10.22bp), 미 2년물 4.649%, 원/달러 1,349.00원 (+0.30%)."
    },
    {
     "title": "국내 증시",
-    "detail": "국내 추적 종목 낙폭 최대는 NAVER -7.86%."
+    "detail": "국내 추적 종목 낙폭 최대는 NAVER -7.98%."
    }
   ],
   "sector_news": [
