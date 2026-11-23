@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-23T14:02:35+09:00",
+ "generated_at": "2026-11-23T14:05:22+09:00",
  "source": "Google News RSS (news.google.com) + SAVE(세이브티커)",
  "match": [
   "엔비디아",
@@ -1862,7 +1862,7 @@
      "published_at": "2026-11-12T17:00:00+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T12:05:52+09:00",
+   "fetched_at": "2026-11-23T14:04:08+09:00",
    "code": "035420"
   },
   "042700": {
@@ -2237,7 +2237,7 @@
      "published_at": "2026-11-03T17:00:00+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T11:06:51+09:00",
+   "fetched_at": "2026-11-23T14:04:11+09:00",
    "code": "AAPL"
   },
   "AMD": {
@@ -2638,96 +2638,96 @@
    "articles": [
     {
      "keyword": "반도체",
-     "title": "청와대 \"엔비디아 충격 일시적…반도체 산업 전망 낙관\"",
-     "source": "BBS불교방송",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE00MWZ5cHB3OUZCYTdCeGJXQW1LYS15MDBrOVRLRDg3OVpiV0Rpa2VlbmxyT0JIamtqM2ZXM1hPTEJsQWhjNXBmRUdnc1J4b09QUjJMdzlEX1o1U0FDRW9mR0ZnX3o3bnN3d3pj?oc=5",
+     "title": "靑 \"반도체 특수기간, 단언 어려워…주가 충격, 일시적일 수도\"",
+     "source": "한국경제",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8tdlhGSXVHWUdtYWJYTkVQVjJCUWJiTUlaUmR3Yngzbk9BT29KVjM0SXRpaWM2bHM5ZWY5d2ZOWnlkS1NoelZzeXQ1SzRXUU91WHRhaVJKNDlndw?oc=5",
      "date": "2026-11-23",
-     "time": "10:38",
-     "published_at": "2026-11-23T10:38:12+09:00"
+     "time": "14:01",
+     "published_at": "2026-11-23T14:01:32+09:00"
     },
     {
      "keyword": "반도체",
-     "title": "주가 급락에도 노후자금 반도체 ETF 선호…하반기 미국 지수 ETF 순매수 상위",
-     "source": "SBS Biz",
-     "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE41UWtQcEhtM0xiTUlBbHlEMUlhZzg4QmI3RXFxaVd2bXo2Ul9yWFhGZzJYck1HcDE3MmMzc3ptYTVEa09UTkJBQUJnZ3VXand5SHVJ0gFYQVVfeXFMUHh5VUFubnBYbkoyTlNFYk1WTEl1eGt6NlNCMFhzYlhFZloyOGZLLXpIQXEzR1pITFlKNl9Hc1VLM3FJcjJFOHplM3hRMHhza1p2YXBpSE1VMw?oc=5",
+     "title": "V2X 반도체 '에티포스', 311억 시리즈C 투자유치…목표치 상회 - 머니투데이",
+     "source": "머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9VeXhOWF9YMGZfWDFHTnExUmZ4eU1CLTZzY2dVTXRfRzBnOW1Wakd3RnNGUEhJSEM5UUMyOVRMVnBQM3I1OFhQSXNtTHJVSHF6WnAtd0xiRFZmRUJfOV9NNmhiV0E2b3o2dnfSAW9BVV95cUxNbldOUDNEeEQyVlRLVGw4YVBtX0h4OTlJdy1MWTdTWlRCVDB4V19kZzNpREFMZEQ0NVM0WWlmTDZCY0J4ekttZHNxYmtyVHVaeDdialM5SWdjTjNaZlRPYVluRlYyOEczb3RNMHFSX2s?oc=5",
      "date": "2026-11-23",
-     "time": "10:33",
-     "published_at": "2026-11-23T10:33:00+09:00"
+     "time": "14:00",
+     "published_at": "2026-11-23T14:00:00+09:00"
     },
     {
      "keyword": "반도체",
-     "title": "'증시 급락'에도 '삼전닉스' 산다...반도체 ETF 매수 지속세",
-     "source": "조세일보",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE0tblUzMEc5cTdoc0RhWDdDYmE2TDB1aVJodVlIMWdISVdNc1h3dmVwRU5CV1lEVHJ2cks1QzFJTmpVSXFLYVg3eGRWZlo4ZWxGc0lYVTgzSmlNYUwwd3EzTmhMYzl6U2lnTmtiZi1tamJQeHh2?oc=5",
+     "title": "충남대, AI 활용 반도체 창업 아이디어 캠프",
+     "source": "충청뉴스",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1zd25CUHUyZHVVcE9hR1FPZ0tLT3Z1NjlpdEhsSXROV1RlY3FiTnZOZ01zTm5iV0paTWhZQi1CMXVxeVdfWTVsSUdnYjJNeU4yQ0VqR040NlpIY2VRdUw3SXdfWHFJUWJXMVIwZQ?oc=5",
      "date": "2026-11-23",
-     "time": "10:30",
-     "published_at": "2026-11-23T10:30:00+09:00"
+     "time": "13:38",
+     "published_at": "2026-11-23T13:38:29+09:00"
     },
     {
      "keyword": "반도체",
-     "title": "‘1조 달러’ 韓 수출, 반도체 앞세워 11월 중순도 역대 최대",
-     "source": "서울경제TV",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE40UmpUOEU4SUtfbkFmajVEVUowY2J2U3lDMjMzVUcxNS00cFJoWHZ1T21FaTBaZzZZMm9FeHhiV2VZcjdEM08xZlNJR3ZRUUxqcE1VbjVMbHpjeGFPOHg1WWhoREI?oc=5",
+     "title": "제이앤티씨, 반도체 패키지용 유리기판 가공기술 산업부 인증 획득",
+     "source": "마켓인",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBSdmJuSnZEMDl2amsyVXhrWlVQMHh6dC0xaTBORTh5YTJQNUJmUjFKbTg5cXVHMVhvOEx2cmdmazR5RkdzTnZYb1dkRXc4YnIydnhvc19zckRuTzMtcTFXZG5zOF9Scm9CeWhwSHAwVGYtcjA?oc=5",
      "date": "2026-11-23",
-     "time": "10:20",
-     "published_at": "2026-11-23T10:20:57+09:00"
+     "time": "13:37",
+     "published_at": "2026-11-23T13:37:51+09:00"
     },
     {
      "keyword": "반도체",
-     "title": "앰코코리아 채용문 열린다…조선대, 반도체 취업 지원",
-     "source": "진일보 | 전남일보",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE50UkFjTXVfZE1LSGZMTnktR3k3TFI3U0RSbUNVZnFxWWJHVHVUUjdpbjBQUlItUWRCQW8zS3dmT3lWZmxsOTlpUHFkOFNjVlRIaTJGSExyQ18wd2cya0o3empjZjdKNEZWMkVKeE5ybw?oc=5",
+     "title": "인천시, 국내외 반도체 전문가…첨단 패키징 기술 협력 모색",
+     "source": "동방일보",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5DaWVEM0xkR3dpb1dfU2NiSlJBRHdZOG9LQmtGSEJLYVNUSUJWVU9UWm1zV2RtQmlPeHNzN1NGMlZNREFvQkVTYTRYdHl4Q3RPUUU2Rm5MbUlEbVRyOU9xT0NyNWhkWHpuT3RTNnE1WU9sZlU?oc=5",
      "date": "2026-11-23",
-     "time": "10:19",
-     "published_at": "2026-11-23T10:19:43+09:00"
+     "time": "13:32",
+     "published_at": "2026-11-23T13:32:36+09:00"
     },
     {
      "keyword": "반도체",
-     "title": "역대급 수출에도 웃지 못하는 한국 … 반도체 의존도 50% 육박",
-     "source": "뉴데일리 경제",
-     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5wdVRFVXVLVkFyLXNKZS1NYVhqNVdGZ2o3RDRTeFJVWFNDM3JwaGlNLUVjRml6NXZoWDdMNU1ZaC01OU80T0dHUlVaV2Q4bmpNeDBtTWhWTlBPRXZ1WlVYdlhBaHAyV2U2eVhWQTNwRXFETzQ4UV9pRDNMVdIBgAFBVV95cUxNTlhXWF9zS0RGYS1lX2Zta1g5S1ZYaXFUU0hVN0FsbkFPM2xoMkxiTV9JQTc5ekNJaE8zdjBVR2ZmUEtoa01SbGkzT01oelBHVDVtc3dsMzI4REJYMExCWk1pWjJKNVM1UFowU1ZoTjd4aU9xX0pRMGtPUklTOWxmag?oc=5",
+     "title": "한기대 학생들, 반도체 웨이퍼 이송로봇 경진대회… 4개 상 수상",
+     "source": "천지일보",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9KM3B3Wnh4Y2p2bmtnVFZqNFhGRld1M1RiUjdhdGVEdnRUQk1qUjBxU0liRnNMZ0FfX3dCTDRsd1MzdUN4VnlqN09BMnNjSV9UeVJScURtSEoxMFI2M01ZOTg0TTNGQkY4OUE?oc=5",
      "date": "2026-11-23",
-     "time": "10:13",
-     "published_at": "2026-11-23T10:13:00+09:00"
+     "time": "13:26",
+     "published_at": "2026-11-23T13:26:31+09:00"
     },
     {
      "keyword": "반도체",
-     "title": "조선대-앰코코리아, 지역 청년 반도체 분야 취업 지원 협력",
+     "title": "‘반도체의 힘’ 이달 중순 수출 역대 최대",
+     "source": "천지일보",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFAzd2VwVjJLdEVIbVd0dFhEWUExVTd2aDNac0pNek4tNm9ZaFlLVFVwbk5rc2JLeU1LOVk0enhpdVY5RFJXRF9zMmhLckZFeXk3QWtGRjBTZ2J0dl80UkJ6b0QxZVhGRG9PR3c?oc=5",
+     "date": "2026-11-23",
+     "time": "13:17",
+     "published_at": "2026-11-23T13:17:13+09:00"
+    },
+    {
+     "keyword": "반도체",
+     "title": "반도체 흑자가 네덜란드병 초래?…환율이 다른 수출산업 가격경쟁력 떨어트려",
+     "source": "한겨레",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5DSGZwT3dDUzVnZi1JUDVEOHc1UmNGX0lHTE9XT2t1N1BQY2VEeUgzN0NLUW9MSXpEVGtnRXlCM0ptOXVGS2d1d1hkX0ZlOVpnSUpIVGU2TU1KWlJFYThaYndSUF9wRHBmWmx5eFJjOWpkQQ?oc=5",
+     "date": "2026-11-23",
+     "time": "13:05",
+     "published_at": "2026-11-23T13:05:00+09:00"
+    },
+    {
+     "keyword": "반도체",
+     "title": "스마트인재원, AI 반도체 기반 '피지컬 AI 엔지니어 양성과정' 신규 개설",
      "source": "전자신문",
-     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBERThIbXdWRGVIUDNqRUFNa21XOGFxUHltdS1fX0J4Y1lZSUU0UTBLT2NFeXBNMFI5UTNYV2FzS2JYN093aTZWY2lPNURwdw?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBmUXR5MlhrYk83S1I3d2xfNUZRUjZvakZBOVdRRmNpaVFTWnJxb3dPVVc3enZkQmlKdEU0ZFFMZUFRMXliZ1J1M1pQMVVhdw?oc=5",
      "date": "2026-11-23",
-     "time": "10:09",
-     "published_at": "2026-11-23T10:09:32+09:00"
+     "time": "12:58",
+     "published_at": "2026-11-23T12:58:34+09:00"
     },
     {
      "keyword": "반도체",
-     "title": "11월 1~20일 수출 774억달러 '역대 최대'…반도체 비중 절반 육박",
-     "source": "매일일보",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5zWm1PVlFlNUgxSjdiTVd3Tnlpam10YUtLdXFybUQ0N005OVFyM3pIbV8xQkdWSC05cjZlZW5UcHY2SkR4ekpvSEQzSlVnOHNpdm1uVXBTaXR5bGNvSzZWVUtCMG8?oc=5",
+     "title": "금융결제원, 국산 AI 반도체 금융결제 적용 실증 확대",
+     "source": "전자신문",
+     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9vY2l3aXBXX1pjek93QmpDZ3puRXdIbVlPcE96dXZnOU5uMzJqR1pQVTQ1YkF2S2VBSXlCeW5fbWtmVkpTbUpnNThFQW1sUQ?oc=5",
      "date": "2026-11-23",
-     "time": "10:07",
-     "published_at": "2026-11-23T10:07:29+09:00"
-    },
-    {
-     "keyword": "반도체",
-     "title": "AI 거품 꺼지나…반도체 급락에 닷컴버블의 그림자",
-     "source": "하이뉴스",
-     "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9xd3E0UWVleXN6TWdOQVlqdWllbjdCczFER1NkQ2NrYVJpVFpXNDhvTGExR2JxR0VWYnVJcnE1S1lkZHVqRUppeXZtcEVMWVA2S044NDR0bE8weGRLelVNUGw5aElXN1RwaUVqd2hUZWFmdUJZNXNJ?oc=5",
-     "date": "2026-11-23",
-     "time": "10:07",
-     "published_at": "2026-11-23T10:07:21+09:00"
-    },
-    {
-     "keyword": "반도체",
-     "title": "낸드 현물 가격 20% 하락…반도체 P 사이클 꺾이나",
-     "source": "연합인포맥스",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5MOHo2cWt5ZHQwOHNJOXk2NHVHaWlWUk9HZUduRHdlRDVSaGg4alA0aXlrZVI4eUNWTEVzc0Vaekw3T0tZeXJydnBvZnJ4bjBoUkc4a3NCVjgyVGdSSVpDNms4dUQ0bkVDTzVOSko2UjY?oc=5",
-     "date": "2026-11-23",
-     "time": "10:07",
-     "published_at": "2026-11-23T10:07:02+09:00"
+     "time": "12:32",
+     "published_at": "2026-11-23T12:32:29+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T11:06:54+09:00",
+   "fetched_at": "2026-11-23T14:04:14+09:00",
    "keyword": "반도체"
   },
   "AI": {
@@ -4190,96 +4190,96 @@
    "articles": [
     {
      "keyword": "애플",
-     "title": "애플 '아이폰 에어2' 새로운 목업 유출…후면 듀얼 카메라 품는다",
+     "title": "애플 내년 봄 신제품 라인업 윤곽…아이폰18·맥북 네오2·OLED 아이패드 에어 출격",
      "source": "케이벤치",
-     "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1zT3RXWF9ieEd2cGFjUzVjUWVzWGNmNExXZWt0cnNrRVdVUnIzeW54WGM5T3VTQ2tmbGlSSkdxVloxMWJjd1VzbA?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1TYVVRNDFsM2I1SlNvR1NpOEpGOUV2Vk0zU01mTzRXcWZRNGE5d2k4MTE5UmFWWEMzaXFGWjJ1bTE0ajVlak5Qbw?oc=5",
      "date": "2026-11-23",
-     "time": "09:38",
-     "published_at": "2026-11-23T09:38:15+09:00"
+     "time": "13:50",
+     "published_at": "2026-11-23T13:50:55+09:00"
     },
     {
      "keyword": "애플",
-     "title": "애플 '아이폰 듀오' 직접 분해해 봤더니..⋯화면 균열 힌지 설계가 문제",
-     "source": "엠투데이",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE4zbHc3cFRzZVVzRFVRZWJYb2R5YUo3STMyODRWVmZPMFEtd3FRc28wQ3VIbFVfSkR5bm96dWxaY3lOVEJNeHhCUEtRS1dGSUxSbVpFVjNWQlVNejdGejVnUFBjTkRWRTZ5MHVQTDQzWQ?oc=5",
+     "title": "BTIG 크린스키, 애플 강세 지속 시 S&P500 바닥 어려워",
+     "source": "BeInCrypto",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE42dVpkUnB4bkJDM19tMC1heW1IS01KVUxlMld2WVgwcktDdFZ3YlBWalpnZ2xkUk5yWk9rRlpOMmhuZ1hJdlpIdmN4NXdGUDhwRVZZNUhjWDkzODlIc3NRa1hJTm1IdFFSbTJvUjdjNWY?oc=5",
      "date": "2026-11-23",
-     "time": "09:35",
-     "published_at": "2026-11-23T09:35:05+09:00"
+     "time": "13:20",
+     "published_at": "2026-11-23T13:20:05+09:00"
     },
     {
      "keyword": "애플",
-     "title": "아이폰 듀오 반쪽짜리 보안…어두운 밤·애플페이엔 여전히 `지문 인식` 필수",
-     "source": "디지털데일리",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1QQWIwS2VfSlI4WWJaYndpeGdUUzdld3VUS0JUVTRoNVl5ZlM1QndHVXZpZUNBZ1hvdWE1bW5fdmVMVzRRTzQxRmhuRXJuelN5UUlUd0p1TFU0SEd4MmhGbkxMWjE?oc=5",
+     "title": "애플, 자체 AI 에이전트 개발 위해 엔지니어 채용 나섰다",
+     "source": "스타트업레시피",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5UZ1V6eTAxWHZGZExiWmQ1aEFHUDdxVG5rRThRN3ZBWEdhTXNKZ1lUdU5XS1lCTUFuMEdiM1cxaHI0N0xZX1dyTHV1Mm85VlpYR0JmZm9sRS1lSEJodkE?oc=5",
      "date": "2026-11-23",
-     "time": "09:12",
-     "published_at": "2026-11-23T09:12:18+09:00"
+     "time": "13:00",
+     "published_at": "2026-11-23T13:00:52+09:00"
     },
     {
      "keyword": "애플",
-     "title": "오픈AI·구글 매주 진화하는데 애플 1년단위 고집…'예산 삭감·전산 대란'까지 AI 에이전트 패배론",
-     "source": "디지털데일리",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5pZDdWcUhUVXkyOWo5dWVad0N1V2tNS3ZSWnFodWxJUl9wU3JvandwTjFiekVMR0t5M0J3MTB6VlZHYW5QZ3ZQX05xZU1NY192RGJIYWREWlZPR2VYaDNFMl8zMlk?oc=5",
+     "title": "[마켓] 카카오뱅크, 은행권 첫 애플페이…신한·KB는 '눈치'",
+     "source": "자본시장뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE54N2JGaUFGR005NDBKbzVCQWsxQ0YwRkFZSXoxdnpEQnJqZ0JSY2VVRGNxR0VoLTY1Rkcwb0dCUnRmMWZnSjR5NWhac1dFLXJQN2dnQWlVV2VPOTJGRnFldEktSm02bGc?oc=5",
      "date": "2026-11-23",
-     "time": "09:09",
-     "published_at": "2026-11-23T09:09:11+09:00"
+     "time": "13:00",
+     "published_at": "2026-11-23T13:00:00+09:00"
     },
     {
      "keyword": "애플",
-     "title": "효민, 먹기 위해 운동한다더니…애플힙이 이 정도였어? [DA★]",
-     "source": "스포츠동아",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE55dFpiOTA3Ni0zdjNaYU1ldjFlbDdKdUIyZmEzZ2g0NzhoSzJOSW1IU0dRaGw1YVQtQi04bUsybUMxUGFaclQyVU1CYXROcnJVaGV2Q3hqb2p6RGFDUnBfTDhHbkkxNVQ3TnZUQkFn?oc=5",
+     "title": "애플 '맥북 네오 2' 내년 3월 출시하나…A19 Pro·12GB 메모리 탑재 전망",
+     "source": "케이벤치",
+     "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE0wdkdSYWZJRHlfQUEta0Y5SlNhc0k4dGVySTdpQ0hrcE1kWDVQb05FNFFpTkFPWk5Vd2QwNnVoNFFBSDc3VktLVA?oc=5",
      "date": "2026-11-23",
-     "time": "09:00",
-     "published_at": "2026-11-23T09:00:38+09:00"
+     "time": "11:46",
+     "published_at": "2026-11-23T11:46:48+09:00"
     },
     {
      "keyword": "애플",
-     "title": "주간 애플 뉴스: AI 전략과 리더십 변화, 팔머 럭키의 스티브 잡스 비판 외",
-     "source": "Benzinga",
-     "url": "https://news.google.com/rss/articles/CBMi0gJBVV95cUxQRGo0UTJabFF1Rl9waHd3R2ppTzlxYlBWRW1sWVB6T0xVMl95ZHUtTlRuQjZJNnRKa2d6TFNldGRJQXpidUVSMjBLQmk5NlRjdjgzdW1NZEczdUVRWE5QdzhBN0hiZGppN28tbmJDekdLd1JzUUtqb25ZU3RFSkRoZC1xLUZweXBZNE9Jbk9uUzBUVzg4bndMU3JWMnpGREM1WGpLYTdaWEduRjlHREdIX2pSeFNZZF9udUkxdkpGLTRhdGJwaUM4N0YwM0ZSMlJKNGFDWmthRVJjMEpnQzJHY2hWajlEVTZBTzExRF9PTm9keFh2UmFfSHlLNW50cHZfNlJDZG5SXzlBaUZOaVY5TUp3S2puZXBfNlJLN0NFbS12dEdDWVpMMHNHZHQyTW41ZmwwVWZmZy1SY29tb1hHR2VwTDhpM0tyZGVESmNIaTRCdw?oc=5",
+     "title": "애플, 2027년 아이폰 대개편…봄엔 아이폰18, 가을엔 20주년 플래그십",
+     "source": "디지털투데이",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9pVEtYRkRqMFNnZktSSmlPNGpGM2xQSGNpVDRLUmkzSHNpd19Ma19pWjM0Vzd2MGgtUWVjWDRsbTludHNxWFpyVG5TMEhwd0VJRUVmd0RnN3dUTUJhRzVybU9KX0loNEJUd2o2T25kVi1kQXc?oc=5",
      "date": "2026-11-23",
-     "time": "08:48",
-     "published_at": "2026-11-23T08:48:45+09:00"
+     "time": "11:33",
+     "published_at": "2026-11-23T11:33:58+09:00"
     },
     {
      "keyword": "애플",
-     "title": "\"애플, 내년 초 신제품 쏟아낸다…아이폰18·맥북 네오2 출격\"",
-     "source": "지디넷코리아",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9TcTBnUlE0aXBNTnBndmNnWEhhMWpqOUFTb01KajZIWWs4R19meVViNkFHZUsxZlRkWUFUTFFyc1YzM0dVX0wwZVpPUnduZUFtd25HOEln?oc=5",
+     "title": "애플 맥북 네오 2, 내년 2~3월 나온다…A19 프로·12GB 메모리 유력",
+     "source": "디지털투데이",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5Xa2xvdDR0emNhbjJ3TEE2WVVLZXhocEFxSjFaMDV4b2RUOTk2Ynh1MzdfUUp5VU9aSjYyUG13OFhlUE5xVmZWUHdhNGhlb0wyVFlpaXJDbGdPWjJDNlNuT1Y5OXpyLWxjQUtfVjB1NnNndE0?oc=5",
      "date": "2026-11-23",
-     "time": "08:43",
-     "published_at": "2026-11-23T08:43:38+09:00"
+     "time": "11:33",
+     "published_at": "2026-11-23T11:33:30+09:00"
     },
     {
      "keyword": "애플",
-     "title": "댄 아이브스 \"AI주 급락은 악재 겹친 탓…애플·빅테크는 피난처\"",
-     "source": "연합인포맥스",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1YZTRWakJYTkNVSlZRSU5xSlQ3a1RvWXlsUV84bzd3TjZuWEZnUEdaWWpMTWlTTEhvXzRZZ2dQRGtJelVoYUgtU0szQjkyOFl0dmpYVjI3dDhmeUZIMnFodFlnYUxJTXF0NFFNZEZGc2HSAXRBVV95cUxPTEhPT0NUdUtZblpxZGRyQ1lIOTJ5aERveEx5Vl9rV2kxcDVPT1JSeU9zb0FBcjJ1LXB6aHR0djU0bHBmcEx5RDIyc2J5Q3VZbmFDWVlIZHZFNzRpWlJPR08yTXRyREEyR0ZzclJzRlo0M1lueQ?oc=5",
+     "title": "붉은 하늘 아래 낯선 풍경…쏜애플, 새해 첫 단콘 '디오라마'",
+     "source": "전자신문",
+     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE11Wlh4MzN0MDNJNnNuUEt2WUZ0QUVfVEI4a1pSRTRZME9QelNCWVo0VE5kMHZybjVjaU40Z3FwRjlpZ3ZlZEV4U3A3V2tBQQ?oc=5",
      "date": "2026-11-23",
-     "time": "08:40",
-     "published_at": "2026-11-23T08:40:00+09:00"
+     "time": "11:32",
+     "published_at": "2026-11-23T11:32:47+09:00"
     },
     {
      "keyword": "애플",
-     "title": "애플(AAPL.O), '연락처 공유 기능' 특허 분쟁…美 스타트업에 2,300억원 소송 당해",
-     "source": "메디컬투데이",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE85NWhLZE1IYlNYYWJsQzhCQWJ5bnA3YzlzMGd6Q2RCam5TRmxVTmNFUlpfMFBIY285dC1zM1FVbnJ3WFUxR0FuN1ZSMnhlQVpUTnh4WlhCTjF4Q1dramRveUszVy1ubmg2dlhqag?oc=5",
+     "title": "애플, 내년 2~3월 아이폰18·맥북 네오2 조기 출격하나",
+     "source": "IT조선",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBFZ2oxb1otSU9YcE9oci1jVFhkeXY5dVJKNXNsT3lPX2Zyd1RjX2l3aDlPWFhRSVoxS2ZDX21SNnc4ZE9KMVpabGR3LVVkYm10a3UyaDBLUUI5U0ZuQlBTQnA1NU5MTmphY1ZpeVpIUzPSAXRBVV95cUxOZzJtWTNKMjMxemV5c3VJblMxSUxMcVVZMEdZbFljcmh1TlZXU29ZREI4Rzk3di00MGlXTVMwZkZmY1diVHZBLUxRZ3ZaQzNvV3JQZEM1QnN6MHhraWpOV3BrSzlFNlNvQnNhQjFUQmwxRWZNNA?oc=5",
      "date": "2026-11-23",
-     "time": "07:43",
-     "published_at": "2026-11-23T07:43:07+09:00"
+     "time": "10:55",
+     "published_at": "2026-11-23T10:55:50+09:00"
     },
     {
      "keyword": "애플",
-     "title": "[AI 모닝브리핑] 맥·아이폰 직접 누르는 AI 비서…애플도 참전 정황",
-     "source": "코인리더스",
-     "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE1NaTBfclVaNkpvR3RNaUpiLTVIVVY4ZGhfT0d6YmdvbjBYcy1HYzRFQUhkUnJWV183UFRKUDlHaHRNZk9NcTZIQXp3?oc=5",
+     "title": "쏜애플, 2027년 1월 새해 첫 단독 콘서트 '디오라마' 개최…오늘(23일) 티켓 오픈",
+     "source": "국제뉴스",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE4yQWFwOUVGalFpMjE3Q3ZHN0EwQXVnVjU2RW9CMXRPdVBmOVhfOUZLYTVqX2RVUWhKeGctU3gxWlRiUkZ6bE5pVG82OE9SUllXZHZBa29LbldDU1JTc3l6alFXTlczZnAzdFF2Nm1n?oc=5",
      "date": "2026-11-23",
-     "time": "07:31",
-     "published_at": "2026-11-23T07:31:43+09:00"
+     "time": "10:52",
+     "published_at": "2026-11-23T10:52:21+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T10:06:27+09:00",
+   "fetched_at": "2026-11-23T14:04:17+09:00",
    "keyword": "애플"
   },
   "2차전지": {
@@ -4639,96 +4639,96 @@
    "articles": [
     {
      "keyword": "엔비디아",
-     "title": "\"中기업 엔비디아 칩 금단 현상\" 美보도에…中매체 \"지나친 자기애\"",
-     "source": "뉴시스",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBTTzRhdi1JWlFzUk00alBWdmVFTDNReVNveGZoZVFPcXVsdFVVeU9YcE8tQUF5bER6NXVHOV9QaEN6UEFNVnZhX1hiNV9RZVdrUFZLcjBRcWY0bFJHTzdEWtIBeEFVX3lxTFBSd0RBcnRsWGplTW5Lbi1yOUNKQTJyaDVMSmp2TDBiTVJETnBhWUpSeG5VVVcxYWg1aDlwbFlzcUUydjY0UzZaTjdfbmdNeEF4S1VNV01jUUUzTWdNZENRdnd2U3BRNENCa3NuZy1OUUVSQjV5TTZINw?oc=5",
+     "title": "트럼프, 엔비디아에 “美 국익 위해 젠슨 황 재고용하길”",
+     "source": "세계일보",
+     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE8wcDNPdXNVWmtvR3JyTkFUYWhFME9WQl84NGdNQUt1ekwtdmJiLVFXOHpQMW4tZHp2eW9XSmlYeDBXcHRPdERrck5Mb3QzZV9rZDhMdVJ1enLSAVRBVV95cUxNYi1Edm9EZ09iamtvRkhrX0VRT0xjM05mOHZGS0ptZk9fZHpYZ0R2N1FxM1dnV3lVZ1JST3dMZTJ2NmNCS1RMM1ZYcGlEaU1aNGRBaXo?oc=5",
      "date": "2026-11-23",
-     "time": "09:44",
-     "published_at": "2026-11-23T09:44:29+09:00"
+     "time": "13:30",
+     "published_at": "2026-11-23T13:30:01+09:00"
     },
     {
      "keyword": "엔비디아",
-     "title": "[뉴욕 브리핑] 앤트로픽 8.5%·엔비디아 14% 폭락…美증시 '패닉'",
-     "source": "DealSite경제TV",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4zeDgtLXQ4UnNuMkN5X1VJN2tVTFRPNGU3cHk4anJHZVRyZ3k5VXlFc0JjV3NZS0x1TE9QWVNiNDFNTkZ4ZFFUTHJuTFBGNHlkVmlaLXZB?oc=5",
+     "title": "또 젠슨황 감싸기…엔비디아칩 中밀반입 의혹 확산",
+     "source": "연합뉴스TV",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1lZjZPRFdaRkZndlJJcGlvbVA3QVB1a2NLRHlPdDNXZVBrWXBfczZVamZ2eVJ4ZlAxSktGQlJJR0ZnS0YzV001LXd5NDhnLXB0QUxPLVh4bTY2MWNtMmlDY1dtMVRzM00?oc=5",
      "date": "2026-11-23",
-     "time": "09:42",
-     "published_at": "2026-11-23T09:42:58+09:00"
+     "time": "13:25",
+     "published_at": "2026-11-23T13:25:00+09:00"
     },
     {
      "keyword": "엔비디아",
-     "title": "엔비디아 사태에 흔들리는 트럼프식 국가자본주의",
-     "source": "한국경제",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8xeGhTOWdoeVlrRWNRMUJ3bjJGTDZEbWtiaWwzbTg3TU1kT2kzd3lYRFhXdVJ4bDllOGh6ZGhWWU5ISkY1LWdVMlI5SWFkbEloX1JiVU1GZzMyZw?oc=5",
+     "title": "캘리포니아, 엔비디아 형사법 위반 가능성 조사...불법 수익 환수도 검토",
+     "source": "AI타임스",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE56S1JJckVENFVINHR4TkZWZW9ZMFJiaEVCRU1zdWFSN3lLQ3BfVlVMVFE2OTZjMXI3NVg5aWJTU05uLVJyQmtMZDVydjJZNUVCZ0hrMFlILVd3YUZQalgwNHc2RC02M3h1Y2c?oc=5",
      "date": "2026-11-23",
-     "time": "09:41",
-     "published_at": "2026-11-23T09:41:00+09:00"
+     "time": "13:01",
+     "published_at": "2026-11-23T13:01:39+09:00"
     },
     {
      "keyword": "엔비디아",
-     "title": "네이버, 엔비디아와 고교생 피지컬 AI 교육 지원",
-     "source": "전자신문",
-     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9yVTlDUTk1a0k5VExYVlA2WDZUNjd0b2h4T1NCVEp2ZkM5UWVvYy1tZmNkWkVTcUcxdmFYRk1lREFvOVFFVFZZN0I5QnVpZw?oc=5",
+     "title": "\"엔비디아 칩 유출에 캄보디아 범죄 조직 관여\"",
+     "source": "MBC 뉴스",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9VVTVhZDN4SmtsRF9TU3FLbVNtV1VhaUZwcmtCelJGdUhFakNmcDNRYjVxc2R4ZmFDb2VIVjNnRFVkT2duTG9nTERDemdqNENycVRCcTFqOW13TkxCVV9JNnE3TVlJY21NOTl4eDFrQk1sLUVJbDluedIBeEFVX3lxTE5YVVc5bTY3Q0plRmp3QWhRUlhHcU1ES3BSeXh2eWlwcjJPeGpibHJ2OXh2QU43NzlJWnVxXzVLS3U2TVNZb2Y1VXRDYnJhQWlrekpzc0FfREMyY0xmWmV0MW1oNDd4UWVrXzVpTVp3MnQwc3EzY3hYUw?oc=5",
      "date": "2026-11-23",
-     "time": "09:27",
-     "published_at": "2026-11-23T09:27:08+09:00"
+     "time": "12:17",
+     "published_at": "2026-11-23T12:17:14+09:00"
     },
     {
      "keyword": "엔비디아",
-     "title": "엔비디아 RTX 스파크 데스크톱 출시…메모리 128GB, 1페타플롭스",
-     "source": "AI 매터스",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5NY040WW14akZDS1NqYnF6MUdkMWMxTjFoc0U2a1J1NV9uYjR0U3ZTTE9EZEM4djRfZFczdEtMZEZYdG4waWtlUHZJdVJUNlZhOUFZMw?oc=5",
-     "date": "2026-11-23",
-     "time": "09:08",
-     "published_at": "2026-11-23T09:08:18+09:00"
-    },
-    {
-     "keyword": "엔비디아",
-     "title": "\"앨리스 황 엔비디아 AI칩 中 밀반입, 캄보디아 범죄조직 연루\" - 머니투데이",
+     "title": "반도체 레버리지·엔비디아 '줍줍'하다 '멘붕'…인버스는 너무 일찍 팔아 '후회'[서학픽] - 머니투데이",
      "source": "머니투데이",
-     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5jcFBPVFBvVldjWUtxVlVnWE1RM1Z1cEN0X1ltQmJSdWQxd0pUQm1lTHpRa1RZdlJCSGN4YUJfRTBmTVI4QUZxMFhpd1BLbEFYbzI1RFA3Mm1sQ1QtNHRSWFJXNVJ2NDRRWlk0ZzZqS2E3Mko5ZUHSAXtBVV95cUxQRTdwTWpUYmRQdzhDdWxsaFcwYzFENEJVVHF4c3ZibHc1dVdpUVJzWHNocVZINTc2dXpDclRwVE43djFzUWg4VjNGRlE5NFJuSjNTaWhONXltWkxycDVtYVRYVGVWMll6OXgzbWQ3RExCWG42Nkd0dlJwYlU?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9uLVZNSFc3dGxpa2dQRFVXbFB4MDJ1QzREUkVscGc5Sktsd09kRXNjckYtdW55a01MSWs4RldhNENDb0JORm5KR1BrRmlPMFZod1JHRkhySlJMMkk4MlBpZWtlemlpRWx10gFuQVVfeXFMUDRhQVd1MFJfS253RGxxb3JkckJVYjZCN01kN0ZvYkJIWmpyY2tSNVpNME1OMXVWSzBIXzRCWGxOSlc4ZFZ4YzNLM3RfbDFKbjYyTnhHWlVVNFEydHJQMWV5M1AyZkZwUU52Zm82Nmc?oc=5",
      "date": "2026-11-23",
-     "time": "09:07",
-     "published_at": "2026-11-23T09:07:34+09:00"
+     "time": "12:15",
+     "published_at": "2026-11-23T12:15:28+09:00"
     },
     {
      "keyword": "엔비디아",
-     "title": "미국 증시, 엔비디아 회계 조사 보도에 급락",
-     "source": "네이버페이 머니스토리",
-     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9FN2FkX1RSNVQ1VWtKa3RtSVk1Mzh1amdRekl0dTY2Mk5Xc2JWMTBtSGp2bFJQTmpWWWR1SW9MNnpNRVM5UEZaSmZ3TmZNaGhMQlZIckloX1I?oc=5",
+     "title": "아마존, AI 스타트업 '데카르트' 인수 추진···\"엔비디아 견제 강화\"",
+     "source": "서울파이낸스",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9uZkE0NDVuZWlfcW9XZFFXNUgtaFp0R2ZuQnplWFIyYXVwSWZLQWY1VDlXeHpmamxLLTFUbkllWE1ETE1SMVU2ZkMzWFlfWk94OERKbnBQUXJRRnRIakhpei1sSFQ0TDFjTmc?oc=5",
      "date": "2026-11-23",
-     "time": "08:55",
-     "published_at": "2026-11-23T08:55:51+09:00"
+     "time": "12:10",
+     "published_at": "2026-11-23T12:10:59+09:00"
     },
     {
      "keyword": "엔비디아",
-     "title": "뉴욕증시 급락…엔비디아 회계 조사에 AI 투매 확산",
-     "source": "마켓인",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBDV1pyclFuVHBQMlM1TnRVMThWa1B0QzYwdEZxcDFkQkstTGtzWlBiMExRRi1IOHB2N2VxbENNb3d1UHRNSEFTcWdIOURvLU8wdUZnU2YzZkpnaGJHbmE3dUZqazB2TnFOMDhfdmhEOFctWTg?oc=5",
-     "date": "2026-11-23",
-     "time": "08:54",
-     "published_at": "2026-11-23T08:54:34+09:00"
-    },
-    {
-     "keyword": "엔비디아",
-     "title": "美 재무장관 \"엔비디아, 칩 中 유출 신속히 해명해야\"",
+     "title": "트럼프 \"엔비디아, 젠슨 황 재고용하길…미국에도 최선\"(상보)",
      "source": "연합인포맥스",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBQQ08zdGdHUkdqeFZpaWRsVlhVNk80QnZRNnI5NkR2UVlySzF1TVR4UkZfRnUtMndrVHFUZ0o2V0ZoRGxjYVY5UnlnM3Q5THhZVHNRNXdvQlRHVWNZcks2OTR4UkFPNXh2WjhKeDdJaUs?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBfRDI2R3ctTzhMUGxOWkFLVHMyY2RMZm5RdWVRclI3S01pXy1UMmdMV3dRUHJTdXB5WlM2cGJsTGpXdUN1UFBjRm51d2YyU25tcmJCbEJrb3FiSEROX2JjVlp1N25lUFNrNGIzTDgtZ3Y?oc=5",
      "date": "2026-11-23",
-     "time": "08:51",
-     "published_at": "2026-11-23T08:51:51+09:00"
+     "time": "12:07",
+     "published_at": "2026-11-23T12:07:52+09:00"
     },
     {
      "keyword": "엔비디아",
-     "title": "엔비디아 반토막, 나스닥 20% 추락… AI 버블은 이미 터졌나",
-     "source": "조선일보",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPNHd1c0x4ZXBBaFN6bUFPRFBrUENsaE1oRi1XOWxSMS1GZmc4Y3VUekRRc0ZmZzBkZ0YyNm9lVWxxWUwxSHB1ZmFZYlZLOUhORW1URGwzQWQtaFZzcWJnQ1N1UDZfR1F1eXM3ZUlsaWVLUTA3TWlQdldsLXdCX3NmYnVCVmhiY1kx?oc=5",
+     "title": "청와대 \"엔비디아 충격 일시적…반도체 산업 전망 낙관\"",
+     "source": "BBS불교방송",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE00MWZ5cHB3OUZCYTdCeGJXQW1LYS15MDBrOVRLRDg3OVpiV0Rpa2VlbmxyT0JIamtqM2ZXM1hPTEJsQWhjNXBmRUdnc1J4b09QUjJMdzlEX1o1U0FDRW9mR0ZnX3o3bnN3d3pj?oc=5",
      "date": "2026-11-23",
-     "time": "08:51",
-     "published_at": "2026-11-23T08:51:00+09:00"
+     "time": "10:38",
+     "published_at": "2026-11-23T10:38:12+09:00"
+    },
+    {
+     "keyword": "엔비디아",
+     "title": "엔비디아 주가 급락했는데…구형 GPU 임대료 1년 새 60% 급등",
+     "source": "연합인포맥스",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1MRGRqY3hCMjk1WEw3X3kwRzBIbUg0SWk0WkVMaDBwamE3bkxlQmpZdUExSHJlTlVXb3BpdzUyRUVSekEzTUNUTmNZekFQT2VyZTZwdkRFOFprWTdWSF9HSDg0RXkwekY0WXBDTTJtOFY?oc=5",
+     "date": "2026-11-23",
+     "time": "10:37",
+     "published_at": "2026-11-23T10:37:42+09:00"
+    },
+    {
+     "keyword": "엔비디아",
+     "title": "젠슨 황 사임, 엔비디아 책임은 남았다",
+     "source": "OBC 뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBlUWNSTXVHVUloNzJhaWZrNmsyMnc2c3lvUUZhSmF5RkM3Q29TMzh5RU5PeURSeVNfMGlHeXFBWS1zUXhJQkczek8yTkR5bFpJdlltRG1ZSXpfdFZSUnZod2t5Q09EZ0hnNHc?oc=5",
+     "date": "2026-11-23",
+     "time": "10:29",
+     "published_at": "2026-11-23T10:29:07+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T10:06:30+09:00",
+   "fetched_at": "2026-11-23T14:04:19+09:00",
    "keyword": "엔비디아"
   },
   "트럼프": {
@@ -5560,7 +5560,7 @@
   },
   "added": {
    "keywords": 0,
-   "companies": 6
+   "companies": 0
   },
   "errors": [
    "SAVE 직접 조회 불가: Cloudflare 봇 차단(Just a moment) — 익명 요청으로는 접근 불가"
@@ -5569,7 +5569,7 @@
  },
  "errors": [],
  "briefing": {
-  "headline": "미국 증시 마감: 다우 48,147.33 (-1.93%), 나스닥 22,617.73 (-5.28%), S&P500 6,910.39 (-3.70%), SOX 8,408.59 (-10.73%) / 코스피 4,706.96 (-3.35%), 코스닥 640.15 (-0.86%)",
+  "headline": "미국 증시 마감: 다우 48,147.33 (-1.93%), 나스닥 22,617.73 (-5.28%), S&P500 6,910.39 (-3.70%), SOX 8,408.59 (-10.73%) / 코스피 4,713.79 (-3.21%), 코스닥 640.67 (-0.78%)",
   "checkpoints": [
    {
     "title": "반도체·기술주 흐름",
@@ -5581,11 +5581,11 @@
    },
    {
     "title": "금리·환율",
-    "detail": "미 10년물 4.950% (-10.22bp), 미 2년물 4.649%, 원/달러 1,349.70원 (+0.35%)."
+    "detail": "미 10년물 4.950% (-10.22bp), 미 2년물 4.649%, 원/달러 1,349.00원 (+0.30%)."
    },
    {
     "title": "국내 증시",
-    "detail": "국내 추적 종목 낙폭 최대는 NAVER -7.80%."
+    "detail": "국내 추적 종목 낙폭 최대는 NAVER -7.74%."
    }
   ],
   "sector_news": [
