@@ -750,6 +750,426 @@ def is_fresh(fetched_at: str | None, minutes: int) -> bool:
 
 
 # --------------------------------------------------------------------------
+# SAVE(세이브티커) 연동 — www.saveticker.com
+#   · SAVE PICK / 로이터 / 관심 종목·키워드 뉴스와 경제 캘린더를 가져와
+#     키워드 트레이스·분석 기업 뉴스에 "SAVE" 배지 기사로 합친다.
+#   · saveticker.com 은 Cloudflare 봇 차단(403 "Just a moment…") 뒤에 있다.
+#     GitHub Actions 같은 익명 요청은 대개 차단되므로,
+#       1) 짧은 타임아웃으로 직접 조회를 한 번 시도하고
+#       2) 실패하면 저장소에 커밋된 마지막 스냅샷(data/save_latest.json)을 그대로 쓰며
+#       3) 스냅샷조차 없으면 "연동 불가" 상태를 남기고 조용히 넘어간다.
+#     (수집 전체를 붙잡지 않는다 — SAVE는 부가 정보이고, 실패해도 앱은 계속 돈다)
+#   · 스냅샷은 사용자의 로그인 브라우저 세션에서 갱신해 커밋한다.
+# --------------------------------------------------------------------------
+SAVE_SITE = "https://www.saveticker.com"
+SAVE_PATH = os.path.join(DATA_DIR, "save_latest.json")
+SAVE_TOP_URL = SAVE_SITE + "/api/news/top-stories"
+SAVE_LIST_URL = SAVE_SITE + "/api/news/list"
+SAVE_CALENDAR_URL = SAVE_SITE + "/api/calendar/events"
+SAVE_TIMEOUT = _env_number("SAVE_TIMEOUT", 6)
+SAVE_CALL_SECONDS = _env_number("SAVE_CALL_SECONDS", 8)
+SAVE_MAX_ARTICLES = 40        # 한 번에 다룰 SAVE 기사 상한
+SAVE_PER_BUCKET = 6           # 키워드·기업 버킷당 SAVE 기사 상한
+SAVE_CALENDAR_DAYS = 14
+
+
+def save_blocked_reason(head: bytes) -> str:
+    """Cloudflare 챌린지 페이지인지 판별. 아니면 빈 문자열."""
+    text = (head or b"").decode("utf-8", "replace")[:2048]
+    lowered = text.lower()
+    if "just a moment" in lowered or "cf_chl" in lowered or "challenge-platform" in lowered:
+        return "Cloudflare 봇 차단(Just a moment) — 익명 요청으로는 접근 불가"
+    return ""
+
+
+def save_http_json(url: str, timeout: float | None = None) -> dict:
+    """SAVE API GET. 차단/실패는 SaveFetchError 로 올린다(재시도 없음 — 빠르게 포기)."""
+    timeout = SAVE_TIMEOUT if timeout is None else float(timeout)
+    limit = min(SAVE_CALL_SECONDS, max(0.5, budget_left()))
+    req = urllib.request.Request(url, headers={
+        "User-Agent": UA,
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "ko-KR,ko;q=0.9,en;q=0.8",
+        "Referer": SAVE_SITE + "/news",
+    })
+    try:
+        body = _urlopen_read(req, min(timeout, limit), limit, url.split("?")[0])
+    except urllib.error.HTTPError as e:  # noqa: PERF203
+        try:
+            head = e.read() or b""
+        except Exception:  # noqa: BLE001
+            head = b""
+        reason = save_blocked_reason(head)
+        raise SaveFetchError(reason or f"HTTP {e.code} ({url.split('?')[0]})") from None
+    except Exception as e:  # noqa: BLE001 - 타임아웃·DNS·연결
+        raise SaveFetchError(f"{type(e).__name__}: {e}") from None
+    blocked = save_blocked_reason(body)
+    if blocked:
+        raise SaveFetchError(blocked)
+    try:
+        payload = json.loads(body.decode("utf-8", "replace"))
+    except Exception as e:  # noqa: BLE001
+        raise SaveFetchError(f"JSON 파싱 실패: {e}") from None
+    if not isinstance(payload, dict):
+        raise SaveFetchError("예상하지 못한 응답 형식")
+    return payload
+
+
+class SaveFetchError(RuntimeError):
+    """SAVE 조회 실패(차단·타임아웃·형식 오류) — 스냅샷 폴백 신호."""
+
+
+def save_symbols(cfg: dict) -> dict:
+    """앱 종목코드 → SAVE 티커 심볼 (국내 005930 → 005930.KR, 해외 NVDA → NVDA)."""
+    out = {}
+    for code in (cfg.get("kr_stocks") or {}):
+        out[code] = f"{code}.KR"
+    for code in (cfg.get("us_stocks") or {}):
+        out[code] = code
+    return out
+
+
+def save_keyword_rules(cfg: dict) -> list:
+    """트레이스 키워드 → 기사 매칭 토큰. config 의 require(없으면 키워드 토큰)를 쓴다."""
+    rules = []
+    for kw in (cfg.get("trace_keywords") or []):
+        label = kw.get("keyword") or ""
+        tokens = [t for t in (kw.get("require") or keyword_tokens(label)) if t]
+        if label:
+            rules.append((label, tokens))
+    return rules
+
+
+def save_ticker_codes(cfg: dict) -> dict:
+    """SAVE 티커 심볼 → 앱 종목코드. SK하이닉스 ADR(SKHY)은 국내 코드로 묶는다."""
+    out = {sym: code for code, sym in save_symbols(cfg).items()}
+    if "000660" in (cfg.get("kr_stocks") or {}):
+        out.setdefault("SKHY", "000660")
+    return out
+
+
+def save_ticker_label(raw: dict) -> str:
+    return str(raw.get("symbol") or "").upper()
+
+
+def save_article_kind(raw: dict) -> str:
+    """배지 문구: SAVE PICK / SAVE·로이터 / SAVE."""
+    channel = (raw.get("channel") or "").lower()
+    source = (raw.get("source") or "").lower()
+    if channel == "save-pick":
+        return "SAVE PICK"
+    if source == "reuters":
+        return "SAVE·로이터"
+    return "SAVE"
+
+
+def save_article_source(raw: dict) -> str:
+    """화면에 보일 출처 이름 — SAVE 편집 기사는 매체명, 로이터는 로이터."""
+    source = (raw.get("source") or "").strip()
+    if not source:
+        return "SAVE PICK" if (raw.get("channel") or "") == "save-pick" else "SAVE"
+    if source.lower() == "reuters":
+        return "로이터(SAVE)"
+    return f"{source} · SAVE"
+
+
+def save_datetime(raw: dict) -> datetime | None:
+    """created_at 은 UTC(Z) ISO 문자열 — KST datetime 으로 변환."""
+    value = raw.get("created_at") or (raw.get("extra") or {}).get("source_created_at")
+    if not value:
+        return None
+    text = str(value).replace("Z", "+00:00")
+    try:
+        dt = datetime.fromisoformat(text)
+    except Exception:  # noqa: BLE001
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(KST)
+
+
+def parse_save_item(raw: dict, keyword_rules: list, ticker_codes: dict,
+                    max_age_days: int = 10, now: datetime | None = None) -> dict | None:
+    """SAVE API 기사 1건 → 앱 기사 형식(+origin/badge/keywords/companies)."""
+    if not isinstance(raw, dict) or raw.get("is_deleted"):
+        return None
+    title = clean_title(str(raw.get("title") or ""))
+    if not title:
+        return None
+    dt = save_datetime(raw)
+    if dt is None:
+        return None
+    now = now or now_kst()
+    if (now - dt) > timedelta(days=max_age_days):
+        return None
+    body = str(raw.get("content") or "")
+    haystack = (title + " " + body)
+    lowered = haystack.lower()
+    keywords = []
+    for label, tokens in keyword_rules:
+        if any(t.lower() in lowered for t in tokens):
+            keywords.append(label)
+    companies = []
+    for ticker in (raw.get("tickers") or []):
+        code = ticker_codes.get(save_ticker_label(ticker))
+        if code and code not in companies:
+            companies.append(code)
+    labels = [str(t.get("name")) for t in (raw.get("content_labels") or []) if t.get("name")]
+    article = {
+        "keyword": keywords[0] if keywords else "",
+        "title": title,
+        "source": save_article_source(raw),
+        "url": f"{SAVE_SITE}/news/{raw.get('id')}" if raw.get("id") else SAVE_SITE + "/news",
+        "date": dt.strftime("%Y-%m-%d"),
+        "time": dt.strftime("%H:%M"),
+        "published_at": iso_kst(dt),
+        "origin": "SAVE",
+        "badge": save_article_kind(raw),
+        "labels": labels[:4],
+        "view_count": raw.get("view_count"),
+        "summary": _WS_RE.sub(" ", body).strip()[:200],
+        "keywords": keywords,
+        "companies": companies,
+        "is_top_story": bool(raw.get("is_top_story")),
+    }
+    return article
+
+
+def parse_save_news_payload(payload: dict, cfg: dict, now: datetime | None = None,
+                            max_age_days: int = 10) -> list:
+    """SAVE /api/news/list · /api/news/top-stories 응답 → 기사 목록(중복 제거)."""
+    rules = save_keyword_rules(cfg)
+    ticker_codes = save_ticker_codes(cfg)
+    out, seen = [], set()
+    for raw in (payload or {}).get("news_list") or []:
+        art = parse_save_item(raw, rules, ticker_codes, max_age_days=max_age_days, now=now)
+        if not art:
+            continue
+        key = title_key(art["title"])
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        out.append(art)
+    out.sort(key=lambda a: a["published_at"], reverse=True)
+    return out
+
+
+def parse_save_calendar_payload(payload: dict, days: int = SAVE_CALENDAR_DAYS,
+                                now: datetime | None = None) -> list:
+    """경제 캘린더(미국·한국) → 화면용 이벤트 목록. event_date 는 사용자 현지(KST) 시각."""
+    now = now or now_kst()
+    horizon = now + timedelta(days=days)
+    events = []
+    for raw in (payload or {}).get("events") or []:
+        value = raw.get("event_date")
+        if not value:
+            continue
+        try:
+            dt = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+        except Exception:  # noqa: BLE001
+            continue
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=KST)
+        dt = dt.astimezone(KST)
+        if dt < now - timedelta(hours=6) or dt > horizon:
+            continue
+        note = ""
+        for part in raw.get("content") or []:
+            if isinstance(part, dict) and part.get("content"):
+                note = _WS_RE.sub(" ", str(part["content"])).strip()
+                break
+        events.append({
+            "id": str(raw.get("id") or ""),
+            "title": _WS_RE.sub(" ", str(raw.get("title") or "")).strip(),
+            "market": raw.get("market") or "",
+            "date": dt.strftime("%Y-%m-%d"),
+            "time": dt.strftime("%H:%M"),
+            "datetime": iso_kst(dt),
+            "note": note[:160],
+            "importance": str(raw.get("title") or "").count("★"),
+        })
+    events.sort(key=lambda e: e["datetime"])
+    return events
+
+
+def build_save_snapshot(payloads: dict, cfg: dict, fetched_at: str,
+                        now: datetime | None = None) -> dict:
+    """수집한 원본 응답들 → 저장소에 커밋할 스냅샷(data/save_latest.json)."""
+    now = now or now_kst()
+    items, seen = [], set()
+    for key in ("top", "list", "keywords", "tickers"):
+        for art in parse_save_news_payload(payloads.get(key) or {}, cfg, now=now):
+            k = title_key(art["title"])
+            if not k or k in seen:
+                continue
+            seen.add(k)
+            items.append(art)
+    items.sort(key=lambda a: a["published_at"], reverse=True)
+    items = items[:SAVE_MAX_ARTICLES]
+    top_ids = {a["url"] for a in parse_save_news_payload(payloads.get("top") or {}, cfg, now=now)}
+    top_stories = [a for a in items if a["url"] in top_ids][:10]
+    return {
+        "schema": 1,
+        "source": "SAVE(세이브티커) saveticker.com",
+        "fetched_at": fetched_at,
+        "fetched_via": payloads.get("via") or "live",
+        "interests": {
+            "keywords": [k.get("keyword") for k in (cfg.get("trace_keywords") or [])],
+            "tickers": list(save_symbols(cfg).values()),
+        },
+        "count": len(items),
+        "news": items,
+        "top_stories": top_stories,
+        "calendar": parse_save_calendar_payload(payloads.get("calendar") or {}, now=now),
+        "endpoints": {
+            "top_stories": SAVE_TOP_URL,
+            "news_list": SAVE_LIST_URL,
+            "calendar": SAVE_CALENDAR_URL,
+        },
+    }
+
+
+def fetch_save_bundle(cfg: dict) -> dict:
+    """SAVE API 4종 조회. 하나라도 차단되면 SaveFetchError 로 빠르게 실패한다."""
+    symbols = [s for s in save_symbols(cfg).values()]
+    keywords = [k.get("keyword") for k in (cfg.get("trace_keywords") or []) if k.get("keyword")]
+    base = {"page": 1, "page_size": 20, "sort": "created_at_desc"}
+    bundle = {}
+    bundle["top"] = save_http_json(SAVE_TOP_URL)
+    bundle["list"] = save_http_json(SAVE_LIST_URL + "?" + urllib.parse.urlencode(
+        dict(base, keywords=",".join(keywords), tickers=",".join(symbols))))
+    if keywords:
+        bundle["keywords"] = save_http_json(SAVE_LIST_URL + "?" + urllib.parse.urlencode(
+            dict(base, keywords=",".join(keywords))))
+    if symbols:
+        bundle["tickers"] = save_http_json(SAVE_LIST_URL + "?" + urllib.parse.urlencode(
+            dict(base, tickers=",".join(symbols))))
+    today = now_kst()
+    bundle["calendar"] = save_http_json(SAVE_CALENDAR_URL + "?" + urllib.parse.urlencode({
+        "start_date": today.strftime("%Y-%m-%d"),
+        "end_date": (today + timedelta(days=SAVE_CALENDAR_DAYS)).strftime("%Y-%m-%d"),
+    }))
+    bundle["via"] = "live"
+    return bundle
+
+
+def collect_save(cfg: dict, previous: dict | None) -> dict:
+    """SAVE 스냅샷 확보: 직접 조회 → 실패 시 직전 스냅샷(캐시) 유지 → 없으면 연동 불가.
+
+    어떤 경우에도 예외를 밖으로 던지지 않는다(부가 정보가 본 수집을 막지 않게).
+    """
+    previous = previous or {}
+    if cfg.get("save_enabled") is False:
+        return {"schema": 1, "status": "disabled", "news": [], "top_stories": [],
+                "calendar": [], "count": 0, "errors": []}
+    try:
+        snapshot = build_save_snapshot(fetch_save_bundle(cfg), cfg, iso_kst(now_kst()))
+        snapshot["status"] = "live"
+        snapshot["errors"] = []
+        log(f"[save] 실시간 수집 성공: 기사 {snapshot['count']}건 · 일정 {len(snapshot['calendar'])}건")
+        return snapshot
+    except SaveFetchError as e:
+        reason = str(e)
+    except Exception as e:  # noqa: BLE001 - 어떤 실패도 여기서 멈춘다
+        reason = f"{type(e).__name__}: {e}"
+    log(f"[save] 직접 조회 불가({reason}) → 저장된 스냅샷 사용")
+    if previous.get("news"):
+        cached = json.loads(json.dumps(previous))
+        cached["status"] = "cached"
+        cached["stale"] = True
+        cached["errors"] = [f"SAVE 직접 조회 불가: {reason}"]
+        cached["carried_at"] = iso_kst(now_kst())
+        return cached
+    return {"schema": 1, "status": "unavailable", "news": [], "top_stories": [],
+            "calendar": [], "count": 0, "errors": [f"SAVE 직접 조회 불가: {reason}"]}
+
+
+def merge_save_news(news: dict, snapshot: dict, cfg: dict | None = None,
+                    max_age_days: int = 10) -> dict:
+    """SAVE 기사를 키워드·기업 뉴스 버킷에 합치고 news['save'] 요약을 만든다.
+
+    · 같은 제목(정규화) 기사는 한 번만 넣는다(구글 뉴스와 중복 방지)
+    · 버킷이 비어 있어도(구글 수집 실패) SAVE 기사로 버킷을 만든다
+    · 버킷당 SAVE 기사는 SAVE_PER_BUCKET 건까지만(최신순)
+    """
+    cfg = cfg or {}
+    snapshot = snapshot or {}
+    items = snapshot.get("news") or []
+    cutoff = now_kst() - timedelta(days=max_age_days)
+    added = {"keywords": 0, "companies": 0}
+    if items:
+        keyword_buckets = news.setdefault("keywords", {})
+        company_buckets = news.setdefault("companies", {})
+        for kw in (cfg.get("trace_keywords") or []):
+            label = kw.get("keyword")
+            if label and label not in keyword_buckets:
+                keyword_buckets[label] = {"query": kw.get("query") or label, "articles": [],
+                                          "keyword": label, "id": kw.get("id")}
+        for code, name in list((cfg.get("kr_stocks") or {}).items()) + \
+                [(c, c) for c in (cfg.get("us_stocks") or {})]:
+            if code not in company_buckets:
+                company_buckets[code] = {"query": f"{name} 실적", "articles": [], "code": code}
+        for art in items:
+            try:
+                pub = datetime.fromisoformat(str(art.get("published_at")).replace("Z", "+00:00"))
+            except Exception:  # noqa: BLE001
+                pub = None
+            if pub is not None and pub.tzinfo is not None and pub.astimezone(KST) < cutoff:
+                continue
+            targets = list(art.get("keywords") or [])
+            if art.get("keyword"):
+                targets.append(art["keyword"])
+            for label in dict.fromkeys(targets):
+                bucket = keyword_buckets.get(label)
+                if not bucket:
+                    continue
+                if _bucket_has(bucket, art["title"]):
+                    continue
+                if sum(1 for a in bucket.get("articles") or [] if a.get("origin") == "SAVE") >= SAVE_PER_BUCKET:
+                    continue
+                merged = dict(art)
+                merged["keyword"] = label
+                bucket.setdefault("articles", []).insert(0, merged)
+                added["keywords"] += 1
+            for code in art.get("companies") or []:
+                bucket = company_buckets.get(code)
+                if not bucket:
+                    continue
+                if _bucket_has(bucket, art["title"]):
+                    continue
+                if sum(1 for a in bucket.get("articles") or [] if a.get("origin") == "SAVE") >= SAVE_PER_BUCKET:
+                    continue
+                merged = dict(art)
+                merged["keyword"] = bucket.get("query") or code
+                bucket.setdefault("articles", []).insert(0, merged)
+                added["companies"] += 1
+    news["save"] = {
+        "status": snapshot.get("status") or "unavailable",
+        "stale": bool(snapshot.get("stale")) or (snapshot.get("status") == "cached"),
+        "fetched_at": snapshot.get("fetched_at"),
+        "fetched_via": snapshot.get("fetched_via"),
+        "count": len(items),
+        "top_stories": snapshot.get("top_stories") or [],
+        "calendar": snapshot.get("calendar") or [],
+        "interests": snapshot.get("interests") or {},
+        "added": added,
+        "errors": snapshot.get("errors") or [],
+        "site": SAVE_SITE,
+    }
+    return news
+
+
+def _bucket_has(bucket: dict, title: str) -> bool:
+    key = title_key(title)
+    if not key:
+        return True
+    for a in bucket.get("articles") or []:
+        if title_key(a.get("title") or "") == key:
+            return True
+    return False
+
+
+# --------------------------------------------------------------------------
 # briefing (실제 수치로만 문장 생성 — 추정/가짜 값 없음)
 # --------------------------------------------------------------------------
 def fmt_num(v, digits=2):
@@ -1698,6 +2118,12 @@ def main(argv=None) -> int:
                                                force=args.force_news),
                   lambda: _carry_news(prev_news))
 
+    # SAVE(세이브티커) 연동 — 직접 조회가 막히면 직전 스냅샷을 그대로 쓴다(예외 없음)
+    save_snapshot = _timed("save", lambda: collect_save(cfg, load_json(SAVE_PATH, {})),
+                           lambda: {"status": "unavailable", "news": [],
+                                    "top_stories": [], "calendar": [], "count": 0})
+    news = merge_save_news(news, save_snapshot, cfg)
+
     universe = None
     company_news = None
     if args.skip_universe:
@@ -1750,12 +2176,13 @@ def main(argv=None) -> int:
     news_payload = {
         "schema": 1,
         "generated_at": iso_kst(generated),
-        "source": "Google News RSS (news.google.com)",
+        "source": "Google News RSS (news.google.com) + SAVE(세이브티커)",
         "match": [kw["keyword"] for kw in cfg["trace_keywords"]],
         "keywords": news["keywords"],
         "sectors": news["sectors"],
         "companies": news["companies"],
         "pool": news["pool"],
+        "save": news.get("save"),
         "errors": news["errors"],
     }
     news_payload["briefing"] = market_payload["briefing"]
@@ -1767,6 +2194,8 @@ def main(argv=None) -> int:
         "articles": sum(len(v.get("articles") or []) for v in news_payload["keywords"].values()),
         "pool_topics": len(news_payload["pool"]),
         "company_news": len(news_payload["companies"]),
+        "save_status": news_payload.get("save", {}).get("status"),
+        "save_articles": news_payload.get("save", {}).get("count", 0),
         "errors": len(market.get("errors", [])) + len(news.get("errors", [])),
     }
     if universe:
@@ -1810,6 +2239,11 @@ def main(argv=None) -> int:
                               "complete": us_fund_state.get("complete"),
                               "items": us_fund_state.get("items") or {}}},
                       f, ensure_ascii=False, separators=(",", ":"))
+            f.write("\n")
+    # SAVE 스냅샷은 실제로 새로 받아온 경우에만 덮어쓴다(캐시 유지 = 마지막 성공 데이터 보존)
+    if save_snapshot.get("status") == "live":
+        with open(SAVE_PATH, "w", encoding="utf-8") as f:
+            json.dump(save_snapshot, f, ensure_ascii=False, indent=1)
             f.write("\n")
     if company_news:
         with open(COMPANY_NEWS_PATH, "w", encoding="utf-8") as f:

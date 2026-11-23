@@ -1,0 +1,1470 @@
+{
+ "schema": 1,
+ "source": "SAVE(세이브티커) saveticker.com",
+ "fetched_at": "2026-11-23T13:43:14+09:00",
+ "fetched_via": "browser-session",
+ "interests": {
+  "keywords": [
+   "엔비디아",
+   "HBM",
+   "미국 이란 전쟁",
+   "트럼프"
+  ],
+  "tickers": [
+   "005930.KR",
+   "000660.KR",
+   "012450.KR",
+   "005380.KR",
+   "035420.KR",
+   "042700.KR",
+   "034020.KR",
+   "035720.KR",
+   "068270.KR",
+   "NVDA",
+   "TSLA",
+   "AAPL",
+   "AMD",
+   "AVGO",
+   "MU"
+  ]
+ },
+ "count": 40,
+ "news": [
+  {
+   "keyword": "트럼프",
+   "title": "[2보] 트럼프 대통령, 자신의 토큰이 사상 최저치로 급락하는 가운데 밈 코인 투자자들을 위한 갈라 행사 주최",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_7krm-qxAVABW",
+   "date": "2026-11-23",
+   "time": "13:10",
+   "published_at": "2026-11-23T13:10:12+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 528,
+   "summary": "2025년 첫 $TRUMP 토큰 갈라 이후, 밈 코인은 가치의 작은 일부만 남기고 모두 잃었다 저녁 참석자들의 공개된 지갑에는 860만 달러...",
+   "keywords": [
+    "트럼프"
+   ],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[글로벌] AI 급락에 아시아 증시 흔들리며 미국 선물 반등",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_tpr1PXAuT48D",
+   "date": "2026-11-23",
+   "time": "11:26",
+   "published_at": "2026-11-23T11:26:10+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [
+    "종합"
+   ],
+   "view_count": 695,
+   "summary": "아시아 오전장 가격 반영 톰 웨스트브룩 싱가포르, 11월 23일 (로이터) - AI 붐의 중심에 있는 기술주와 반도체주가 지난주 급락한 ...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "미국의 칩 규제와 AI 주식 급락이 투자 심리를 악화시키면서 정부 지원에도 중국 주식 하락",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_ZmB2ahi8-DMx",
+   "date": "2026-11-23",
+   "time": "10:54",
+   "published_at": "2026-11-23T10:54:19+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 376,
+   "summary": "상하이, 11월 23일 (로이터) - 중국 증시는 월요일 하락 출발했다. 당국이 주말에 신용거래 요건을 완화한다고 발표했지만, 전 세계 AI 주...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[글로벌] 아시아 시장이 AI 붕괴에 대비하는 가운데 미국 선물 반등",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_bBfitg80f7C3",
+   "date": "2026-11-23",
+   "time": "09:18",
+   "published_at": "2026-11-23T09:18:26+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [
+    "종합"
+   ],
+   "view_count": 719,
+   "summary": "아시아 오전 가격 반영 싱가포르, 11월 23일 (로이터) - 지난주 AI 붐의 중심에 있는 기술주와 반도체주가 급격히 폭락한 뒤, 월요일 ...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[로이터 뉴스 스케줄] 동부시간 기준 오후 6시 / 싱가포르시간 기준 오전 6시",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_aHiw5p6rD3IE",
+   "date": "2026-11-23",
+   "time": "08:01",
+   "published_at": "2026-11-23T08:01:16+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [
+    "종합"
+   ],
+   "view_count": 121,
+   "summary": "로이터 텍스트 서비스의 주요 기사와 예정된 취재 계획을 동부시간 오후 6시 / 싱가포르시간 오전 6시 기준으로 전한다. 전체 뉴스 및 행사 일정...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "트럼프",
+   "title": "트럼프 대통령, 급락 중인 자신의 밈 코인 갈라 행사에서 투자자들 맞이 예정",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_ziChjjKHLQv3",
+   "date": "2026-11-23",
+   "time": "07:22",
+   "published_at": "2026-11-23T07:22:14+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 1439,
+   "summary": "2025년 첫 $TRUMP 토큰 갈라 이후 밈 코인은 가치의 작은 일부만 남기고 모두 잃었다 저녁 식사 참석자들의 등재 지갑 보유액은 860...",
+   "keywords": [
+    "트럼프"
+   ],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "미국 정보기관 수장, 시스템 업그레이드 진행에 따라 기술 장애 더 늘어날 것으로 전망",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_TD6OSMuhhUM-",
+   "date": "2026-11-23",
+   "time": "03:01",
+   "published_at": "2026-11-23T03:01:14+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 427,
+   "summary": "존 크루젤 기자 워싱턴, 11월 22일 (로이터) - 미국의 최고 정보 당국자는 일요일 기업과 정부 기관들이 노후 시스템을 교체하면서 더 많...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "[2보] 미국, 엔비디아의 중국 칩 판매에 대한 답변 요구한다고 베센트 재무장관 밝혀",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_VDJWRZ88bO4j",
+   "date": "2026-11-23",
+   "time": "02:42",
+   "published_at": "2026-11-23T02:42:19+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 1572,
+   "summary": "3~9번째 문단에 베센트 발언과 배경 추가 캐서린 잭슨 기자 워싱턴, 11월 22일 (로이터) - 미국은 엔비디아 NVDA.O의 대중국 ...",
+   "keywords": [
+    "엔비디아"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "미국 이란 전쟁",
+   "title": "트럼프, 이란과 간접 협상 지속 시사…\"합의 없으면 새해 이후 타격 무게\"",
+   "source": "FOX뉴스 · SAVE",
+   "url": "https://www.saveticker.com/news/news_WZSdlgFcjt5T",
+   "date": "2026-11-23",
+   "time": "02:39",
+   "published_at": "2026-11-23T02:39:40+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "속보"
+   ],
+   "view_count": 22129,
+   "summary": "트럼프 대통령은 폭스뉴스 인터뷰에서 이란과의 간접 협상이 계속 진행 중임을 시사함 - 그러면서도 합의가 이뤄지지 않을 경우 새해 이후 이란을...",
+   "keywords": [
+    "미국 이란 전쟁",
+    "트럼프"
+   ],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "미국, 엔비디아의 중국 칩 판매에 대한 답변 모색 중이라고 베센트 재무장관 밝혀",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_wUCb0_lD1P_M",
+   "date": "2026-11-23",
+   "time": "01:10",
+   "published_at": "2026-11-23T01:10:16+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 1181,
+   "summary": "워싱턴, 11월 22일(로이터) - 스콧 베센트 재무장관은 일요일 트럼프 행정부가 엔비디아의 NVDA.O 칩 판매에 관한 정보를 여전히 필요로 ...",
+   "keywords": [
+    "엔비디아",
+    "트럼프"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "베센트 재무장관 \"엔비디아 중국 반도체 거래 의혹, 누가 어디까지 알고 있었는지 확인해야\"",
+   "source": "CBS · SAVE",
+   "url": "https://www.saveticker.com/news/news_mqChqUN17Gv8",
+   "date": "2026-11-23",
+   "time": "00:52",
+   "published_at": "2026-11-23T00:52:35+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "속보"
+   ],
+   "view_count": 20439,
+   "summary": "베센트 미 재무장관은 CBS '페이스 더 네이션' 인터뷰에서 엔비디아의 대중국 반도체 판매 의혹과 관련해 아직 명확한 답변을 얻지 못했다며, 엔...",
+   "keywords": [
+    "엔비디아"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "이에 대해 알고 있었고, 위원회들이 답을 찾기 위해 신속히 움직일 것이라고 확신: CBS",
+   "source": "financial-juice · SAVE",
+   "url": "https://www.saveticker.com/news/news_6HpB0uWV62YJ",
+   "date": "2026-11-23",
+   "time": "00:42",
+   "published_at": "2026-11-23T00:42:18+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "속보"
+   ],
+   "view_count": 1642,
+   "summary": "",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "[주간전망] ‘블랙 프라이데이’, AI로 흔들린 시장에서 소비자 지출에 초점",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_9f8-hHUxnF3x",
+   "date": "2026-11-22",
+   "time": "23:01",
+   "published_at": "2026-11-22T23:01:16+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [
+    "시황/분석"
+   ],
+   "view_count": 1223,
+   "summary": "금요일 기사 반복, 본문 변경 없음 앤트로픽 IPO, 견조한 엔비디아 실적에도 시장 상승 실패 옥스퍼드 이코노믹스, 연말 쇼핑 시즌 소매...",
+   "keywords": [
+    "엔비디아"
+   ],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "이코노미스트 - 2027년 주목해야 할 10대 트렌드",
+   "source": "이코노미스트 · SAVE",
+   "url": "https://www.saveticker.com/news/news_oItbuOHZxarl",
+   "date": "2026-11-22",
+   "time": "22:49",
+   "published_at": "2026-11-22T22:49:40+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "정보",
+    "분석"
+   ],
+   "view_count": 16728,
+   "summary": "이코노미스트의 연례 전망서 '더 월드 어헤드 2027'을 맡은 톰 스탠디지 편집자는 2027년에 주목해야 할 10가지 주요 흐름을 제시함 포...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "(카더라) 델·HPE 등, 계약 체결 수개월 뒤 AI 서버 가격 최대 45% 인상 요구",
+   "source": "파이낸셜타임스 · SAVE",
+   "url": "https://www.saveticker.com/news/news_kYms9hmh1qIr",
+   "date": "2026-11-22",
+   "time": "22:37",
+   "published_at": "2026-11-22T22:37:17+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "정보"
+   ],
+   "view_count": 18868,
+   "summary": "파이낸셜타임스(FT)는 소식통을 인용해, 델·HPE·레노버·슈퍼마이크로 등 주요 서버 공급업체들이 계약 체결 수개월 뒤 실제 납품 시점에 엔비...",
+   "keywords": [],
+   "companies": [
+    "MU",
+    "000660"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[2보] 코스피 10개월 만에 최저치 기록 후 한국, 시장 안정화 기금 준비",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_ROtBc676qrdi",
+   "date": "2026-11-22",
+   "time": "20:14",
+   "published_at": "2026-11-22T20:14:22+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 3367,
+   "summary": "업데이트 1-한국, 코스피 10개월 만의 최저치 기록 후 시장 안정화 기금 준비 2문단에 발언 추가, 3문단부터 세부 내용과 맥락 추가 서울...",
+   "keywords": [],
+   "companies": [
+    "000660",
+    "005930"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[로이터 뉴스 스케줄] 그리니치 표준시 오전 11시/미 동부시간 오전 6시",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_97WwRXT3SKMA",
+   "date": "2026-11-22",
+   "time": "20:00",
+   "published_at": "2026-11-22T20:00:26+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [
+    "종합"
+   ],
+   "view_count": 284,
+   "summary": "로이터 텍스트 서비스의 주요 뉴스와 예정된 취재 계획을 그리니치표준시 오전 11시/미 동부시간 오전 6시 기준으로 전한다. 전체 뉴스 및 행사 ...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[로이터 뉴스 스케줄] 그리니치 표준시 오전 6시/미 동부시간 오전 2시",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_w8dns7RTJYHm",
+   "date": "2026-11-22",
+   "time": "16:01",
+   "published_at": "2026-11-22T16:01:12+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [
+    "종합"
+   ],
+   "view_count": 478,
+   "summary": "다음은 GMT 오전 6시/ET 오전 2시 기준 로이터 텍스트 서비스의 주요 기사와 향후 취재 계획이다. 뉴스와 행사 전체 일정은 Reuters ...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "골드만삭스의 스페이스X 채권 설계, 빅테크 AI 칩 자금 조달에 새 해법 제시",
+   "source": "블룸버그 · SAVE",
+   "url": "https://www.saveticker.com/news/news_znx3kCQU_Byn",
+   "date": "2026-11-22",
+   "time": "16:01",
+   "published_at": "2026-11-22T16:01:08+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "정보"
+   ],
+   "view_count": 21527,
+   "summary": "골드만삭스와 아폴로 글로벌 매니지먼트가 스페이스X의 AI 반도체 구매 자금 조달을 위한 320억 달러 규모의 채권 발행 주관에 참여했으며, 블룸...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "(카더라) 앨리스 황, 엔비디아 AI 반도체 중국 밀반출망 연루 의혹",
+   "source": "파이낸셜타임스 · SAVE",
+   "url": "https://www.saveticker.com/news/news_Bl4bmL_LrlB6",
+   "date": "2026-11-22",
+   "time": "15:42",
+   "published_at": "2026-11-22T15:42:47+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "정보"
+   ],
+   "view_count": 28644,
+   "summary": "파이낸셜타임스(FT)는 엔비디아 전 CEO 젠슨 황과 연인 관계로 알려진 중국인 사업가 앨리스 황이 미국의 수출 규제를 우회해 엔비디아 AI 반...",
+   "keywords": [
+    "엔비디아"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "📌 2026년 11월 4주 차 주요 일정",
+   "source": "SAVE PICK",
+   "url": "https://www.saveticker.com/news/news_GDhEVXhbbpIz",
+   "date": "2026-11-21",
+   "time": "22:43",
+   "published_at": "2026-11-21T22:43:55+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "일정"
+   ],
+   "view_count": 21518,
+   "summary": "",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": true
+  },
+  {
+   "keyword": "",
+   "title": "[2보] 소프트뱅크 손 회장, SK하이닉스 1조 달러 인수 검토…디 인포메이션 보도",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_vKAhnm39VN14",
+   "date": "2026-11-21",
+   "time": "14:49",
+   "published_at": "2026-11-21T14:49:13+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 4607,
+   "summary": "업데이트 1-소프트뱅크 손 회장, SK하이닉스 1조 달러 인수 검토…인포메이션 보도, 4문단부터 SK하이닉스·소프트뱅크의 답변 추가 11월 ...",
+   "keywords": [],
+   "companies": [
+    "000660"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[4보] 비트코인, 2년 만의 저점으로 하락한 뒤 상승",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_o6ltGCV0e0VU",
+   "date": "2026-11-21",
+   "time": "13:30",
+   "published_at": "2026-11-21T13:30:13+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 1991,
+   "summary": "최신 비트코인 움직임과 배경 추가 11월 21일(로이터) - 시가총액 기준 세계 최대 암호화폐인 비트코인은 토요일 장중 앞서 2년 만에 최저...",
+   "keywords": [],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[단신] 소프트뱅크의 손 마사요시, SK하이닉스의 1조 달러 규모 인수 검토 - 디 인포메이션",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_QjAQ6iA0eIgX",
+   "date": "2026-11-21",
+   "time": "11:49",
+   "published_at": "2026-11-21T11:49:14+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 4826,
+   "summary": "11월 20일 (로이터) - 소프트뱅크의 손 마사요시, SK하이닉스의 1조 달러 규모 인수 검토 - 디 인포메이션 : 소프트뱅크의 손 마...",
+   "keywords": [],
+   "companies": [
+    "000660"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "더인포메이션 보도에 따르면 소프트뱅크의 손정의, SK하이닉스 1조 달러 인수 검토",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_zJRnsa0U7oNQ",
+   "date": "2026-11-21",
+   "time": "11:44",
+   "published_at": "2026-11-21T11:44:16+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 2690,
+   "summary": "정정-소프트뱅크 손 회장, SK하이닉스 1조 달러 인수 검토했다고 디인포메이션 보도 2문단의 주체를 회사가 아닌 손 회장으로 정정 11월 2...",
+   "keywords": [],
+   "companies": [
+    "000660"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "손정의, 1조 달러 규모 SK하이닉스 '초대형 인수' 검토 - 디인포메이션",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_RlWOGrBGKDPv",
+   "date": "2026-11-21",
+   "time": "11:31",
+   "published_at": "2026-11-21T11:31:12+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [
+    "속보"
+   ],
+   "view_count": 6763,
+   "summary": "",
+   "keywords": [],
+   "companies": [
+    "000660"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[2보] AI 기술 급락에 미국 투자자들 가치주로 몰려",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_X_yoJ48Vk9-t",
+   "date": "2026-11-21",
+   "time": "07:16",
+   "published_at": "2026-11-21T07:16:23+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 1483,
+   "summary": "S&P 500이 조정장에 진입했음을 확인한 내용 추가, 4문단, 전반적인 시장 수치 업데이트 나스닥은 연초 이후 현재 2% 넘게 하락, 10...",
+   "keywords": [],
+   "companies": [
+    "AVGO",
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "오라클, 최종 자금 조달 후 오픈AI 인프라 계약에 필요한 자금 전액 확보했다고 밝혀",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_5SIh0X2Y6j_t",
+   "date": "2026-11-21",
+   "time": "07:09",
+   "published_at": "2026-11-21T07:09:27+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 892,
+   "summary": "11월 20일(로이터) - 오라클 ORCL.N은 이달 초 최종 자금 조달에 이어 오픈AI와의 인프라 계약에 필요한 자금이 전액 마련됐다고 금요일...",
+   "keywords": [],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "오라클: 데이터 홀 내 엔비디아 베라 루빈 랙 인도, 향후 몇 주 내 예정대로 진행",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_klQhS14FeXVi",
+   "date": "2026-11-21",
+   "time": "06:07",
+   "published_at": "2026-11-21T06:07:23+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [
+    "속보"
+   ],
+   "view_count": 347,
+   "summary": "",
+   "keywords": [
+    "엔비디아"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "[수정] [단독] 소식통들에 따르면 엔비디아의 회계가 미국 SEC 조사의 초점",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_nmYm4zahaYK9",
+   "date": "2026-11-21",
+   "time": "05:36",
+   "published_at": "2026-11-21T05:36:31+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 494,
+   "summary": "첫 문단 본문의 회사 RIC를 수정하기 위해 다시 제출 크리스 프렌티스, 알렉산드라 알퍼 뉴욕/워싱턴, 11월 20일 (로이터) - 이 ...",
+   "keywords": [
+    "엔비디아"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "엔비디아 서버 공급업체들, 동남아시아 선적 중단 - 닛케이. $NVDA",
+   "source": "financial-juice · SAVE",
+   "url": "https://www.saveticker.com/news/news_WgSA9njBwsQg",
+   "date": "2026-11-21",
+   "time": "05:35",
+   "published_at": "2026-11-21T05:35:11+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "속보"
+   ],
+   "view_count": 959,
+   "summary": "",
+   "keywords": [
+    "엔비디아"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[수정] AI 기술 급락이 미국 투자자들을 가치주로 서둘러 몰아넣어",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_cV0_IKzfo1tK",
+   "date": "2026-11-21",
+   "time": "05:07",
+   "published_at": "2026-11-21T05:07:30+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 484,
+   "summary": "재송고, 깨진 텍스트 삭제 나스닥, 현재 연초 대비 거의 2% 하락…10월에는 연초 대비 19% 상승 추가 연준 금리 인상, 단기적으로 ...",
+   "keywords": [],
+   "companies": [
+    "AVGO",
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "[2보] 트럼프 대통령, 여전히 루트닉 지지한다고 밝히고 엔비디아 황 CEO에 사과 촉구",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_0OdC4ZmgErMk",
+   "date": "2026-11-21",
+   "time": "04:41",
+   "published_at": "2026-11-21T04:41:18+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [],
+   "view_count": 1016,
+   "summary": "트럼프 발언을 전반에 추가해 재작성하고 워싱턴 발신지 표기 추가 워싱턴, 11월 20일 (로이터) - 트럼프 대통령은 금요일 자신이 여전히 ...",
+   "keywords": [
+    "엔비디아",
+    "트럼프"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "(카더라) 미 SEC, 엔비디아 회계 문제 조사…잠재적 회계 처리 위반 여부에 초점",
+   "source": "로이터 · SAVE",
+   "url": "https://www.saveticker.com/news/news_slpnQtB48a7Z",
+   "date": "2026-11-21",
+   "time": "04:16",
+   "published_at": "2026-11-21T04:16:20+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "속보"
+   ],
+   "view_count": 39610,
+   "summary": "로이터는 사안에 정통한 소식통을 인용해, 미국 증권거래위원회(SEC)가 엔비디아의 잠재적인 회계 처리 문제를 조사하고 있다고 보도함 - 앞서...",
+   "keywords": [
+    "엔비디아"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": true
+  },
+  {
+   "keyword": "",
+   "title": "미국 증권거래위원회의 NVIDIA 조사, 잠재적 회계 문제 살펴보는 중 - 소식통. $NVDA",
+   "source": "financial-juice · SAVE",
+   "url": "https://www.saveticker.com/news/news_PXG2jle_o_A2",
+   "date": "2026-11-21",
+   "time": "04:16",
+   "published_at": "2026-11-21T04:16:13+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "속보"
+   ],
+   "view_count": 298,
+   "summary": "",
+   "keywords": [],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "미국 증권거래위원회의 엔비디아 조사, 잠재적 회계 문제 살펴보는 중이라고 소식통들 전해",
+   "source": "로이터(SAVE)",
+   "url": "https://www.saveticker.com/news/news_EfSDXCJmgPci",
+   "date": "2026-11-21",
+   "time": "04:10",
+   "published_at": "2026-11-21T04:10:33+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE·로이터",
+   "labels": [
+    "속보"
+   ],
+   "view_count": 915,
+   "summary": "",
+   "keywords": [
+    "엔비디아"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "트럼프, 젠슨 황 엔비디아 복귀 지지…“사과하고 돌아오게 해야”",
+   "source": "SAVE PICK",
+   "url": "https://www.saveticker.com/news/news_DucgZl1bi1mw",
+   "date": "2026-11-21",
+   "time": "03:26",
+   "published_at": "2026-11-21T03:26:28+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "정보"
+   ],
+   "view_count": 17974,
+   "summary": "트럼프 대통령은 엔비디아의 젠슨 황 전 CEO가 잘못된 결정을 내리긴 했지만 뛰어난 인재라며, 그가 사과하고 엔비디아도 이를 받아들여 회사에 복...",
+   "keywords": [
+    "엔비디아",
+    "트럼프"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": true
+  },
+  {
+   "keyword": "",
+   "title": "연준 쿡 이사 “인플레이션 확산에 대응하기 위한 금리 인상 시급”",
+   "source": "SAVE PICK",
+   "url": "https://www.saveticker.com/news/news_nr8EQYBe4WHh",
+   "date": "2026-11-21",
+   "time": "02:18",
+   "published_at": "2026-11-21T02:18:05+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "속보",
+    "연준"
+   ],
+   "view_count": 16392,
+   "summary": "리사 쿡 연준 이사는 인플레이션을 잡기 위해 시급히 금리를 올려야 한다며, 대응을 미룰수록 앞으로 금리를 더 빠르고 큰 폭으로 인상해야 할 위험...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": true
+  },
+  {
+   "keyword": "",
+   "title": "AMD \"헌터브룩의 주장은 사실 왜곡…수출 통제법 위반 없어\"",
+   "source": "SAVE PICK",
+   "url": "https://www.saveticker.com/news/news_z-tv7FVFG-hf",
+   "date": "2026-11-20",
+   "time": "02:02",
+   "published_at": "2026-11-20T02:02:37+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "속보"
+   ],
+   "view_count": 43259,
+   "summary": "AMD는 헌터브룩(Hunterbrook)이 제기한 주장들이 자사의 실제 사업 관행을 왜곡하고 있다고 반박함 - 또한 미국의 수출 통제 관련 ...",
+   "keywords": [],
+   "companies": [
+    "AMD"
+   ],
+   "is_top_story": true
+  },
+  {
+   "keyword": "",
+   "title": "헌터브룩 'AMD\" 공매도 리포트",
+   "source": "SAVE PICK",
+   "url": "https://www.saveticker.com/news/news_b8z_kIWPOEQh",
+   "date": "2026-11-20",
+   "time": "00:55",
+   "published_at": "2026-11-20T00:55:29+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "정보"
+   ],
+   "view_count": 21356,
+   "summary": "헌터브룩미디어는 미국의 수출 제재 대상인 중국 서버 제조업체 IEIT시스템즈가 제재 이후에도 AMD의 새로운 펌웨어를 자사 제품에 적용해 왔다며...",
+   "keywords": [],
+   "companies": [
+    "AMD"
+   ],
+   "is_top_story": true
+  }
+ ],
+ "top_stories": [
+  {
+   "keyword": "",
+   "title": "📌 2026년 11월 4주 차 주요 일정",
+   "source": "SAVE PICK",
+   "url": "https://www.saveticker.com/news/news_GDhEVXhbbpIz",
+   "date": "2026-11-21",
+   "time": "22:43",
+   "published_at": "2026-11-21T22:43:55+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "일정"
+   ],
+   "view_count": 21518,
+   "summary": "",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": true
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "(카더라) 미 SEC, 엔비디아 회계 문제 조사…잠재적 회계 처리 위반 여부에 초점",
+   "source": "로이터 · SAVE",
+   "url": "https://www.saveticker.com/news/news_slpnQtB48a7Z",
+   "date": "2026-11-21",
+   "time": "04:16",
+   "published_at": "2026-11-21T04:16:20+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "속보"
+   ],
+   "view_count": 39610,
+   "summary": "로이터는 사안에 정통한 소식통을 인용해, 미국 증권거래위원회(SEC)가 엔비디아의 잠재적인 회계 처리 문제를 조사하고 있다고 보도함 - 앞서...",
+   "keywords": [
+    "엔비디아"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": true
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "트럼프, 젠슨 황 엔비디아 복귀 지지…“사과하고 돌아오게 해야”",
+   "source": "SAVE PICK",
+   "url": "https://www.saveticker.com/news/news_DucgZl1bi1mw",
+   "date": "2026-11-21",
+   "time": "03:26",
+   "published_at": "2026-11-21T03:26:28+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "정보"
+   ],
+   "view_count": 17974,
+   "summary": "트럼프 대통령은 엔비디아의 젠슨 황 전 CEO가 잘못된 결정을 내리긴 했지만 뛰어난 인재라며, 그가 사과하고 엔비디아도 이를 받아들여 회사에 복...",
+   "keywords": [
+    "엔비디아",
+    "트럼프"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": true
+  },
+  {
+   "keyword": "",
+   "title": "연준 쿡 이사 “인플레이션 확산에 대응하기 위한 금리 인상 시급”",
+   "source": "SAVE PICK",
+   "url": "https://www.saveticker.com/news/news_nr8EQYBe4WHh",
+   "date": "2026-11-21",
+   "time": "02:18",
+   "published_at": "2026-11-21T02:18:05+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "속보",
+    "연준"
+   ],
+   "view_count": 16392,
+   "summary": "리사 쿡 연준 이사는 인플레이션을 잡기 위해 시급히 금리를 올려야 한다며, 대응을 미룰수록 앞으로 금리를 더 빠르고 큰 폭으로 인상해야 할 위험...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": true
+  },
+  {
+   "keyword": "",
+   "title": "AMD \"헌터브룩의 주장은 사실 왜곡…수출 통제법 위반 없어\"",
+   "source": "SAVE PICK",
+   "url": "https://www.saveticker.com/news/news_z-tv7FVFG-hf",
+   "date": "2026-11-20",
+   "time": "02:02",
+   "published_at": "2026-11-20T02:02:37+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "속보"
+   ],
+   "view_count": 43259,
+   "summary": "AMD는 헌터브룩(Hunterbrook)이 제기한 주장들이 자사의 실제 사업 관행을 왜곡하고 있다고 반박함 - 또한 미국의 수출 통제 관련 ...",
+   "keywords": [],
+   "companies": [
+    "AMD"
+   ],
+   "is_top_story": true
+  },
+  {
+   "keyword": "",
+   "title": "헌터브룩 'AMD\" 공매도 리포트",
+   "source": "SAVE PICK",
+   "url": "https://www.saveticker.com/news/news_b8z_kIWPOEQh",
+   "date": "2026-11-20",
+   "time": "00:55",
+   "published_at": "2026-11-20T00:55:29+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "정보"
+   ],
+   "view_count": 21356,
+   "summary": "헌터브룩미디어는 미국의 수출 제재 대상인 중국 서버 제조업체 IEIT시스템즈가 제재 이후에도 AMD의 새로운 펌웨어를 자사 제품에 적용해 왔다며...",
+   "keywords": [],
+   "companies": [
+    "AMD"
+   ],
+   "is_top_story": true
+  }
+ ],
+ "calendar": [
+  {
+   "id": "11815",
+   "title": "10월 시카고연은 전미경제활동지수 ★",
+   "market": "us",
+   "date": "2026-11-23",
+   "time": "22:30",
+   "datetime": "2026-11-23T22:30:00+09:00",
+   "note": "이전: 0.07 예측: 0.4",
+   "importance": 1
+  },
+  {
+   "id": "11816",
+   "title": "11월 S&P글로벌 합성 PMI ★★",
+   "market": "us",
+   "date": "2026-11-23",
+   "time": "23:45",
+   "datetime": "2026-11-23T23:45:00+09:00",
+   "note": "이전: 55.9 예측: 55.6",
+   "importance": 2
+  },
+  {
+   "id": "11817",
+   "title": "11월 S&P글로벌 제조업 PMI ★★★",
+   "market": "us",
+   "date": "2026-11-23",
+   "time": "23:45",
+   "datetime": "2026-11-23T23:45:00+09:00",
+   "note": "이전: 54.9 예측: 54.5",
+   "importance": 3
+  },
+  {
+   "id": "11818",
+   "title": "11월 S&P글로벌 서비스업 PMI ★★★",
+   "market": "us",
+   "date": "2026-11-23",
+   "time": "23:45",
+   "datetime": "2026-11-23T23:45:00+09:00",
+   "note": "이전: 56.1 예측: 55.7",
+   "importance": 3
+  },
+  {
+   "id": "11851",
+   "title": "2년물 국채 입찰 ★★",
+   "market": "us",
+   "date": "2026-11-24",
+   "time": "03:00",
+   "datetime": "2026-11-24T03:00:00+09:00",
+   "note": "이전: 4.708%",
+   "importance": 2
+  },
+  {
+   "id": "12145",
+   "title": "윌리엄스 총재 (중립/투표권 O)",
+   "market": "us",
+   "date": "2026-11-24",
+   "time": "06:00",
+   "datetime": "2026-11-24T06:00:00+09:00",
+   "note": "",
+   "importance": 0
+  },
+  {
+   "id": "11852",
+   "title": "ADP 주간 고용변화 보고서 ★★",
+   "market": "us",
+   "date": "2026-11-24",
+   "time": "22:15",
+   "datetime": "2026-11-24T22:15:00+09:00",
+   "note": "이전: 23.75K",
+   "importance": 2
+  },
+  {
+   "id": "11853",
+   "title": "9월 주택가격지수 MoM ★",
+   "market": "us",
+   "date": "2026-11-24",
+   "time": "23:00",
+   "datetime": "2026-11-24T23:00:00+09:00",
+   "note": "이전: 0.3% 예측: 0.2%",
+   "importance": 1
+  },
+  {
+   "id": "11854",
+   "title": "9월 주택가격지수 YoY ★",
+   "market": "us",
+   "date": "2026-11-24",
+   "time": "23:00",
+   "datetime": "2026-11-24T23:00:00+09:00",
+   "note": "이전: 2.4% 예측: 2.4%",
+   "importance": 1
+  },
+  {
+   "id": "11857",
+   "title": "11월 컨퍼런스보드 소비자신뢰지수 ★★★",
+   "market": "us",
+   "date": "2026-11-25",
+   "time": "00:00",
+   "datetime": "2026-11-25T00:00:00+09:00",
+   "note": "이전: 91.7 예측: 92",
+   "importance": 3
+  },
+  {
+   "id": "11858",
+   "title": "11월 리치몬드연은 제조업지수 ★",
+   "market": "us",
+   "date": "2026-11-25",
+   "time": "00:00",
+   "datetime": "2026-11-25T00:00:00+09:00",
+   "note": "이전: -2 예측: -1",
+   "importance": 1
+  },
+  {
+   "id": "11859",
+   "title": "5년물 국채 입찰 ★★",
+   "market": "us",
+   "date": "2026-11-25",
+   "time": "03:00",
+   "datetime": "2026-11-25T03:00:00+09:00",
+   "note": "이전: 4.845%",
+   "importance": 2
+  },
+  {
+   "id": "11860",
+   "title": "10월 내구재수주 ★★",
+   "market": "us",
+   "date": "2026-11-25",
+   "time": "22:30",
+   "datetime": "2026-11-25T22:30:00+09:00",
+   "note": "이전: 1.9% 예측: 0.2%",
+   "importance": 2
+  },
+  {
+   "id": "11861",
+   "title": "3분기 실질GDP성장률 ★★★",
+   "market": "us",
+   "date": "2026-11-25",
+   "time": "22:30",
+   "datetime": "2026-11-25T22:30:00+09:00",
+   "note": "이전: 2.2% 예측: 3.4%",
+   "importance": 3
+  },
+  {
+   "id": "11862",
+   "title": "10월 PCE가격지수 ★★★",
+   "market": "us",
+   "date": "2026-11-25",
+   "time": "22:30",
+   "datetime": "2026-11-25T22:30:00+09:00",
+   "note": "이전: 3.6% 예측: 3.8%",
+   "importance": 3
+  },
+  {
+   "id": "11863",
+   "title": "10월 근원 PCE가격지수 ★★★",
+   "market": "us",
+   "date": "2026-11-25",
+   "time": "22:30",
+   "datetime": "2026-11-25T22:30:00+09:00",
+   "note": "이전: 3.1% 예측: 3.2%",
+   "importance": 3
+  },
+  {
+   "id": "11864",
+   "title": "3분기 근원 PCE가격지수 ★★",
+   "market": "us",
+   "date": "2026-11-25",
+   "time": "22:30",
+   "datetime": "2026-11-25T22:30:00+09:00",
+   "note": "이전: 3.3% 예측: 2.5%",
+   "importance": 2
+  },
+  {
+   "id": "11872",
+   "title": "신규실업수당청구건수 ★★★",
+   "market": "us",
+   "date": "2026-11-25",
+   "time": "22:30",
+   "datetime": "2026-11-25T22:30:00+09:00",
+   "note": "이전: 203K 예측: 199.0K",
+   "importance": 3
+  },
+  {
+   "id": "11866",
+   "title": "10월 신규주택판매 ★★★",
+   "market": "us",
+   "date": "2026-11-26",
+   "time": "00:00",
+   "datetime": "2026-11-26T00:00:00+09:00",
+   "note": "이전: 0.676M 예측: 0.65M",
+   "importance": 3
+  },
+  {
+   "id": "11867",
+   "title": "10월 신규주택판매 MoM ★★★",
+   "market": "us",
+   "date": "2026-11-26",
+   "time": "00:00",
+   "datetime": "2026-11-26T00:00:00+09:00",
+   "note": "이전: -0.6% 예측: -3.8%",
+   "importance": 3
+  },
+  {
+   "id": "11868",
+   "title": "EIA 원유 재고 ★★★",
+   "market": "us",
+   "date": "2026-11-26",
+   "time": "00:30",
+   "datetime": "2026-11-26T00:30:00+09:00",
+   "note": "이전: 3.38M",
+   "importance": 3
+  },
+  {
+   "id": "11870",
+   "title": "7년물 국채 입찰 ★★",
+   "market": "us",
+   "date": "2026-11-26",
+   "time": "01:30",
+   "datetime": "2026-11-26T01:30:00+09:00",
+   "note": "이전: 4.894%",
+   "importance": 2
+  },
+  {
+   "id": "11869",
+   "title": "EIA 천연가스 재고 ★",
+   "market": "us",
+   "date": "2026-11-26",
+   "time": "02:00",
+   "datetime": "2026-11-26T02:00:00+09:00",
+   "note": "이전: 20Bcf",
+   "importance": 1
+  },
+  {
+   "id": "11881",
+   "title": "베이커휴즈 총시추기수 ★★",
+   "market": "us",
+   "date": "2026-11-26",
+   "time": "03:00",
+   "datetime": "2026-11-26T03:00:00+09:00",
+   "note": "이전: 607",
+   "importance": 2
+  },
+  {
+   "id": "11871",
+   "title": "연준 베이지북 ★★★",
+   "market": "us",
+   "date": "2026-11-26",
+   "time": "04:00",
+   "datetime": "2026-11-26T04:00:00+09:00",
+   "note": "",
+   "importance": 3
+  },
+  {
+   "id": "12178",
+   "title": "추수감사절 휴장",
+   "market": "us",
+   "date": "2026-11-26",
+   "time": "23:30",
+   "datetime": "2026-11-26T23:30:00+09:00",
+   "note": "미국 주식 휴장 · 해외선물 조기 종료",
+   "importance": 0
+  },
+  {
+   "id": "11875",
+   "title": "10월 도매재고 ★",
+   "market": "us",
+   "date": "2026-11-27",
+   "time": "22:30",
+   "datetime": "2026-11-27T22:30:00+09:00",
+   "note": "이전: 0.7% 예측: 0.5%",
+   "importance": 1
+  },
+  {
+   "id": "12179",
+   "title": "추수감사절 조기 종료",
+   "market": "us",
+   "date": "2026-11-27",
+   "time": "23:30",
+   "datetime": "2026-11-27T23:30:00+09:00",
+   "note": "미국 주식 조기 종료 · 해외선물 조기 종료",
+   "importance": 0
+  },
+  {
+   "id": "11923",
+   "title": "11월 시카고연은 PMI ★★",
+   "market": "us",
+   "date": "2026-11-30",
+   "time": "23:45",
+   "datetime": "2026-11-30T23:45:00+09:00",
+   "note": "이전: 55.3",
+   "importance": 2
+  },
+  {
+   "id": "11930",
+   "title": "11월 댈러스연은 제조업지수 ★",
+   "market": "us",
+   "date": "2026-12-01",
+   "time": "00:30",
+   "datetime": "2026-12-01T00:30:00+09:00",
+   "note": "이전: 13.4",
+   "importance": 1
+  },
+  {
+   "id": "11931",
+   "title": "11월 S&P글로벌 제조업 PMI ★★",
+   "market": "us",
+   "date": "2026-12-01",
+   "time": "23:45",
+   "datetime": "2026-12-01T23:45:00+09:00",
+   "note": "이전: 54.9",
+   "importance": 2
+  },
+  {
+   "id": "11937",
+   "title": "11월 ISM 제조업 PMI ★★",
+   "market": "us",
+   "date": "2026-12-02",
+   "time": "00:00",
+   "datetime": "2026-12-02T00:00:00+09:00",
+   "note": "이전: 55.5",
+   "importance": 2
+  },
+  {
+   "id": "11938",
+   "title": "10월 JOLTS 구인인원 ★★★",
+   "market": "us",
+   "date": "2026-12-02",
+   "time": "00:00",
+   "datetime": "2026-12-02T00:00:00+09:00",
+   "note": "이전: 7.523M",
+   "importance": 3
+  },
+  {
+   "id": "11939",
+   "title": "10월 건설지출 ★★",
+   "market": "us",
+   "date": "2026-12-02",
+   "time": "00:00",
+   "datetime": "2026-12-02T00:00:00+09:00",
+   "note": "이전: -1.9%",
+   "importance": 2
+  },
+  {
+   "id": "11940",
+   "title": "11월 ADP 비농업 취업자수 ★★★",
+   "market": "us",
+   "date": "2026-12-02",
+   "time": "22:15",
+   "datetime": "2026-12-02T22:15:00+09:00",
+   "note": "이전: 86K",
+   "importance": 3
+  },
+  {
+   "id": "11943",
+   "title": "EIA 원유 재고 ★★★",
+   "market": "us",
+   "date": "2026-12-03",
+   "time": "00:30",
+   "datetime": "2026-12-03T00:30:00+09:00",
+   "note": "",
+   "importance": 3
+  },
+  {
+   "id": "11944",
+   "title": "신규실업수당청구건수 ★★★",
+   "market": "us",
+   "date": "2026-12-03",
+   "time": "22:30",
+   "datetime": "2026-12-03T22:30:00+09:00",
+   "note": "",
+   "importance": 3
+  },
+  {
+   "id": "11945",
+   "title": "11월 S&P글로벌 합성 PMI ★★",
+   "market": "us",
+   "date": "2026-12-03",
+   "time": "23:45",
+   "datetime": "2026-12-03T23:45:00+09:00",
+   "note": "이전: 55.9",
+   "importance": 2
+  },
+  {
+   "id": "11946",
+   "title": "11월 S&P글로벌 서비스업 PMI ★★★",
+   "market": "us",
+   "date": "2026-12-03",
+   "time": "23:45",
+   "datetime": "2026-12-03T23:45:00+09:00",
+   "note": "이전: 56.1",
+   "importance": 3
+  },
+  {
+   "id": "11980",
+   "title": "11월 ISM 서비스업 PMI ★★★",
+   "market": "us",
+   "date": "2026-12-04",
+   "time": "00:00",
+   "datetime": "2026-12-04T00:00:00+09:00",
+   "note": "이전: 54.5",
+   "importance": 3
+  },
+  {
+   "id": "11981",
+   "title": "10월 제조업수주 ★★",
+   "market": "us",
+   "date": "2026-12-04",
+   "time": "00:00",
+   "datetime": "2026-12-04T00:00:00+09:00",
+   "note": "이전: 1.8%",
+   "importance": 2
+  },
+  {
+   "id": "11984",
+   "title": "EIA 천연가스 재고 ★",
+   "market": "us",
+   "date": "2026-12-04",
+   "time": "00:30",
+   "datetime": "2026-12-04T00:30:00+09:00",
+   "note": "",
+   "importance": 1
+  },
+  {
+   "id": "11985",
+   "title": "11월 비농업 취업자수 ★★★",
+   "market": "us",
+   "date": "2026-12-04",
+   "time": "22:30",
+   "datetime": "2026-12-04T22:30:00+09:00",
+   "note": "이전: 165K",
+   "importance": 3
+  },
+  {
+   "id": "11986",
+   "title": "11월 실업률 ★★★",
+   "market": "us",
+   "date": "2026-12-04",
+   "time": "22:30",
+   "datetime": "2026-12-04T22:30:00+09:00",
+   "note": "이전: 4.1% 예측: 4.2%",
+   "importance": 3
+  },
+  {
+   "id": "11988",
+   "title": "12월 미시간대 소비자심리지수 ★★",
+   "market": "us",
+   "date": "2026-12-05",
+   "time": "00:00",
+   "datetime": "2026-12-05T00:00:00+09:00",
+   "note": "이전: 51.5 예측: 52.9",
+   "importance": 2
+  },
+  {
+   "id": "11989",
+   "title": "12월 미시간대 5년 기대인플레이션 ★★",
+   "market": "us",
+   "date": "2026-12-05",
+   "time": "00:00",
+   "datetime": "2026-12-05T00:00:00+09:00",
+   "note": "이전: 3.5%",
+   "importance": 2
+  },
+  {
+   "id": "11990",
+   "title": "12월 미시간대 1년 기대인플레이션 ★★",
+   "market": "us",
+   "date": "2026-12-05",
+   "time": "00:00",
+   "datetime": "2026-12-05T00:00:00+09:00",
+   "note": "이전: 3.7%",
+   "importance": 2
+  },
+  {
+   "id": "11991",
+   "title": "베이커휴즈 총시추기수 ★★",
+   "market": "us",
+   "date": "2026-12-05",
+   "time": "03:00",
+   "datetime": "2026-12-05T03:00:00+09:00",
+   "note": "",
+   "importance": 2
+  }
+ ],
+ "endpoints": {
+  "top_stories": "https://www.saveticker.com/api/news/top-stories",
+  "news_list": "https://www.saveticker.com/api/news/list",
+  "calendar": "https://www.saveticker.com/api/calendar/events"
+ },
+ "status": "live",
+ "account": "슈탱구리 (카카오 로그인)",
+ "note": "saveticker.com 은 Cloudflare 봇 차단 뒤에 있어 GitHub Actions(익명 요청)에서는 403 입니다. 이 스냅샷은 사용자 로그인 브라우저 세션에서 /api/news/* 응답을 그대로 받아 만듭니다."
+}

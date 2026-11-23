@@ -498,6 +498,14 @@ function renderLiveStatus() {
       escapeHtml(LIVE.marketSource || '—') + ')</div>' +
       '<div>· 뉴스 기준 시각: <strong style="color:#f0f6fc;">' +
       (LIVE.newsAt ? fmtFullStamp(LIVE.newsAt) : '—') + '</strong> (' + escapeHtml(LIVE.newsSource || '—') + ')</div>' +
+      (function () {
+        const save = LIVE.news && LIVE.news.save;
+        if (!save || save.status === 'disabled') return '';
+        const label = save.status === 'live' ? '실시간' : (save.status === 'cached' ? '저장 스냅샷' : '연동 대기');
+        const color = save.status === 'live' ? '#3fb950' : (save.status === 'cached' ? '#d29922' : '#8b949e');
+        return '<div>· SAVE 연동: <strong style="color:' + color + ';">' + escapeHtml(label) + '</strong> · 기사 ' +
+          (save.count || 0) + '건' + (save.fetched_at ? ' (기준 ' + escapeHtml(fmtFullStamp(save.fetched_at)) + ')' : '') + '</div>';
+      })() +
       (errs.length ? '<div style="color:#d29922; margin-top:4px;">· 수집 경고: ' + escapeHtml(errs.join(' / ')) + '</div>' : '');
   }
 }
@@ -557,6 +565,11 @@ function snapshotArticlesFor(keyword) {
   });
   let out = [];
   buckets.forEach(function (b) { if (b && Array.isArray(b.articles)) out = out.concat(b.articles); });
+  // SAVE 연동 기사: 같은 키워드로 태깅된 항목도 함께 보여준다(서버 병합 상한 밖의 기사 포함)
+  saveNewsList().forEach(function (a) {
+    const hit = (a.keywords || []).some(function (k) { return normalizeKeyword(k) === target; });
+    if (hit) out.push(Object.assign({}, a, { keyword: keyword }));
+  });
   return normalizeArticles(out, keyword);
 }
 
@@ -577,6 +590,12 @@ function companyArticlesFor(code, name) {
       });
     });
   }
+  // SAVE 연동 기사: 해당 종목으로 태깅된 기사(예: $NVDA, $005930.KR)
+  saveNewsList().forEach(function (a) {
+    if ((a.companies || []).indexOf(code) !== -1) {
+      out.push(Object.assign({}, a, { keyword: name || code }));
+    }
+  });
   return normalizeArticles(out, name || code);
 }
 
@@ -594,7 +613,11 @@ function normalizeArticle(raw, fallbackKeyword) {
     url: raw.url || raw.link || '',
     date: date,
     time: raw.time || (d ? pad2(d.getHours()) + ':' + pad2(d.getMinutes()) : ''),
-    published_at: published || (d ? d.toISOString() : (date ? date + 'T00:00:00+09:00' : new Date().toISOString()))
+    published_at: published || (d ? d.toISOString() : (date ? date + 'T00:00:00+09:00' : new Date().toISOString())),
+    origin: raw.origin || '',
+    badge: raw.badge || (raw.origin === 'SAVE' ? 'SAVE' : ''),
+    summary: raw.summary || '',
+    labels: Array.isArray(raw.labels) ? raw.labels : []
   };
 }
 
@@ -619,6 +642,34 @@ function mergeArticles(lists) {
     if (Array.isArray(l)) l.forEach(function (a) { merged.push(a); });
   });
   return normalizeArticles(merged, '');
+}
+
+/* ==========================================================================
+   SAVE(세이브티커) 연동 — saveticker.com
+   data/news_latest.json 의 save 블록(수집기가 병합)을 읽어 배지·전용 목록에 쓴다.
+   ========================================================================== */
+function savePayload() {
+  const news = LIVE.news;
+  return (news && news.save) ? news.save : null;
+}
+
+function saveNewsList() {
+  const save = savePayload();
+  return (save && Array.isArray(save.news)) ? save.news : [];
+}
+
+function saveBadgeHtml(badge, small) {
+  const label = badge || 'SAVE';
+  const size = small ? '0.62rem; padding:1px 5px;' : '0.66rem; padding:2px 6px;';
+  const bg = label.indexOf('PICK') !== -1 ? '#1f6feb' : (label.indexOf('로이터') !== -1 ? '#8b5cf6' : '#238636');
+  return '<span class="save-badge" style="font-size:' + size + ' color:#fff; background:' + bg +
+    '; font-weight:700; border-radius:4px; letter-spacing:0.02em; white-space:nowrap;">' +
+    escapeHtml(label) + '</span>';
+}
+
+function saveArticleLink(a) {
+  return '<a href="' + escapeHtml(a.url || '#') + '" target="_blank" rel="noopener" style="color:#c9d1d9; text-decoration:none;">' +
+    escapeHtml(a.title) + '</a>';
 }
 
 /* 키워드 실시간 조회: Google News RSS → rss2json (브라우저 CORS 우회 경로) */
@@ -730,6 +781,7 @@ function buildTraceClusters(articles, maxClusters) {
 function clusterToEvent(cluster) {
   const first = cluster.items[0];
   const impact = (cluster.items.length >= 3 || cluster.sources.length >= 3) ? 'High' : 'Medium';
+  const saveCount = cluster.items.filter(function (i) { return i.origin === 'SAVE'; }).length;
   return {
     date: first.date,
     time: first.time,
@@ -737,6 +789,7 @@ function clusterToEvent(cluster) {
     source: cluster.sources.slice(0, 3).join(' · ') +
       (cluster.sources.length > 3 ? ' 외 ' + (cluster.sources.length - 3) + '곳' : ''),
     impact: impact,
+    saveCount: saveCount,
     summary: cluster.items.slice(0, 3).map(function (i) {
       return i.title + ' (' + i.source + ', ' + i.date + ')';
     }),
@@ -1017,6 +1070,7 @@ function renderTraces() {
             '<div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">' +
               '<span class="timeline-date" style="font-size: 0.78rem; font-weight: 700; color: #58a6ff; background: rgba(88, 166, 255, 0.12); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(88, 166, 255, 0.25);">📅 ' + escapeHtml(dateStr) + '</span>' +
               '<span style="font-size: 0.72rem; color: #8b949e;">• ' + escapeHtml(e.source || '') + '</span>' +
+              (e.saveCount ? saveBadgeHtml('SAVE', true) : '') +
             '</div>' +
             '<span class="badge" style="font-size: 0.68rem; padding: 2px 6px; border-radius: 10px; background: ' + (e.impact === 'High' ? '#da3633' : '#1f6feb') + '; color: #fff; font-weight: 600;">' +
               (e.impact === 'High' ? '🔴 High (다수 보도)' : '🟡 Medium') + '</span>' +
@@ -1045,6 +1099,91 @@ function renderTraces() {
     item.innerHTML = html;
     listEl.appendChild(item);
   });
+}
+
+/* SAVE 속보·연동 카드 — 저장소에서 병합된 SAVE 기사와 경제 일정을 요약해 보여준다 */
+function renderSaveStrip() {
+  const el = document.getElementById('save-strip');
+  if (!el) return;
+  const save = savePayload();
+  if (!save || save.status === 'disabled') {
+    el.style.display = 'none';
+    el.innerHTML = '';
+    return;
+  }
+  el.style.display = 'block';
+  const status = save.status || 'unavailable';
+  const meta = {
+    live: { label: '실시간 수집', color: '#3fb950', bg: 'rgba(63,185,80,0.12)' },
+    cached: { label: '저장 스냅샷', color: '#d29922', bg: 'rgba(210,153,34,0.12)' },
+    unavailable: { label: '연동 대기', color: '#8b949e', bg: 'rgba(139,148,158,0.12)' }
+  }[status] || { label: status, color: '#8b949e', bg: 'rgba(139,148,158,0.12)' };
+
+  const top = (Array.isArray(save.top_stories) ? save.top_stories : []).slice(0, 4);
+  const fallback = (Array.isArray(save.news) ? save.news : []).slice(0, 4);
+  const items = top.length ? top : fallback;
+  const events = (Array.isArray(save.calendar) ? save.calendar : []).slice(0, 3);
+
+  let html = '' +
+    '<div class="card" style="border:1px solid #30363d; padding:12px;">' +
+      '<div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px;">' +
+        '<div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">' +
+          '<span style="font-weight:800; color:#f0f6fc; font-size:0.92rem;">🔗 SAVE 속보</span>' +
+          saveBadgeHtml('SAVE PICK') +
+          '<span style="font-size:0.7rem; color:' + meta.color + '; background:' + meta.bg +
+            '; padding:2px 8px; border-radius:10px; border:1px solid ' + meta.color + '33;">' + escapeHtml(meta.label) + '</span>' +
+          '<span style="font-size:0.7rem; color:#8b949e;">기사 ' + (save.count || 0) + '건</span>' +
+        '</div>' +
+        '<a href="https://www.saveticker.com/news" target="_blank" rel="noopener" style="font-size:0.72rem; color:#58a6ff; text-decoration:none;">saveticker.com ↗</a>' +
+      '</div>' +
+      '<div style="font-size:0.72rem; color:#8b949e; margin-bottom:8px;">' +
+        (save.fetched_at ? '기준 ' + escapeHtml(fmtFullStamp(save.fetched_at)) : '수집 시각 정보 없음') +
+        (save.stale ? ' · 저장본(직접 조회 차단 시 마지막 성공 데이터)' : '') +
+      '</div>';
+
+  if (items.length) {
+    html += '<ul style="list-style:none; padding:0; margin:0 0 8px 0; display:flex; flex-direction:column; gap:6px;">' +
+      items.map(function (a) {
+        return '<li style="display:flex; gap:6px; align-items:flex-start; line-height:1.4;">' +
+          saveBadgeHtml(a.badge, true) +
+          '<span style="flex:1; font-size:0.82rem;">' + saveArticleLink(a) +
+          ' <span style="color:#8b949e; font-size:0.72rem;">(' + escapeHtml(a.date || '') + ' ' + escapeHtml(a.time || '') +
+          (a.view_count ? ' · ' + Number(a.view_count).toLocaleString() + '읽음' : '') + ')</span></span></li>';
+      }).join('') + '</ul>';
+  } else {
+    html += '<div style="font-size:0.8rem; color:#8b949e; margin-bottom:8px;">SAVE 기사를 불러오지 못했습니다 — 헤드라인은 아래 트레이스/기업 뉴스에 SAVE 배지로 표시됩니다.</div>';
+  }
+
+  if (events.length) {
+    html += '<div style="border-top:1px dashed #30363d; padding-top:8px; margin-top:2px;">' +
+      '<div style="font-size:0.74rem; color:#e3b341; font-weight:700; margin-bottom:4px;">📅 SAVE 경제 캘린더 (다음 일정)</div>' +
+      '<ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:3px;">' +
+      events.map(function (e) {
+        return '<li style="font-size:0.76rem; color:#c9d1d9;">' +
+          '<span style="color:#58a6ff; font-weight:700;">' + escapeHtml((e.date || '').slice(5) + ' ' + (e.time || '')) + '</span> · ' +
+          escapeHtml(e.title || '') +
+          (e.note ? ' <span style="color:#8b949e;">(' + escapeHtml(truncate(e.note, 40)) + ')</span>' : '') + '</li>';
+      }).join('') + '</ul></div>';
+  }
+
+  const interestLine = asArrayLikeJoin();
+  if (interestLine) {
+    html += '<div style="font-size:0.7rem; color:#8b949e; margin-top:8px;">SAVE 관심 설정: ' + escapeHtml(interestLine) + '</div>';
+  }
+  html += '</div>';
+  el.innerHTML = html;
+}
+
+function asArrayLikeJoin() {
+  const save = savePayload() || {};
+  const lists = [];
+  if (save.interests && Array.isArray(save.interests.tickers) && save.interests.tickers.length) {
+    lists.push(save.interests.tickers.join(' · '));
+  }
+  if (save.interests && Array.isArray(save.interests.keywords) && save.interests.keywords.length) {
+    lists.push(save.interests.keywords.join(' · '));
+  }
+  return lists.join(' / ');
 }
 
 async function refreshTracesManual() {
@@ -2375,7 +2514,8 @@ function renderCompanyDetails(code, triggerFlash) {
     const picked = (serverArts.length ? serverArts : (collected.length ? collected : liveArts)).slice(0, 5);
     if (picked.length) {
       newsList.innerHTML = picked.map(function (a) {
-        return '<li><a href="' + escapeHtml(a.url) + '" target="_blank" rel="noopener" style="color:#c9d1d9; text-decoration:none;">' +
+        return '<li>' + (a.origin === 'SAVE' ? saveBadgeHtml(a.badge, true) + ' ' : '') +
+          '<a href="' + escapeHtml(a.url) + '" target="_blank" rel="noopener" style="color:#c9d1d9; text-decoration:none;">' +
           escapeHtml(a.title) + '</a> <span style="color:#8b949e; font-size:0.75rem;">(' + escapeHtml(a.source) + ' · ' + escapeHtml(a.date) + ')</span></li>';
       }).join('');
     } else if ((d.news || []).length) {
@@ -2529,12 +2669,15 @@ async function refreshAll(opts) {
     const market = await loadMarketData({ flash: !opts.initial });
     await loadNewsData({});
     await refreshTraces({ force: !!opts.force });
+    renderSaveStrip();
     if (currentSelectedCompany) renderCompanyDetails(currentSelectedCompany, false);
 
     const parts = [];
     if (market && market.stocks) parts.push('시세 ' + Object.keys(market.stocks).length + '종목');
     const articleCount = currentTraces.reduce(function (acc, t) { return acc + (t.articles || []).length; }, 0);
     if (articleCount) parts.push('기사 ' + articleCount + '건');
+    const save = savePayload();
+    if (save && save.count) parts.push('SAVE ' + save.count + '건');
     const stamp = LIVE.marketAt ? fmtFullStamp(LIVE.marketAt) : '—';
 
     if (opts.initial) {
