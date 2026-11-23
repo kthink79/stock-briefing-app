@@ -66,8 +66,11 @@ class SaveParserTest(unittest.TestCase):
         self.assertEqual(art["labels"], ["속보"])
 
     def test_reuters_and_plain_badges(self):
-        self.assertEqual(live.save_article_kind({"source": "reuters"}), "SAVE·로이터")
+        # 매체 구분은 출처(source)가 하고, 배지는 SAVE PICK / SAVE 두 가지로 둔다
+        self.assertEqual(live.save_article_kind({"source": "reuters"}), "SAVE")
         self.assertEqual(live.save_article_kind({"source": "블룸버그"}), "SAVE")
+        self.assertEqual(live.save_article_source({"source": "reuters"}), "로이터")
+        self.assertEqual(live.save_article_source({"source": "FOX뉴스"}), "FOX뉴스")
 
     def test_old_item_is_dropped(self):
         self.assertIsNone(live.parse_save_item(_raw(hours_ago=24 * 30), [], {}, max_age_days=10, now=NOW))

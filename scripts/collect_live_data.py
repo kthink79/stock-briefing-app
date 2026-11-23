@@ -865,14 +865,21 @@ def save_ticker_label(raw: dict) -> str:
 
 
 def save_article_kind(raw: dict) -> str:
-    """배지 문구: SAVE PICK / SAVE·로이터 / SAVE."""
+    """배지 문구: SAVE PICK(편집 기사) / SAVE(로이터 등 연동 기사)."""
     channel = (raw.get("channel") or "").lower()
-    source = (raw.get("source") or "").lower()
-    if channel == "save-pick":
-        return "SAVE PICK"
-    if source == "reuters":
-        return "SAVE·로이터"
-    return "SAVE"
+    return "SAVE PICK" if channel == "save-pick" else "SAVE"
+
+
+# SAVE API 가 영문 키로 주는 매체명 표기
+SAVE_SOURCE_NAMES = {
+    "reuters": "로이터",
+    "bloomberg": "블룸버그",
+    "ft": "파이낸셜타임스",
+    "wsj": "WSJ",
+    "cnbc": "CNBC",
+    "ap": "AP",
+    "nikkei": "닛케이",
+}
 
 
 def save_article_source(raw: dict) -> str:
@@ -880,7 +887,7 @@ def save_article_source(raw: dict) -> str:
     source = (raw.get("source") or "").strip()
     if not source:
         return "SAVE PICK" if (raw.get("channel") or "") == "save-pick" else "SAVE"
-    return source
+    return SAVE_SOURCE_NAMES.get(source.lower(), source)
 
 
 def save_datetime(raw: dict) -> datetime | None:

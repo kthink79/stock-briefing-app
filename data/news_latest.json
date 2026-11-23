@@ -4890,9 +4890,9 @@
   }
  },
  "save": {
-  "status": "cached",
-  "stale": true,
-  "fetched_at": "2026-11-23T13:51:03+09:00",
+  "status": "live",
+  "stale": false,
+  "fetched_at": "2026-11-23T13:52:55+09:00",
   "fetched_via": "browser-session",
   "count": 40,
   "top_stories": [
