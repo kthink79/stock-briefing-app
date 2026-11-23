@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-23T13:48:19+09:00",
+ "generated_at": "2026-11-23T13:50:16+09:00",
  "source": "Google News RSS (news.google.com) + SAVE(세이브티커)",
  "match": [
   "엔비디아",
@@ -1724,7 +1724,7 @@
      "is_top_story": false
     }
    ],
-   "fetched_at": "2026-11-23T08:50:55+09:00",
+   "fetched_at": "2026-11-23T13:49:05+09:00",
    "code": "000660"
   },
   "012450": {
@@ -2101,8 +2101,54 @@
   },
   "TSLA": {
    "query": "테슬라 실적",
-   "articles": [],
-   "fetched_at": "2026-11-23T03:40:48+09:00",
+   "articles": [
+    {
+     "keyword": "테슬라 실적",
+     "title": "테슬라, 수년간 부진한 판매 실적 끝에 사이버트럭 생산 중단 결정",
+     "source": "TradingView",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5WQUhBNDZMTDA1OHhCZThpMUZXSHJ2VlZXeFpWU09ja0JFNHJIRG5iRE9HdmctY2xhb0JWZmdfV2tYc19HUjVJY1BKbDBmTW12a01fOTh1M2JPYnRkQnVkZU1uMEhURTZRMm4yaVRYSEdMdnpPcWVTcg?oc=5",
+     "date": "2026-11-06",
+     "time": "17:00",
+     "published_at": "2026-11-06T17:00:00+09:00"
+    },
+    {
+     "keyword": "테슬라 실적",
+     "title": "수입차, 10개월 만에 작년 한 해 실적 넘었다… 테슬라는 10만대 턱밑",
+     "source": "조선일보",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5oWVpWZ3MxWGZpMVpEcl9RXzdYWTdqd3RSQUNRMEhsZWlESWozOEJ2TjlIU3plejNsMG02VHlYNlNTTDE0bVlKYmdHSG5RVW92OFlJblg3S1N0SEhZQWRFZE9pSjJ4VTNXcm9RRGp4NlRJTV9uN1ZfSGhUbWZpMlk?oc=5",
+     "date": "2026-11-04",
+     "time": "17:00",
+     "published_at": "2026-11-04T17:00:00+09:00"
+    },
+    {
+     "keyword": "테슬라 실적",
+     "title": "수입차, 10개월 만에 지난해 연간 실적 돌파…테슬라·전기차가 견인",
+     "source": "디지털데일리",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1vcmZ5b0Jtanl5YVFqZl9TZmdnWWNoVmxIRnFib1NQN1J4cXZCeURXV3doRmRodlhsS29LdndHY2Z0VzlETE9fQnNDbU9mbVlDYWk5UWlkZVFXX1dWZ1JuNFhR?oc=5",
+     "date": "2026-11-04",
+     "time": "17:00",
+     "published_at": "2026-11-04T17:00:00+09:00"
+    },
+    {
+     "keyword": "테슬라 실적",
+     "title": "테슬라, 3분기 실적 예상 웃돌았지만 주가는↓…로봇 사업 수익화 지연",
+     "source": "서울경제",
+     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBieG5nd0JudXhJelRvN0tOZ1p2aWpUY0pPTkI4Zm5BSXB4UjIxOWgtWkd3RndnOVRuelE3TVplVXlHSENUZG1lZUdvTzEwc3huNUHSAVNBVV95cUxPaTI1V0o2Mm5TZ0ZfQjF4S0lsTFhjZXhZUzM4MjR5Ul8ybTY3azBENXdMcTVyd1VZZmZkSFI4Zmg0aTlReGFvcEFKVzh6U0dUNHc2aw?oc=5",
+     "date": "2026-11-04",
+     "time": "17:00",
+     "published_at": "2026-11-04T17:00:00+09:00"
+    },
+    {
+     "keyword": "테슬라 실적",
+     "title": "“테슬라 옵티머스 판매 2028~2029년 전망⋯실적 가시화가 관건” [찐코노미]",
+     "source": "이투데이",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1YdG1MWElmbWFBLUc5S0RpWWh6MWpuT3ZQNEphVE01YzgwaHRDREpQTW1zUTljLTFRTDZUWDVRaG83UXkzS1QwVkg3Rmw4aVphQ3JUOQ?oc=5",
+     "date": "2026-11-04",
+     "time": "17:00",
+     "published_at": "2026-11-04T17:00:00+09:00"
+    }
+   ],
+   "fetched_at": "2026-11-23T13:49:08+09:00",
    "code": "TSLA"
   },
   "AAPL": {
@@ -3234,96 +3280,96 @@
    "articles": [
     {
      "keyword": "방산",
-     "title": "[글로벌 방산] 레바논 독립기념일: 유엔평화유지군 철수 앞두고 레바논군이 넘겨받는 장비 292점",
-     "source": "디펜스투데이",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9MSF93UFpoWjBkekE5U0M5QUhFRDFkWkNOYnlGVWU2dHdiaHRKbk9jVl9xTmFRVlh6amR0V2VaX3RGSXd4bkhRWUdCbk9GSDd6empoRHVpX3lRRGxkZ0pONU0ycFA4UTlNTFJhNDJB?oc=5",
-     "date": "2026-11-22",
-     "time": "18:48",
-     "published_at": "2026-11-22T18:48:10+09:00"
+     "title": "일본, 방산 발주 당초 예상보다 대폭 축소 전망…AI·드론 예산은 유지 By 알파경제 alphabiz",
+     "source": "Investing.com 한국어",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9NbTcxSjZ5ODZsbXB5bTdzT1hGMWY4QjloOXJFZk1mNGoxaGJJaGRGT0ZIWHd1SmQwUnliXzFrSkZmSmdVYmlXYzItVkVzYVp5bUkzdmRRcHM2eDJXajBKSHhXODJkZkJwSFpsSFhXRmM?oc=5",
+     "date": "2026-11-23",
+     "time": "12:02",
+     "published_at": "2026-11-23T12:02:00+09:00"
     },
     {
      "keyword": "방산",
-     "title": "방산 독점권 요구에 발목 잡힌 한화 700억 로봇개 투자 결렬",
-     "source": "한국신용신문",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE90UnRjNEZQdExNaGVKTnhxWHF6WVhidnM3b3hVemVfTTBPcHpCdHFlOUxkUHo2T0UwRy1RUlFrT3JtWnJ0NVJiREVXRWhzS2taQmozWnUzQ0xMcHc4SFFhQWNEa3QxZnYzU2xJ?oc=5",
-     "date": "2026-11-22",
-     "time": "18:34",
-     "published_at": "2026-11-22T18:34:00+09:00"
+     "title": "1조5000억원 투자·8200억원 상생금융으로 우주항공·방산 동남권 지역거점 육성",
+     "source": "데일리안",
+     "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOUm1fRXJUZWVudUtWY1VTLVA3dW9teWZlSXQ2UFVVWnVoQkVxM3lYZVlwdXZkT0ZzeFpNc0o5SGYwa0l1RXM0UDNIZzU1S0dEQldlOURnNlNONXdwMmlDR2FGTXc2UU9ZUTM4UEVtYkxJNXJxeUNKUEpQdkMtUWh6R1pzX3J6YXFSQmtiWWlBVE94RGZFcTc5VFpOMXNMc0p2TjZSd3ZaZXNGYzJrZmpSS2szbXhobUxobUpBaW1hUnlzX1BhdGkybHhIN3E1NXV0UW51R0FZM0k?oc=5",
+     "date": "2026-11-23",
+     "time": "11:33",
+     "published_at": "2026-11-23T11:33:00+09:00"
     },
     {
      "keyword": "방산",
-     "title": "[현장취재] 'AI가 바꾸는 미래전장, K-방산의 새로운 도약'…2026 국방방산포럼 개최",
-     "source": "디펜스투데이",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9hQ2h6b1pmUXR2ZFNBZnVDWHNtNVpPcVVMcW5GX1pQcFp5dGo3aEdMLUd6WkNsMllVa0w5WGNudEFfcUxVYnhDZV9hWUlzWXRGa0hFVzJYVFpTanhvXzc4UEF6VHJhdXpwMjFkcE1R?oc=5",
-     "date": "2026-11-22",
-     "time": "18:06",
-     "published_at": "2026-11-22T18:06:07+09:00"
+     "title": "K방산, 유럽 현지 생산 확대에도 수주 감소…수출 전략 시험대",
+     "source": "아시아타임즈",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1JYm1OQlpiSHZXWnNIWDdHajZ3SnItQzVzd2dUSEU2Ulptc2QzV3J0cDBPZDI2Y3JycUdVa2N3dzZRQ0EzSTZ0c2pIQmhVbk95THJrWUNYajhlRV95eHc?oc=5",
+     "date": "2026-11-23",
+     "time": "11:27",
+     "published_at": "2026-11-23T11:27:00+09:00"
     },
     {
      "keyword": "방산",
-     "title": "[2026 국방방산포럼] AI를 실질적 전투력으로…정부·국회·산학계, 획득체계 혁신 한목소리",
-     "source": "아주경제",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1FWUJYWk9RcHFTR1laQUVzU2NTTElkSmtTakdZMkJNTmNlVjNTQXZCZmhrTldPZUtzZ3ZxNl9tZGxRRVZCX2ZGVWZjaDZxOWZLVTNibXJXRTlId9IBWEFVX3lxTE9YZ1hyRmRkU1RJblI1a0YwTWlzZTFxUjNTOUpzeE9ZYlhHckJ4UFJmNHdnUUM5RGxGM0ZtRm4ya0tUckRUWGxJY0Fvc1A2M2FEbHhoajktOVg?oc=5",
-     "date": "2026-11-22",
-     "time": "17:37",
-     "published_at": "2026-11-22T17:37:00+09:00"
+     "title": "특수부대가 방산전시회에서 전통 무술 시범을 보일 예정입니다.",
+     "source": "Vietnam.vn",
+     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPVXNoY0owejhHTldZdFdXQ1NGU1pPaVNpU2lJMXp6dm5QTjg1bVVVWWhodGYtZkhfY3J2djdoeXlqSkxmWHNMeW5BY2V5MnI1bnN6b2tsX21Ba1ZjT1VfSU5FbE5FQWhnNjBTZXgzWEY1SFpqdHV4M2NFTklGTXNIZW9YZ05zajUtZ3VYc09uRFRPRUV2UDNwQ1hFdnY?oc=5",
+     "date": "2026-11-23",
+     "time": "11:26",
+     "published_at": "2026-11-23T11:26:45+09:00"
     },
     {
      "keyword": "방산",
-     "title": "[2026 국방방산포럼] K-방산, AI 신전략 필요성 대두…절박함 가져야",
-     "source": "아주경제",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8tZkdkTm1fRnVwdlJCczdvTWtmenZadjN5d3pBUzdDYmpyUEhydUpaY3U5ZllKZTJVSExZd0E0LWsxdlJMbGxFc3BrcG43WmdvQm9wMDNWMUNYUdIBWEFVX3lxTFBZcXNpc0R6a3RJRjMzSGxzTnVTUXRxd2FpQ0hZeFZUZ3J2UUwzLW1kWkREQXV2NWd5dFNHZlF0UDYxX0wybktxM3BTb3BhY0tGbXlVMUh6WVo?oc=5",
-     "date": "2026-11-22",
-     "time": "17:35",
-     "published_at": "2026-11-22T17:35:00+09:00"
+     "title": "경기도·포천시, '드론·대(對)드론 실증' 방산클러스터 유치 시동…연구용역 착수",
+     "source": "경인방송 뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBBSFFyN0FMZFR2N2l2ZlBnMG9vQkxkeVRiT0F5YkdpYUdkZVh1UUFmU3RwZy14NUVvYTk0OUZhX1RDWE56d2ltU2RSQTc1SS1kaFJBbEJub1hWV0hZdl9Ha3VNQlXSAWhBVV95cUxQUjRkSjZjU3NEZDVPQXRRMXlFb180XzRLS2x1NFhyMlhhUThzczhWZTRIVllQaUp2OVRUSzR5QVBQbHh3dzFmcTNiOV94eEtQcFdQRFBhYnRJbGRwdWtTMTB0Qm94aVA5dg?oc=5",
+     "date": "2026-11-23",
+     "time": "11:19",
+     "published_at": "2026-11-23T11:19:47+09:00"
     },
     {
      "keyword": "방산",
-     "title": "[2026 국방방산포럼] AI 전력화 속도가 승부수…유무인 복합전투체계로 미래전 대비",
-     "source": "아주경제",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE0yckVUU0ZaSnpZMjRrNjhXd1hMOVZ5ZXpJQ3VmWDRPT1BTd3YyY0VJTEpRbW9pVjFqbVVUOUtEM3pwcU00VWRwc0ljb2JKZmpxbzIwbFVlRXAzd9IBWEFVX3lxTE9jd0hzNzlNc3FNamF2TWtXcVlva1p5SElPMVVoeF9fOEtpeGtRQXkxQlo5M1RUNkdCbjRNcDlkcU53M1JpODN3V25rV25CTmtjNzRPRGc3UGM?oc=5",
-     "date": "2026-11-22",
-     "time": "17:33",
-     "published_at": "2026-11-22T17:33:00+09:00"
+     "title": "경남, 우주항공·방산 핵심 거점으로 도약…KAI 1조5000억원 투자",
+     "source": "서울뉴스통신",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1PdmtOa2EwOENCWGc4cHlIQkpqTWVRTWlQcEdvU3Z6bmdxdmhrWnN1SEFKV2ZCSEdNZVlqdmxvVWtfSDBKUHA0M1o2d1ZlQUtVQ2FjaU5KZ3Z4Q21yZmVhRGlkTnZiR1gtLVRn?oc=5",
+     "date": "2026-11-23",
+     "time": "11:10",
+     "published_at": "2026-11-23T11:10:00+09:00"
     },
     {
      "keyword": "방산",
-     "title": "[2026 국방방산포럼] AI 전장 시대…K-방산 새로운 도약 모색",
-     "source": "아주경제",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE0zSGVxVjUwM3RPbXlNenM0WnI3RlZnQ2FYeHFGcVNpQ3I4dklEbm81dHJHMEhvNzVJTEhZS0xmTVFGLWIwSjIwM3M4NXJqY2Fyb2pUM2JzWnhWZ9IBWEFVX3lxTFBaajRhd0JkTWdQS3hhak9lQWc4WDBjYUZneUdlZUJnMVh5bVVGeFBCLVA5UEZNOWZrem1qZjhYWmMySnlaRGJxZXJBcEs4c0FxRDFFbUtjVHc?oc=5",
-     "date": "2026-11-22",
-     "time": "17:31",
-     "published_at": "2026-11-22T17:31:00+09:00"
+     "title": "KAI, 2031년까지 경남 우주항공·방산에 1조5천억 투자 : 경제",
+     "source": "재경일보",
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE8yLWlJb000bk50bksxMEpuVG9hVVY5YTJoUjJUaDhmMnpWV2NRaW8wdldhcENqNDJGSmJCR3c5bUhCenZQMF8xd2ZGMA?oc=5",
+     "date": "2026-11-23",
+     "time": "11:09",
+     "published_at": "2026-11-23T11:09:14+09:00"
     },
     {
      "keyword": "방산",
-     "title": "방산 '망분리' 규제 손질 본격화…국회 개정안·방사청 연구 맞물려",
-     "source": "뉴스투데이",
-     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1EVThKdzdYU3JEeDc1MzdqY2FGYzFIblp6aGxZcElYdWtPbjMya21ia2tkRGdQRFhfNjl0U1YtdExUc2RCYUQ3Vkp3MzhKMFI5cjRHX2xJUmZ2VEh1M0E?oc=5",
-     "date": "2026-11-22",
-     "time": "15:27",
-     "published_at": "2026-11-22T15:27:00+09:00"
+     "title": "동남권 우주항공·방산 거점 육성 본궤도…정부·KAI 1.5조 투자에 8200억 금융 지원",
+     "source": "와이드경제",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFA5RnZ1NWJHY2oyTFoxRHoyRXZablRyTXNYWmFCSUVVZHRZUk02THN3NjVUUzVTQ0FuUjhNT1BjMVAxaGl2LUhxeE44MHY3Vm1HdDNJVGlNUXEzR1cwS0RINzE2RW1zUUNZTFUyag?oc=5",
+     "date": "2026-11-23",
+     "time": "11:07",
+     "published_at": "2026-11-23T11:07:58+09:00"
     },
     {
      "keyword": "방산",
-     "title": "중국에 쏠린 원자재···K방산 무기 생산 ‘경고등’",
-     "source": "이뉴스투데이",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBNeDZLWVJocEZFOGpXVFpwLV9xRnBFSVktcXd1SW5sOWVmU1ZLOER3UGIxZ0J5VWdSRldHeEh3RUUzazZoS0JFdVhJajduc3VHYkk2VXZfaTJPczUzYmduTGZyNzdZN1ZOQ1cwU2w1ZFTSAXRBVV95cUxPREd4OEZtaVhyeHhoWmpCZ3JMSU1FaFQtTjdtZWZYZF9fMzFWR21OemRwN21PaTVnWWtsN3VtYXlhd3QxQ19NbnQyVHlIdW5mZy1QMVNxS2JsYldEMVpWWDBKT3hwYU1XX2ZuOHRsMVFldW9adA?oc=5",
-     "date": "2026-11-22",
-     "time": "15:00",
-     "published_at": "2026-11-22T15:00:00+09:00"
+     "title": "경남 우주항공·방산 거점 육성…1.5조 투자·8천200억 금융지원",
+     "source": "매일경제 마켓",
+     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5meW5IWmJIMVIzdnI1elNwSno4M2pRVHFjUERSNEFKYTZhQzFtOERmb1lkTnUtZHdHTDM5eEtibzdxYnJtemN5ajJsdFFBSHVLREE?oc=5",
+     "date": "2026-11-23",
+     "time": "11:00",
+     "published_at": "2026-11-23T11:00:02+09:00"
     },
     {
      "keyword": "방산",
-     "title": "구미시, 첨단방위산업진흥센터 개소…K-방산 시험·평가 거점 구축",
-     "source": "신아일보",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE11RlZrMXNja2wyMjBibGlpc0ZRWEhuTUZ3dWo3aDQ1TFAzSHU4Rno3T3loNmVkRXBYMk10TElFYkRtemlRX3ZLcUozVGl3UkwwVktkVXlqamxOUndXZmRxRUthbG90NThscW5RZ2xhc1M?oc=5",
-     "date": "2026-11-22",
-     "time": "14:52",
-     "published_at": "2026-11-22T14:52:21+09:00"
+     "title": "산업부·경남·KAI, 경남 우주항공·방산에 1.5조원 투자협약 체결",
+     "source": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE84ejFhcVRDQmZWRERaZ0t5aGJGdmlEZmJlTElBOWJnV01HX3QyOGNseDRzdUpXZEg1ZTFYRjM1LVI4eE0tTllhbEdFdUZ3WUwxSTRQcGFIb05zaGtwZ0Vv?oc=5",
+     "date": "2026-11-23",
+     "time": "11:00",
+     "published_at": "2026-11-23T11:00:00+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T00:36:29+09:00",
+   "fetched_at": "2026-11-23T13:49:11+09:00",
    "keyword": "방산"
   },
   "조선": {
@@ -3331,96 +3377,96 @@
    "articles": [
     {
      "keyword": "조선",
-     "title": "해양용 적층 합판 시장 2035년 전망: 조선과 항만 인프라가 성장 견인 - 뉴스 및 통계",
-     "source": "IndexBox",
-     "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPaTRUeklKYVhCRS1SeVZrWkNpMVpKMXJ0b1FMQ2t2dE9jYmNjY0N4M28zd09tWXBHblVjd3RSNnpMUmFUdEt1UGRDY0FqUDlrekNZMkRPdnpQZDJvMmZ1dlQzaG5JM0pWOEY1NkJTNzFFZ29jMGhsR1llV0ZTYUU2ZXlFSEhyQ3QxUTNBR3hOMFItRHQ1dk91Q3cySzhxWWpBNmkwcVA4YjE5X282WUo2WDIyRzhsQ0Y3SjVIa0hjU0stXzB1Y1dDU0tteXg3MkhE?oc=5",
+     "title": "IMO, 선박 연료 ‘탄소 점수’ 따진다…LNG선 강자 K조선 촉각",
+     "source": "뉴스토마토",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE4zQkJLNzlqbzJ1bGNLd3NWS28takpkWGx5VVJUVThwTHZMU3RHeFpadnZtaUpRMDdFOXlLR3ZBdlp3MHN0Wm9NQk9BUlllMW5ldDJmUnNLSDBOdzBSS0pWbw?oc=5",
      "date": "2026-11-23",
-     "time": "02:01",
-     "published_at": "2026-11-23T02:01:04+09:00"
+     "time": "13:34",
+     "published_at": "2026-11-23T13:34:19+09:00"
     },
     {
      "keyword": "조선",
-     "title": "[TV조선] 장 건강 챙기는 방법",
-     "source": "조선일보",
-     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNaE9TLXlwZHA1bHJhMHdmaEkzU2tvY3ZDY2Y2eGdJZlNBU0l0MUNkWlJaZjBNMlA3S0VFak9veXpCMm1JNDVmOGk4OU5iN0YxZm9sVG1iVUllc0JVSGtIOE9YU3dQVWpsendBQVlzYTdtQW9leVdiZk52T1pRQXUtRDR6eUVrLU1OT2xOUWpwMA?oc=5",
+     "title": "HD한국조선해양, LPG 운반선 2척 3천84억원에 수주",
+     "source": "연합뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE81a3hVZlVYMFBTXzNybklKSmNuR2hQQk5oVnJlWGdBZUNRSlB4TWRkNkxqVWI2X3pBNGk0bW5mQU5lWk4wdXBzRkZ4SFFLVzFpMDJVcmVidTUza03SAWBBVV95cUxQZVM1bUZ5U1ZrWF9wbU9xYUFfdGR2WFlZR3NmS0tyMWNTQ29HV3FIZFVFY2J3OTgybUFleUZKeVdNdlB1TTN0anA3UE9iM3FURGJOY0ZEcDJPQnI4cmpCVEU?oc=5",
      "date": "2026-11-23",
-     "time": "00:39",
-     "published_at": "2026-11-23T00:39:00+09:00"
+     "time": "13:22",
+     "published_at": "2026-11-23T13:22:37+09:00"
     },
     {
      "keyword": "조선",
-     "title": "조선시대 과거시험 열기 되살린 제9회 ‘1593 전주별시’ 성료 > 뉴스",
-     "source": "더코리아",
-     "url": "https://news.google.com/rss/articles/CBMiREFVX3lxTE1yZzExYlRzMlBpdXh5XzlsZ1VTb0RmUDVfVlh4R0RQaFlKNkpqa2diLTBFeUJreHZkcUdxckY2b0prY0xJ?oc=5",
-     "date": "2026-11-22",
-     "time": "23:53",
-     "published_at": "2026-11-22T23:53:33+09:00"
+     "title": "서양 옛 지도에 담긴 조선 팔도·'한국해'…국립중앙박물관 전시",
+     "source": "연합뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0wbjU2eVUyQkc4WnY0Ni1iRmEyTDgxVGJuVjFfT3VnSEFfQ1VsQWdBMi1ueEQ3UkwybUtOdmlEeHpJRF9yTC1ZM3ptZWNBODBqWnRNMFIxbXdGZWvSAWBBVV95cUxPRmRvbllBcnJBUEdoY1drMWxSSGVBaV9UQW44ZFNFTUtrTFZOSWtiMUVndzVZU0VfdmduYmd0U0Qzem1XOHNxMy1tck96dm5CWENJOFpkZXNlRnREX1NYZzQ?oc=5",
+     "date": "2026-11-23",
+     "time": "12:40",
+     "published_at": "2026-11-23T12:40:49+09:00"
     },
     {
      "keyword": "조선",
-     "title": "대한적십자사는 조선적십자회에 남북 이산가족 생사확인 회담 제안하라!",
-     "source": "통일뉴스",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5DNEFZTlAtc1RsRzRKX2NaR1QyS0M0bHNqQUh0SGRhTF9mVHZfVjJqR0hvZ2FCSDh2RGJOSXZWVDlYTDdkVWhZemIzd2pEWHhWOXFjTUFORjlwYWx3RV9MTEtJM1ZQbnlnQWtqQklR?oc=5",
-     "date": "2026-11-22",
-     "time": "23:50",
-     "published_at": "2026-11-22T23:50:08+09:00"
+     "title": "조선·철강·전선이 주목한 해상풍력…기업 수익성 가를 ‘생산거점’은?",
+     "source": "아시아경제",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBMMVpyTzN3MVBUeDJxaDdvTXhReTdWRFh1cnJLN0ZYWXl5ejB1NFpWNXJlN1Z3eWxCb0V4SkdTd0dPMXpvS0xvZU9PTHNrRnhNaWNjb3VTbUV2eW83SkFQdw?oc=5",
+     "date": "2026-11-23",
+     "time": "12:34",
+     "published_at": "2026-11-23T12:34:00+09:00"
     },
     {
      "keyword": "조선",
-     "title": "은대학당, 2027학년도 신입 수강생 모집…조선시대 사료·법전 전문교육",
-     "source": "유교신문",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9uVTlSN0dtN3FZSnNJNHNPNG10N0x0TXFWVFdYMm1YRTVTaHhmb29CbXBYWXhURVItdGl4RGwyYmNsRUE2cm1mODBVR2lKay1NSDVsVllNakRsSHNuYW01Tg?oc=5",
-     "date": "2026-11-22",
-     "time": "21:10",
-     "published_at": "2026-11-22T21:10:49+09:00"
+     "title": "중소조선연구원, 거제에 생산기술혁신(DX)센터 준공",
+     "source": "진일보 | 전남일보",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1UbDg1UG4waGlMSjRrazB6RE9KbE5BN29iR3JOajdkV0lDemVKSWFGYW5pN0FzV0EzXy1Rbm0tbldZNWVUSHl4ekhPeDZMTmdoc2NJcGlaM3g0dG1FZ0lRU2dBbW9waDk0eE1tb1Fsdw?oc=5",
+     "date": "2026-11-23",
+     "time": "12:05",
+     "published_at": "2026-11-23T12:05:00+09:00"
     },
     {
      "keyword": "조선",
-     "title": "조선시대 과거시험 열기 되살린 제9회 ‘1593 전주별시’ 성료",
-     "source": "전북투데이",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1pQTlncS1Hb3ppX052d1ZFNGgyZTNvRHNTN2E5VVBQaWUweEF0Ry0wRUNZNm8zVFVsbmY0NGljZzZtYU91cjRHOVdKdDhQNnF1QXozN3ExVHM5akR6QTliZFpWUlE1dw?oc=5",
-     "date": "2026-11-22",
-     "time": "20:39",
-     "published_at": "2026-11-22T20:39:10+09:00"
+     "title": "HD한국조선해양, 3084억 원 규모 LPG선 수주",
+     "source": "https://www.2news.co.kr/",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5CMFpWa3ZBaXRqLUdZNU1ybnc5eE1qTjdLcUJKOW1CcHRnVGlyb2JZOXREY2NYb1ItY2N2aGI4TlFpYThlb3FjOTc2ZlBBZWFiM1huZXdFcGVvay11Q0VVbUNYUHVMTU1p?oc=5",
+     "date": "2026-11-23",
+     "time": "11:54",
+     "published_at": "2026-11-23T11:54:00+09:00"
     },
     {
      "keyword": "조선",
-     "title": "대전시립박물관, 조선시대 관리 평가 문서 ‘포폄단자’ 전시",
-     "source": "웹이코노미",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFAwcldRUTE1Z1BCOU9kOUFicFh3NVl5dU1YNEdWVzVwTTUtTXpqbktaTnRGYTlOODBWbERfbkJuanllT0RQOGVXUlBGY01nSzJ1NDVhUXZ5VGJ4TlJMQl9vbmM1RHJFZ2JBQXVoOVNRNWhoQQ?oc=5",
-     "date": "2026-11-22",
-     "time": "20:05",
-     "published_at": "2026-11-22T20:05:08+09:00"
+     "title": "HD한국조선해양, LPG운반선 2척 3084억원에 수주…年 목표 95% 달성",
+     "source": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFB3TzVWV1NULTNEa09fNTM4S0ota2trQVV0XzhWY0tjUzdLNHY0WDJHMnBITzdKOFc4bndQVzJob2lTX0FhOGJyek10YVJqRURQUjN2SmJsdENValNfMFphTWhxazU?oc=5",
+     "date": "2026-11-23",
+     "time": "11:49",
+     "published_at": "2026-11-23T11:49:14+09:00"
     },
     {
      "keyword": "조선",
-     "title": "변장 취재하고 상금 탄 조선일보 기자의 또다른 정체성",
-     "source": "OhmyNews",
-     "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9KOWhUSVo5Y0d4cTlrNXAzMTRaYmJLbW5LdUUxQ3V1MEEzSS0tdGw2akNxdy1jX1dSQXllVk5VbnpENDk0WUxhcWt2c1ZTZXNlM2lCVElnYVVsdTloV19XVXNXc0lmNEFTV1R6RHdFTUdkX2g1SXAw?oc=5",
-     "date": "2026-11-22",
-     "time": "18:54",
-     "published_at": "2026-11-22T18:54:00+09:00"
+     "title": "UAE의 GEM, 케이조선에 LR1급 유조선 4척 발주",
+     "source": "해양통신",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE11bG5iMUloS1NEaEhTOFAtQU83RXdzUVpuT3JHbEwtYWxjTTlpUmpUNTRRUklIMGxVUTNkeVVZZXBMWHdweHBvY0lmWkZwTzJtM0JBeTJYYVVILUhSYll5ZQ?oc=5",
+     "date": "2026-11-23",
+     "time": "11:40",
+     "published_at": "2026-11-23T11:40:43+09:00"
     },
     {
      "keyword": "조선",
-     "title": "서대문 지하 감옥에 서린 120년 전 외침…‘조선 교회의 아버지’ 길선주를 만나다",
-     "source": "한겨레",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9NMDdZdmFabEVUNnJYaUNUNlBFTDVsb2pSY0pjZTU0d05LY0Jxc2FYc2dLdmM1dzdsUnJXOVM4a2VISmt3WlFXMy1NY0l5T1lCTGJXNk1PTW1DdXhNVnJLWl9ORUhMb1ZJSVE?oc=5",
-     "date": "2026-11-22",
-     "time": "18:47",
-     "published_at": "2026-11-22T18:47:00+09:00"
+     "title": "삼성중공업, 이왕근 사장 내정…조선해양사업 이끈다",
+     "source": "IT조선",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1tMUd2T1plSkxVdkNDeGxybDBOdlZNOGlMVXZlcFpwby1YMk1hX0Y3NDRXVXp1VGpvWVV0dk5feXdyWWJiNUhOR1B5eHp3UkFQbEtTTjZiLWRRajZjTGVpbHd5WDRtTDB3MUYxNkxCWmbSAXRBVV95cUxQOVZWWExkUlI0cGZBSmNWTjB5QW0xNUFvS0lSekYtOUE1WHZ3NjZ2OG95SmI3UlRxbkl0VzRYOWk3UFVyNXFwLTFFT2FiNWJBSnpRaDJUb2RIUjhqLU5sa2ZKcG1RUEpPeG52Q2dpbXllS196Yw?oc=5",
+     "date": "2026-11-23",
+     "time": "11:25",
+     "published_at": "2026-11-23T11:25:08+09:00"
     },
     {
      "keyword": "조선",
-     "title": "중소조선연구원, 거제에 중소조선 생산현장 'DX센터' 준공",
-     "source": "국제뉴스",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBGbm41Y2VTSFpqWENNOVpBWXZGVzd5NVRjalNLZ3AyaW9SUnFIWXVMdEd3cnRXSHJ5QnJrQWRUbUEwWmRRXzl1UVpPSHo0Q2tMajhUMmdvQWRqR3BveGFDUThfcGQ5aWI5dnZkSzF3?oc=5",
-     "date": "2026-11-22",
-     "time": "18:45",
-     "published_at": "2026-11-22T18:45:36+09:00"
+     "title": "공무원노조 \"공소청, TV조선 점수조작 의혹 항소 취하해야\"",
+     "source": "연합뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1Fd0NkLWY4aUFCSXRtQnlkOG5kY0ZDRkVIMW1FOXhtT3dGd1RvdGNKdHJza01qbVQwaXF3eWF3cVFtV0toM19QUTlyZ3V0Vkt2akRRZS1scHVoVjTSAWBBVV95cUxPMzlZVVdKdkViYkx0N0Z3bHhKd1dLSFhiZFoxUWRwTzVRTU5lb2h6alhtemNjT0dsazF1cnBiQllLd0didHpaWktfU0czcHd3UDc5V2xCN1c0Wl9TMDk4U2w?oc=5",
+     "date": "2026-11-23",
+     "time": "11:19",
+     "published_at": "2026-11-23T11:19:14+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T03:40:51+09:00",
+   "fetched_at": "2026-11-23T13:49:14+09:00",
    "keyword": "조선"
   },
   "원전": {
@@ -4204,39 +4250,39 @@
    "articles": [
     {
      "keyword": "2차전지",
-     "title": "코스닥 첫 관문 뚫은 2차전지주 ‘피지티’ 상장일은?",
-     "source": "뉴스웰",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5SWEZ1S1A1ZENDdmMzMU1LSkxCeG9Ld3I4VUhsQXBPMGZTc29KeWRoQVg2bEsyM1NvVzJoUjdyQU42djY0cVlnMXdMZC1ObVhSMmZZejJPR2xrOFhPMk1VNWlPMnRFcnZDRVNPUg?oc=5",
-     "date": "2026-11-20",
-     "time": "08:50",
-     "published_at": "2026-11-20T08:50:52+09:00"
+     "title": "아인스팩씨엔에스, 매출 30.16% 규모 2차전지 제어 컨트롤러 국내 제작·설계 수주",
+     "source": "톱스타뉴스",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9JeE10TnpTOERjTlJXUzF2dUZXNnNpOG16T0lpS0FyOWZKY09EMGJBaHVWZmlSODlsYXJWN0xCUWdvTXpuZzBVX01wZk43UmRURTBxVHVOTHp2cHpiVWRJVnBYSEt0QWk3U3I0OENTM0wyQQ?oc=5",
+     "date": "2026-11-23",
+     "time": "11:16",
+     "published_at": "2026-11-23T11:16:10+09:00"
     },
     {
      "keyword": "2차전지",
-     "title": "코스피 5000 급락에 삼성SDI 주가도 흔들...2차전지·전고체 배터리주 약세 : 일반",
-     "source": "크리스천투데이",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1WeFBqbk42cWhual9BTjNCajVQNEo4MEVsaTJtWUJvTWx1ZFJrU0c5b0kydjlQYVRFTGEyeDk1c2REWnlmWlJCeVhyOXR6eTY2Y0FBUmxIUQ?oc=5",
-     "date": "2026-11-17",
-     "time": "12:05",
-     "published_at": "2026-11-17T12:05:49+09:00"
+     "title": "2차전지(전고체) 단기 차익실현 매물에 하락… 상용화 속도·실적 옥석 가리기",
+     "source": "핀포인트뉴스",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBsZzBBQUR2YUFZT21EVHJfME11RGZ4YlYxX0pId0JZYzNuZlRNcmJkSFl2ellzTjVhVDhZcC1BVzNZR1l3UnV0MWpXN3NBaDRxX21xUXNNalp0VG00NkJLY3B5dVhHZ3ZiTDl5Vi1zUUhwQWfSAXdBVV95cUxOU3UwbV9uUUwyMGhiYi1mVEdjUklyZEVpRkY1Q0NpakNGNHI2UzNja0QyTk4xUExRSnYzZ2gwNHFNUkduZDFIOGNmbHNmdUc0UTViSlhzSE1Hd0ljNUtmSUF3M3E3bGVBU05PcUZiWE83a3RWbXljSQ?oc=5",
+     "date": "2026-11-23",
+     "time": "11:14",
+     "published_at": "2026-11-23T11:14:31+09:00"
     },
     {
      "keyword": "2차전지",
-     "title": "[이 시각 시황] 코스피 5천선 위협 속 약세 지속…2차전지·의료AI주는 강세",
-     "source": "SBS Biz",
-     "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBCQmhIcE90bUcxWlRmM2pOanFTN0ZjVUtYOWlheW5OMGtFSXhkQnFTOVpMLWhRRVN6WWtRYUhsdXh2ckZycXhveFk0NXBMblIwVWdV0gFYQVVfeXFMTWJCQ2E5eTRMejk2TDJKVW8tSVcycGlEN1ZURXo3SzBCVlJWNDJva3pyVl9ITUpTZnB1RDNaLXRTWThFQ25UV0hKQWFUQWRCdjFMNXZBb2xlQQ?oc=5",
-     "date": "2026-11-17",
-     "time": "07:55",
-     "published_at": "2026-11-17T07:55:00+09:00"
+     "title": "[공시셀렉트] 선익시스템, 마이크로 OLED 장비 계약금액 공개…코윈로보틱스는 2차전지 계약 245억 감액 外",
+     "source": "디지털투데이",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5wSTlZSS11YWp4bzVuMUJ3ZkxoTUhyUmJkLUtMVk9CeWFhWm9ZaGxBYlMwSTdIck1aWU94M3h4b3JfQ1dDbWlEQi1iYmhYb2dWODBEY1RSZXVJOXZiWGs1NWRfRlJwYXNnY2U3UDVfMnVGTTRoNElzdklMNA?oc=5",
+     "date": "2026-11-23",
+     "time": "08:45",
+     "published_at": "2026-11-23T08:45:30+09:00"
     },
     {
      "keyword": "2차전지",
-     "title": "특징주, 삼성SDI-2차전지(생산) 테마 상승세에 5.65% ↑",
-     "source": "매일경제 마켓",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE90bHJxQTI3WFdZbXZ6Q25mXzk2MjNGOFF1Z2I5ZVBRS0xJay1ONUNKS2NoMU5idDRxcXdkS1Vxa000Mm0wTEZaM3pOb1c5eEFtNGc?oc=5",
-     "date": "2026-11-16",
-     "time": "09:16",
-     "published_at": "2026-11-16T09:16:16+09:00"
+     "title": "2차전지주 동반 하락…에코프로·포스코퓨처엠도 매도 압력",
+     "source": "핀포인트뉴스",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9SR2FvTHdaUTZPcGV4bEJRM2RLaTI1YVBzdklJRGpYWXlNYzRJRThrUTd0ZnFEdnUzMzkySGpBcENTMEdXYW9Fb19UandidFhLdFhhX3JpbktnZkVaOWJwS2VONXV3WC12eHRibGwtTGFHbXPSAXdBVV95cUxPV2k5c01fUzU4X1RtZFg3NlpBUUhLTW1Vbm5LMUlaMmNPZ3BLNUF1aGpvUTRTcnFSVzBPdFgwbmR2UC1qUTlaclJJbnpTUVFWYmR3Qmx4a09Zal9MeGtmblY4MzMzRWFpWG5HaFRqc1l0RHJSZ1lqbw?oc=5",
+     "date": "2026-11-21",
+     "time": "15:34",
+     "published_at": "2026-11-21T15:34:07+09:00"
     },
     {
      "keyword": "2차전지",
@@ -4257,7 +4303,7 @@
      "published_at": "2026-11-04T17:00:00+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T00:36:32+09:00",
+   "fetched_at": "2026-11-23T13:49:17+09:00",
    "keyword": "2차전지"
   },
   "바이오": {
@@ -5487,8 +5533,8 @@
    ]
   },
   "added": {
-   "keywords": 13,
-   "companies": 18
+   "keywords": 0,
+   "companies": 6
   },
   "errors": [
    "SAVE 직접 조회 불가: Cloudflare 봇 차단(Just a moment) — 익명 요청으로는 접근 불가"
@@ -5497,7 +5543,7 @@
  },
  "errors": [],
  "briefing": {
-  "headline": "미국 증시 마감: 다우 48,147.33 (-1.93%), 나스닥 22,617.73 (-5.28%), S&P500 6,910.39 (-3.70%), SOX 8,408.59 (-10.73%) / 코스피 4,709.53 (-3.29%), 코스닥 640.12 (-0.86%)",
+  "headline": "미국 증시 마감: 다우 48,147.33 (-1.93%), 나스닥 22,617.73 (-5.28%), S&P500 6,910.39 (-3.70%), SOX 8,408.59 (-10.73%) / 코스피 4,713.23 (-3.22%), 코스닥 640.60 (-0.79%)",
   "checkpoints": [
    {
     "title": "반도체·기술주 흐름",
@@ -5509,11 +5555,11 @@
    },
    {
     "title": "금리·환율",
-    "detail": "미 10년물 4.950% (-10.22bp), 미 2년물 4.649%, 원/달러 1,350.40원 (+0.40%)."
+    "detail": "미 10년물 4.950% (-10.22bp), 미 2년물 4.649%, 원/달러 1,350.00원 (+0.37%)."
    },
    {
     "title": "국내 증시",
-    "detail": "국내 추적 종목 낙폭 최대는 NAVER -7.92%."
+    "detail": "국내 추적 종목 낙폭 최대는 NAVER -7.86%."
    }
   ],
   "sector_news": [
