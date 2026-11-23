@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "source": "SAVE(세이브티커) saveticker.com",
- "fetched_at": "2026-11-23T13:52:55+09:00",
+ "fetched_at": "2026-11-23T17:07:05+09:00",
  "fetched_via": "browser-session",
  "interests": {
   "keywords": [
@@ -20,6 +20,231 @@
  "count": 40,
  "news": [
   {
+   "keyword": "",
+   "title": "베센트 재무장관, 연준 과도한 긴축 경고…“정책 실수 될 수도”",
+   "source": "블룸버그",
+   "url": "https://www.saveticker.com/news/news_hOSZAzYuy5op",
+   "date": "2026-11-23",
+   "time": "16:52",
+   "published_at": "2026-11-23T16:52:55+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "정보",
+    "연준"
+   ],
+   "view_count": 7029,
+   "summary": "스콧 베센트 미 재무장관은 일요일(현지시간) CBS 인터뷰에서 지난 몇 달간 금융 여건이 이미 상당히 긴축됐고 금융시스템의 불안정성도 드러나고 ...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "미 증시, AI주 급락 후 반등 예고…한국 반도체 등 아시아는 약세",
+   "source": "파이낸셜타임스",
+   "url": "https://www.saveticker.com/news/news_8HXiqsTx7ZIJ",
+   "date": "2026-11-23",
+   "time": "16:38",
+   "published_at": "2026-11-23T16:38:37+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "정보"
+   ],
+   "view_count": 9613,
+   "summary": "지난주 인공지능(AI) 관련주 급락 이후 미국 지수 선물은 반등했지만, 아시아 증시에서는 기술주를 중심으로 매도세가 이어짐 - 월요일 정규장...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[칼럼] 러셀: 서방, 화려하지 않은 텅스텐으로 중국의 핵심 광물 지배력에 도전",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_tg0IapAQJkmK",
+   "date": "2026-11-23",
+   "time": "16:00",
+   "published_at": "2026-11-23T16:00:17+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [],
+   "view_count": 52,
+   "summary": "토요일 칼럼을 아무런 수정 없이 더 많은 구독자에게 재전송한다. 이 글에 표현된 의견은 로이터 칼럼니스트인 필자의 의견이다. 클라이드 러셀 ...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "미국 이란 전쟁",
+   "title": "[칼럼] 석유 시장의 이란 전쟁 이후 회복세가 끈질긴 디젤 부족을 가린다: 부소",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_iAGB0DMsSAEH",
+   "date": "2026-11-23",
+   "time": "16:00",
+   "published_at": "2026-11-23T16:00:15+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [],
+   "view_count": 191,
+   "summary": "여기에 표현된 견해는 로이터 칼럼니스트인 필자의 견해다 론 부소 런던, 11월 23일 (로이터) - 현대사 최대의 에너지 충격이 시작된 ...",
+   "keywords": [
+    "미국 이란 전쟁"
+   ],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "AI 주도 기술주 매도세에 한국 주식, 1월 이후 최저치로 급락",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_2h3LZsBVF7Qq",
+   "date": "2026-11-23",
+   "time": "15:56",
+   "published_at": "2026-11-23T15:56:27+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [],
+   "view_count": 490,
+   "summary": "코스피 하락, 외국인 순매도 원화, 달러 대비 강세 한국 기준 국채 수익률 하락 정오 보고서는 L2N47400B를 클릭해 확인 서...",
+   "keywords": [],
+   "companies": [
+    "005930",
+    "000660",
+    "005380"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[글로벌] 아시아가 AI 주식 폭락세를 늦추려 분주히 움직이는 가운데 미국 선물 반등",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_Ix6pNLQFk_aB",
+   "date": "2026-11-23",
+   "time": "15:06",
+   "published_at": "2026-11-23T15:06:32+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "종합"
+   ],
+   "view_count": 663,
+   "summary": "나스닥 100 선물 3% 상승 대만 증시 2% 반등; 코스피 2.5% 하락 AI 거래 주춤에 투자자들 불안·초조 가격 업데이트 톰...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[로이터 뉴스 스케줄] 그리니치 표준시 오전 6시/싱가포르 표준시 오후 2시",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_QzjxUdh_PrBL",
+   "date": "2026-11-23",
+   "time": "15:06",
+   "published_at": "2026-11-23T15:06:24+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "종합"
+   ],
+   "view_count": 53,
+   "summary": "로이터 텍스트 서비스의 주요 뉴스와 향후 취재 계획을 그리니치표준시(GMT) 오전 6시/싱가포르표준시(SGT) 오후 2시 기준으로 전한다. 뉴스...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[모닝브리핑 유럽] AI, 아이고!",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_i1d5sGw33SZ9",
+   "date": "2026-11-23",
+   "time": "14:31",
+   "published_at": "2026-11-23T14:31:23+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "시황/분석"
+   ],
+   "view_count": 1211,
+   "summary": "Rae Wee가 전하는 유럽 및 글로벌 시장의 하루 전망 AI를 믿는 이들에게 11월은 힘겨운 한 달이었다. AI 붐의 중심에 있는 기술주와...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[3보] 걸프 공격으로 위험 프리미엄이 유지되면서 유가 좁은 범위에서 등락",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_LKMdwTvJ5Fsn",
+   "date": "2026-11-23",
+   "time": "14:10",
+   "published_at": "2026-11-23T14:10:24+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [],
+   "view_count": 146,
+   "summary": "가격 업데이트 모히 나라얀·헬렌 클라크 뉴델리, 11월 23일 (로이터) - 외교적 노력이 전쟁 종식을 위한 가운데 중동에서 지속되는 선...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[분석] 유럽의 클라우드 주권 추진이 탄력을 얻지만, 미국 하이퍼스케일러들은 여전히 지배적",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_hi5E8x2M34Qq",
+   "date": "2026-11-23",
+   "time": "14:00",
+   "published_at": "2026-11-23T14:00:22+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "시황/분석"
+   ],
+   "view_count": 157,
+   "summary": "공공 부문 이전과 계약 낙찰은 주권 우려가 조달 결정에 영향을 미치기 시작했음을 시사한다 클라우드 종속은 여전히 주요 장벽이며, 제공업체들은...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "미국의 칩 규제와 AI 주식 폭락으로 투자 심리가 악화되면서 중국 주식 16개월 만의 최저치 기록",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_OQ-lDpeWEAqp",
+   "date": "2026-11-23",
+   "time": "13:52",
+   "published_at": "2026-11-23T13:52:17+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [],
+   "view_count": 257,
+   "summary": "시세 업데이트; 인용 및 세부 내용 추가 상하이, 11월 23일 (로이터) - 기술주가 하락을 주도하면서 중국 주식 벤치마크가 월요일 16개...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[글로벌] AI 주도 급락 이후 아시아가 주식시장 부양에 분주한 가운데 미국 선물 반등",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_K_XVwpOve8Ei",
+   "date": "2026-11-23",
+   "time": "13:44",
+   "published_at": "2026-11-23T13:44:21+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "종합"
+   ],
+   "view_count": 406,
+   "summary": "나스닥 100 선물 3% 상승 대만 증시 2% 반등; 코스피, 한때 5% 하락한 뒤 안정 AI 거래 부진에 투자자들 불안하고 초조 아...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
    "keyword": "트럼프",
    "title": "[2보] 트럼프 대통령, 자신의 토큰이 사상 최저치로 급락하는 가운데 밈 코인 투자자들을 위한 갈라 행사 주최",
    "source": "로이터",
@@ -30,7 +255,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 528,
+   "view_count": 843,
    "summary": "2025년 첫 $TRUMP 토큰 갈라 이후, 밈 코인은 가치의 작은 일부만 남기고 모두 잃었다 저녁 참석자들의 공개된 지갑에는 860만 달러...",
    "keywords": [
     "트럼프"
@@ -51,7 +276,7 @@
    "labels": [
     "종합"
    ],
-   "view_count": 695,
+   "view_count": 734,
    "summary": "아시아 오전장 가격 반영 톰 웨스트브룩 싱가포르, 11월 23일 (로이터) - AI 붐의 중심에 있는 기술주와 반도체주가 지난주 급락한 ...",
    "keywords": [],
    "companies": [],
@@ -68,7 +293,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 376,
+   "view_count": 386,
    "summary": "상하이, 11월 23일 (로이터) - 중국 증시는 월요일 하락 출발했다. 당국이 주말에 신용거래 요건을 완화한다고 발표했지만, 전 세계 AI 주...",
    "keywords": [],
    "companies": [],
@@ -87,7 +312,7 @@
    "labels": [
     "종합"
    ],
-   "view_count": 719,
+   "view_count": 740,
    "summary": "아시아 오전 가격 반영 싱가포르, 11월 23일 (로이터) - 지난주 AI 붐의 중심에 있는 기술주와 반도체주가 급격히 폭락한 뒤, 월요일 ...",
    "keywords": [],
    "companies": [],
@@ -106,7 +331,7 @@
    "labels": [
     "종합"
    ],
-   "view_count": 121,
+   "view_count": 126,
    "summary": "로이터 텍스트 서비스의 주요 기사와 예정된 취재 계획을 동부시간 오후 6시 / 싱가포르시간 오전 6시 기준으로 전한다. 전체 뉴스 및 행사 일정...",
    "keywords": [],
    "companies": [],
@@ -123,7 +348,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 1439,
+   "view_count": 1455,
    "summary": "2025년 첫 $TRUMP 토큰 갈라 이후 밈 코인은 가치의 작은 일부만 남기고 모두 잃었다 저녁 식사 참석자들의 등재 지갑 보유액은 860...",
    "keywords": [
     "트럼프"
@@ -159,7 +384,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 1572,
+   "view_count": 1617,
    "summary": "3~9번째 문단에 베센트 발언과 배경 추가 캐서린 잭슨 기자 워싱턴, 11월 22일 (로이터) - 미국은 엔비디아 NVDA.O의 대중국 ...",
    "keywords": [
     "엔비디아"
@@ -167,28 +392,6 @@
    "companies": [
     "NVDA"
    ],
-   "is_top_story": false
-  },
-  {
-   "keyword": "미국 이란 전쟁",
-   "title": "트럼프, 이란과 간접 협상 지속 시사…\"합의 없으면 새해 이후 타격 무게\"",
-   "source": "FOX뉴스",
-   "url": "https://www.saveticker.com/news/news_WZSdlgFcjt5T",
-   "date": "2026-11-23",
-   "time": "02:39",
-   "published_at": "2026-11-23T02:39:40+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "속보"
-   ],
-   "view_count": 22129,
-   "summary": "트럼프 대통령은 폭스뉴스 인터뷰에서 이란과의 간접 협상이 계속 진행 중임을 시사함 - 그러면서도 합의가 이뤄지지 않을 경우 새해 이후 이란을...",
-   "keywords": [
-    "미국 이란 전쟁",
-    "트럼프"
-   ],
-   "companies": [],
    "is_top_story": false
   },
   {
@@ -202,7 +405,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 1181,
+   "view_count": 1190,
    "summary": "워싱턴, 11월 22일(로이터) - 스콧 베센트 재무장관은 일요일 트럼프 행정부가 엔비디아의 NVDA.O 칩 판매에 관한 정보를 여전히 필요로 ...",
    "keywords": [
     "엔비디아",
@@ -226,7 +429,7 @@
    "labels": [
     "속보"
    ],
-   "view_count": 20439,
+   "view_count": 21673,
    "summary": "베센트 미 재무장관은 CBS '페이스 더 네이션' 인터뷰에서 엔비디아의 대중국 반도체 판매 의혹과 관련해 아직 명확한 답변을 얻지 못했다며, 엔...",
    "keywords": [
     "엔비디아"
@@ -234,46 +437,6 @@
    "companies": [
     "NVDA"
    ],
-   "is_top_story": false
-  },
-  {
-   "keyword": "",
-   "title": "이에 대해 알고 있었고, 위원회들이 답을 찾기 위해 신속히 움직일 것이라고 확신: CBS",
-   "source": "financial-juice",
-   "url": "https://www.saveticker.com/news/news_6HpB0uWV62YJ",
-   "date": "2026-11-23",
-   "time": "00:42",
-   "published_at": "2026-11-23T00:42:18+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE",
-   "labels": [
-    "속보"
-   ],
-   "view_count": 1642,
-   "summary": "",
-   "keywords": [],
-   "companies": [],
-   "is_top_story": false
-  },
-  {
-   "keyword": "엔비디아",
-   "title": "[주간전망] ‘블랙 프라이데이’, AI로 흔들린 시장에서 소비자 지출에 초점",
-   "source": "로이터",
-   "url": "https://www.saveticker.com/news/news_9f8-hHUxnF3x",
-   "date": "2026-11-22",
-   "time": "23:01",
-   "published_at": "2026-11-22T23:01:16+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE",
-   "labels": [
-    "시황/분석"
-   ],
-   "view_count": 1223,
-   "summary": "금요일 기사 반복, 본문 변경 없음 앤트로픽 IPO, 견조한 엔비디아 실적에도 시장 상승 실패 옥스퍼드 이코노믹스, 연말 쇼핑 시즌 소매...",
-   "keywords": [
-    "엔비디아"
-   ],
-   "companies": [],
    "is_top_story": false
   },
   {
@@ -290,33 +453,11 @@
     "정보",
     "분석"
    ],
-   "view_count": 16728,
+   "view_count": 17964,
    "summary": "이코노미스트의 연례 전망서 '더 월드 어헤드 2027'을 맡은 톰 스탠디지 편집자는 2027년에 주목해야 할 10가지 주요 흐름을 제시함 포...",
    "keywords": [],
    "companies": [],
-   "is_top_story": false
-  },
-  {
-   "keyword": "",
-   "title": "(카더라) 델·HPE 등, 계약 체결 수개월 뒤 AI 서버 가격 최대 45% 인상 요구",
-   "source": "파이낸셜타임스",
-   "url": "https://www.saveticker.com/news/news_kYms9hmh1qIr",
-   "date": "2026-11-22",
-   "time": "22:37",
-   "published_at": "2026-11-22T22:37:17+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "정보"
-   ],
-   "view_count": 18868,
-   "summary": "파이낸셜타임스(FT)는 소식통을 인용해, 델·HPE·레노버·슈퍼마이크로 등 주요 서버 공급업체들이 계약 체결 수개월 뒤 실제 납품 시점에 엔비...",
-   "keywords": [],
-   "companies": [
-    "MU",
-    "000660"
-   ],
-   "is_top_story": false
+   "is_top_story": true
   },
   {
    "keyword": "",
@@ -329,70 +470,13 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 3367,
+   "view_count": 3399,
    "summary": "업데이트 1-한국, 코스피 10개월 만의 최저치 기록 후 시장 안정화 기금 준비 2문단에 발언 추가, 3문단부터 세부 내용과 맥락 추가 서울...",
    "keywords": [],
    "companies": [
     "000660",
     "005930"
    ],
-   "is_top_story": false
-  },
-  {
-   "keyword": "",
-   "title": "[로이터 뉴스 스케줄] 그리니치 표준시 오전 11시/미 동부시간 오전 6시",
-   "source": "로이터",
-   "url": "https://www.saveticker.com/news/news_97WwRXT3SKMA",
-   "date": "2026-11-22",
-   "time": "20:00",
-   "published_at": "2026-11-22T20:00:26+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE",
-   "labels": [
-    "종합"
-   ],
-   "view_count": 284,
-   "summary": "로이터 텍스트 서비스의 주요 뉴스와 예정된 취재 계획을 그리니치표준시 오전 11시/미 동부시간 오전 6시 기준으로 전한다. 전체 뉴스 및 행사 ...",
-   "keywords": [],
-   "companies": [],
-   "is_top_story": false
-  },
-  {
-   "keyword": "",
-   "title": "[로이터 뉴스 스케줄] 그리니치 표준시 오전 6시/미 동부시간 오전 2시",
-   "source": "로이터",
-   "url": "https://www.saveticker.com/news/news_w8dns7RTJYHm",
-   "date": "2026-11-22",
-   "time": "16:01",
-   "published_at": "2026-11-22T16:01:12+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE",
-   "labels": [
-    "종합"
-   ],
-   "view_count": 478,
-   "summary": "다음은 GMT 오전 6시/ET 오전 2시 기준 로이터 텍스트 서비스의 주요 기사와 향후 취재 계획이다. 뉴스와 행사 전체 일정은 Reuters ...",
-   "keywords": [],
-   "companies": [],
-   "is_top_story": false
-  },
-  {
-   "keyword": "",
-   "title": "골드만삭스의 스페이스X 채권 설계, 빅테크 AI 칩 자금 조달에 새 해법 제시",
-   "source": "블룸버그",
-   "url": "https://www.saveticker.com/news/news_znx3kCQU_Byn",
-   "date": "2026-11-22",
-   "time": "16:01",
-   "published_at": "2026-11-22T16:01:08+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "정보"
-   ],
-   "view_count": 21527,
-   "summary": "골드만삭스와 아폴로 글로벌 매니지먼트가 스페이스X의 AI 반도체 구매 자금 조달을 위한 320억 달러 규모의 채권 발행 주관에 참여했으며, 블룸...",
-   "keywords": [],
-   "companies": [],
    "is_top_story": false
   },
   {
@@ -408,7 +492,7 @@
    "labels": [
     "정보"
    ],
-   "view_count": 28644,
+   "view_count": 29092,
    "summary": "파이낸셜타임스(FT)는 엔비디아 전 CEO 젠슨 황과 연인 관계로 알려진 중국인 사업가 앨리스 황이 미국의 수출 규제를 우회해 엔비디아 AI 반...",
    "keywords": [
     "엔비디아"
@@ -416,11 +500,11 @@
    "companies": [
     "NVDA"
    ],
-   "is_top_story": false
+   "is_top_story": true
   },
   {
    "keyword": "",
-   "title": "📌 2026년 11월 4주 차 주요 일정",
+   "title": "📌2026년 11월 4주 차 주요 일정",
    "source": "SAVE PICK",
    "url": "https://www.saveticker.com/news/news_GDhEVXhbbpIz",
    "date": "2026-11-21",
@@ -431,7 +515,7 @@
    "labels": [
     "일정"
    ],
-   "view_count": 21518,
+   "view_count": 23015,
    "summary": "",
    "keywords": [],
    "companies": [],
@@ -448,7 +532,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 4607,
+   "view_count": 4620,
    "summary": "업데이트 1-소프트뱅크 손 회장, SK하이닉스 1조 달러 인수 검토…인포메이션 보도, 4문단부터 SK하이닉스·소프트뱅크의 답변 추가 11월 ...",
    "keywords": [],
    "companies": [
@@ -467,7 +551,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 1991,
+   "view_count": 1993,
    "summary": "최신 비트코인 움직임과 배경 추가 11월 21일(로이터) - 시가총액 기준 세계 최대 암호화폐인 비트코인은 토요일 장중 앞서 2년 만에 최저...",
    "keywords": [],
    "companies": [
@@ -486,7 +570,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 4826,
+   "view_count": 4832,
    "summary": "11월 20일 (로이터) - 소프트뱅크의 손 마사요시, SK하이닉스의 1조 달러 규모 인수 검토 - 디 인포메이션 : 소프트뱅크의 손 마...",
    "keywords": [],
    "companies": [
@@ -505,7 +589,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 2690,
+   "view_count": 2694,
    "summary": "정정-소프트뱅크 손 회장, SK하이닉스 1조 달러 인수 검토했다고 디인포메이션 보도 2문단의 주체를 회사가 아닌 손 회장으로 정정 11월 2...",
    "keywords": [],
    "companies": [
@@ -526,7 +610,7 @@
    "labels": [
     "속보"
    ],
-   "view_count": 6763,
+   "view_count": 6777,
    "summary": "",
    "keywords": [],
    "companies": [
@@ -545,7 +629,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 1483,
+   "view_count": 1490,
    "summary": "S&P 500이 조정장에 진입했음을 확인한 내용 추가, 4문단, 전반적인 시장 수치 업데이트 나스닥은 연초 이후 현재 2% 넘게 하락, 10...",
    "keywords": [],
    "companies": [
@@ -565,7 +649,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 892,
+   "view_count": 902,
    "summary": "11월 20일(로이터) - 오라클 ORCL.N은 이달 초 최종 자금 조달에 이어 오픈AI와의 인프라 계약에 필요한 자금이 전액 마련됐다고 금요일...",
    "keywords": [],
    "companies": [
@@ -586,7 +670,7 @@
    "labels": [
     "속보"
    ],
-   "view_count": 347,
+   "view_count": 349,
    "summary": "",
    "keywords": [
     "엔비디아"
@@ -630,7 +714,7 @@
    "labels": [
     "속보"
    ],
-   "view_count": 959,
+   "view_count": 963,
    "summary": "",
    "keywords": [
     "엔비디아"
@@ -651,7 +735,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 484,
+   "view_count": 485,
    "summary": "재송고, 깨진 텍스트 삭제 나스닥, 현재 연초 대비 거의 2% 하락…10월에는 연초 대비 19% 상승 추가 연준 금리 인상, 단기적으로 ...",
    "keywords": [],
    "companies": [
@@ -671,7 +755,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 1016,
+   "view_count": 1021,
    "summary": "트럼프 발언을 전반에 추가해 재작성하고 워싱턴 발신지 표기 추가 워싱턴, 11월 20일 (로이터) - 트럼프 대통령은 금요일 자신이 여전히 ...",
    "keywords": [
     "엔비디아",
@@ -695,7 +779,7 @@
    "labels": [
     "속보"
    ],
-   "view_count": 39610,
+   "view_count": 39980,
    "summary": "로이터는 사안에 정통한 소식통을 인용해, 미국 증권거래위원회(SEC)가 엔비디아의 잠재적인 회계 처리 문제를 조사하고 있다고 보도함 - 앞서...",
    "keywords": [
     "엔비디아"
@@ -718,128 +802,62 @@
    "labels": [
     "속보"
    ],
-   "view_count": 298,
+   "view_count": 300,
    "summary": "",
    "keywords": [],
    "companies": [
     "NVDA"
    ],
    "is_top_story": false
+  }
+ ],
+ "top_stories": [
+  {
+   "keyword": "",
+   "title": "이코노미스트 - 2027년 주목해야 할 10대 트렌드",
+   "source": "이코노미스트",
+   "url": "https://www.saveticker.com/news/news_oItbuOHZxarl",
+   "date": "2026-11-22",
+   "time": "22:49",
+   "published_at": "2026-11-22T22:49:40+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "정보",
+    "분석"
+   ],
+   "view_count": 17964,
+   "summary": "이코노미스트의 연례 전망서 '더 월드 어헤드 2027'을 맡은 톰 스탠디지 편집자는 2027년에 주목해야 할 10가지 주요 흐름을 제시함 포...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": true
   },
   {
    "keyword": "엔비디아",
-   "title": "미국 증권거래위원회의 엔비디아 조사, 잠재적 회계 문제 살펴보는 중이라고 소식통들 전해",
-   "source": "로이터",
-   "url": "https://www.saveticker.com/news/news_EfSDXCJmgPci",
-   "date": "2026-11-21",
-   "time": "04:10",
-   "published_at": "2026-11-21T04:10:33+09:00",
+   "title": "(카더라) 앨리스 황, 엔비디아 AI 반도체 중국 밀반출망 연루 의혹",
+   "source": "파이낸셜타임스",
+   "url": "https://www.saveticker.com/news/news_Bl4bmL_LrlB6",
+   "date": "2026-11-22",
+   "time": "15:42",
+   "published_at": "2026-11-22T15:42:47+09:00",
    "origin": "SAVE",
-   "badge": "SAVE",
+   "badge": "SAVE PICK",
    "labels": [
-    "속보"
+    "정보"
    ],
-   "view_count": 915,
-   "summary": "",
+   "view_count": 29092,
+   "summary": "파이낸셜타임스(FT)는 엔비디아 전 CEO 젠슨 황과 연인 관계로 알려진 중국인 사업가 앨리스 황이 미국의 수출 규제를 우회해 엔비디아 AI 반...",
    "keywords": [
     "엔비디아"
    ],
    "companies": [
     "NVDA"
    ],
-   "is_top_story": false
-  },
-  {
-   "keyword": "엔비디아",
-   "title": "트럼프, 젠슨 황 엔비디아 복귀 지지…“사과하고 돌아오게 해야”",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_DucgZl1bi1mw",
-   "date": "2026-11-21",
-   "time": "03:26",
-   "published_at": "2026-11-21T03:26:28+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "정보"
-   ],
-   "view_count": 17974,
-   "summary": "트럼프 대통령은 엔비디아의 젠슨 황 전 CEO가 잘못된 결정을 내리긴 했지만 뛰어난 인재라며, 그가 사과하고 엔비디아도 이를 받아들여 회사에 복...",
-   "keywords": [
-    "엔비디아",
-    "트럼프"
-   ],
-   "companies": [
-    "NVDA"
-   ],
    "is_top_story": true
   },
   {
    "keyword": "",
-   "title": "연준 쿡 이사 “인플레이션 확산에 대응하기 위한 금리 인상 시급”",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_nr8EQYBe4WHh",
-   "date": "2026-11-21",
-   "time": "02:18",
-   "published_at": "2026-11-21T02:18:05+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "속보",
-    "연준"
-   ],
-   "view_count": 16392,
-   "summary": "리사 쿡 연준 이사는 인플레이션을 잡기 위해 시급히 금리를 올려야 한다며, 대응을 미룰수록 앞으로 금리를 더 빠르고 큰 폭으로 인상해야 할 위험...",
-   "keywords": [],
-   "companies": [],
-   "is_top_story": true
-  },
-  {
-   "keyword": "",
-   "title": "AMD \"헌터브룩의 주장은 사실 왜곡…수출 통제법 위반 없어\"",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_z-tv7FVFG-hf",
-   "date": "2026-11-20",
-   "time": "02:02",
-   "published_at": "2026-11-20T02:02:37+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "속보"
-   ],
-   "view_count": 43259,
-   "summary": "AMD는 헌터브룩(Hunterbrook)이 제기한 주장들이 자사의 실제 사업 관행을 왜곡하고 있다고 반박함 - 또한 미국의 수출 통제 관련 ...",
-   "keywords": [],
-   "companies": [
-    "AMD"
-   ],
-   "is_top_story": true
-  },
-  {
-   "keyword": "",
-   "title": "헌터브룩 'AMD\" 공매도 리포트",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_b8z_kIWPOEQh",
-   "date": "2026-11-20",
-   "time": "00:55",
-   "published_at": "2026-11-20T00:55:29+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "정보"
-   ],
-   "view_count": 21356,
-   "summary": "헌터브룩미디어는 미국의 수출 제재 대상인 중국 서버 제조업체 IEIT시스템즈가 제재 이후에도 AMD의 새로운 펌웨어를 자사 제품에 적용해 왔다며...",
-   "keywords": [],
-   "companies": [
-    "AMD"
-   ],
-   "is_top_story": true
-  }
- ],
- "top_stories": [
-  {
-   "keyword": "",
-   "title": "📌 2026년 11월 4주 차 주요 일정",
+   "title": "📌2026년 11월 4주 차 주요 일정",
    "source": "SAVE PICK",
    "url": "https://www.saveticker.com/news/news_GDhEVXhbbpIz",
    "date": "2026-11-21",
@@ -850,7 +868,7 @@
    "labels": [
     "일정"
    ],
-   "view_count": 21518,
+   "view_count": 23015,
    "summary": "",
    "keywords": [],
    "companies": [],
@@ -869,99 +887,13 @@
    "labels": [
     "속보"
    ],
-   "view_count": 39610,
+   "view_count": 39980,
    "summary": "로이터는 사안에 정통한 소식통을 인용해, 미국 증권거래위원회(SEC)가 엔비디아의 잠재적인 회계 처리 문제를 조사하고 있다고 보도함 - 앞서...",
    "keywords": [
     "엔비디아"
    ],
    "companies": [
     "NVDA"
-   ],
-   "is_top_story": true
-  },
-  {
-   "keyword": "엔비디아",
-   "title": "트럼프, 젠슨 황 엔비디아 복귀 지지…“사과하고 돌아오게 해야”",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_DucgZl1bi1mw",
-   "date": "2026-11-21",
-   "time": "03:26",
-   "published_at": "2026-11-21T03:26:28+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "정보"
-   ],
-   "view_count": 17974,
-   "summary": "트럼프 대통령은 엔비디아의 젠슨 황 전 CEO가 잘못된 결정을 내리긴 했지만 뛰어난 인재라며, 그가 사과하고 엔비디아도 이를 받아들여 회사에 복...",
-   "keywords": [
-    "엔비디아",
-    "트럼프"
-   ],
-   "companies": [
-    "NVDA"
-   ],
-   "is_top_story": true
-  },
-  {
-   "keyword": "",
-   "title": "연준 쿡 이사 “인플레이션 확산에 대응하기 위한 금리 인상 시급”",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_nr8EQYBe4WHh",
-   "date": "2026-11-21",
-   "time": "02:18",
-   "published_at": "2026-11-21T02:18:05+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "속보",
-    "연준"
-   ],
-   "view_count": 16392,
-   "summary": "리사 쿡 연준 이사는 인플레이션을 잡기 위해 시급히 금리를 올려야 한다며, 대응을 미룰수록 앞으로 금리를 더 빠르고 큰 폭으로 인상해야 할 위험...",
-   "keywords": [],
-   "companies": [],
-   "is_top_story": true
-  },
-  {
-   "keyword": "",
-   "title": "AMD \"헌터브룩의 주장은 사실 왜곡…수출 통제법 위반 없어\"",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_z-tv7FVFG-hf",
-   "date": "2026-11-20",
-   "time": "02:02",
-   "published_at": "2026-11-20T02:02:37+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "속보"
-   ],
-   "view_count": 43259,
-   "summary": "AMD는 헌터브룩(Hunterbrook)이 제기한 주장들이 자사의 실제 사업 관행을 왜곡하고 있다고 반박함 - 또한 미국의 수출 통제 관련 ...",
-   "keywords": [],
-   "companies": [
-    "AMD"
-   ],
-   "is_top_story": true
-  },
-  {
-   "keyword": "",
-   "title": "헌터브룩 'AMD\" 공매도 리포트",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_b8z_kIWPOEQh",
-   "date": "2026-11-20",
-   "time": "00:55",
-   "published_at": "2026-11-20T00:55:29+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "정보"
-   ],
-   "view_count": 21356,
-   "summary": "헌터브룩미디어는 미국의 수출 제재 대상인 중국 서버 제조업체 IEIT시스템즈가 제재 이후에도 AMD의 새로운 펌웨어를 자사 제품에 적용해 왔다며...",
-   "keywords": [],
-   "companies": [
-    "AMD"
    ],
    "is_top_story": true
   }
