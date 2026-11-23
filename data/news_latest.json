@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-23T13:54:56+09:00",
+ "generated_at": "2026-11-23T13:57:23+09:00",
  "source": "Google News RSS (news.google.com) + SAVE(세이브티커)",
  "match": [
   "엔비디아",
@@ -1729,8 +1729,54 @@
   },
   "012450": {
    "query": "한화에어로스페이스 실적",
-   "articles": [],
-   "fetched_at": "2026-11-23T10:06:19+09:00",
+   "articles": [
+    {
+     "keyword": "한화에어로스페이스 실적",
+     "title": "[초점] 방산 4사, 3분기 실적 희비…KAI '약진' 한화·현대·LIG '주춤'",
+     "source": "뉴스워치",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE04cmFVUUxqUVhIc2p3bUlmSGZYRUlGNVFFX0VWeFZZaldxUzc2TWdYTGE4RTFwWDVpTzd5aDFyQTJTc3B5VjlVbXdDeVJqUlFURzFqRXJXOXFFLW8zTWN6ZzhjdXAyQjJ2SGc?oc=5",
+     "date": "2026-11-13",
+     "time": "17:00",
+     "published_at": "2026-11-13T17:00:00+09:00"
+    },
+    {
+     "keyword": "한화에어로스페이스 실적",
+     "title": "[NI 방산리포트] 한화에어로스페이스 지상방산 영업이익 96% 급감…K방산 성장엔진 급제동",
+     "source": "뉴스임팩트",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBFR2pWUzhoNVdtMUFsZHFTQkRGUkZudjZXLVJuS19rR1dVT0ZLbWI1NmNWUEZEWlBBalJWSUJmMGVydkdTUEE0TDVBRktkYXVIZW9DM09ibEtzWlVzREl4bFBOV0JiVlg1NzBHUDdmc2hRdw?oc=5",
+     "date": "2026-11-10",
+     "time": "06:10",
+     "published_at": "2026-11-10T06:10:00+09:00"
+    },
+    {
+     "keyword": "한화에어로스페이스 실적",
+     "title": "한화에어로, 美서 '천무' 해상 사격시험…무인수상정 탑재 추진",
+     "source": "뉴스핌",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1VRU9wQ25ka2NtM1g5RWoxLWxfUEdyM2g1bHFWZmJvUXpieGJ0ZlVTVS12VHJrZktjekg5d3VyNnhXSXprbXRrdG1nVkRtZnJrR25rTTNMWVVfWVZz?oc=5",
+     "date": "2026-11-09",
+     "time": "17:00",
+     "published_at": "2026-11-09T17:00:00+09:00"
+    },
+    {
+     "keyword": "한화에어로스페이스 실적",
+     "title": "K-방산, 실적·주가 동반 부진…신규 수주·제재까지 첩첩산중",
+     "source": "디지털데일리",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1ja2ZEUVNNcU9ueUh3dExtenNPaE52UTh1a1dyaVlzbWljNGN5VHZmZ2Z1NVRjZ1NUOVpNb3ZaQUNBel9pUjhxMlFsZlZVSVdIMW9jaFM1LVI0YVJ5QXk3R1Nn?oc=5",
+     "date": "2026-11-07",
+     "time": "17:00",
+     "published_at": "2026-11-07T17:00:00+09:00"
+    },
+    {
+     "keyword": "한화에어로스페이스 실적",
+     "title": "한화에어로스페이스, 폴란드서 천무 유도미사일 생산공장 착공",
+     "source": "뉴스핌",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1EQU1OX3Q1b25MbVduVk9hcWVrLUkzQ2I1c19QWHYyY0tkN3ByMHp0UjZCTkVtc3dRelJmaXZ5ZnNWcjhnUlR5bnl4S3VrOURVMzNUdWhNbzYtR0l4?oc=5",
+     "date": "2026-11-05",
+     "time": "17:00",
+     "published_at": "2026-11-05T17:00:00+09:00"
+    }
+   ],
+   "fetched_at": "2026-11-23T13:56:08+09:00",
    "code": "012450"
   },
   "005380": {
@@ -1961,7 +2007,7 @@
      "published_at": "2026-11-16T20:17:31+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T09:06:22+09:00",
+   "fetched_at": "2026-11-23T13:56:11+09:00",
    "code": "068270"
   },
   "NVDA": {
@@ -2504,96 +2550,96 @@
    "articles": [
     {
      "keyword": "SK하이닉스",
-     "title": "'블랙 먼데이' 프리마켓서 SK하이닉스 5.9% 급락",
-     "source": "뉴스퀘스트",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1JdVBGbFZGa0wwVy1JRmloR25oczc5OVNFV0hLTExwVmtjNkFGSjFXV0FoME54Z0JqR01DcDdtaFpPdTZQUk1od081azdFOTFpTy1pUUtDLTF6d254T2h1akxqZWtfYkRGZVYzWkdNQQ?oc=5",
+     "title": "중국 메모리 반도체의 추격…삼성·SK하이닉스에 커지는 경쟁 압박",
+     "source": "인터내셔널포커스",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4yNEFPZnh1cEJPWlVSMUEtdFNnWGY1NXAzb0JNNERscWdzVU1naDAyT05SeFpmLUFDeE1ON0o2ZkNPN2I3bXhHUUNUbUdQYkZCTkFFeGR3?oc=5",
      "date": "2026-11-23",
-     "time": "08:52",
-     "published_at": "2026-11-23T08:52:48+09:00"
+     "time": "13:38",
+     "published_at": "2026-11-23T13:38:20+09:00"
     },
     {
      "keyword": "SK하이닉스",
-     "title": "하나증권 \"삼성전자·SK하이닉스, 악재 선반영.. 하락 대비\"",
-     "source": "글로벌이코노믹",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPXzhoVWpaTkVrbGhJaXcwbk5HMllqSi1Zdlh5bUljRFpyWDV4a2R6Q3pGeGQtVTZMeERhT2JkWG5SVXZWTkxZZmtzVzBPNHlBclZzdWRZYnB1M002bno0MlBJRWVLbDA2MEs2SWlaajNndXBLd3dLNGh2UExqZHBNbTFwRzFIX1N0?oc=5",
+     "title": "‘40조’ 쓴 SK하이닉스…2,369만 주 전량 소각",
+     "source": "코인리더스",
+     "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE4tclBvaGlsVU80WFJ4akVvN1dWanBaVzNLQ3Y1WlJETTB0eFhZTmdlajllRHN5ZGotVzVwUFUyTHNKdHRpVWJiNVJn?oc=5",
      "date": "2026-11-23",
-     "time": "08:49",
-     "published_at": "2026-11-23T08:49:26+09:00"
+     "time": "12:48",
+     "published_at": "2026-11-23T12:48:07+09:00"
     },
     {
      "keyword": "SK하이닉스",
-     "title": "美 반도체주 급락 뒤 삼성전자·SK하이닉스, 프리마켓서 5%대 하락",
-     "source": "포커스타임즈",
-     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5HVGtCelVlLVRZWmc2RGgzTHdacjZUTkVUcFEyZkgwNkhkMXl2WGlsTVNkdlhFNFhBRTRjU1dZVjJtbXhHd2YybzdUYlpNVkRHdS1wdGhiWC0?oc=5",
+     "title": "코스피 또다시 '검은 월요일' 충격…삼성전자·SK하이닉스 급락에 4600선까지 밀렸다",
+     "source": "테크M",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1pajdocG95ejYzV18zclRIa3BiME42ei1NUkJPd0FRSFhMTkVjWmRCV3MzSE42alBBM3JFRFh5VVJWcWloLVNQdnNMWktxZWVtQms0YnlQTlVNVkp3b3dVcmhhTVZsUdIBakFVX3lxTE9BQWg4NERvUmxmUGxiWU1EUEVRS19xaXBLTV84Wlg3SVNKT2syUHVSV2ctbnZDT1lXQmt0elhKUWlES3ltc0pQV3Z5WmdhMDhPZVVWZnQ4SlNjRFZhVzcxWFM1TFU2ZkdILUE?oc=5",
      "date": "2026-11-23",
-     "time": "08:49",
-     "published_at": "2026-11-23T08:49:12+09:00"
+     "time": "11:38",
+     "published_at": "2026-11-23T11:38:07+09:00"
     },
     {
      "keyword": "SK하이닉스",
-     "title": "[핫스톡] 美 반도체 쇼크에 삼성전자·SK하이닉스 5% 급락",
-     "source": "뉴시안",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1hdFRMb0RwbjhCSTFqREJqbVFxck1QcGstdXhqVzkxU180d1hWWGhvR0pJcHNKUUVVYnpES3Y4b3Jma2hUTUtKa3p3MWRlWTdjbFlFZ2djdDJLRXVmNVFIZkU5QXh4T2pHY3QzRg?oc=5",
+     "title": "[오늘의 삼전닉스] SK하이닉스 '105만vs280만' 극과 극, 어디를 믿어야 하나요?",
+     "source": "이코노미스트",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9yX1ptY2hMS2lVMGJTRVNGNEI2cGRibDc0SkYzX3k5RW04bzl2WGRFbWlWRjlFdU9hbXE0VFRuSkl5c1pSVVM1T0RzVk9KbjBDM1F6UjFReGNKVmQ2aXpYS3Fn?oc=5",
      "date": "2026-11-23",
-     "time": "08:44",
-     "published_at": "2026-11-23T08:44:48+09:00"
+     "time": "11:27",
+     "published_at": "2026-11-23T11:27:00+09:00"
     },
     {
      "keyword": "SK하이닉스",
-     "title": "코스피 4800선도 위태롭다… 엔비디아 급락에 삼성전자·SK하이닉스 운명은?",
-     "source": "핀포인트뉴스",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1tekx4T2lqSDI5UEo2SHVRZzNfajYxalR0Z3lrTFB6bkk1b1hWUEE0YUVDMHM3MjYtRzVlRS1Bd0dWcEJOZDcxNWh1TkJtZmVfUnBDTVRYNjB5T3UyMHFjV0s3Y0R0d3FJdGR4czVkY2pWTTTSAXdBVV95cUxNLXRjcmREMkFsWVhyWnQ5aEVObnRBNjlLemp2VXZvblNNTmk1X1RVZ1FEZkpwVFVXdXFTSmh6QllEQ0l0NzBlX09MX3JvZUptTmJpR2JySlZfckkySm90VWdtZHNzR2VfZURQUmZmVGlrUmlCMUhPVQ?oc=5",
+     "title": "\"SK하이닉스 통째로 삼키려 했다\"...손정의가 검토한 '1조 달러' 인수설",
+     "source": "파이낸셜뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9odE10YS1PS0JON0VBZWV3NFhSd0RFTkYxYTFLZmpLN0dpUjlnRmsxTjRtdEI3c2JmLUhPWnBXak9xX2h5N3p5eXdmc1ExbmJHMVk1TjdyVjVvQQ?oc=5",
      "date": "2026-11-23",
-     "time": "08:39",
-     "published_at": "2026-11-23T08:39:25+09:00"
+     "time": "11:25",
+     "published_at": "2026-11-23T11:25:33+09:00"
     },
     {
      "keyword": "SK하이닉스",
-     "title": "[리포트 브리핑]SK하이닉스, '2027년 전망' 목표가 2,800,000원 - 하나증권",
-     "source": "뉴스핌",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9zcWFuUzYxLVZubE9HeGxTTnhqQU1aQ3ZjS1BhRVJiRVUzbjk3YVhsLW91RklrVVJLTmFKNThTZnZrUlZaakRRb0FwbWh3ZzlHYm5LUllwMnhDMW5a?oc=5",
+     "title": "청년이 떠나던 도시에서 창업하는 도시로… SK하이닉스 청년창업파크 ‘SPARK’가 꿈꾸는 미래",
+     "source": "SK hynix",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9Ib0VRS1JFbXNfb2h2cUZhRnBtS3Q0UlVyXzQzSFlHd1g2THUtS3U3Rndmc3JwcURNWWpoZjZMenJLSldSc1ZMTkxaN1ZnTWoxazVLSkswSQ?oc=5",
      "date": "2026-11-23",
-     "time": "08:36",
-     "published_at": "2026-11-23T08:36:00+09:00"
+     "time": "11:21",
+     "published_at": "2026-11-23T11:21:37+09:00"
     },
     {
      "keyword": "SK하이닉스",
-     "title": "[리포트 브리핑]SK하이닉스, '저PER화 가속화가 주는 의미' 목표가 1,050,000원 - BNK투자증권",
-     "source": "뉴스핌",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFA5Z1VBaEFZWlRwY0xyQ0dLdW5FZGZqU0lIVkdDTE1vNHE4Y2xadkdDMkxkdy1ldzBkS3dCNHVxa0U2T20yaGQ3RThfY0JDeVVTTDVLVG9Ed0N5alkt?oc=5",
+     "title": "손정의 회장, 1350조원에 SK하이닉스 인수 검토했다가 철회",
+     "source": "메디컬투데이",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE8wT1VBOWR2bVhabFZybk1vdV9LMEdyaUdLLU5hM2JNWGFIMEhWYXhPSmNsb3ltSmdrNzBKeUxrbVRmTnJSTjlhRTE0V0dpRFlianJXNkZfUWlWZ2ZRd1hJeE1ydzU2bUh0dlBmeg?oc=5",
      "date": "2026-11-23",
-     "time": "08:36",
-     "published_at": "2026-11-23T08:36:00+09:00"
+     "time": "11:01",
+     "published_at": "2026-11-23T11:01:06+09:00"
     },
     {
      "keyword": "SK하이닉스",
-     "title": "삼성전자·SK하이닉스, 개장 전 프리마켓서 5% 넘게 하락",
-     "source": "뉴스웨이",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE92UVgyUmJmR1p4WUJtWFk2WTFndmlWSmoyWEFubENITWpZcW1wRHZZX1d4ZDJzaG5kN1h1alJJNXU0alZVd1RKX3hibkJ4MVM0eTkzeWh3a2g0QmcyTUVuWkwwMXkwOHRNWXc?oc=5",
+     "title": "[SK] 美 특허청, SK하이닉스 메모리 소자 제조기술 특허 등록",
+     "source": "www.ebn.co.kr",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE04RXZhZUI3TmJCdGNQRWpCdUhZQmJGNTFUVVB2UHB0QXpGaGJiUk5KVFRkNjJNaDdzVnhVR3hLajhZN0RCSlM4cm92SkxXYzFmVUhHNlI2M0lIcVVndlZnUGhqcGpBVkJ3?oc=5",
      "date": "2026-11-23",
-     "time": "08:32",
-     "published_at": "2026-11-23T08:32:58+09:00"
+     "time": "10:55",
+     "published_at": "2026-11-23T10:55:35+09:00"
     },
     {
      "keyword": "SK하이닉스",
-     "title": "[오늘의 증권가 콜] 'SK하이닉스 105만원'…목표주가 36% 하향",
-     "source": "한국경제",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBpMk5EWF96Z2lLbmJseGN2SFhqRjFBbGRXbkNPVGRyZlkyZkVfay1Hc1lIeGdMYkk5LUNiOXl5VFgtanFCQndCaHcwMkN5VXNGa2ZJMFJaV09OZw?oc=5",
+     "title": "[SK] 美 특허청, SK하이닉스 다층 반도체 소자 기술 특허 등록",
+     "source": "www.ebn.co.kr",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFA1NW5Ld3FnU2NPeW9raTBEMzRNLUpMYjdPcnRnUFZzcGR0QXNOWURuOTBxMWpHamxzdFVvbURFdHZJOTAyTjY2aTV0YzI2Yzl4SXJqazJmNS14UzBnT1Zfd0N4YkFXZENT?oc=5",
      "date": "2026-11-23",
-     "time": "08:32",
-     "published_at": "2026-11-23T08:32:40+09:00"
+     "time": "10:55",
+     "published_at": "2026-11-23T10:55:25+09:00"
     },
     {
      "keyword": "SK하이닉스",
-     "title": "[개장 전 주요 공시] 카카오·SK하이닉스·HD한국조선해양·삼성바이오에피스·한화솔루션 등",
-     "source": "글로벌이코노믹",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOLXJiVU5kbF93WVYxXzRtMHF4aTBtbzZyUFp6UWllU1pId0lCZUk0MjJ2bTl0eEFuRFEzTjlPWVdDaW9aUlB4WkZvVWtTTEpXR056RFJYSGpNWjF0VHd4R0wtb1BTVjVpTmFQdHNiRGJ6MmxfUk9icDVWamZfX1pOUnJKaFRmS2U0?oc=5",
+     "title": "삼성전자·SK하이닉스 급락에 \"손절 늦어…내년 1월 변곡점\" : 경제",
+     "source": "기독일보",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9lU2tlbUYzMlR2UmFZeWdTMWFtUjVocmJCVWN1WkRBQnRxbWhOMm9GemRZWkZDTFpJdXd4X3hUWm8wMmY5SWdKMklmU0VkY3VnUjBVa0hzTQ?oc=5",
      "date": "2026-11-23",
-     "time": "08:32",
-     "published_at": "2026-11-23T08:32:02+09:00"
+     "time": "10:39",
+     "published_at": "2026-11-23T10:39:19+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T09:06:25+09:00",
+   "fetched_at": "2026-11-23T13:56:13+09:00",
    "keyword": "SK하이닉스"
   },
   "반도체": {
@@ -4311,96 +4357,96 @@
    "articles": [
     {
      "keyword": "바이오",
-     "title": "프레스티지바이오파마IDC, 항체 장기지속 SC 개발 국책 지원",
-     "source": "PRESS9",
-     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9uZVVPN3RsQldnQVBHd3dtUHNLb3NLcndVZUpEVmM5ZFhadHdXSVUwMEZrdEQxOFIyMVo2MkFKWjFVS1c1LU5YX1FZTm1FbmlPbmRja3NNdENYQ1dlSVMzV001czU?oc=5",
-     "date": "2026-11-23",
-     "time": "08:43",
-     "published_at": "2026-11-23T08:43:30+09:00"
-    },
-    {
-     "keyword": "바이오",
-     "title": "노무법인 청춘·넷비즈월드, '상생일터 혁신'으로 충북 바이오 도약 이끈다",
-     "source": "이로운넷",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE96NENqMFJ2YVQ3ZXlLT1MwNTRxVHVHZXpDTm4yUVlmbTBwLWhsVkVtZ0FVNGtKOVRiSVJHTVJVR3FjVzBKMkFnNjZNc1RYUTlMdDlTTHhETnNUMFBzeVAtWEFaRllIQQ?oc=5",
-     "date": "2026-11-23",
-     "time": "08:40",
-     "published_at": "2026-11-23T08:40:00+09:00"
-    },
-    {
-     "keyword": "바이오",
-     "title": "프레스티지바이오파마IDC, 국가신약개발사업 선정",
-     "source": "아시아경제",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBLWUotbFFLcDhZTVdCU1BOTjhaWFBONFZQY2ZUQnp5d19SLVhOV0RGRmtza0VJNXZfajJhaDMzMm45Y2Q4S2g0c0pkcHNyYjNmdWx2dnJ6OVAxazVvZXU1YQ?oc=5",
-     "date": "2026-11-23",
-     "time": "08:30",
-     "published_at": "2026-11-23T08:30:31+09:00"
-    },
-    {
-     "keyword": "바이오",
-     "title": "[화순군] 바이오에프디앤씨 대표 중기부 장관상…능주 관광자원화사업 87억 투입 준공",
-     "source": "웹이코노미",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5ndzBQalNuZ1lSaXlFdVRhVk9XY1l3Y0R4ZENoeUpmTWJOSEhaZGRfRkRZQnE2VWJ2VUp0NC1vMmFPZFhObHZPaEV6bGNvZm5PMGY2cXhaVEdILXpiSkhGMklENVlqQmxnZTV3a0c0M1dxZw?oc=5",
-     "date": "2026-11-23",
-     "time": "08:28",
-     "published_at": "2026-11-23T08:28:36+09:00"
-    },
-    {
-     "keyword": "바이오",
-     "title": "브리즈바이오, 코스닥 상장예심 청구..\"HNP 전달기술\"",
-     "source": "바이오스펙테이터",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1IZ056bjAwdjdpRTNlMzJBQmJmRm0td3BZaFFBTjB5TXFYYUlWTjVjeFhYWnRheUdjMERfbmxxaTZwbWVwc2ZOa2Q4dGF5cmlFS005ZDJjRQ?oc=5",
-     "date": "2026-11-23",
-     "time": "08:01",
-     "published_at": "2026-11-23T08:01:00+09:00"
-    },
-    {
-     "keyword": "바이오",
-     "title": "바이오솔루션, 서울점프정형외과와 ‘관절연골 재생치료’ 분야 연구 협력 강화",
+     "title": "“데이터로 증명”…아리바이오, 알츠하이머병 1차 치료 美 허가 전략 구체화",
      "source": "더바이오",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9FeHBpRm85NEY3UG14cmdQOVFjbVpwUUJFSTRwNFNiR29BMHZGaG4zUFdlVTduZ2tCZV9HdzZFZHlleFg0RWtyV2dOeURzSUhEWWUtdjNKY3VJUkNUT005Y1JiVjQxVU5RY3FFdNIBcEFVX3lxTE1vT2JsUFZzYUk2cHMwaTE5V3lOcjM1eE1xcGt1NW55VEVXTlN4cllUU3BlVnlORVdkdXFnOUFNWDBpWE0ySFo1cGlmQ0pBUlZkd1RuRWg0NTlxUENzeGt6RWtoNDlmOTc1ZmJhZEZXRi0?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9Gak1ENndpalFZa0dSa1h4WXMyekRwc0tmMmdJOVRDQnVEZENmLXYxZjUxWm5fLUJpQlZKclliVEdVQ2pKenZHTkRxMGpEbnRDX2o2UHFUR2h1RnhZZ2hqaGlGMDB0aVBqVEtTQdIBcEFVX3lxTE9OYnZoeUFCZkNwYjVUSW9pMjlYNmdGNEE3MGtWUFpSWUhCZkFyMTNxNDFfcnN5VFlRQWlpdlk3N2FvbUJuZ2JzdGxMN1VPVFloVGR1a1N4MV93cDRvTEp5LWhzdHFERW1TOHZ2SllQOEI?oc=5",
      "date": "2026-11-23",
-     "time": "07:47",
-     "published_at": "2026-11-23T07:47:15+09:00"
+     "time": "13:41",
+     "published_at": "2026-11-23T13:41:25+09:00"
     },
     {
      "keyword": "바이오",
-     "title": "실패한 줄 알았던 4-1BB…한미약품·에이비엘바이오 임상 성과 주목",
-     "source": "팜이데일리",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFB3Y2FmZ3FBeDlmMnBqanlrTVpLRHF0aDUyWnVBWTNJYjlpUkZucjR4alJ3VlNmbm9teXhiVGEyMWluVXN1SG5HOWpjOENJWmhSc3MzbG5Ec0daS05zUXpydUZFaXlMZmJhZDA4NXBn?oc=5",
+     "title": "현대바이오, 전립선암 임상서 전이 병변 정상조직 수준 회복 확인… '씨앗과 토양' 학설 첫 입증",
+     "source": "BBS불교방송",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBJS1JpdGlkX3BCTFNIYnAyQmdNcWNGdl96RWlEN0Z2ZUdTUnJmZ0pkc1JPbkRpVFNiMndwUFBPa09rUk9kZzNsaTNzNDlwVDhlVXRGUjdYbktfSDdxZmhJRW0zSFVZRlViaWJN?oc=5",
      "date": "2026-11-23",
-     "time": "07:40",
-     "published_at": "2026-11-23T07:40:04+09:00"
+     "time": "13:40",
+     "published_at": "2026-11-23T13:40:02+09:00"
     },
     {
      "keyword": "바이오",
-     "title": "레켐비 빈틈 파고들까…‘먹는 치매약’ 아리바이오 AR1001 전략은",
-     "source": "팜이데일리",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1QR3NKOVdCMXU1d29WcVZzQnp5VEVyTDJ6YWYtWUhKckM4TTBUd2pleUYtU0c5NVFiNWZfSzZFLVg4QVZfOG9KQkg0aDFUTGZ4TE1DbDFqSm1Cd1pVRWs3cTQ4SGFJTmVVaTZmcHlR?oc=5",
+     "title": "특허 불확실성 줄어든 바이오…바이오기업 성장 가를 후속 변수는?",
+     "source": "아시아경제",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBSX1RkUUtxRDYweV9VUGpnb1QtbGg4NUljclhjMDF0LVIzTzVQVF9yT1hfT3luQ1gwNWdSd3BmSUktajNOMEpRa3l6cTVGbk9Vb3FWRDM0VWhwX2ZJcGhZaw?oc=5",
      "date": "2026-11-23",
-     "time": "07:10",
-     "published_at": "2026-11-23T07:10:03+09:00"
+     "time": "13:32",
+     "published_at": "2026-11-23T13:32:00+09:00"
     },
     {
      "keyword": "바이오",
-     "title": "코스피 제약주 회복세, 코스닥 바이오로 확산 전망…대형 바이오텍 성과 관건",
-     "source": "메디코파마",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9vOTJwOGxWV1Jfa1NkZlN3WkZFLWhlVWRMUzMwLW9KcWVfOE1YUmVNSzJwcnYwa2pHV0xma1o2RWNyVnRGZW5kZDNITVhtVEE1SDRhTlREU2thbEYtdGYzOGRQaG11R05qclQtRE4yQnpQZw?oc=5",
+     "title": "아리바이오 \"먹는 치매약, 질병 진행 31% 늦춰\"…내년 하반기 美 허가 신청",
+     "source": "매경헬스",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBFalpJVDBXVEd6cGV6U3BTMXloNF9IV1RZbTVndWg3MFFzUmkxbFlQSng0Qm14LVl6M1FFdGRvOFV2VlI5MEhRR1JUMEljNHlkSUIzdURkcllRTFZGWnhDbUJZMERUTEh5VmVwZw?oc=5",
      "date": "2026-11-23",
-     "time": "07:07",
-     "published_at": "2026-11-23T07:07:47+09:00"
+     "time": "13:14",
+     "published_at": "2026-11-23T13:14:43+09:00"
     },
     {
      "keyword": "바이오",
-     "title": "[Issue+] 가축분뇨 바이오에너지 전환 어디까지 왔나",
-     "source": "농수축산신문",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE54Z0hCdE5YX3huc1lFSTdENHI3OFdrTGhETF9CdkVJYlRuZmNtMjdQUXE5Qm93Yk1GVTJLUEdhTmhPeHpIZFBNMkdXLXBtZU5CMWtCY19rcVRLU1F3dXVHRUNVZXpLNVJYZm0zQw?oc=5",
+     "title": "‘서울그린바이오허브’ 출범… 미래 농생명산업 육성",
+     "source": "천지일보",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5yVlgxdzFUNlVGTDRkOTZFa1I1LUxxOExBM1BfRVNrdzJwZFNsNTFId1RMcERZRUlYd3FuRlJHb0V2UW9aWGlaVWlhRmdWZ25MWUJUSUFfOWd6d0V5T0w0VVBycWkwWVNfY0E?oc=5",
      "date": "2026-11-23",
-     "time": "07:00",
-     "published_at": "2026-11-23T07:00:00+09:00"
+     "time": "12:17",
+     "published_at": "2026-11-23T12:17:18+09:00"
+    },
+    {
+     "keyword": "바이오",
+     "title": "[현장] 구윤철 전 부총리 “임상, 기적이다”… 아리바이오 탑라인 성공 회견",
+     "source": "이코노미톡뉴스",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAzbkczTFVsWktDcExud3poQVV6V19FbER0SHRUdWNDNlhtQTFLNnZZTkZfOExoeWtSeWhLMy1fc2FtR0EwSXJsMy1fM1BrNEJFbnFSUFFhZmc5bnFoNWxfZ3kxejFnVS01bF9jVA?oc=5",
+     "date": "2026-11-23",
+     "time": "12:14",
+     "published_at": "2026-11-23T12:14:47+09:00"
+    },
+    {
+     "keyword": "바이오",
+     "title": "제약·바이오 산업 재편 조짐…특허 만료와 미중 갈등 주목",
+     "source": "약사공론",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5kLXBZQUwtbVNjSGxpbzF5WjJIRnlYVkN4S0VFVUhhaTR6ME9JMnNhdUFuVlp4M0U4VUUwS3BVLWtQaUNFQVVYNDd1cURIMnd6LU9JT3k2Q040VDFDN0pMZVVtUDFKa2NpUGJOWQ?oc=5",
+     "date": "2026-11-23",
+     "time": "12:04",
+     "published_at": "2026-11-23T12:04:00+09:00"
+    },
+    {
+     "keyword": "바이오",
+     "title": "\"무엇을 사야 팔리는 신약이 될까\"…500개 바이오벤처에서 찾은 답",
+     "source": "히트뉴스",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9aMkl6d3lsUlFWSFBxZmZDb0pCQzVrR1ExYmVEZ01NME5Sc0d2Y3lfeVJ0NmxYa1ZQcThlV29obzBfOGVsaGgtU1E3OGRwbzF2NWFfbjNHM0lCcVlGTDktb1ZLWVRwX2tWN3dv?oc=5",
+     "date": "2026-11-23",
+     "time": "12:04",
+     "published_at": "2026-11-23T12:04:00+09:00"
+    },
+    {
+     "keyword": "바이오",
+     "title": "호서대, 바이오헬스 AI 챔피언십 대상…교육부장관상 수상",
+     "source": "굿모닝충청",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5ZanRhN25BbUtfcnl4RFZNZkpDVHpRd3lOaXNDZWZqVC1Jc3dscDgtN1djelRxNFQ1cjF5YUkzbE56bzlfNTBJNUQweGdRQ0M1bXl1aWQyVFM4RGFycTRqTU92U0ZCRGRGUFpCcXQ5UmFOQQ?oc=5",
+     "date": "2026-11-23",
+     "time": "11:58",
+     "published_at": "2026-11-23T11:58:14+09:00"
+    },
+    {
+     "keyword": "바이오",
+     "title": "제약 상장사 3곳중 1곳 ‘1000억 클럽’… 삼성바이오·셀트리온 선두",
+     "source": "문화일보",
+     "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5FNXE2UTQxQm1jeGhZU3dnSnM4eDhXWmNCbzdOd2RKR3M5NEJ0MFcxMGtzbWEzeXBIZ3FPWWt5TGpvNEV6Zk9wYkxhN3NWYUhs?oc=5",
+     "date": "2026-11-23",
+     "time": "11:56",
+     "published_at": "2026-11-23T11:56:58+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T08:51:03+09:00",
+   "fetched_at": "2026-11-23T13:56:16+09:00",
    "keyword": "바이오"
   },
   "우주항공": {
@@ -4505,96 +4551,96 @@
    "articles": [
     {
      "keyword": "메모리",
-     "title": "반도체 미세화 한계 깼다… UNIST, 손톱 크기에 50TB 저장 차세대 메모리 원리 규명",
+     "title": "[반도체포커스] DDR6 표준안 공개…HBM 웃도는 '고수익' 서버 메모리 선점 경쟁 격화",
+     "source": "이코노미트리뷴",
+     "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE53T2Iza2ZueHN4bVhrVE5NQXYzTGlYSnYyR1lGUWVXQW4zb0xEVDFnTzRJXzBJdjMzWXFMX1R3UHFEdjItMUxNa1AtTUF4OHh0SVlsaVluZHMtaGwwdWhYVGkxSW1rWThUcHYzLWl5QWpubUY1aW1r?oc=5",
+     "date": "2026-11-23",
+     "time": "13:38",
+     "published_at": "2026-11-23T13:38:23+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "중국 메모리 반도체의 추격…삼성·SK하이닉스에 커지는 경쟁 압박",
+     "source": "인터내셔널포커스",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4yNEFPZnh1cEJPWlVSMUEtdFNnWGY1NXAzb0JNNERscWdzVU1naDAyT05SeFpmLUFDeE1ON0o2ZkNPN2I3bXhHUUNUbUdQYkZCTkFFeGR3?oc=5",
+     "date": "2026-11-23",
+     "time": "13:38",
+     "published_at": "2026-11-23T13:38:20+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "\"계약가보다 45% 더 줘\"…AI 서버 공급사, 메모리값 고객에 전가 - 머니투데이",
+     "source": "머니투데이",
+     "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE94WWdQcXl0M1E3ajFsRFZYZDFJNUdRcFlOZk1qZElVblF3Um51a3QyNEVQVllzQ2NvbzY3WnMzaEVJZnZqNzc1SFk2bjhhM3VBQXJVTHBiYWVrQ1l0aktvNVpmWFlBaWo4emRad3NDSFRwLWY2V2fSAXtBVV95cUxNb0luX1RzSEFfTkNSamltSl9RY1Q5ZDgwRHEtTnpBTFFpbEx6bzFhem9kNk8xNlhSQVBXQkRfeUJQcHZaMEl0b1dzMUJMSjJxZW9qVFlReFhGZnpsdVpoc3lTekI5dU1qUzNyOFdKeGFuUS01ODJYS0FnY2M?oc=5",
+     "date": "2026-11-23",
+     "time": "13:24",
+     "published_at": "2026-11-23T13:24:06+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "메모리값 400% 급등…AI 서버업체, 계약 후 가격 인상",
+     "source": "한국경제",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE15a1BlbUlMWWIzSUJxSmVxSlRWWV96TlpkOFBtNWR6amdONUJTWnBKUnB1LUhWclV4R1ZIS0VDUm9vN20wR3FVV1ZwaXFuOFd3RXZ0Vl9URXhpZw?oc=5",
+     "date": "2026-11-23",
+     "time": "13:17",
+     "published_at": "2026-11-23T13:17:21+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "일론 머스크 \"AI5는 옵티머스로, 차량은 AI4 유지\"…\"메모리 값 급등에 AI4 가격 2배\"",
+     "source": "로봇신문",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAwYlEtcXdSRkVjZ19FOU1YZG5hWjVaZkE1cWxuVmNOMEMxTkpHcThLa0g3UnRUUldxR3RrM2JTc2szcnVuOFV0bXdXQkxJQldwMUtocFBVRDBWTWJsbkFXWGlYM0ViU0RFaC1wYw?oc=5",
+     "date": "2026-11-23",
+     "time": "12:19",
+     "published_at": "2026-11-23T12:19:03+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "애플 '맥북 네오 2' 내년 3월 출시하나…A19 Pro·12GB 메모리 탑재 전망",
+     "source": "케이벤치",
+     "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE0wdkdSYWZJRHlfQUEta0Y5SlNhc0k4dGVySTdpQ0hrcE1kWDVQb05FNFFpTkFPWk5Vd2QwNnVoNFFBSDc3VktLVA?oc=5",
+     "date": "2026-11-23",
+     "time": "11:46",
+     "published_at": "2026-11-23T11:46:48+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "메리츠증권, '메모리 투자 협력 확대'...초장기 공급계약 논의 급부상",
+     "source": "CWN",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1JendYUU9vOHdIXy0tRGVQaHBVbm1IVHhNUVVycWdRdFVRWG9qQ2M1Q1Q2Szk1VmpkdDN6U1BEaDRQMS1XTG9wby1JUFdkdW91MWxTWlp1ank2ZDg5LThFNndn?oc=5",
+     "date": "2026-11-23",
+     "time": "11:45",
+     "published_at": "2026-11-23T11:45:00+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "애플 맥북 네오 2, 내년 2~3월 나온다…A19 프로·12GB 메모리 유력",
+     "source": "디지털투데이",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5Xa2xvdDR0emNhbjJ3TEE2WVVLZXhocEFxSjFaMDV4b2RUOTk2Ynh1MzdfUUp5VU9aSjYyUG13OFhlUE5xVmZWUHdhNGhlb0wyVFlpaXJDbGdPWjJDNlNuT1Y5OXpyLWxjQUtfVjB1NnNndE0?oc=5",
+     "date": "2026-11-23",
+     "time": "11:33",
+     "published_at": "2026-11-23T11:33:30+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "WSJ \"데이터센터·메모리 '미니 버블' 붕괴...韓, 주가 정점에 레버리지 투자 대거 유입\"",
+     "source": "생생비즈플러스",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFAwX0N4NTFqRnJ1bkVuTXMtWngxNHVLS1FrM2dYVHNSU1Exak5TSkp5ZFJMSFhxeUk0SzR2N2MteWRyZGRnblROd3NPSFk1NmxfX25WUERfODczVktxWEg4NkdsU0VwUTRYblUtVQ?oc=5",
+     "date": "2026-11-23",
+     "time": "11:27",
+     "published_at": "2026-11-23T11:27:20+09:00"
+    },
+    {
+     "keyword": "메모리",
+     "title": "주가는 조정, 메모리 계약가는 상승…연 5%대 당일 상환",
      "source": "아시아경제",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5tOWdfa2RCM0ozTThIMDhwWFdmVG9XVXg4V2hmVzRvQ205dXBrQ0pMYnBjNEYyQUNLY1RJVE9fSy10ZXRjSXNDUTl1SDJ3ZG5pcTZ2OVNRdnRKYld6OEJERg?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1WMVJfUkgxdTdpamZlb0lnVHFTV21saHVqNkdSS1VyckhaY0dlc0pxOHdHVGttZUdVbnFGd2FxaENuVFR1OVdIeGhaOXJwem9XSlJOMDYyOVNrMWJXaEVMaQ?oc=5",
      "date": "2026-11-23",
-     "time": "08:44",
-     "published_at": "2026-11-23T08:44:32+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "\"칩 장기 계약 10년 넘어 20년까지\"…메모리 반도체 '슈퍼을' 된다",
-     "source": "한국경제",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE02SnNNcUpXN1hIQ092aDdUZmZ4SEF3UDFUbTdFY2h4NmhpcnFyUUtKNzBTVTNISjVISm5zOHhCUHNhWjJzdlpzdEVpcXEzOFBESWpDM1pmQ1k2dw?oc=5",
-     "date": "2026-11-23",
-     "time": "08:41",
-     "published_at": "2026-11-23T08:41:12+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "\"천금 줘도 못구할 메모리\" 美 스텔스 F-22 '날벼락' [여의도 Pick!]",
-     "source": "MTN 머니투데이방송",
-     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9EcUFCbll4M1AzOWhlYURYMVVZZnJDSXBDSUtoNkYzR0NyODR5NUtQR19JWVpvVC1teXZXUlZjMnFOSlctR2hZSEgzazdaUzZFdHlkYkNqalhHVGtwSEFR?oc=5",
-     "date": "2026-11-23",
-     "time": "08:38",
-     "published_at": "2026-11-23T08:38:19+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "[오늘의 증권가 콜]‘메모리 재고·지분가치 하락’...SK하이닉스·LS 등 목표주가 30%대 하향",
-     "source": "한국경제",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBpMk5EWF96Z2lLbmJseGN2SFhqRjFBbGRXbkNPVGRyZlkyZkVfay1Hc1lIeGdMYkk5LUNiOXl5VFgtanFCQndCaHcwMkN5VXNGa2ZJMFJaV09OZw?oc=5",
-     "date": "2026-11-23",
-     "time": "08:32",
-     "published_at": "2026-11-23T08:32:40+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "메모리값 폭등에 AI 서버값도 인상⋯계약 후 최대 45% 추가 요구",
-     "source": "이투데이",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBxMG9lRXZNQ0xnaTZRUk1hVjFJTVFNbVdxOGI0dnl2QnZQeG1iXzlQOUJPY1VzcnNHTWRYOHUtdzJjLXFrYmltcktTcWNaOTg0QmxyYg?oc=5",
-     "date": "2026-11-23",
-     "time": "08:21",
-     "published_at": "2026-11-23T08:21:00+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "메모리 가격 폭등에 계약서도 무용지물…AI 서버 납품가 45% 상승 발생",
-     "source": "파이낸스스코프",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBleW1OVXZDLWtMQTljUlVYWTJfMG4wQ0U0aE5RUGpZZzh3VWNfbGhTSUYzRDJkZ3JRaFFNLTBNSGlTTUROcDgxOTI1bkp3UXVlU2VFV2FqQTF2NktEWmdONDVjUnZMYU9vb0E?oc=5",
-     "date": "2026-11-23",
-     "time": "08:10",
-     "published_at": "2026-11-23T08:10:00+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "삼성證 “삼전·하닉, 내년 메모리값 급락 이미 선반영…PBR 1배 ‘바닥권’”",
-     "source": "이투데이",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBqSGdpWFowRUFmaVA2ZGdDRDRoU1hzMnJqVVU5SGtCaTZxYUJLbWJTajJkaXI0d2xwQUtONFdYWW4wQ0t4b2Q2SW1Yc2dCdkZhMV9ibw?oc=5",
-     "date": "2026-11-23",
-     "time": "08:01",
-     "published_at": "2026-11-23T08:01:00+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "“엔비디아·AMD 손잡았지만 메모리 구하기 어렵다”…정부, AI반도체 공급망 점검",
-     "source": "이데일리",
-     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQdUUzanloZkwzc1psODhoNk9YQlF6OGFER0I5czZqVURrZEpRdUV6Rkl1anZIMkF5RTB5aklvZjhKcEx5X093eHhwajlhS21ockRCeFBHNUMwb001ZUk0dkprbVhLbXAtTXBiaGMwY29CNDJ5QmxJeURiY1lYVlBSaA?oc=5",
-     "date": "2026-11-23",
-     "time": "08:00",
-     "published_at": "2026-11-23T08:00:03+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "메모리 가격 폭등에 AI 서버값 최대 45% 인상...계약 후 추가 비용 요구까지",
-     "source": "M이코노미뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE01ZEx1X00wem5ubGhPT1U3bEs1dUp4WlZPazQyUXRTaHJPMGh2UHVOUE5Zc0RqVDlWc1BLT3NtZFdoSy1iVklzT3NvMVVDcno4blFpc0xaWGUyVGg1b0xRR1Vyb2RHZDA?oc=5",
-     "date": "2026-11-23",
-     "time": "07:53",
-     "published_at": "2026-11-23T07:53:18+09:00"
-    },
-    {
-     "keyword": "메모리",
-     "title": "“계약 끝났는데 서버값 45% 더 내라”…메모리값 폭등에 AI업계 비상",
-     "source": "헤럴드경제",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB0Zm1nYkNKTU5BODdLX2draElTc25PVlgzUktlNXFuT0doMVhwYVhDWTRlaFRBUENTUFlJcUN5b2ctSUxfSzc1ZGVBU1BydzRxYmlQckVn?oc=5",
-     "date": "2026-11-23",
-     "time": "07:17",
-     "published_at": "2026-11-23T07:17:54+09:00"
+     "time": "11:23",
+     "published_at": "2026-11-23T11:23:00+09:00"
     }
    ],
-   "fetched_at": "2026-11-23T08:51:06+09:00",
+   "fetched_at": "2026-11-23T13:56:19+09:00",
    "keyword": "메모리"
   },
   "엔비디아": {
@@ -5523,7 +5569,7 @@
   },
   "added": {
    "keywords": 0,
-   "companies": 1
+   "companies": 0
   },
   "errors": [
    "SAVE 직접 조회 불가: Cloudflare 봇 차단(Just a moment) — 익명 요청으로는 접근 불가"
@@ -5532,7 +5578,7 @@
  },
  "errors": [],
  "briefing": {
-  "headline": "미국 증시 마감: 다우 48,147.33 (-1.93%), 나스닥 22,617.73 (-5.28%), S&P500 6,910.39 (-3.70%), SOX 8,408.59 (-10.73%) / 코스피 4,721.35 (-3.05%), 코스닥 641.92 (-0.58%)",
+  "headline": "미국 증시 마감: 다우 48,147.33 (-1.93%), 나스닥 22,617.73 (-5.28%), S&P500 6,910.39 (-3.70%), SOX 8,408.59 (-10.73%) / 코스피 4,723.21 (-3.01%), 코스닥 641.86 (-0.59%)",
   "checkpoints": [
    {
     "title": "반도체·기술주 흐름",
@@ -5548,7 +5594,7 @@
    },
    {
     "title": "국내 증시",
-    "detail": "국내 추적 종목 낙폭 최대는 NAVER -7.98%."
+    "detail": "국내 추적 종목 낙폭 최대는 NAVER -7.92%."
    }
   ],
   "sector_news": [
