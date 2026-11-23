@@ -9,7 +9,7 @@
             임의의 가짜 시세·기사로 채우지 않는다.
    ========================================================================== */
 
-const APP_VERSION = 'v3.2 (관심기업 이름 표시 개선)';
+const APP_VERSION = 'v3.3 (SAVE 연동)';
 const MARKET_PATH = 'data/market_latest.json';
 const NEWS_PATH = 'data/news_latest.json';
 const REMOTE_BASE = 'https://kthink79.github.io/stock-briefing-app/';
