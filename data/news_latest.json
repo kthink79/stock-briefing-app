@@ -129,7 +129,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 145,
+     "view_count": 308,
      "summary": "이사회, 트럼프 대통령과 주주들의 압박이 커지는 가운데 급격한 입장 전환으로 황을 복귀시켜 시장과 주요 AI CEO들이 AI 거래의 핵심인 ...",
      "keywords": [
       "엔비디아",
@@ -655,7 +655,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 31332,
+     "view_count": 31462,
      "summary": "트럼프 대통령은 폭스뉴스 인터뷰에서 이란과의 간접 협상이 계속 진행 중임을 시사함 - 그러면서도 합의가 이뤄지지 않을 경우 새해 이후 이란을...",
      "keywords": [
       "미국 이란 전쟁",
@@ -944,7 +944,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 210,
+     "view_count": 216,
      "summary": "워싱턴, 11월 23일 (로이터) - 도널드 트럼프 대통령과 JD 밴스 부통령은 복귀한 CEO 젠슨 황이 오픈 웨이트 모델을 보호하는 유일한 인...",
      "keywords": [
       "엔비디아",
@@ -966,7 +966,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 234,
+     "view_count": 241,
      "summary": "오픈 웨이트 모델에 관한 세부 정보 추가, 전반에 배경 설명 추가 스티브 홀랜드, 코트니 로즌, 에린 방코 워싱턴, 11월 23일 (로이...",
      "keywords": [
       "엔비디아",
@@ -990,7 +990,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 6055,
+     "view_count": 6852,
      "summary": "Semafor는 소식통을 인용해 트럼프 행정부가 엔비디아 스캔들의 중심에 있는 싱가포르 기업 메가스피드를 미국 상무부의 '거래제한 명단(Enti...",
      "keywords": [
       "엔비디아",
@@ -1056,7 +1056,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 145,
+     "view_count": 308,
      "summary": "이사회, 트럼프 대통령과 주주들의 압박이 커지는 가운데 급격한 입장 전환으로 황을 복귀시켜 시장과 주요 AI CEO들이 AI 거래의 핵심인 ...",
      "keywords": [
       "엔비디아",
@@ -1545,7 +1545,7 @@
      "labels": [
       "정보"
      ],
-     "view_count": 8161,
+     "view_count": 11750,
      "summary": "서울경제는 업계 소식통을 인용해, 삼성전자가 AI 데이터센터의 기업용 SSD에 탑재되는 9세대 V낸드(V9) 생산을 늘리기 위해 중국 시안 반도...",
      "keywords": [],
      "companies": [
@@ -1609,6 +1609,28 @@
    "articles": [
     {
      "keyword": "SK하이닉스 실적",
+     "title": "(카더라) 델·HPE 등, 계약 체결 수개월 뒤 AI 서버 가격 최대 45% 인상 요구",
+     "source": "파이낸셜타임스",
+     "url": "https://www.saveticker.com/news/news_kYms9hmh1qIr",
+     "date": "2026-11-22",
+     "time": "22:37",
+     "published_at": "2026-11-22T22:37:17+09:00",
+     "origin": "SAVE",
+     "badge": "SAVE PICK",
+     "labels": [
+      "정보"
+     ],
+     "view_count": 20949,
+     "summary": "파이낸셜타임스(FT)는 소식통을 인용해, 델·HPE·레노버·슈퍼마이크로 등 주요 서버 공급업체들이 계약 체결 수개월 뒤 실제 납품 시점에 엔비...",
+     "keywords": [],
+     "companies": [
+      "MU",
+      "000660"
+     ],
+     "is_top_story": true
+    },
+    {
+     "keyword": "SK하이닉스 실적",
      "title": "(카더라) 삼성전자, 중국 시안 공장 AI 데이터센터용 낸드 생산능력 5배 확대 추진",
      "source": "서울경제/블룸버그",
      "url": "https://www.saveticker.com/news/news_TRpU4esD6VvY",
@@ -1620,7 +1642,7 @@
      "labels": [
       "정보"
      ],
-     "view_count": 8161,
+     "view_count": 11750,
      "summary": "서울경제는 업계 소식통을 인용해, 삼성전자가 AI 데이터센터의 기업용 SSD에 탑재되는 9세대 V낸드(V9) 생산을 늘리기 위해 중국 시안 반도...",
      "keywords": [],
      "companies": [
@@ -1958,7 +1980,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 234,
+     "view_count": 241,
      "summary": "오픈 웨이트 모델에 관한 세부 정보 추가, 전반에 배경 설명 추가 스티브 홀랜드, 코트니 로즌, 에린 방코 워싱턴, 11월 23일 (로이...",
      "keywords": [
       "엔비디아",
@@ -1982,7 +2004,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 6055,
+     "view_count": 6852,
      "summary": "Semafor는 소식통을 인용해 트럼프 행정부가 엔비디아 스캔들의 중심에 있는 싱가포르 기업 메가스피드를 미국 상무부의 '거래제한 명단(Enti...",
      "keywords": [
       "엔비디아",
@@ -2004,7 +2026,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 85,
+     "view_count": 86,
      "summary": "워싱턴, 11월 23일 (로이터) - 한 소식통은 월요일 미국이 엔비디아(NVDA.O)와 관련된 첩보 조사에 밀접하게 연루된 싱가포르 기반 칩 ...",
      "keywords": [
       "엔비디아"
@@ -2025,7 +2047,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 369,
+     "view_count": 386,
      "summary": "피트 리케츠, 로이드 블랭크페인 추가 11월 23일 (로이터) - 엔비디아(NVDA.O)는 월요일 젠슨 황이 국가안보 위험을 초래하지 않는다...",
      "keywords": [
       "엔비디아"
@@ -2067,7 +2089,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 145,
+     "view_count": 308,
      "summary": "이사회, 트럼프 대통령과 주주들의 압박이 커지는 가운데 급격한 입장 전환으로 황을 복귀시켜 시장과 주요 AI CEO들이 AI 거래의 핵심인 ...",
      "keywords": [
       "엔비디아",
@@ -2148,6 +2170,29 @@
    "articles": [
     {
      "keyword": "애플 실적",
+     "title": "AI 속도로, 엔비디아의 젠슨 황은 면죄를 받는다",
+     "source": "로이터",
+     "url": "https://www.saveticker.com/news/news_ojJVG9OGbhUp",
+     "date": "2026-11-24",
+     "time": "10:42",
+     "published_at": "2026-11-24T10:42:40+09:00",
+     "origin": "SAVE",
+     "badge": "SAVE",
+     "labels": [],
+     "view_count": 852,
+     "summary": "이사회가 월요일 황의 복귀를 발표한 뒤 엔비디아 주가 32% 급등 사안에 정통한 관계자들은 트럼프 대통령과 밴스 부통령이 주말 동안 엔비디아...",
+     "keywords": [
+      "엔비디아",
+      "트럼프"
+     ],
+     "companies": [
+      "NVDA",
+      "AAPL"
+     ],
+     "is_top_story": false
+    },
+    {
+     "keyword": "애플 실적",
      "title": "[정리] 젠슨 황의 엔비디아 복귀로 그가 미국 기업의 ‘부메랑’ CEO 명단에 올라",
      "source": "로이터",
      "url": "https://www.saveticker.com/news/news_uS59_dzNF4Gl",
@@ -2157,7 +2202,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 353,
+     "view_count": 363,
      "summary": "11월 23일(로이터) - 젠슨 황이 반도체 대기업 엔비디아 NVDA.O의 수장으로 극적으로 복귀했다. 그의 사임이 AI 업계와 더 넓은 시장을...",
      "keywords": [
       "엔비디아"
@@ -2339,7 +2384,7 @@
      "labels": [
       "정보"
      ],
-     "view_count": 8161,
+     "view_count": 11750,
      "summary": "서울경제는 업계 소식통을 인용해, 삼성전자가 AI 데이터센터의 기업용 SSD에 탑재되는 9세대 V낸드(V9) 생산을 늘리기 위해 중국 시안 반도...",
      "keywords": [],
      "companies": [
@@ -2362,7 +2407,7 @@
      "labels": [
       "정보"
      ],
-     "view_count": 20281,
+     "view_count": 20949,
      "summary": "파이낸셜타임스(FT)는 소식통을 인용해, 델·HPE·레노버·슈퍼마이크로 등 주요 서버 공급업체들이 계약 체결 수개월 뒤 실제 납품 시점에 엔비...",
      "keywords": [],
      "companies": [
@@ -4910,9 +4955,9 @@
   }
  },
  "save": {
-  "status": "cached",
-  "stale": true,
-  "fetched_at": "2026-11-24T09:09:43+09:00",
+  "status": "live",
+  "stale": false,
+  "fetched_at": "2026-11-24T13:06:00+09:00",
   "fetched_via": "browser-session",
   "count": 40,
   "top_stories": [
@@ -4929,7 +4974,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 12262,
+    "view_count": 15445,
     "summary": "젠슨 황 엔비디아 최고경영자(CEO)가 오는 12월 3일(현지시간) 열리는 미국 상원 은행위원회 공개 청문회에 출석해 증언할 예정임",
     "keywords": [
      "엔비디아"
@@ -4952,7 +4997,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 26949,
+    "view_count": 27645,
     "summary": "트럼프 대통령은 엔비디아 이사회가 젠슨 황을 최고경영자(CEO)로 복귀시킨 것은 올바르고 적절한 결정이라며, 엔비디아뿐 아니라 미국 경제의 성공...",
     "keywords": [
      "엔비디아",
@@ -4976,7 +5021,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 42487,
+    "view_count": 43076,
     "summary": "엔비디아는 11월 23일(현지시간) 이사회가 젠슨 황을 사장 겸 최고경영자(CEO) 및 이사로 즉시 복귀시키는 안건을 만장일치로 승인했다고 발표...",
     "keywords": [
      "엔비디아"
@@ -4999,7 +5044,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 50292,
+    "view_count": 50748,
     "summary": "젠슨 황, 엔비디아 CEO 복귀… 이사회 만장일치 결정",
     "keywords": [
      "엔비디아"
@@ -5022,7 +5067,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 13122,
+    "view_count": 13248,
     "summary": "크라우드스트라이크는 지스케일러를 인수하는 최종 계약을 체결했다고 밝힘 - 전액 주식 교환 방식이며 지스케일러 가치를 약 439억 달러로 평가...",
     "keywords": [],
     "companies": [],
@@ -5041,7 +5086,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 31332,
+    "view_count": 31462,
     "summary": "트럼프 대통령은 폭스뉴스 인터뷰에서 이란과의 간접 협상이 계속 진행 중임을 시사함 - 그러면서도 합의가 이뤄지지 않을 경우 새해 이후 이란을...",
     "keywords": [
      "미국 이란 전쟁",
@@ -5049,19 +5094,89 @@
     ],
     "companies": [],
     "is_top_story": true
+   },
+   {
+    "keyword": "",
+    "title": "이코노미스트 - 2027년 주목해야 할 10대 트렌드",
+    "source": "이코노미스트",
+    "url": "https://www.saveticker.com/news/news_oItbuOHZxarl",
+    "date": "2026-11-22",
+    "time": "22:49",
+    "published_at": "2026-11-22T22:49:40+09:00",
+    "origin": "SAVE",
+    "badge": "SAVE PICK",
+    "labels": [
+     "정보",
+     "분석"
+    ],
+    "view_count": 20862,
+    "summary": "이코노미스트의 연례 전망서 '더 월드 어헤드 2027'을 맡은 톰 스탠디지 편집자는 2027년에 주목해야 할 10가지 주요 흐름을 제시함 포...",
+    "keywords": [],
+    "companies": [],
+    "is_top_story": true
+   },
+   {
+    "keyword": "",
+    "title": "(카더라) 델·HPE 등, 계약 체결 수개월 뒤 AI 서버 가격 최대 45% 인상 요구",
+    "source": "파이낸셜타임스",
+    "url": "https://www.saveticker.com/news/news_kYms9hmh1qIr",
+    "date": "2026-11-22",
+    "time": "22:37",
+    "published_at": "2026-11-22T22:37:17+09:00",
+    "origin": "SAVE",
+    "badge": "SAVE PICK",
+    "labels": [
+     "정보"
+    ],
+    "view_count": 20949,
+    "summary": "파이낸셜타임스(FT)는 소식통을 인용해, 델·HPE·레노버·슈퍼마이크로 등 주요 서버 공급업체들이 계약 체결 수개월 뒤 실제 납품 시점에 엔비...",
+    "keywords": [],
+    "companies": [
+     "MU",
+     "000660"
+    ],
+    "is_top_story": true
+   },
+   {
+    "keyword": "",
+    "title": "📌2026년 11월 4주 차 주요 일정",
+    "source": "SAVE PICK",
+    "url": "https://www.saveticker.com/news/news_GDhEVXhbbpIz",
+    "date": "2026-11-21",
+    "time": "22:43",
+    "published_at": "2026-11-21T22:43:55+09:00",
+    "origin": "SAVE",
+    "badge": "SAVE PICK",
+    "labels": [
+     "일정"
+    ],
+    "view_count": 24082,
+    "summary": "",
+    "keywords": [],
+    "companies": [],
+    "is_top_story": true
+   },
+   {
+    "keyword": "",
+    "title": "(카더라) 크라우드스트라이크, 사이버보안 업체 지스케일러 인수 협상 중",
+    "source": "블룸버그",
+    "url": "https://www.saveticker.com/news/news_NVehMpW5r7KZ",
+    "date": "2026-11-21",
+    "time": "06:07",
+    "published_at": "2026-11-21T06:07:00+09:00",
+    "origin": "SAVE",
+    "badge": "SAVE PICK",
+    "labels": [
+     "속보"
+    ],
+    "view_count": 6514,
+    "summary": "블룸버그 통신은 복수의 소식통을 인용해 사이버보안 기업 크라우드스트라이크가 지스케일러 인수를 위한 협상을 진행 중이라고 보도함 - 양사는 ...",
+    "keywords": [],
+    "companies": [],
+    "is_top_story": true
    }
   ],
   "calendar": [
-   {
-    "id": "12145",
-    "title": "윌리엄스 총재 (중립/투표권 O)",
-    "market": "us",
-    "date": "2026-11-24",
-    "time": "06:00",
-    "datetime": "2026-11-24T06:00:00+09:00",
-    "note": "",
-    "importance": 0
-   },
    {
     "id": "11852",
     "title": "ADP 주간 고용변화 보고서 ★★",
@@ -5518,12 +5633,10 @@
    ]
   },
   "added": {
-   "keywords": 13,
-   "companies": 1
+   "keywords": 0,
+   "companies": 2
   },
-  "errors": [
-   "SAVE 직접 조회 불가: Cloudflare 봇 차단(Just a moment) — 익명 요청으로는 접근 불가"
-  ],
+  "errors": [],
   "site": "https://www.saveticker.com"
  },
  "errors": [],
