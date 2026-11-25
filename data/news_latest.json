@@ -934,6 +934,29 @@
    "articles": [
     {
      "keyword": "트럼프",
+     "title": "[칼럼] 트럼프 대통령의 엔비디아 개입, 월가의 기존 전략 뒤엎어: 맥기버",
+     "source": "로이터",
+     "url": "https://www.saveticker.com/news/news_jLC7IznwZAzD",
+     "date": "2026-11-25",
+     "time": "08:30",
+     "published_at": "2026-11-25T08:30:32+09:00",
+     "origin": "SAVE",
+     "badge": "SAVE",
+     "labels": [],
+     "view_count": 698,
+     "summary": "RPT-ROI-트럼프 대통령의 엔비디아 개입이 월가의 전략을 뒤엎다: 맥기버 화요일 칼럼을 변경 없이 추가 구독자들에게 재전송한다. 여기에 표현...",
+     "keywords": [
+      "엔비디아",
+      "트럼프"
+     ],
+     "companies": [
+      "NVDA",
+      "AMD"
+     ],
+     "is_top_story": false
+    },
+    {
+     "keyword": "트럼프",
      "title": "트럼프, 이란과 간접 협상 지속 시사…\"합의 없으면 새해 이후 타격 무게\"",
      "source": "FOX뉴스",
      "url": "https://www.saveticker.com/news/news_WZSdlgFcjt5T",
@@ -967,7 +990,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 28666,
+     "view_count": 28895,
      "summary": "트럼프 대통령은 엔비디아 이사회가 젠슨 황을 최고경영자(CEO)로 복귀시킨 것은 올바르고 적절한 결정이라며, 엔비디아뿐 아니라 미국 경제의 성공...",
      "keywords": [
       "엔비디아",
@@ -2028,15 +2051,15 @@
      "keyword": "엔비디아 실적",
      "title": "인용-황의 엔비디아 CEO 복귀에 정치·기업 지도자들 반응",
      "source": "로이터",
-     "url": "https://www.saveticker.com/news/news_XUPBw24ulude",
-     "date": "2026-11-24",
-     "time": "05:51",
-     "published_at": "2026-11-24T05:51:24+09:00",
+     "url": "https://www.saveticker.com/news/news_9ss_AxFyjvnz",
+     "date": "2026-11-25",
+     "time": "00:10",
+     "published_at": "2026-11-25T00:10:08+09:00",
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 386,
-     "summary": "피트 리케츠, 로이드 블랭크페인 추가 11월 23일 (로이터) - 엔비디아(NVDA.O)는 월요일 젠슨 황이 국가안보 위험을 초래하지 않는다...",
+     "view_count": 295,
+     "summary": "날짜 표기를 업데이트하고, 이스라엘 네타냐후 총리, 하킴 제프리스 하원 민주당 원내대표, 퍼싱 스퀘어 CEO 빌 애크먼, 민주당 로 칸나 하원의...",
      "keywords": [
       "엔비디아"
      ],
@@ -2194,6 +2217,29 @@
   "AMD": {
    "query": "AMD(어드밴스드 마이크로 디바이시스) 실적",
    "articles": [
+    {
+     "keyword": "AMD(어드밴스드 마이크로 디바이시스) 실적",
+     "title": "[칼럼] 트럼프 대통령의 엔비디아 개입, 월가의 기존 전략 뒤엎어: 맥기버",
+     "source": "로이터",
+     "url": "https://www.saveticker.com/news/news_jLC7IznwZAzD",
+     "date": "2026-11-25",
+     "time": "08:30",
+     "published_at": "2026-11-25T08:30:32+09:00",
+     "origin": "SAVE",
+     "badge": "SAVE",
+     "labels": [],
+     "view_count": 698,
+     "summary": "RPT-ROI-트럼프 대통령의 엔비디아 개입이 월가의 전략을 뒤엎다: 맥기버 화요일 칼럼을 변경 없이 추가 구독자들에게 재전송한다. 여기에 표현...",
+     "keywords": [
+      "엔비디아",
+      "트럼프"
+     ],
+     "companies": [
+      "NVDA",
+      "AMD"
+     ],
+     "is_top_story": false
+    },
     {
      "keyword": "AMD(어드밴스드 마이크로 디바이시스) 실적",
      "title": "Stanley Druckenmiller, David Tepper and 33 Other Big Funds Sold Advanced Micro Devices Last Quarter, While 21 Bought. Who’s Right?",
@@ -4882,12 +4928,121 @@
   }
  },
  "save": {
-  "status": "cached",
-  "stale": true,
-  "fetched_at": "2026-11-24T21:07:23+09:00",
+  "status": "live",
+  "stale": false,
+  "fetched_at": "2026-11-25T09:09:25+09:00",
   "fetched_via": "browser-session",
   "count": 40,
   "top_stories": [
+   {
+    "keyword": "엔비디아",
+    "title": "(카더라) 젠슨 황 \"이사회, 국가안보 위협 없다는 확신 얻은 뒤 복귀 결정\"",
+    "source": "블룸버그",
+    "url": "https://www.saveticker.com/news/news_TieXTPwpId4x",
+    "date": "2026-11-25",
+    "time": "03:29",
+    "published_at": "2026-11-25T03:29:24+09:00",
+    "origin": "SAVE",
+    "badge": "SAVE PICK",
+    "labels": [
+     "속보"
+    ],
+    "view_count": 12964,
+    "summary": "블룸버그 통신은 소식통을 인용해, 젠슨 황 엔비디아 CEO가 화요일 열린 전 직원 회의에서 최근 일시 해임으로 이어진 자신의 행동을 사과했다고 ...",
+    "keywords": [
+     "엔비디아"
+    ],
+    "companies": [
+     "NVDA"
+    ],
+    "is_top_story": true
+   },
+   {
+    "keyword": "트럼프",
+    "title": "(카더라) 트럼프 행정부, 한국·중국·일본·EU 등 수십 개국 관세 인상 추진",
+    "source": "월스트리트저널",
+    "url": "https://www.saveticker.com/news/news_MofDqvtfnwB5",
+    "date": "2026-11-24",
+    "time": "22:10",
+    "published_at": "2026-11-24T22:10:10+09:00",
+    "origin": "SAVE",
+    "badge": "SAVE PICK",
+    "labels": [
+     "속보"
+    ],
+    "view_count": 38655,
+    "summary": "월스트리트저널(WSJ)은 소식통을 인용해, 트럼프 행정부가 중국, 한국, 일본, 유럽연합(EU) 등 수십 개국이 자국 산업을 지원해 미국 기업에...",
+    "keywords": [
+     "트럼프"
+    ],
+    "companies": [],
+    "is_top_story": true
+   },
+   {
+    "keyword": "",
+    "title": "(카더라) 앤트로픽·오픈AI 내부서 차세대 AI 모델의 안전성 우려 확산",
+    "source": "Axios",
+    "url": "https://www.saveticker.com/news/news_TY--oZN5FSW2",
+    "date": "2026-11-24",
+    "time": "19:50",
+    "published_at": "2026-11-24T19:50:37+09:00",
+    "origin": "SAVE",
+    "badge": "SAVE PICK",
+    "labels": [
+     "속보"
+    ],
+    "view_count": 21365,
+    "summary": "악시오스는 소식통을 인용해, 앤트로픽과 오픈AI의 미공개 AI 모델이 기존 공개 모델보다 훨씬 강력해지면서, 이를 안전하게 외부에 출시하기 어렵...",
+    "keywords": [],
+    "companies": [],
+    "is_top_story": true
+   },
+   {
+    "keyword": "엔비디아",
+    "title": "궈밍치, “젠슨 황 복귀 효과와 향후 과제”",
+    "source": "SAVE PICK",
+    "url": "https://www.saveticker.com/news/news_X-gJp8VpqAzG",
+    "date": "2026-11-24",
+    "time": "19:21",
+    "published_at": "2026-11-24T19:21:11+09:00",
+    "origin": "SAVE",
+    "badge": "SAVE PICK",
+    "labels": [
+     "정보"
+    ],
+    "view_count": 12333,
+    "summary": "TF 인터내셔널의 궈밍치 애널리스트는 젠슨 황의 엔비디아 CEO 복귀로 일부 불확실성은 해소됐지만, 여전히 남은 변수가 많다고 분석함 - 이...",
+    "keywords": [
+     "엔비디아"
+    ],
+    "companies": [
+     "NVDA"
+    ],
+    "is_top_story": true
+   },
+   {
+    "keyword": "엔비디아",
+    "title": "CNBC: 젠슨 황 복귀 이후 투자자들이 주목해야 할 6가지 쟁점",
+    "source": "CNBC",
+    "url": "https://www.saveticker.com/news/news_gVt0HcX9hAC3",
+    "date": "2026-11-24",
+    "time": "16:43",
+    "published_at": "2026-11-24T16:43:19+09:00",
+    "origin": "SAVE",
+    "badge": "SAVE PICK",
+    "labels": [
+     "정보"
+    ],
+    "view_count": 19454,
+    "summary": "CNBC 보도에 따르면, 젠슨 황 엔비디아 CEO의 전격 복귀로 주가가 하루 만에 31% 급등했지만, 미 의회와 투자자들이 짚어봐야 할 6가지...",
+    "keywords": [
+     "엔비디아"
+    ],
+    "companies": [
+     "NVDA"
+    ],
+    "is_top_story": true
+   },
    {
     "keyword": "엔비디아",
     "title": "스콧 상원의원 \"젠슨 황 공개 청문회 12월 3일 개최 예정\"",
@@ -4901,7 +5056,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 21791,
+    "view_count": 22459,
     "summary": "젠슨 황 엔비디아 최고경영자(CEO)가 오는 12월 3일(현지시간) 열리는 미국 상원 은행위원회 공개 청문회에 출석해 증언할 예정임",
     "keywords": [
      "엔비디아"
@@ -4924,7 +5079,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 28666,
+    "view_count": 28895,
     "summary": "트럼프 대통령은 엔비디아 이사회가 젠슨 황을 최고경영자(CEO)로 복귀시킨 것은 올바르고 적절한 결정이라며, 엔비디아뿐 아니라 미국 경제의 성공...",
     "keywords": [
      "엔비디아",
@@ -4948,7 +5103,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 43649,
+    "view_count": 43878,
     "summary": "엔비디아는 11월 23일(현지시간) 이사회가 젠슨 황을 사장 겸 최고경영자(CEO) 및 이사로 즉시 복귀시키는 안건을 만장일치로 승인했다고 발표...",
     "keywords": [
      "엔비디아"
@@ -4971,7 +5126,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 51132,
+    "view_count": 51283,
     "summary": "젠슨 황, 엔비디아 CEO 복귀… 이사회 만장일치 결정",
     "keywords": [
      "엔비디아"
@@ -4980,171 +5135,9 @@
      "NVDA"
     ],
     "is_top_story": true
-   },
-   {
-    "keyword": "",
-    "title": "크라우드스트라이크, 지스케일러 439억 달러에 인수…전액 주식 교환 방식",
-    "source": "SAVE PICK",
-    "url": "https://www.saveticker.com/news/news_lXVs6tq3YGX4",
-    "date": "2026-11-23",
-    "time": "19:34",
-    "published_at": "2026-11-23T19:34:55+09:00",
-    "origin": "SAVE",
-    "badge": "SAVE PICK",
-    "labels": [
-     "속보"
-    ],
-    "view_count": 13427,
-    "summary": "크라우드스트라이크는 지스케일러를 인수하는 최종 계약을 체결했다고 밝힘 - 전액 주식 교환 방식이며 지스케일러 가치를 약 439억 달러로 평가...",
-    "keywords": [],
-    "companies": [],
-    "is_top_story": true
-   },
-   {
-    "keyword": "미국 이란 전쟁",
-    "title": "트럼프, 이란과 간접 협상 지속 시사…\"합의 없으면 새해 이후 타격 무게\"",
-    "source": "FOX뉴스",
-    "url": "https://www.saveticker.com/news/news_WZSdlgFcjt5T",
-    "date": "2026-11-23",
-    "time": "02:39",
-    "published_at": "2026-11-23T02:39:40+09:00",
-    "origin": "SAVE",
-    "badge": "SAVE PICK",
-    "labels": [
-     "속보"
-    ],
-    "view_count": 31691,
-    "summary": "트럼프 대통령은 폭스뉴스 인터뷰에서 이란과의 간접 협상이 계속 진행 중임을 시사함 - 그러면서도 합의가 이뤄지지 않을 경우 새해 이후 이란을...",
-    "keywords": [
-     "미국 이란 전쟁",
-     "트럼프"
-    ],
-    "companies": [],
-    "is_top_story": true
-   },
-   {
-    "keyword": "",
-    "title": "이코노미스트 - 2027년 주목해야 할 10대 트렌드",
-    "source": "이코노미스트",
-    "url": "https://www.saveticker.com/news/news_oItbuOHZxarl",
-    "date": "2026-11-22",
-    "time": "22:49",
-    "published_at": "2026-11-22T22:49:40+09:00",
-    "origin": "SAVE",
-    "badge": "SAVE PICK",
-    "labels": [
-     "정보",
-     "분석"
-    ],
-    "view_count": 21018,
-    "summary": "이코노미스트의 연례 전망서 '더 월드 어헤드 2027'을 맡은 톰 스탠디지 편집자는 2027년에 주목해야 할 10가지 주요 흐름을 제시함 포...",
-    "keywords": [],
-    "companies": [],
-    "is_top_story": true
-   },
-   {
-    "keyword": "",
-    "title": "(카더라) 델·HPE 등, 계약 체결 수개월 뒤 AI 서버 가격 최대 45% 인상 요구",
-    "source": "파이낸셜타임스",
-    "url": "https://www.saveticker.com/news/news_kYms9hmh1qIr",
-    "date": "2026-11-22",
-    "time": "22:37",
-    "published_at": "2026-11-22T22:37:17+09:00",
-    "origin": "SAVE",
-    "badge": "SAVE PICK",
-    "labels": [
-     "정보"
-    ],
-    "view_count": 21066,
-    "summary": "파이낸셜타임스(FT)는 소식통을 인용해, 델·HPE·레노버·슈퍼마이크로 등 주요 서버 공급업체들이 계약 체결 수개월 뒤 실제 납품 시점에 엔비...",
-    "keywords": [],
-    "companies": [
-     "MU",
-     "000660"
-    ],
-    "is_top_story": true
-   },
-   {
-    "keyword": "",
-    "title": "📌2026년 11월 4주 차 주요 일정",
-    "source": "SAVE PICK",
-    "url": "https://www.saveticker.com/news/news_GDhEVXhbbpIz",
-    "date": "2026-11-21",
-    "time": "22:43",
-    "published_at": "2026-11-21T22:43:55+09:00",
-    "origin": "SAVE",
-    "badge": "SAVE PICK",
-    "labels": [
-     "일정"
-    ],
-    "view_count": 24449,
-    "summary": "",
-    "keywords": [],
-    "companies": [],
-    "is_top_story": true
    }
   ],
   "calendar": [
-   {
-    "id": "11852",
-    "title": "ADP 주간 고용변화 보고서 ★★",
-    "market": "us",
-    "date": "2026-11-24",
-    "time": "22:15",
-    "datetime": "2026-11-24T22:15:00+09:00",
-    "note": "이전: 23.75K",
-    "importance": 2
-   },
-   {
-    "id": "11853",
-    "title": "9월 주택가격지수 MoM ★",
-    "market": "us",
-    "date": "2026-11-24",
-    "time": "23:00",
-    "datetime": "2026-11-24T23:00:00+09:00",
-    "note": "이전: 0.3% 예측: 0.2%",
-    "importance": 1
-   },
-   {
-    "id": "11854",
-    "title": "9월 주택가격지수 YoY ★",
-    "market": "us",
-    "date": "2026-11-24",
-    "time": "23:00",
-    "datetime": "2026-11-24T23:00:00+09:00",
-    "note": "이전: 2.4% 예측: 2.4%",
-    "importance": 1
-   },
-   {
-    "id": "11857",
-    "title": "11월 컨퍼런스보드 소비자신뢰지수 ★★★",
-    "market": "us",
-    "date": "2026-11-25",
-    "time": "00:00",
-    "datetime": "2026-11-25T00:00:00+09:00",
-    "note": "이전: 91.7 예측: 92",
-    "importance": 3
-   },
-   {
-    "id": "11858",
-    "title": "11월 리치몬드연은 제조업지수 ★",
-    "market": "us",
-    "date": "2026-11-25",
-    "time": "00:00",
-    "datetime": "2026-11-25T00:00:00+09:00",
-    "note": "이전: -2 예측: -1",
-    "importance": 1
-   },
-   {
-    "id": "11859",
-    "title": "5년물 국채 입찰 ★★",
-    "market": "us",
-    "date": "2026-11-25",
-    "time": "03:00",
-    "datetime": "2026-11-25T03:00:00+09:00",
-    "note": "이전: 4.845%",
-    "importance": 2
-   },
    {
     "id": "11860",
     "title": "10월 내구재수주 ★★",
@@ -5312,7 +5305,7 @@
     "date": "2026-11-30",
     "time": "23:45",
     "datetime": "2026-11-30T23:45:00+09:00",
-    "note": "이전: 55.3",
+    "note": "이전: 55.3 예측: 55",
     "importance": 2
    },
    {
@@ -5322,7 +5315,7 @@
     "date": "2026-12-01",
     "time": "00:30",
     "datetime": "2026-12-01T00:30:00+09:00",
-    "note": "이전: 13.4",
+    "note": "이전: 13.4 예측: 10",
     "importance": 1
    },
    {
@@ -5342,7 +5335,7 @@
     "date": "2026-12-02",
     "time": "00:00",
     "datetime": "2026-12-02T00:00:00+09:00",
-    "note": "이전: 55.5",
+    "note": "이전: 55.5 예측: 55",
     "importance": 2
    },
    {
@@ -5352,7 +5345,7 @@
     "date": "2026-12-02",
     "time": "00:00",
     "datetime": "2026-12-02T00:00:00+09:00",
-    "note": "이전: 7.523M",
+    "note": "이전: 7.523M 예측: 7.3M",
     "importance": 3
    },
    {
@@ -5362,7 +5355,7 @@
     "date": "2026-12-02",
     "time": "00:00",
     "datetime": "2026-12-02T00:00:00+09:00",
-    "note": "이전: -1.9%",
+    "note": "이전: -1.9% 예측: -0.5%",
     "importance": 2
    },
    {
@@ -5372,7 +5365,7 @@
     "date": "2026-12-02",
     "time": "22:15",
     "datetime": "2026-12-02T22:15:00+09:00",
-    "note": "이전: 86K",
+    "note": "이전: 86K 예측: 75.0K",
     "importance": 3
    },
    {
@@ -5412,7 +5405,7 @@
     "date": "2026-12-03",
     "time": "23:45",
     "datetime": "2026-12-03T23:45:00+09:00",
-    "note": "이전: 56.1",
+    "note": "이전: 56.1 예측: 54.7",
     "importance": 3
    },
    {
@@ -5422,7 +5415,7 @@
     "date": "2026-12-04",
     "time": "00:00",
     "datetime": "2026-12-04T00:00:00+09:00",
-    "note": "이전: 54.5",
+    "note": "이전: 54.5 예측: 54",
     "importance": 3
    },
    {
@@ -5452,7 +5445,7 @@
     "date": "2026-12-04",
     "time": "22:30",
     "datetime": "2026-12-04T22:30:00+09:00",
-    "note": "이전: 165K",
+    "note": "이전: 165K 예측: 82.0K",
     "importance": 3
    },
    {
@@ -5472,7 +5465,7 @@
     "date": "2026-12-05",
     "time": "00:00",
     "datetime": "2026-12-05T00:00:00+09:00",
-    "note": "이전: 51.5 예측: 52.9",
+    "note": "이전: 51.5 예측: 51.9",
     "importance": 2
    },
    {
@@ -5482,7 +5475,7 @@
     "date": "2026-12-05",
     "time": "00:00",
     "datetime": "2026-12-05T00:00:00+09:00",
-    "note": "이전: 3.5%",
+    "note": "이전: 3.5% 예측: 3.4%",
     "importance": 2
    },
    {
@@ -5492,7 +5485,7 @@
     "date": "2026-12-05",
     "time": "00:00",
     "datetime": "2026-12-05T00:00:00+09:00",
-    "note": "이전: 3.7%",
+    "note": "이전: 3.7% 예측: 3.7%",
     "importance": 2
    },
    {
@@ -5534,6 +5527,56 @@
     "datetime": "2026-12-08T20:00:00+09:00",
     "note": "이전: 97.8",
     "importance": 1
+   },
+   {
+    "id": "12041",
+    "title": "ADP 주간 고용변화 보고서 ★★",
+    "market": "us",
+    "date": "2026-12-08",
+    "time": "22:15",
+    "datetime": "2026-12-08T22:15:00+09:00",
+    "note": "이전: 21.0K",
+    "importance": 2
+   },
+   {
+    "id": "12042",
+    "title": "10월 무역수지 ★★",
+    "market": "us",
+    "date": "2026-12-08",
+    "time": "22:30",
+    "datetime": "2026-12-08T22:30:00+09:00",
+    "note": "이전: $-105B",
+    "importance": 2
+   },
+   {
+    "id": "12043",
+    "title": "3분기 비농업 생산성 ★★",
+    "market": "us",
+    "date": "2026-12-08",
+    "time": "22:30",
+    "datetime": "2026-12-08T22:30:00+09:00",
+    "note": "이전: 1.4%",
+    "importance": 2
+   },
+   {
+    "id": "12044",
+    "title": "3분기 단위노동비용 ★★",
+    "market": "us",
+    "date": "2026-12-08",
+    "time": "22:30",
+    "datetime": "2026-12-08T22:30:00+09:00",
+    "note": "이전: 1.9% 예측: -0.7%",
+    "importance": 2
+   },
+   {
+    "id": "12046",
+    "title": "10년물 국채 입찰 ★★",
+    "market": "us",
+    "date": "2026-12-09",
+    "time": "03:00",
+    "datetime": "2026-12-09T03:00:00+09:00",
+    "note": "이전: 5.020%",
+    "importance": 2
    }
   ],
   "interests": {
@@ -5551,12 +5594,10 @@
    ]
   },
   "added": {
-   "keywords": 12,
-   "companies": 0
+   "keywords": 1,
+   "companies": 1
   },
-  "errors": [
-   "SAVE 직접 조회 불가: Cloudflare 봇 차단(Just a moment) — 익명 요청으로는 접근 불가"
-  ],
+  "errors": [],
   "site": "https://www.saveticker.com"
  },
  "errors": [],
