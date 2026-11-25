@@ -23,7 +23,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 525,
+     "view_count": 533,
      "summary": "의원들의 발언과 세부 내용, 배경을 전반적으로 추가했으며 백악관은 즉각 논평하지 않았다 황, 12월 3일 상원 은행위원회에서 증언 예정 ...",
      "keywords": [
       "엔비디아"
@@ -44,7 +44,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 569,
+     "view_count": 573,
      "summary": "엔비디아 CEO 젠슨 황, 오픈웨이트 AI 모델 개발의 주요 지지자 폐쇄형 모델 개발사 앤트로픽과 오픈AI, 오픈웨이트 모델에 회의적 백...",
      "keywords": [
       "엔비디아"
@@ -88,7 +88,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 27392,
+     "view_count": 36829,
      "summary": "트럼프 대통령은 뉴욕포스트와의 단독 인터뷰에서 젠슨 황 엔비디아 CEO에 대한 사면 가능성을 열어두면서도, 실제로 사면이 필요하지는 않을 것으로...",
      "keywords": [
       "엔비디아",
@@ -110,7 +110,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 1555,
+     "view_count": 1577,
      "summary": "RPT-ROI-트럼프 대통령의 엔비디아 개입이 월가의 전략을 뒤엎다: 맥기버 화요일 칼럼을 변경 없이 추가 구독자들에게 재전송한다. 여기에 표현...",
      "keywords": [
       "엔비디아",
@@ -923,6 +923,48 @@
    "articles": [
     {
      "keyword": "트럼프",
+     "title": "금일 백악관 일정",
+     "source": "SAVE PICK",
+     "url": "https://www.saveticker.com/news/news_fyh0geglrXqd",
+     "date": "2026-11-25",
+     "time": "18:59",
+     "published_at": "2026-11-25T18:59:57+09:00",
+     "origin": "SAVE",
+     "badge": "SAVE PICK",
+     "labels": [
+      "정보"
+     ],
+     "view_count": 5074,
+     "summary": "26년 11월 26일 (목) - 한국시간 06:00 - 미국 - 트럼프 대통령 '나토 사무총장 회동' (비공개)",
+     "keywords": [
+      "트럼프"
+     ],
+     "companies": [],
+     "is_top_story": false
+    },
+    {
+     "keyword": "트럼프",
+     "title": "[귀금속] 주요 미국 인플레이션 지표 발표를 앞두고 금값 주춤",
+     "source": "로이터",
+     "url": "https://www.saveticker.com/news/news_ZYd2mA3h5olo",
+     "date": "2026-11-25",
+     "time": "20:43",
+     "published_at": "2026-11-25T20:43:17+09:00",
+     "origin": "SAVE",
+     "badge": "SAVE",
+     "labels": [
+      "시황/분석"
+     ],
+     "view_count": 173,
+     "summary": "미 달러 강세 트레이더들, 12월 연준 금리 인상 완전히 반영 트럼프 행정부, 조사 후 새 관세 발표 예정 가격 업데이트 애시타 ...",
+     "keywords": [
+      "트럼프"
+     ],
+     "companies": [],
+     "is_top_story": false
+    },
+    {
+     "keyword": "트럼프",
      "title": "트럼프 \"젠슨 황 복귀는 올바른 결정…미국 경제에도 중요\"",
      "source": "SAVE PICK",
      "url": "https://www.saveticker.com/news/news_9p4B2KmYsqKB",
@@ -958,7 +1000,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 41123,
+     "view_count": 41549,
      "summary": "월스트리트저널(WSJ)은 소식통을 인용해, 트럼프 행정부가 중국, 한국, 일본, 유럽연합(EU) 등 수십 개국이 자국 산업을 지원해 미국 기업에...",
      "keywords": [
       "트럼프"
@@ -979,7 +1021,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 27392,
+     "view_count": 36829,
      "summary": "트럼프 대통령은 뉴욕포스트와의 단독 인터뷰에서 젠슨 황 엔비디아 CEO에 대한 사면 가능성을 열어두면서도, 실제로 사면이 필요하지는 않을 것으로...",
      "keywords": [
       "엔비디아",
@@ -1001,7 +1043,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 1555,
+     "view_count": 1577,
      "summary": "RPT-ROI-트럼프 대통령의 엔비디아 개입이 월가의 전략을 뒤엎다: 맥기버 화요일 칼럼을 변경 없이 추가 구독자들에게 재전송한다. 여기에 표현...",
      "keywords": [
       "엔비디아",
@@ -1857,7 +1899,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 512,
+     "view_count": 519,
      "summary": "7~11번째 문단에 세부 내용 추가 11월 24일(로이터) - 델 테크놀로지스(DELL.N)는 화요일, AI 인프라에 대한 기업 수요 급증에...",
      "keywords": [],
      "companies": [
@@ -1876,7 +1918,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 525,
+     "view_count": 533,
      "summary": "의원들의 발언과 세부 내용, 배경을 전반적으로 추가했으며 백악관은 즉각 논평하지 않았다 황, 12월 3일 상원 은행위원회에서 증언 예정 ...",
      "keywords": [
       "엔비디아"
@@ -1897,7 +1939,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 569,
+     "view_count": 573,
      "summary": "엔비디아 CEO 젠슨 황, 오픈웨이트 AI 모델 개발의 주요 지지자 폐쇄형 모델 개발사 앤트로픽과 오픈AI, 오픈웨이트 모델에 회의적 백...",
      "keywords": [
       "엔비디아"
@@ -1920,7 +1962,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 27392,
+     "view_count": 36829,
      "summary": "트럼프 대통령은 뉴욕포스트와의 단독 인터뷰에서 젠슨 황 엔비디아 CEO에 대한 사면 가능성을 열어두면서도, 실제로 사면이 필요하지는 않을 것으로...",
      "keywords": [
       "엔비디아",
@@ -1942,7 +1984,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 157,
+     "view_count": 158,
      "summary": "전반에 걸쳐 세부 사항과 맥락 추가 얀툴트라 응위 기자 홍콩, 11월 25일 (로이터) - 폭스콘은 공식 명칭이 혼하이정밀공업 2317....",
      "keywords": [],
      "companies": [
@@ -1961,7 +2003,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 1555,
+     "view_count": 1577,
      "summary": "RPT-ROI-트럼프 대통령의 엔비디아 개입이 월가의 전략을 뒤엎다: 맥기버 화요일 칼럼을 변경 없이 추가 구독자들에게 재전송한다. 여기에 표현...",
      "keywords": [
       "엔비디아",
@@ -2005,6 +2047,28 @@
   "AAPL": {
    "query": "애플 실적",
    "articles": [
+    {
+     "keyword": "애플 실적",
+     "title": "[칼럼] 이카루스 같은 엔비디아 주식, 미국 저축자들에게 냉기를 보내다: 마이크 돌런",
+     "source": "로이터",
+     "url": "https://www.saveticker.com/news/news_Ef7NDA0OS0QA",
+     "date": "2026-11-25",
+     "time": "16:01",
+     "published_at": "2026-11-25T16:01:28+09:00",
+     "origin": "SAVE",
+     "badge": "SAVE",
+     "labels": [],
+     "view_count": 319,
+     "summary": "추가 구독자에게 변경 없이 재전송한다. 여기 표현된 견해는 로이터 칼럼니스트인 저자의 것이다. 마이크 돌런 런던, 11월 25일 (로이터...",
+     "keywords": [
+      "엔비디아"
+     ],
+     "companies": [
+      "NVDA",
+      "AAPL"
+     ],
+     "is_top_story": false
+    },
     {
      "keyword": "애플 실적",
      "title": "[칼럼] 이카루스 같은 엔비디아 주식, 미국 저축자들에게 한기를 보내다: 마이크 돌런",
@@ -2056,7 +2120,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 19459,
+     "view_count": 19969,
      "summary": "헌터브룩은 자사가 AMD의 중국 관련 리스크를 보도한 이후, AMD가 AI 서버 파트너 페이지에서 미국 수출 블랙리스트에 오른 중국 기업과 연관...",
      "keywords": [],
      "companies": [
@@ -2075,7 +2139,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 1555,
+     "view_count": 1577,
      "summary": "RPT-ROI-트럼프 대통령의 엔비디아 개입이 월가의 전략을 뒤엎다: 맥기버 화요일 칼럼을 변경 없이 추가 구독자들에게 재전송한다. 여기에 표현...",
      "keywords": [
       "엔비디아",
@@ -2103,6 +2167,30 @@
   "AVGO": {
    "query": "브로드컴 실적",
    "articles": [
+    {
+     "keyword": "브로드컴 실적",
+     "title": "젠슨 황이 구상하는 '새 엔비디아', 이전과 크게 다르지 않아",
+     "source": "월스트리트저널",
+     "url": "https://www.saveticker.com/news/news_6_nWNqXazDIA",
+     "date": "2026-11-25",
+     "time": "17:10",
+     "published_at": "2026-11-25T17:10:02+09:00",
+     "origin": "SAVE",
+     "badge": "SAVE PICK",
+     "labels": [
+      "정보"
+     ],
+     "view_count": 13167,
+     "summary": "월스트리트저널(WSJ)은 복귀 이틀째를 맞은 젠슨 황 엔비디아 CEO가 구상하는 '새로운 엔비디아'의 모습이 이전과 크게 다르지 않으며, 파트너...",
+     "keywords": [
+      "엔비디아"
+     ],
+     "companies": [
+      "NVDA",
+      "AVGO"
+     ],
+     "is_top_story": false
+    },
     {
      "keyword": "브로드컴 실적",
      "title": "브로드컴 3분기 실적 발표 앞둬…월가 매출 전망은?",
@@ -4678,7 +4766,7 @@
  "save": {
   "status": "live",
   "stale": false,
-  "fetched_at": "2026-11-25T17:09:19+09:00",
+  "fetched_at": "2026-11-25T21:09:40+09:00",
   "fetched_via": "browser-session",
   "count": 40,
   "top_stories": [
@@ -4695,7 +4783,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 27392,
+    "view_count": 36829,
     "summary": "트럼프 대통령은 뉴욕포스트와의 단독 인터뷰에서 젠슨 황 엔비디아 CEO에 대한 사면 가능성을 열어두면서도, 실제로 사면이 필요하지는 않을 것으로...",
     "keywords": [
      "엔비디아",
@@ -4719,7 +4807,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 22324,
+    "view_count": 23899,
     "summary": "블룸버그 통신은 소식통을 인용해, 젠슨 황 엔비디아 CEO가 화요일 복귀 후 처음으로 열린 전 직원 회의에서 자신의 사임으로 이어진 행동에 대해...",
     "keywords": [
      "엔비디아"
@@ -4742,7 +4830,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 19459,
+    "view_count": 19969,
     "summary": "헌터브룩은 자사가 AMD의 중국 관련 리스크를 보도한 이후, AMD가 AI 서버 파트너 페이지에서 미국 수출 블랙리스트에 오른 중국 기업과 연관...",
     "keywords": [],
     "companies": [
@@ -4763,77 +4851,12 @@
     "labels": [
      "속보"
     ],
-    "view_count": 41123,
+    "view_count": 41549,
     "summary": "월스트리트저널(WSJ)은 소식통을 인용해, 트럼프 행정부가 중국, 한국, 일본, 유럽연합(EU) 등 수십 개국이 자국 산업을 지원해 미국 기업에...",
     "keywords": [
      "트럼프"
     ],
     "companies": [],
-    "is_top_story": true
-   },
-   {
-    "keyword": "",
-    "title": "(카더라) 앤트로픽·오픈AI 내부서 차세대 AI 모델의 안전성 우려 확산",
-    "source": "Axios",
-    "url": "https://www.saveticker.com/news/news_TY--oZN5FSW2",
-    "date": "2026-11-24",
-    "time": "19:50",
-    "published_at": "2026-11-24T19:50:37+09:00",
-    "origin": "SAVE",
-    "badge": "SAVE PICK",
-    "labels": [
-     "속보"
-    ],
-    "view_count": 22078,
-    "summary": "악시오스는 소식통을 인용해, 앤트로픽과 오픈AI의 미공개 AI 모델이 기존 공개 모델보다 훨씬 강력해지면서, 이를 안전하게 외부에 출시하기 어렵...",
-    "keywords": [],
-    "companies": [],
-    "is_top_story": true
-   },
-   {
-    "keyword": "엔비디아",
-    "title": "궈밍치, “젠슨 황 복귀 효과와 향후 과제”",
-    "source": "SAVE PICK",
-    "url": "https://www.saveticker.com/news/news_X-gJp8VpqAzG",
-    "date": "2026-11-24",
-    "time": "19:21",
-    "published_at": "2026-11-24T19:21:11+09:00",
-    "origin": "SAVE",
-    "badge": "SAVE PICK",
-    "labels": [
-     "정보"
-    ],
-    "view_count": 13186,
-    "summary": "TF 인터내셔널의 궈밍치 애널리스트는 젠슨 황의 엔비디아 CEO 복귀로 일부 불확실성은 해소됐지만, 여전히 남은 변수가 많다고 분석함 - 이...",
-    "keywords": [
-     "엔비디아"
-    ],
-    "companies": [
-     "NVDA"
-    ],
-    "is_top_story": true
-   },
-   {
-    "keyword": "엔비디아",
-    "title": "CNBC: 젠슨 황 복귀 이후 투자자들이 주목해야 할 6가지 쟁점",
-    "source": "CNBC",
-    "url": "https://www.saveticker.com/news/news_gVt0HcX9hAC3",
-    "date": "2026-11-24",
-    "time": "16:43",
-    "published_at": "2026-11-24T16:43:19+09:00",
-    "origin": "SAVE",
-    "badge": "SAVE PICK",
-    "labels": [
-     "정보"
-    ],
-    "view_count": 19788,
-    "summary": "CNBC 보도에 따르면, 젠슨 황 엔비디아 CEO의 전격 복귀로 주가가 하루 만에 31% 급등했지만, 미 의회와 투자자들이 짚어봐야 할 6가지...",
-    "keywords": [
-     "엔비디아"
-    ],
-    "companies": [
-     "NVDA"
-    ],
     "is_top_story": true
    }
   ],
@@ -5294,7 +5317,7 @@
    ]
   },
   "added": {
-   "keywords": 0,
+   "keywords": 2,
    "companies": 2
   },
   "errors": [],
