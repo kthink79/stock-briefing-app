@@ -26,6 +26,11 @@
    - Gemini 기반의 누적 이력 롤링 요약(Rolling Summary) 자동 갱신
 6. **Google Jules 기반 지속적 검증 & 최적화**
    - GitHub 연동을 통해 테스트 코드 자동 작성, 크롤러 예외 처리 강화, 성능 개선 PR 생성 및 자동 반영
+7. **매수·매도 시점 분석 엔진 (v3.4, `signal-engine.js`)**
+   - 등록 기업마다 차트(이동평균·RSI·MACD·볼린저·거래량) · 뉴스 호재/악재 · 외국인·기관 수급 · 밸류에이션(52주 위치·PER·PBR) 점수를 0~100으로 계산
+   - 규칙별 점수를 가중 평균해 종합 점수·판단(매수우위~매도우위)·근거·신뢰도(%)를 기업 분석 탭에 표시
+   - 설정 탭에서 영역별 가중치 슬라이더와 규칙 ON/OFF 조절 — 데이터가 없는 영역은 자동으로 빠지고 남은 비중으로 재계산
+   - 상세 설계·수집 운영: [`docs/signal-engine.md`](docs/signal-engine.md)
 
 ---
 
@@ -56,6 +61,14 @@ stock-briefing-app/
 │   │   └── AndroidManifest.xml
 │   └── build.gradle.kts
 ├── index.html                # 모바일 인터랙티브 웹앱 (GitHub Pages 지원)
+├── signal-engine.js          # 매수·매도 시점 분석 엔진 (규칙·가중치·게이지 렌더링)
+├── app.js                    # 실시간 시세·뉴스·트레이스·기업 분석 프런트엔드
+├── scripts/
+│   ├── collect_live_data.py  # 시세·뉴스·전종목·재무지표 수집 (10분 주기 워크플로)
+│   └── collect_signals.py    # 120일 일봉·수급·밸류에이션 회전 수집 (data/signal/)
+├── data/                     # 수집 결과 JSON (Pages 가 그대로 서빙)
+│   └── signal/h/<종목코드>.json  # 종목별 신호 원천 데이터
+├── docs/signal-engine.md     # 매수·매도 시점 분석 엔진 설계 문서
 ├── .nojekyll                 # GitHub Pages 정적 서빙 설정
 └── README.md
 ```

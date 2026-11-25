@@ -101,12 +101,14 @@ class SaveParserTest(unittest.TestCase):
         self.assertEqual(len(arts), 1)
 
     def test_calendar_events_are_kst_sorted_and_trimmed(self):
+        # 고정 날짜를 쓰면 실행일이 지나면서 '지난 일정'이 되어 실패한다 — 현재 시각 기준으로 만든다
+        soon = (NOW + timedelta(hours=2)).replace(second=0, microsecond=0)
         payload = {"events": [
-            {"id": "1", "title": "10월 PCE가격지수 ★★★", "event_date": "2026-11-25T22:30:00",
+            {"id": "1", "title": "10월 PCE가격지수 ★★★", "event_date": soon.strftime("%Y-%m-%dT%H:%M:%S"),
              "content": [{"type": "text", "content": "이전: 3.6%\n예측: 3.8%"}], "market": "us"},
             {"id": "2", "title": "지난 일정", "event_date": "2020-01-01T09:00:00", "content": []},
         ]}
-        events = live.parse_save_calendar_payload(payload, days=14)
+        events = live.parse_save_calendar_payload(payload, days=14, now=NOW)
         self.assertEqual(len(events), 1)
         self.assertEqual(events[0]["importance"], 3)
         self.assertIn("예측", events[0]["note"])

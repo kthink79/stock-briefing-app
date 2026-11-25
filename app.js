@@ -9,7 +9,7 @@
             임의의 가짜 시세·기사로 채우지 않는다.
    ========================================================================== */
 
-const APP_VERSION = 'v3.3 (SAVE 연동)';
+const APP_VERSION = 'v3.4 (매수·매도 시점 분석)';
 const MARKET_PATH = 'data/market_latest.json';
 const NEWS_PATH = 'data/news_latest.json';
 const REMOTE_BASE = 'https://kthink79.github.io/stock-briefing-app/';
@@ -2575,6 +2575,29 @@ function renderCompanyDetails(code, triggerFlash) {
       if (!LIVE.companyNews.at) loadCompanyNews();
       else hydrateCompanyNews(code);
     }
+  }
+
+  // 매수·매도 시점 분석 엔진(signal-engine.js) — 종합 점수·신호별 근거·호재/악재 뉴스
+  if (typeof StockSignal !== 'undefined') {
+    try {
+      const signalArticles = (function () {
+        try {
+          const server = companyArticlesFor(code, d.name) || [];
+          const tagged = saveNewsList().filter(function (a) {
+            return (a.companies || []).indexOf(code) !== -1;
+          });
+          return mergeArticles([server, tagged]);
+        } catch (e) { return []; }
+      })();
+      StockSignal.mount({
+        code: code,
+        name: d.name,
+        market: /^\d{6}$/.test(code) ? 'KR' : 'US',
+        price: (typeof d.livePrice === 'number') ? d.livePrice : null,
+        currency: d.currency || (/^\d{6}$/.test(code) ? 'KRW' : 'USD'),
+        articles: signalArticles
+      });
+    } catch (e) { /* 신호 엔진 오류가 기업 탭 전체를 막지 않게 한다 */ }
   }
 }
 

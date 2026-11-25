@@ -160,6 +160,45 @@
     .setting-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border-color); }
     .setting-label { font-size: 0.9rem; font-weight: 600; }
     .setting-desc { font-size: 0.78rem; color: var(--text-sub); margin-top: 3px; }
+
+    /* 매수·매도 시점 분석 (signal-engine.js) */
+    .sig-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+    .sig-title { font-size: 1.05rem; font-weight: 800; color: #f0f6fc; }
+    .sig-sub { font-size: 0.8rem; color: #8b949e; margin-top: 3px; line-height: 1.45; }
+    .sig-grade { text-align: center; font-size: 1.4rem; font-weight: 800; margin-top: 4px; }
+    .sig-meta { text-align: center; font-size: 0.84rem; color: #8b949e; margin-top: 3px; line-height: 1.4; }
+    .sig-summary { margin: 12px 0; font-size: 0.9rem; color: #e6edf3; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 11px 12px; line-height: 1.5; }
+    .sig-groups { display: flex; flex-direction: column; gap: 10px; }
+    .sig-row { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 11px 12px; }
+    .sig-row-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+    .sig-name { font-size: 0.94rem; font-weight: 700; color: #e6edf3; }
+    .sig-score { font-size: 1.08rem; font-weight: 800; white-space: nowrap; }
+    .sig-weight { font-size: 0.72rem; color: #8b949e; font-weight: 600; }
+    .sig-bar { height: 8px; background: #21262d; border-radius: 4px; margin: 8px 0 7px; overflow: hidden; }
+    .sig-bar span { display: block; height: 100%; border-radius: 4px; }
+    .sig-reason { font-size: 0.83rem; color: #c9d1d9; line-height: 1.5; }
+    .sig-off { opacity: 0.7; }
+    .sig-off .sig-reason { color: #8b949e; }
+    .sig-section-title { font-size: 0.95rem; font-weight: 700; color: #e6edf3; margin: 16px 0 8px; }
+    .sig-news-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 380px) { .sig-news-cols { grid-template-columns: 1fr; } }
+    .sig-news-col { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 10px; }
+    .sig-news-title { font-size: 0.86rem; font-weight: 800; margin-bottom: 7px; }
+    .sig-news-title.pos { color: #3fb950; }
+    .sig-news-title.neg { color: #f85149; }
+    .sig-news-item { display: flex; gap: 7px; font-size: 0.83rem; line-height: 1.45; margin-bottom: 9px; }
+    .sig-news-item:last-child { margin-bottom: 0; }
+    .sig-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 7px; flex: 0 0 6px; }
+    .sig-news-meta { font-size: 0.72rem; color: #8b949e; margin-top: 2px; }
+    .sig-news-none, .sig-news-empty { font-size: 0.8rem; color: #8b949e; line-height: 1.45; }
+    .sig-note { margin-top: 12px; font-size: 0.75rem; color: #8b949e; line-height: 1.45; }
+    .sig-loading, .sig-empty { font-size: 0.88rem; color: #8b949e; padding: 16px 2px; text-align: center; line-height: 1.55; }
+    .sig-set-row { margin-bottom: 12px; }
+    .sig-set-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+    .sig-set-val { font-size: 0.95rem; font-weight: 800; color: #58a6ff; }
+    .sig-toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 380px) { .sig-toggles { grid-template-columns: 1fr; } }
+    .sig-toggle { display: flex; gap: 8px; align-items: flex-start; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 10px; font-size: 0.85rem; color: #e6edf3; cursor: pointer; line-height: 1.4; }
   </style>
 </head>
 <body>
@@ -428,6 +467,13 @@
         </div>
       </div>
 
+      <!-- 매수·매도 시점 분석: 종합 점수 게이지·신호별 근거·호재/악재 뉴스 (signal-engine.js) -->
+      <div class="card" id="comp-signal-card">
+        <div id="comp-signal-body">
+          <div class="sig-loading">차트·수급·뉴스 데이터를 분석하는 중…</div>
+        </div>
+      </div>
+
       <!-- Earnings & Valuation AI Summary Card -->
       <div class="card">
         <div class="card-title" style="color: #a371f7;">📈 실적 분석 & 밸류에이션 총평</div>
@@ -521,6 +567,15 @@
         <button class="btn btn-blue" style="flex: 1;" onclick="saveSettings()">설정 저장</button>
         <button class="btn" style="background: #30363d;" onclick="testNotification()">알림 테스트</button>
       </div>
+    </div>
+
+    <!-- 매수·매도 점수 가중치 (signal-engine.js) -->
+    <div class="card">
+      <div class="card-title">🎯 매수·매도 점수 가중치</div>
+      <div id="sig-settings-body">
+        <div class="sig-loading">가중치 설정을 불러오는 중…</div>
+      </div>
+      <div id="sig-settings-saved" style="font-size: 0.8rem; margin-top: 8px; min-height: 18px;"></div>
     </div>
 
     <!-- Security & Password Management Card -->
@@ -641,6 +696,10 @@
 
       if (name === 'company') {
         refreshCompanyPricesOnly(true, false);
+        if (window.StockSignal) StockSignal.refresh();
+      }
+      if (name === 'settings' && window.StockSignal) {
+        StockSignal.renderSettings('sig-settings-body');
       }
     }
 
@@ -762,6 +821,7 @@
     }
 
   </script>
+  <script src="signal-engine.js?v=1.0.0"></script>
   <script src="app.js?v=3.3.3"></script>
 </body>
 </html>

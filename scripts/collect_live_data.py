@@ -2273,6 +2273,22 @@ def main(argv=None) -> int:
                       f, ensure_ascii=False, separators=(",", ":"))
             f.write("\n")
 
+    # 매수·매도 시점 분석용 일봉·수급·밸류에이션 수집(회전) — 부가 정보이므로 실패해도
+    # 시세·뉴스 갱신을 막지 않는다. 워크플로가 커밋할 수 있도록 CI 에서만 파일을 stage 한다.
+    if not args.check:
+        try:
+            import sys as _sys
+            _sys.modules.setdefault("collect_live_data", _sys.modules[__name__])
+            import collect_signals
+            sig_budget = min(float(os.environ.get("COLLECT_SIGNAL_BUDGET_SECONDS", "120")),
+                             max(10.0, budget_left() - 30))
+            sig_result = collect_signals.collect(budget=sig_budget, workers=2)
+            counts["signal_ok"] = sig_result.get("ok", 0)
+            counts["signal_failed"] = sig_result.get("failed", 0)
+        except Exception as e:  # noqa: BLE001
+            log(f"[warn] 신호 데이터 수집 실패: {e}")
+            counts["signal_error"] = str(e)[:120]
+
     log(f"[done] 생성 {market_payload['generated_at']} · 변경감지={changed} · 소요 {elapsed_seconds():.0f}초")
     print(json.dumps({"counts": counts, "changed": changed,
                       "headline": market_payload["briefing"]["headline"]},
