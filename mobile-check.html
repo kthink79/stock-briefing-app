@@ -50,11 +50,13 @@
     frame.src = 'index.html?frame=1&v=' + Date.now();
     function scrollToCard(w) {
       try {
-        var card = w.document.getElementById('comp-signal-card');
-        if (!card) return false;
         var body = w.document.getElementById('comp-signal-body');
         if (!body || body.innerHTML.indexOf('분석 기사') === -1) return false;   // 뉴스까지 반영된 뒤에 찍는다
-        w.scrollTo(0, Math.max(0, card.getBoundingClientRect().top + w.scrollY - 6));
+        var target = location.search.indexOf('anchor=news') !== -1
+          ? body.querySelector('.sig-news-cols')
+          : w.document.getElementById('comp-signal-card');
+        if (!target) return false;
+        w.scrollTo(0, Math.max(0, target.getBoundingClientRect().top + w.scrollY - 70));
         return true;
       } catch (e) { return false; }
     }
