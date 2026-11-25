@@ -806,10 +806,11 @@ var StockSignal = (function () {
   function cardHtml(result, ctx) {
     var updated = ctx.record && ctx.record.updated_at ? ctx.record.updated_at.slice(0, 16).replace('T', ' ') : '—';
     var lastBar = result.indicators.lastDate ? result.indicators.lastDate.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3') : '—';
+    var basis = (ctx.livePrice ? '장중 ' : '종가 ') + esc(lastBar);
     return '' +
       '<div class="sig-head">' +
         '<div><div class="sig-title">🎯 매수·매도 시점 분석</div>' +
-        '<div class="sig-sub">종가 ' + esc(lastBar) + ' · 일봉 ' + result.indicators.bars + '일 · 갱신 ' + esc(updated) + '</div></div>' +
+        '<div class="sig-sub">' + basis + ' · 일봉 ' + result.indicators.bars + '일 · 갱신 ' + esc(updated) + '</div></div>' +
         '<button class="btn" style="background:#21262d;border:1px solid #30363d;color:#c9d1d9;font-size:0.78rem;padding:6px 10px;" onclick="StockSignal.reload(\'' + esc(ctx.code) + '\')">↻ 다시 분석</button>' +
       '</div>' +
       gaugeHtml(result) +
