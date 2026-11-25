@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>모바일 폭 확인용 프레임</title>
+<style>
+  body { background: #000; margin: 0; padding: 24px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #8b949e; }
+  .row { display: flex; gap: 28px; flex-wrap: wrap; align-items: flex-start; }
+  .device { width: 390px; height: 844px; border: 10px solid #1c1c1c; border-radius: 34px; overflow: hidden; background: #0d1117; }
+  .device iframe { width: 390px; height: 844px; border: 0; display: block; }
+  .panel { width: 390px; background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 16px; }
+  .label { font-size: 12px; color: #58a6ff; margin-bottom: 8px; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; margin-bottom: 16px; color: #f0f6fc; }
+  .card-title { font-size: 0.98rem; font-weight: 700; margin-bottom: 10px; }
+  .sig-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+  .sig-title { font-size: 1.05rem; font-weight: 800; color: #f0f6fc; }
+  .sig-sub { font-size: 0.8rem; color: #8b949e; margin-top: 3px; line-height: 1.45; }
+  .sig-set-row { margin-bottom: 12px; }
+  .sig-set-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+  .sig-name { font-size: 0.94rem; font-weight: 700; color: #e6edf3; }
+  .sig-set-val { font-size: 0.95rem; font-weight: 800; color: #58a6ff; }
+  .sig-weight { font-size: 0.72rem; color: #8b949e; font-weight: 600; }
+  .sig-toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .sig-toggle { display: flex; gap: 8px; align-items: flex-start; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 10px; font-size: 0.85rem; color: #e6edf3; cursor: pointer; line-height: 1.4; }
+  .sig-note { margin-top: 12px; font-size: 0.75rem; color: #8b949e; line-height: 1.45; }
+  .btn { background: #238636; color: #fff; border: none; padding: 10px 14px; border-radius: 6px; font-weight: 600; font-size: 0.88rem; }
+  .btn-blue { background: #2f81f7; }
+  .btn-tag { background: #21262d; color: #58a6ff; border: 1px solid #30363d; padding: 6px 12px; border-radius: 16px; font-size: 0.8rem; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div>
+      <div class="label">390px · 실제 앱(기업 분석 탭, 첫 종목)</div>
+      <div class="device"><iframe id="app-frame" src="index.html?frame=1"></iframe></div>
+    </div>
+    <div>
+      <div class="label">390px · 설정 탭 '가중치' 카드 미리보기 (앱의 설정 탭은 PIN 보호 — 렌더러 출력만 확인)</div>
+      <div class="panel">
+        <div class="card">
+          <div class="card-title">🎯 매수·매도 점수 가중치</div>
+          <div id="settings-preview">불러오는 중…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+  (function () {
+    var frame = document.getElementById('app-frame');
+    frame.addEventListener('load', function () {
+      var w = frame.contentWindow;
+      try { w.switchTab('company'); } catch (e) {}
+      // 설정 카드 렌더러 결과만 이 페이지에 그려 본다(앱의 PIN 잠금은 건드리지 않는다)
+      try {
+        document.getElementById('settings-preview').innerHTML = w.StockSignal.__settingsHtml();
+      } catch (e) {
+        document.getElementById('settings-preview').textContent = '미리보기 실패: ' + e;
+      }
+    });
+  })();
+</script>
+</body>
+</html>
