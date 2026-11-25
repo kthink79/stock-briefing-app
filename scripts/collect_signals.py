@@ -478,11 +478,20 @@ def stage_for_ci(paths: list) -> None:
 # 실행
 # --------------------------------------------------------------------------
 def needs_refresh(prev: dict | None, now: datetime, history_ttl: float, factor_ttl: float) -> bool:
+    """다시 받을지 판단한다.
+
+    · 오늘 봉이 없고 마지막 봉이 30시간 이상 지났으면 받는다(장 마감 뒤 새 봉 반영).
+      단, 직전 수집이 6시간 안이면 건너뛴다 — 주말·휴장일에 10분마다 전 종목을
+      반복 수집하며 커밋이 쌓이는 것을 막는다.
+    · 받은 지 20시간이 지났으면 받는다(하루 1회 갱신).
+    """
     if not prev or not prev.get("bars"):
         return True
-    if _age_hours(prev.get("updated_at")) >= history_ttl:
+    age = _age_hours(prev.get("updated_at"))
+    if age >= history_ttl:
         return True
-    # 마지막 봉이 오늘/직전 거래일보다 오래됐으면 갱신 대상
+    if age < min(factor_ttl, history_ttl):
+        return False
     last = str(prev["bars"][-1][0])
     today = now.strftime("%Y%m%d")
     if last == today:

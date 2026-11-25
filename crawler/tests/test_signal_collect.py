@@ -186,6 +186,19 @@ class CoverageTest(unittest.TestCase):
                "bars": [[20260101, 1, 1, 1, 1, 1, None]]}
         self.assertTrue(sig.needs_refresh(old, now, 20, 6))
 
+    def test_needs_refresh_does_not_hammer_on_holidays(self):
+        """주말·휴장일: 마지막 봉이 오래돼도 6시간 안에 받은 종목은 다시 받지 않는다."""
+        from datetime import timedelta
+        now = sig._now()
+        two_hours_ago = (now - timedelta(hours=2)).isoformat(timespec="seconds")
+        stale_bar = (now - timedelta(days=3)).strftime("%Y%m%d")
+        prev = {"updated_at": two_hours_ago,
+                "bars": [[int(stale_bar), 1, 1, 1, 1, 1, None]]}
+        self.assertFalse(sig.needs_refresh(prev, now, 20, 6))
+        eight_hours_ago = (now - timedelta(hours=8)).isoformat(timespec="seconds")
+        prev["updated_at"] = eight_hours_ago
+        self.assertTrue(sig.needs_refresh(prev, now, 20, 6))
+
 
 class CollectTest(unittest.TestCase):
     def setUp(self):
