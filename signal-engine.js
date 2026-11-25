@@ -389,6 +389,9 @@ var StockSignal = (function () {
     var price = inp.price || inp.ind.close;
     var high = num(v.high52), low = num(v.low52);
     var per = num(v.per), pbr = num(v.pbr);
+    // 기업 카드 위쪽의 PER/PBR 은 앱이 자체 EPS/BPS 로 다시 계산한 값이라 기준이 다를 수 있다 —
+    // 이 규칙의 값은 어느 제공처에서 왔는지 함께 적는다.
+    var src = (inp.market === 'US') ? '야후 파이낸스' : '네이버 금융';
     var pos52 = (high !== null && low !== null && high > low && price) ? (price - low) / (high - low) : null;
     if (pos52 === null && per === null && pbr === null) {
       return { avail: false, reason: '밸류에이션·52주 데이터 미수집' };
@@ -403,12 +406,12 @@ var StockSignal = (function () {
       else { bullets.push('52주 위치 ' + round(p * 100, 0) + '%'); }
     }
     if (per !== null) {
-      if (per <= 0) { s -= 0.05; bullets.push('PER ' + round(per, 2) + ' (적자)'); }
-      else if (per <= 8) { s += 0.10; bullets.push('PER ' + round(per, 2) + ' (낮음)'); }
-      else if (per <= 15) { s += 0.05; bullets.push('PER ' + round(per, 2)); }
-      else if (per <= 30) { bullets.push('PER ' + round(per, 2)); }
-      else if (per <= 50) { s -= 0.06; bullets.push('PER ' + round(per, 2) + ' (부담)'); }
-      else { s -= 0.12; bullets.push('PER ' + round(per, 2) + ' (높음)'); }
+      if (per <= 0) { s -= 0.05; bullets.push('PER ' + round(per, 2) + ' (적자 · ' + src + ')'); }
+      else if (per <= 8) { s += 0.10; bullets.push('PER ' + round(per, 2) + ' (낮음 · ' + src + ')'); }
+      else if (per <= 15) { s += 0.05; bullets.push('PER ' + round(per, 2) + ' (' + src + ')'); }
+      else if (per <= 30) { bullets.push('PER ' + round(per, 2) + ' (' + src + ')'); }
+      else if (per <= 50) { s -= 0.06; bullets.push('PER ' + round(per, 2) + ' (부담 · ' + src + ')'); }
+      else { s -= 0.12; bullets.push('PER ' + round(per, 2) + ' (높음 · ' + src + ')'); }
     }
     if (pbr !== null) {
       if (pbr < 1) { s += 0.08; bullets.push('PBR ' + round(pbr, 2) + ' (자산가치 이하)'); }
@@ -860,6 +863,23 @@ var StockSignal = (function () {
     }
   }
 
+  /* 뉴스 기사: 앱이 이미 받아 둔 기사를 분석 시점에 다시 읽는다.
+     (뉴스가 늦게 도착하면 처음 마운트 때 목록이 비어 있으므로, 전역 함수가 있으면 그것을 쓴다) */
+  function collectArticles(ctx) {
+    try {
+      if (typeof companyArticlesFor === 'function' && typeof saveNewsList === 'function' &&
+          typeof mergeArticles === 'function') {
+        var server = companyArticlesFor(ctx.code, ctx.name) || [];
+        var tagged = saveNewsList().filter(function (a) {
+          return (a.companies || []).indexOf(ctx.code) !== -1;
+        });
+        var merged = mergeArticles([server, tagged]);
+        if (merged && merged.length) return merged;
+      }
+    } catch (e) { /* 앱 전역 함수가 없으면 넘겨받은 목록을 쓴다 */ }
+    return ctx.articles || [];
+  }
+
   function analyze(ctx) {
     return loadRecord(ctx.code).then(function (rec) {
       if (!rec || !rec.bars || rec.bars.length < 5) {
@@ -879,7 +899,7 @@ var StockSignal = (function () {
           livePrice = price;
         }
       }
-      var news = analyzeNews(ctx.articles || []);
+      var news = analyzeNews(collectArticles(ctx));
       var inputs = {
         bars: bars, price: price, currency: rec.currency || ctx.currency || 'KRW',
         market: rec.market || ctx.market, supply: rec.supply,
