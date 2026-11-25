@@ -32,7 +32,7 @@
   <div class="row">
     <div>
       <div class="label">390px · 실제 앱(기업 분석 탭, 첫 종목)</div>
-      <div class="device"><iframe id="app-frame" src="index.html?frame=1"></iframe></div>
+      <div class="device"><iframe id="app-frame"></iframe></div>
     </div>
     <div>
       <div class="label">390px · 설정 탭 '가중치' 카드 미리보기 (앱의 설정 탭은 PIN 보호 — 렌더러 출력만 확인)</div>
@@ -47,6 +47,7 @@
 <script>
   (function () {
     var frame = document.getElementById('app-frame');
+    frame.src = 'index.html?frame=1&v=' + Date.now();
     frame.addEventListener('load', function () {
       var w = frame.contentWindow;
       try { w.switchTab('company'); } catch (e) {}
