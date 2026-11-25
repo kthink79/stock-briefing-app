@@ -53,7 +53,7 @@
         var card = w.document.getElementById('comp-signal-card');
         if (!card) return false;
         var body = w.document.getElementById('comp-signal-body');
-        if (!body || body.innerHTML.indexOf('신뢰도') === -1) return false;   // 뉴스까지 반영된 뒤에 찍는다
+        if (!body || body.innerHTML.indexOf('분석 기사') === -1) return false;   // 뉴스까지 반영된 뒤에 찍는다
         w.scrollTo(0, Math.max(0, card.getBoundingClientRect().top + w.scrollY - 6));
         return true;
       } catch (e) { return false; }
@@ -71,7 +71,7 @@
       var tries = 0;
       var timer = setInterval(function () {
         tries++;
-        if (scrollToCard(w) || tries > 40) clearInterval(timer);
+        if (scrollToCard(w) || tries > 60) clearInterval(timer);
       }, 500);
     });
   })();
