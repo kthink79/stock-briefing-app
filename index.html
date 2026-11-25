@@ -199,6 +199,12 @@
     .sig-toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     @media (max-width: 380px) { .sig-toggles { grid-template-columns: 1fr; } }
     .sig-toggle { display: flex; gap: 8px; align-items: flex-start; background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 10px; font-size: 0.85rem; color: #e6edf3; cursor: pointer; line-height: 1.4; }
+
+    /* 좁은 화면에서 검색 입력줄이 화면 밖으로 넘치던 문제(가로 스크롤) — 입력칸은 한 줄, 버튼은 다음 줄 */
+    @media (max-width: 420px) {
+      .input-row { flex-wrap: wrap; }
+      .input-row > .input-text { flex-basis: 100%; }
+    }
   </style>
 </head>
 <body>
