@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "source": "SAVE(세이브티커) saveticker.com",
- "fetched_at": "2026-11-25T13:08:17+09:00",
+ "fetched_at": "2026-11-25T17:09:19+09:00",
  "fetched_via": "browser-session",
  "interests": {
   "keywords": [
@@ -20,6 +20,273 @@
  "count": 40,
  "news": [
   {
+   "keyword": "엔비디아",
+   "title": "(카더라) 앨리스 황 관련 기업들, 중국 내 2.7억 달러 AI 장비로 자금 조달",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_18gVcx0C-RCh",
+   "date": "2026-11-25",
+   "time": "16:51",
+   "published_at": "2026-11-25T16:51:17+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "정보"
+   ],
+   "view_count": 6364,
+   "summary": "로이터 통신은 자체 검토한 중국 중앙은행 자료를 토대로, 젠슨 황 엔비디아 CEO의 사임을 촉발한 불륜 상대 앨리스 황의 가족 및 측근과 관련된...",
+   "keywords": [
+    "엔비디아"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[외환] 주요 인플레이션 지표 발표 전 달러 상승…호주달러와 파운드화 급락",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_NlorL8XLUc0E",
+   "date": "2026-11-25",
+   "time": "16:09",
+   "published_at": "2026-11-25T16:09:23+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "시황/분석"
+   ],
+   "view_count": 120,
+   "summary": "미국 달러, 미국 GDP·PCE 데이터 앞두고 상승 서비스 부문 물가 36년 만의 최고치 기록에도 엔화 보합 CME 페드워치 툴, 12월...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "엔비디아",
+   "title": "[칼럼] 이카루스 같은 엔비디아 주식, 미국 저축자들에게 한기를 보내다: 마이크 돌런",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_Ef7NDA0OS0QA",
+   "date": "2026-11-25",
+   "time": "16:01",
+   "published_at": "2026-11-25T16:01:28+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [],
+   "view_count": 262,
+   "summary": "여기에 표현된 의견은 로이터 칼럼니스트인 저자의 견해다. 마이크 돌런 런던, 11월 25일 (로이터) - 엔비디아 NVDA.O는 두 달 ...",
+   "keywords": [
+    "엔비디아"
+   ],
+   "companies": [
+    "NVDA",
+    "AAPL"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "AI 주식 급락에 일본 닛케이 거의 3% 하락",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_BhIGjHgSLoKv",
+   "date": "2026-11-25",
+   "time": "15:54",
+   "published_at": "2026-11-25T15:54:21+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [],
+   "view_count": 217,
+   "summary": "종가 반영 업데이트 후지타 준코 도쿄, 11월 25일 (로이터) - 일본 닛케이 주가지수는 수요일 거의 3% 하락 마감했다. AI 관련주...",
+   "keywords": [],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[단독] 기록에 따르면 앨리스 황과 연계된 기업들, 중국 내 AI 서버 2억 7000만 달러어치 등재",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_sUG9gCvB3Pej",
+   "date": "2026-11-25",
+   "time": "15:11",
+   "published_at": "2026-11-25T15:11:10+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [],
+   "view_count": 271,
+   "summary": "미공개 중국 금융 기록, AI 서버 및 모듈 최대 764대 확인 장비 평가액 2억 7000만 달러, 네트워킹 장비 3100만 달러 추가 ...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "인도네시아 장관, 계획된 새로운 미국 관세가 무역 협정과 부합한다고 밝혀",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_5S3rcwz6Yr3p",
+   "date": "2026-11-25",
+   "time": "15:09",
+   "published_at": "2026-11-25T15:09:22+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [],
+   "view_count": 109,
+   "summary": "자카르타, 11월 25일 (로이터) - 인도네시아의 수석 경제장관 아이를랑가 하르타르토는 수요일 미국이 인도네시아산 상품에 부과할 예정인 새로운...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[로이터 뉴스 스케줄] 그리니치 표준시 오전 6시/싱가포르 표준시 오후 2시",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_s9Yj1qNEJtto",
+   "date": "2026-11-25",
+   "time": "15:01",
+   "published_at": "2026-11-25T15:01:20+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "종합"
+   ],
+   "view_count": 51,
+   "summary": "다음은 GMT 오전 6시/SGT 오후 2시 기준 로이터 텍스트 서비스의 주요 기사와 예정된 취재 계획이다. 뉴스와 행사 전체 일정은 Reuter...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[3보] 젠슨 황의 재등장, AI 크레딧에 거의 안도감 주지 못해",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_Ke6SJecMYmdX",
+   "date": "2026-11-25",
+   "time": "14:34",
+   "published_at": "2026-11-25T14:34:20+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [],
+   "view_count": 554,
+   "summary": "소프트뱅크 CDS 스프레드, 4년 만에 가장 넓은 수준 오라클·알파벳·코어위브 스프레드 사상 최고치 - S&P 데이터 투자자들, AI 자...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[모닝브리핑 유럽] 누가 제이미슨 그리어를 두려워하는가?",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_3qc8QISlI19Y",
+   "date": "2026-11-25",
+   "time": "14:30",
+   "published_at": "2026-11-25T14:30:21+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "시황/분석"
+   ],
+   "view_count": 141,
+   "summary": "그레고르 스튜어트 헌터가 전하는 유럽 및 세계 시장의 하루 전망 또 하루, 또 한 번의 시장 대학살이다. 미국 무역대표부는 과잉 산업 생...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[이머징] 새로운 미국 관세 위협에 대만·한국 주식이 아시아 증시 하락 주도",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_CVVZjSYnalg7",
+   "date": "2026-11-25",
+   "time": "14:18",
+   "published_at": "2026-11-25T14:18:14+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "종합"
+   ],
+   "view_count": 563,
+   "summary": "MSCI 신흥 아시아 주가지수, 거의 3주 만에 최악의 하루 기록할 전망 대만 주식, 2025년 4월 이후 최대 일일 하락폭 기록할 전망 ...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[글로벌] AI 반등이 주춤하고 관세 위협이 다가오면서 주가 하락",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_2YRQDP-y6kXx",
+   "date": "2026-11-25",
+   "time": "13:43",
+   "published_at": "2026-11-25T13:43:12+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "종합"
+   ],
+   "view_count": 644,
+   "summary": "일본 제외 MSCI 아시아·태평양 지수 3.2% 하락 코스피 최대 6.4% 하락하며 낙폭 주도; 대만 가권지수 8.6% 급락 미국의 산업...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[외환] 달러, 핵심 인플레이션 지표 발표 앞두고 숨 고르기…호주달러 급락",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_GaKH9HZQzQm-",
+   "date": "2026-11-25",
+   "time": "13:41",
+   "published_at": "2026-11-25T13:41:19+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "시황/분석"
+   ],
+   "view_count": 166,
+   "summary": "가격 업데이트. 3항과 10항에 관세 보고서 세부 내용, 11항에 애널리스트 논평 추가. 미국 GDP·PCE 데이터 발표 앞두고 보합세인 미...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "기술주 매도세에 중국 증시 하락, 재점화된 미국 무역 긴장 부담",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_mKLpZNao7JMP",
+   "date": "2026-11-25",
+   "time": "13:27",
+   "published_at": "2026-11-25T13:27:17+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [],
+   "view_count": 220,
+   "summary": "정오 기준 수준 업데이트 상하이, 11월 25일 (로이터) - 중국 증시는 수요일 월가의 밤사이 하락과 역내 동종 시장의 약세를 따라 하락했...",
+   "keywords": [],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": false
+  },
+  {
+   "keyword": "",
+   "title": "[금속] 런던 구리, 밤사이 폭락 후 안정세… AI 안도 랠리 시들해져",
+   "source": "로이터",
+   "url": "https://www.saveticker.com/news/news_MRK8cZflxvEw",
+   "date": "2026-11-25",
+   "time": "13:08",
+   "published_at": "2026-11-25T13:08:12+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE",
+   "labels": [
+    "시황/분석"
+   ],
+   "view_count": 213,
+   "summary": "11월 25일 (로이터) - 런던 구리는 수요일 밤사이 급격한 매도세로 AI 주도 안도 랠리의 상승분이 사라진 뒤 보합세를 보였다. 새로운 미국...",
+   "keywords": [],
+   "companies": [],
+   "is_top_story": false
+  },
+  {
    "keyword": "",
    "title": "중국 위안화, 3주 만의 고점 기록했지만 무역 긴장 우려에 상승폭 제한",
    "source": "로이터",
@@ -30,7 +297,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 13,
+   "view_count": 56,
    "summary": "상하이, 11월 25일 (로이터) - 위안화는 수요일 달러화 약세와 기업들이 달러를 중국 통화로 바꾸려는 계절적 수요가 꾸준한 데 힘입어 3주여...",
    "keywords": [],
    "companies": [],
@@ -49,7 +316,7 @@
    "labels": [
     "시황/분석"
    ],
-   "view_count": 13,
+   "view_count": 60,
    "summary": "대두, 4거래일 만에 처음으로 하락 브라질 대두 파종률, 예상 재배면적의 86%에 도달 밀 선물, 2거래일 연속 하락…옥수수는 거의 변동...",
    "keywords": [],
    "companies": [],
@@ -66,7 +333,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 295,
+   "view_count": 400,
    "summary": "-- 출처 링크: https://tinyurl.com/mwaz83fm -- 참고: 로이터는 이 기사를 검증하지 않았으며 정확성을 보증하지 않...",
    "keywords": [
     "엔비디아"
@@ -76,7 +343,7 @@
   },
   {
    "keyword": "",
-   "title": "[2보] 말레이시아항공 모회사, 보잉 787 드림라이너 10대 매입 예정이라고 CEO 밝혀",
+   "title": "[5보] 말레이시아항공 모회사, 노후 에어버스 항공기 대체 위해 보잉 787 10대 주문 예정",
    "source": "로이터",
    "url": "https://www.saveticker.com/news/news_Ri1C-xklpuus",
    "date": "2026-11-25",
@@ -85,8 +352,8 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 51,
-   "summary": "업데이트 1-말레이시아항공 모회사, 보잉 787 드림라이너 10대 구매 예정, CEO 밝혀…세부 내용 전반에 추가 쿠알라룸푸르, 11월 25...",
+   "view_count": 73,
+   "summary": "거래에는 787-10 항공기 6대 추가 구매 옵션이 포함된다 MAG에 따르면 항공기는 2032년부터 2035년 사이 인도될 예정이다 CE...",
    "keywords": [],
    "companies": [],
    "is_top_story": false
@@ -102,7 +369,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 282,
+   "view_count": 390,
    "summary": "정오 종가를 반영해 논평을 추가하고 업데이트 준코 후지타 기자 도쿄, 11월 25일 (로이터) - 수요일 일본 닛케이 평균주가는 AI 관...",
    "keywords": [],
    "companies": [
@@ -121,46 +388,8 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 254,
+   "view_count": 294,
    "summary": "상하이, 11월 25일 (로이터) - 수요일 중국 증시는 장 초반 하락했다. 전날 밤 월스트리트의 손실을 따라간 가운데, 투자자들은 양대 경제국...",
-   "keywords": [],
-   "companies": [],
-   "is_top_story": false
-  },
-  {
-   "keyword": "",
-   "title": "[글로벌] AI 반등이 주춤하고 관세 위협이 다가오면서 주가 하락",
-   "source": "로이터",
-   "url": "https://www.saveticker.com/news/news_l6aqVokoAfzo",
-   "date": "2026-11-25",
-   "time": "10:45",
-   "published_at": "2026-11-25T10:45:23+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE",
-   "labels": [
-    "종합"
-   ],
-   "view_count": 490,
-   "summary": "일본 제외 MSCI 아시아·태평양 지수 2.3% 하락 코스피, 최대 5.3% 하락하며 낙폭 주도 미국 무역대표부의 과잉 산업 생산능력 보...",
-   "keywords": [],
-   "companies": [],
-   "is_top_story": false
-  },
-  {
-   "keyword": "",
-   "title": "[곡물] 랠리 후 대두 하락, 브라질 파종 부담",
-   "source": "로이터",
-   "url": "https://www.saveticker.com/news/news_vWqqQQpeiYVF",
-   "date": "2026-11-25",
-   "time": "10:34",
-   "published_at": "2026-11-25T10:34:22+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE",
-   "labels": [
-    "시황/분석"
-   ],
-   "view_count": 63,
-   "summary": "싱가포르, 11월 25일 (로이터) - 시카고 대두 선물은 수요일 4거래일 만에 처음으로 하락했다. 브라질의 파종이 빠르게 진척되면서 가격에 압...",
    "keywords": [],
    "companies": [],
    "is_top_story": false
@@ -176,29 +405,12 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 164,
+   "view_count": 172,
    "summary": "도쿄, 11월 25일 (로이터) - 일본 닛케이 평균주가는 수요일 하락했다. 기술주가 간밤 미국 동종업체들의 하락세를 따라 내린 가운데, 반도체...",
    "keywords": [],
    "companies": [
     "NVDA"
    ],
-   "is_top_story": false
-  },
-  {
-   "keyword": "",
-   "title": "블룸버그 뉴스 보도: 씨티, 철수 5년 만에 베네수엘라 복귀 검토",
-   "source": "로이터",
-   "url": "https://www.saveticker.com/news/news_4wy5Gr213Nxd",
-   "date": "2026-11-25",
-   "time": "09:31",
-   "published_at": "2026-11-25T09:31:14+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE",
-   "labels": [],
-   "view_count": 142,
-   "summary": "11월 24일 (로이터) - 씨티그룹(Citigroup) C.N은 베네수엘라에서 철수한 지 5년 만에 은행 서비스 재개를 검토하고 있으며, 이는...",
-   "keywords": [],
-   "companies": [],
    "is_top_story": false
   },
   {
@@ -212,7 +424,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 1429,
+   "view_count": 1555,
    "summary": "RPT-ROI-트럼프 대통령의 엔비디아 개입이 월가의 전략을 뒤엎다: 맥기버 화요일 칼럼을 변경 없이 추가 구독자들에게 재전송한다. 여기에 표현...",
    "keywords": [
     "엔비디아",
@@ -226,25 +438,6 @@
   },
   {
    "keyword": "",
-   "title": "델 - 어닝콜 (요약)",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_2FZaNOnHwrlh",
-   "date": "2026-11-25",
-   "time": "08:19",
-   "published_at": "2026-11-25T08:19:02+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "정보"
-   ],
-   "view_count": 14997,
-   "summary": "■ 경영진 핵심 메시지 - 3분기 매출은 549억 달러(+103%), 조정 EPS는 9.45달러(+265%)로 사상 최대 실적을 기록했으며, 매...",
-   "keywords": [],
-   "companies": [],
-   "is_top_story": false
-  },
-  {
-   "keyword": "",
    "title": "[2보] 폭스콘, 해외 구매를 위한 12억 5000만 달러 규모 전환사채 가격 책정",
    "source": "로이터",
    "url": "https://www.saveticker.com/news/news_JopV2j7re4VS",
@@ -254,7 +447,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 153,
+   "view_count": 157,
    "summary": "전반에 걸쳐 세부 사항과 맥락 추가 얀툴트라 응위 기자 홍콩, 11월 25일 (로이터) - 폭스콘은 공식 명칭이 혼하이정밀공업 2317....",
    "keywords": [],
    "companies": [
@@ -275,7 +468,7 @@
    "labels": [
     "속보"
    ],
-   "view_count": 22193,
+   "view_count": 27392,
    "summary": "트럼프 대통령은 뉴욕포스트와의 단독 인터뷰에서 젠슨 황 엔비디아 CEO에 대한 사면 가능성을 열어두면서도, 실제로 사면이 필요하지는 않을 것으로...",
    "keywords": [
     "엔비디아",
@@ -284,47 +477,7 @@
    "companies": [
     "NVDA"
    ],
-   "is_top_story": false
-  },
-  {
-   "keyword": "엔비디아",
-   "title": "[글로벌] 엔비디아 랠리 시들고 달러 하락하면서 미국 주식 하락",
-   "source": "로이터",
-   "url": "https://www.saveticker.com/news/news_yhL73MQYovos",
-   "date": "2026-11-25",
-   "time": "07:59",
-   "published_at": "2026-11-25T07:59:18+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE",
-   "labels": [
-    "종합"
-   ],
-   "view_count": 296,
-   "summary": "엔비디아 주가 6% 넘게 하락, 앤트로픽은 IPO 공모가 밑돌아 PCE 데이터 발표 앞두고 달러, 20개월 고점에서 후퇴 트레이더들, 1...",
-   "keywords": [
-    "엔비디아"
-   ],
-   "companies": [],
-   "is_top_story": false
-  },
-  {
-   "keyword": "",
-   "title": "SAVE 마감 리포트｜ 26년 11월 24일 (화) - 텍스트",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_fFk_j7ko_LxO",
-   "date": "2026-11-25",
-   "time": "07:51",
-   "published_at": "2026-11-25T07:51:28+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "종합"
-   ],
-   "view_count": 6035,
-   "summary": "금일 미국 증시는 하락 마감했습니다. 전일 기술주를 중심으로 나타났던 안도 랠리가 하루 만에 힘을 잃으면서 인공지능(AI) 투자 열풍의 지...",
-   "keywords": [],
-   "companies": [],
-   "is_top_story": false
+   "is_top_story": true
   },
   {
    "keyword": "엔비디아",
@@ -337,7 +490,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 558,
+   "view_count": 569,
    "summary": "엔비디아 CEO 젠슨 황, 오픈웨이트 AI 모델 개발의 주요 지지자 폐쇄형 모델 개발사 앤트로픽과 오픈AI, 오픈웨이트 모델에 회의적 백...",
    "keywords": [
     "엔비디아"
@@ -358,7 +511,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 510,
+   "view_count": 525,
    "summary": "의원들의 발언과 세부 내용, 배경을 전반적으로 추가했으며 백악관은 즉각 논평하지 않았다 황, 12월 3일 상원 은행위원회에서 증언 예정 ...",
    "keywords": [
     "엔비디아"
@@ -366,46 +519,6 @@
    "companies": [
     "NVDA"
    ],
-   "is_top_story": false
-  },
-  {
-   "keyword": "엔비디아",
-   "title": "[미국증시] 월요일 엔비디아 주도 랠리 이후 나스닥·S&P 500 하락",
-   "source": "로이터",
-   "url": "https://www.saveticker.com/news/news_U1iPvnHRZE0c",
-   "date": "2026-11-25",
-   "time": "07:01",
-   "published_at": "2026-11-25T07:01:16+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE",
-   "labels": [
-    "종합"
-   ],
-   "view_count": 359,
-   "summary": "거래 마감 후 시장 세부 내용 추가 월요일 31.5% 급등한 뒤 엔비디아 하락 미국 소비자 신뢰지수, 거의 2년 만에 최고 수준으로 급등...",
-   "keywords": [
-    "엔비디아"
-   ],
-   "companies": [],
-   "is_top_story": false
-  },
-  {
-   "keyword": "",
-   "title": "[로이터 뉴스 스케줄] 그리니치 표준시 오후 10시/싱가포르 표준시 오전 6시",
-   "source": "로이터",
-   "url": "https://www.saveticker.com/news/news_cqENmn7TY0er",
-   "date": "2026-11-25",
-   "time": "07:01",
-   "published_at": "2026-11-25T07:01:09+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE",
-   "labels": [
-    "종합"
-   ],
-   "view_count": 63,
-   "summary": "로이터 텍스트 서비스의 주요 기사와 예정된 취재 계획을 그리니치 표준시 오후 10시/싱가포르 표준시 오전 6시 기준으로 전한다. 전체 뉴스 및 ...",
-   "keywords": [],
-   "companies": [],
    "is_top_story": false
   },
   {
@@ -419,7 +532,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 501,
+   "view_count": 512,
    "summary": "7~11번째 문단에 세부 내용 추가 11월 24일(로이터) - 델 테크놀로지스(DELL.N)는 화요일, AI 인프라에 대한 기업 수요 급증에...",
    "keywords": [],
    "companies": [
@@ -438,7 +551,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 336,
+   "view_count": 340,
    "summary": "11월 24일 (로이터) - 델 테크놀로지스(DELL.N)는 기록적인 분기 실적을 기록한 뒤 화요일, AI 인프라에 대한 기업 수요 급증에 힘입...",
    "keywords": [],
    "companies": [
@@ -459,8 +572,8 @@
    "labels": [
     "속보"
    ],
-   "view_count": 18588,
-   "summary": "블룸버그 통신은 소식통을 인용해, 젠슨 황 엔비디아 CEO가 화요일 열린 전 직원 회의에서 최근 일시 해임으로 이어진 자신의 행동을 사과했다고 ...",
+   "view_count": 22324,
+   "summary": "블룸버그 통신은 소식통을 인용해, 젠슨 황 엔비디아 CEO가 화요일 복귀 후 처음으로 열린 전 직원 회의에서 자신의 사임으로 이어진 행동에 대해...",
    "keywords": [
     "엔비디아"
    ],
@@ -482,7 +595,7 @@
    "labels": [
     "정보"
    ],
-   "view_count": 4071,
+   "view_count": 4403,
    "summary": "척 슈머 미국 민주당 상원 원내대표는 X를 통해, 젠슨 황이 미국의 수출 통제법을 위반해 중국에 최첨단 반도체를 보냈다고 주장하며, 이는 심각한...",
    "keywords": [],
    "companies": [
@@ -503,7 +616,7 @@
    "labels": [
     "속보"
    ],
-   "view_count": 518,
+   "view_count": 535,
    "summary": "",
    "keywords": [
     "엔비디아"
@@ -526,7 +639,7 @@
    "labels": [
     "속보"
    ],
-   "view_count": 9186,
+   "view_count": 9515,
    "summary": "당초 블룸버그는 소식통을 인용해 젠슨 황 엔비디아 CEO가 한국시간 오전 5시 30분에 전 직원 회의를 개최한다고 전했으나, 이후 회의 시작 시...",
    "keywords": [
     "엔비디아"
@@ -570,7 +683,7 @@
    "labels": [
     "속보"
    ],
-   "view_count": 201,
+   "view_count": 207,
    "summary": "",
    "keywords": [
     "엔비디아"
@@ -591,7 +704,7 @@
    "origin": "SAVE",
    "badge": "SAVE",
    "labels": [],
-   "view_count": 67,
+   "view_count": 69,
    "summary": "사노피, 인스메드 410억 달러 인수 소식에 상승 UBS의 매도 등급 하향에 아이크스트론 주가 하락 금·구리 가격 후퇴에 광산주 하락 ...",
    "keywords": [],
    "companies": [
@@ -600,96 +713,25 @@
    "is_top_story": false
   },
   {
-   "keyword": "엔비디아",
-   "title": "미 법무부 장관 \"엔비디아는 모범적인 기업 시민\"",
+   "keyword": "",
+   "title": "헌터브룩 \"AMD, 중국 관련 의혹 보도 이후 홈페이지에서 관련 기업 삭제\"",
    "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_960J7H8usU8x",
-   "date": "2026-11-25",
-   "time": "02:05",
-   "published_at": "2026-11-25T02:05:07+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "정보"
-   ],
-   "view_count": 6808,
-   "summary": "미 법무부 장관은 기자회견에서 엔비디아를 모범적인 기업 시민이라고 평가하며, 엔비디아가 형사 수사 대상이거나 당국의 수사를 방해하고 있었다면 대...",
-   "keywords": [
-    "엔비디아"
-   ],
-   "companies": [
-    "NVDA"
-   ],
-   "is_top_story": false
-  },
-  {
-   "keyword": "엔비디아",
-   "title": "엔비디아의 황, 오늘 동부시간 오후 12시 30분 전 직원 회의 개최 예정. $NVDA",
-   "source": "financial-juice",
-   "url": "https://www.saveticker.com/news/news_qS6nQiheT20H",
-   "date": "2026-11-25",
-   "time": "02:05",
-   "published_at": "2026-11-25T02:05:01+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE",
-   "labels": [
-    "속보"
-   ],
-   "view_count": 445,
-   "summary": "",
-   "keywords": [
-    "엔비디아"
-   ],
-   "companies": [
-    "NVDA"
-   ],
-   "is_top_story": false
-  },
-  {
-   "keyword": "엔비디아",
-   "title": "엔비디아 젠슨 황, 한국시간 오전 5시 30분 전 직원 회의 개최",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_kSL6vJO4290m",
-   "date": "2026-11-25",
-   "time": "02:04",
-   "published_at": "2026-11-25T02:04:31+09:00",
+   "url": "https://www.saveticker.com/news/news_IXPKHGMXll3o",
+   "date": "2026-11-24",
+   "time": "23:31",
+   "published_at": "2026-11-24T23:31:04+09:00",
    "origin": "SAVE",
    "badge": "SAVE PICK",
    "labels": [
     "속보"
    ],
-   "view_count": 5764,
-   "summary": "엔비디아 젠슨 황, 한국시간 오전 5시 30분 전 직원 회의 개최",
-   "keywords": [
-    "엔비디아"
-   ],
+   "view_count": 19459,
+   "summary": "헌터브룩은 자사가 AMD의 중국 관련 리스크를 보도한 이후, AMD가 AI 서버 파트너 페이지에서 미국 수출 블랙리스트에 오른 중국 기업과 연관...",
+   "keywords": [],
    "companies": [
-    "NVDA"
+    "AMD"
    ],
-   "is_top_story": false
-  },
-  {
-   "keyword": "엔비디아",
-   "title": "미국 법무장관 블랜치: 엔비디아가 형사 수사의 대상이었다면, 그런 메시지는 아니었을 것 $NVDA",
-   "source": "financial-juice",
-   "url": "https://www.saveticker.com/news/news_9TbdY27F60K5",
-   "date": "2026-11-25",
-   "time": "01:44",
-   "published_at": "2026-11-25T01:44:17+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE",
-   "labels": [
-    "속보"
-   ],
-   "view_count": 817,
-   "summary": "",
-   "keywords": [
-    "엔비디아"
-   ],
-   "companies": [
-    "NVDA"
-   ],
-   "is_top_story": false
+   "is_top_story": true
   },
   {
    "keyword": "트럼프",
@@ -704,7 +746,7 @@
    "labels": [
     "속보"
    ],
-   "view_count": 40145,
+   "view_count": 41123,
    "summary": "월스트리트저널(WSJ)은 소식통을 인용해, 트럼프 행정부가 중국, 한국, 일본, 유럽연합(EU) 등 수십 개국이 자국 산업을 지원해 미국 기업에...",
    "keywords": [
     "트럼프"
@@ -725,7 +767,7 @@
    "labels": [
     "속보"
    ],
-   "view_count": 21790,
+   "view_count": 22078,
    "summary": "악시오스는 소식통을 인용해, 앤트로픽과 오픈AI의 미공개 AI 모델이 기존 공개 모델보다 훨씬 강력해지면서, 이를 안전하게 외부에 출시하기 어렵...",
    "keywords": [],
    "companies": [],
@@ -744,7 +786,7 @@
    "labels": [
     "정보"
    ],
-   "view_count": 12771,
+   "view_count": 13186,
    "summary": "TF 인터내셔널의 궈밍치 애널리스트는 젠슨 황의 엔비디아 CEO 복귀로 일부 불확실성은 해소됐지만, 여전히 남은 변수가 많다고 분석함 - 이...",
    "keywords": [
     "엔비디아"
@@ -767,78 +809,8 @@
    "labels": [
     "정보"
    ],
-   "view_count": 19651,
+   "view_count": 19788,
    "summary": "CNBC 보도에 따르면, 젠슨 황 엔비디아 CEO의 전격 복귀로 주가가 하루 만에 31% 급등했지만, 미 의회와 투자자들이 짚어봐야 할 6가지...",
-   "keywords": [
-    "엔비디아"
-   ],
-   "companies": [
-    "NVDA"
-   ],
-   "is_top_story": true
-  },
-  {
-   "keyword": "엔비디아",
-   "title": "스콧 상원의원 \"젠슨 황 공개 청문회 12월 3일 개최 예정\"",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_3nFw2lxJuIjP",
-   "date": "2026-11-24",
-   "time": "02:06",
-   "published_at": "2026-11-24T02:06:00+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "속보"
-   ],
-   "view_count": 22506,
-   "summary": "젠슨 황 엔비디아 최고경영자(CEO)가 오는 12월 3일(현지시간) 열리는 미국 상원 은행위원회 공개 청문회에 출석해 증언할 예정임",
-   "keywords": [
-    "엔비디아"
-   ],
-   "companies": [
-    "NVDA"
-   ],
-   "is_top_story": true
-  },
-  {
-   "keyword": "엔비디아",
-   "title": "트럼프 \"젠슨 황 복귀는 올바른 결정…미국 경제에도 중요\"",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_9p4B2KmYsqKB",
-   "date": "2026-11-23",
-   "time": "23:09",
-   "published_at": "2026-11-23T23:09:12+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "속보"
-   ],
-   "view_count": 28919,
-   "summary": "트럼프 대통령은 엔비디아 이사회가 젠슨 황을 최고경영자(CEO)로 복귀시킨 것은 올바르고 적절한 결정이라며, 엔비디아뿐 아니라 미국 경제의 성공...",
-   "keywords": [
-    "엔비디아",
-    "트럼프"
-   ],
-   "companies": [
-    "NVDA"
-   ],
-   "is_top_story": true
-  },
-  {
-   "keyword": "엔비디아",
-   "title": "[내용 추가] 엔비디아, 젠슨 황 CEO 복귀 공식 발표…이사회 만장일치 승인",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_0HuDMTvO7Rj4",
-   "date": "2026-11-23",
-   "time": "23:00",
-   "published_at": "2026-11-23T23:00:42+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "속보"
-   ],
-   "view_count": 43917,
-   "summary": "엔비디아는 11월 23일(현지시간) 이사회가 젠슨 황을 사장 겸 최고경영자(CEO) 및 이사로 즉시 복귀시키는 안건을 만장일치로 승인했다고 발표...",
    "keywords": [
     "엔비디아"
    ],
@@ -849,6 +821,30 @@
   }
  ],
  "top_stories": [
+  {
+   "keyword": "엔비디아",
+   "title": "트럼프 “젠슨 황 사면도 선택지…다만 필요하진 않을 것”",
+   "source": "뉴욕포스트",
+   "url": "https://www.saveticker.com/news/news_Yl-1jGggDKxQ",
+   "date": "2026-11-25",
+   "time": "08:01",
+   "published_at": "2026-11-25T08:01:13+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "속보"
+   ],
+   "view_count": 27392,
+   "summary": "트럼프 대통령은 뉴욕포스트와의 단독 인터뷰에서 젠슨 황 엔비디아 CEO에 대한 사면 가능성을 열어두면서도, 실제로 사면이 필요하지는 않을 것으로...",
+   "keywords": [
+    "엔비디아",
+    "트럼프"
+   ],
+   "companies": [
+    "NVDA"
+   ],
+   "is_top_story": true
+  },
   {
    "keyword": "엔비디아",
    "title": "(카더라) 젠슨 황 \"이사회, 국가안보 위협 없다는 확신 얻은 뒤 복귀 결정\"",
@@ -862,13 +858,34 @@
    "labels": [
     "속보"
    ],
-   "view_count": 18588,
-   "summary": "블룸버그 통신은 소식통을 인용해, 젠슨 황 엔비디아 CEO가 화요일 열린 전 직원 회의에서 최근 일시 해임으로 이어진 자신의 행동을 사과했다고 ...",
+   "view_count": 22324,
+   "summary": "블룸버그 통신은 소식통을 인용해, 젠슨 황 엔비디아 CEO가 화요일 복귀 후 처음으로 열린 전 직원 회의에서 자신의 사임으로 이어진 행동에 대해...",
    "keywords": [
     "엔비디아"
    ],
    "companies": [
     "NVDA"
+   ],
+   "is_top_story": true
+  },
+  {
+   "keyword": "",
+   "title": "헌터브룩 \"AMD, 중국 관련 의혹 보도 이후 홈페이지에서 관련 기업 삭제\"",
+   "source": "SAVE PICK",
+   "url": "https://www.saveticker.com/news/news_IXPKHGMXll3o",
+   "date": "2026-11-24",
+   "time": "23:31",
+   "published_at": "2026-11-24T23:31:04+09:00",
+   "origin": "SAVE",
+   "badge": "SAVE PICK",
+   "labels": [
+    "속보"
+   ],
+   "view_count": 19459,
+   "summary": "헌터브룩은 자사가 AMD의 중국 관련 리스크를 보도한 이후, AMD가 AI 서버 파트너 페이지에서 미국 수출 블랙리스트에 오른 중국 기업과 연관...",
+   "keywords": [],
+   "companies": [
+    "AMD"
    ],
    "is_top_story": true
   },
@@ -885,7 +902,7 @@
    "labels": [
     "속보"
    ],
-   "view_count": 40145,
+   "view_count": 41123,
    "summary": "월스트리트저널(WSJ)은 소식통을 인용해, 트럼프 행정부가 중국, 한국, 일본, 유럽연합(EU) 등 수십 개국이 자국 산업을 지원해 미국 기업에...",
    "keywords": [
     "트럼프"
@@ -906,7 +923,7 @@
    "labels": [
     "속보"
    ],
-   "view_count": 21790,
+   "view_count": 22078,
    "summary": "악시오스는 소식통을 인용해, 앤트로픽과 오픈AI의 미공개 AI 모델이 기존 공개 모델보다 훨씬 강력해지면서, 이를 안전하게 외부에 출시하기 어렵...",
    "keywords": [],
    "companies": [],
@@ -925,7 +942,7 @@
    "labels": [
     "정보"
    ],
-   "view_count": 12771,
+   "view_count": 13186,
    "summary": "TF 인터내셔널의 궈밍치 애널리스트는 젠슨 황의 엔비디아 CEO 복귀로 일부 불확실성은 해소됐지만, 여전히 남은 변수가 많다고 분석함 - 이...",
    "keywords": [
     "엔비디아"
@@ -948,78 +965,8 @@
    "labels": [
     "정보"
    ],
-   "view_count": 19651,
+   "view_count": 19788,
    "summary": "CNBC 보도에 따르면, 젠슨 황 엔비디아 CEO의 전격 복귀로 주가가 하루 만에 31% 급등했지만, 미 의회와 투자자들이 짚어봐야 할 6가지...",
-   "keywords": [
-    "엔비디아"
-   ],
-   "companies": [
-    "NVDA"
-   ],
-   "is_top_story": true
-  },
-  {
-   "keyword": "엔비디아",
-   "title": "스콧 상원의원 \"젠슨 황 공개 청문회 12월 3일 개최 예정\"",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_3nFw2lxJuIjP",
-   "date": "2026-11-24",
-   "time": "02:06",
-   "published_at": "2026-11-24T02:06:00+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "속보"
-   ],
-   "view_count": 22506,
-   "summary": "젠슨 황 엔비디아 최고경영자(CEO)가 오는 12월 3일(현지시간) 열리는 미국 상원 은행위원회 공개 청문회에 출석해 증언할 예정임",
-   "keywords": [
-    "엔비디아"
-   ],
-   "companies": [
-    "NVDA"
-   ],
-   "is_top_story": true
-  },
-  {
-   "keyword": "엔비디아",
-   "title": "트럼프 \"젠슨 황 복귀는 올바른 결정…미국 경제에도 중요\"",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_9p4B2KmYsqKB",
-   "date": "2026-11-23",
-   "time": "23:09",
-   "published_at": "2026-11-23T23:09:12+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "속보"
-   ],
-   "view_count": 28919,
-   "summary": "트럼프 대통령은 엔비디아 이사회가 젠슨 황을 최고경영자(CEO)로 복귀시킨 것은 올바르고 적절한 결정이라며, 엔비디아뿐 아니라 미국 경제의 성공...",
-   "keywords": [
-    "엔비디아",
-    "트럼프"
-   ],
-   "companies": [
-    "NVDA"
-   ],
-   "is_top_story": true
-  },
-  {
-   "keyword": "엔비디아",
-   "title": "[내용 추가] 엔비디아, 젠슨 황 CEO 복귀 공식 발표…이사회 만장일치 승인",
-   "source": "SAVE PICK",
-   "url": "https://www.saveticker.com/news/news_0HuDMTvO7Rj4",
-   "date": "2026-11-23",
-   "time": "23:00",
-   "published_at": "2026-11-23T23:00:42+09:00",
-   "origin": "SAVE",
-   "badge": "SAVE PICK",
-   "labels": [
-    "속보"
-   ],
-   "view_count": 43917,
-   "summary": "엔비디아는 11월 23일(현지시간) 이사회가 젠슨 황을 사장 겸 최고경영자(CEO) 및 이사로 즉시 복귀시키는 안건을 만장일치로 승인했다고 발표...",
    "keywords": [
     "엔비디아"
    ],
