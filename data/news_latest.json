@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated_at": "2026-11-25T12:10:04+09:00",
+ "generated_at": "2026-11-25T13:10:43+09:00",
  "source": "Google News RSS (news.google.com) + SAVE(세이브티커)",
  "match": [
   "엔비디아",
@@ -12,27 +12,6 @@
   "엔비디아": {
    "query": "엔비디아",
    "articles": [
-    {
-     "keyword": "엔비디아",
-     "title": "[미국증시] 월요일 엔비디아 주도 랠리 이후 나스닥·S&P 500 하락",
-     "source": "로이터",
-     "url": "https://www.saveticker.com/news/news_U1iPvnHRZE0c",
-     "date": "2026-11-25",
-     "time": "07:01",
-     "published_at": "2026-11-25T07:01:16+09:00",
-     "origin": "SAVE",
-     "badge": "SAVE",
-     "labels": [
-      "종합"
-     ],
-     "view_count": 359,
-     "summary": "거래 마감 후 시장 세부 내용 추가 월요일 31.5% 급등한 뒤 엔비디아 하락 미국 소비자 신뢰지수, 거의 2년 만에 최고 수준으로 급등...",
-     "keywords": [
-      "엔비디아"
-     ],
-     "companies": [],
-     "is_top_story": false
-    },
     {
      "keyword": "엔비디아",
      "title": "[3보] 슈머, 엔비디아 CEO가 미국 수출통제법 위반했다고 비난",
@@ -145,6 +124,61 @@
     },
     {
      "keyword": "엔비디아",
+     "title": "미디어-미국 당국자들, 엔비디아 사안을 둘러싼 정보에 대해 의회 직원들에게 브리핑 - NYT",
+     "source": "로이터",
+     "url": "https://www.saveticker.com/news/news_N3qNPdHfhP4A",
+     "date": "2026-11-25",
+     "time": "12:26",
+     "published_at": "2026-11-25T12:26:23+09:00",
+     "origin": "SAVE",
+     "badge": "SAVE",
+     "labels": [],
+     "view_count": 295,
+     "summary": "-- 출처 링크: https://tinyurl.com/mwaz83fm -- 참고: 로이터는 이 기사를 검증하지 않았으며 정확성을 보증하지 않...",
+     "keywords": [
+      "엔비디아"
+     ],
+     "companies": [],
+     "is_top_story": false
+    },
+    {
+     "keyword": "엔비디아",
+     "title": "[특징주] 두산, 엔비디아 급락에 AI 투심 위축…13%대 하락",
+     "source": "글로벌이코노믹",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNeG5jNW0wWjFhbXpqRnh3ang5ODIwVGlMS243eGs0S3B1YmxyMTVUTjc1N1JPcjV2X3hrZXRjZFQ2Z2dpZ1h0NWhERjMxd0pnWjVJTkRBbThwWW9qU3dUeG1VSkxLYTNkb2FSbWltOGsxYVZyRGRkd0dLVGo0WUdObmg2WU1YTVc3?oc=5",
+     "date": "2026-11-25",
+     "time": "13:00",
+     "published_at": "2026-11-25T13:00:14+09:00"
+    },
+    {
+     "keyword": "엔비디아",
+     "title": "돌아온 젠슨 황의 '모순'…엔비디아의 도박?",
+     "source": "연합뉴스 한민족센터",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFAzY0YyNlBnRjhvN3MzZ2ZhdFFZV092MEdfdUs5N01WVHU3OXRhZHI1aEZhYk1pWXo2LXJyVUZXT05sX2dRZVg3dTFXMnFROEhBZ2t1RDhubktOYWFhaUFOV0lmMHF4LTJSZU4zUFJFSDlGRENu?oc=5",
+     "date": "2026-11-25",
+     "time": "12:03",
+     "published_at": "2026-11-25T12:03:00+09:00"
+    },
+    {
+     "keyword": "엔비디아",
+     "title": "‘젠슨황 복귀’ 트럼프 개입에 비판 고조…엔비디아 주가는 하락",
+     "source": "KBS 뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1DWENkUDY4MlUyX1M1WHhfU0VlYUdPTDZoUWJTZFc4UENqQ0RIZW4zck5rQ21fbFBHa2pOQk9oX2VhejFKNmJVVVZwU3FyZGl1aWxWcWt2Qk5NSEE?oc=5",
+     "date": "2026-11-25",
+     "time": "12:02",
+     "published_at": "2026-11-25T12:02:00+09:00"
+    },
+    {
+     "keyword": "엔비디아",
+     "title": "엔비디아 이사회 믿고 팔았다가 낭패 본 개미들…황 복귀에 뒤늦게 재매수",
+     "source": "뉴스핌",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE54YjNFRFFXY0pzN09YaWhtZmJ4TG1rQU5BVzZEXzE2VDF0V0JpSFRnMWNCQ21BTjd0N2dwTU52ZWxSa0VzaVBRLUJIYWRKbnVKRXFoUFpCZDJLMFlB?oc=5",
+     "date": "2026-11-25",
+     "time": "11:50",
+     "published_at": "2026-11-25T11:50:00+09:00"
+    },
+    {
+     "keyword": "엔비디아",
      "title": "엔비디아, 美 의회 젠슨 황 조사 대비 최정예팀 구성…\"장기전 대비\"",
      "source": "뉴시스",
      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9OZmNJQ090endrTjV6c0xpdHN5RlRxNDI1WVZGOGZpbFpSYjFwaDJTb1cyRWpZMGIza3VHWjdTaF92TEpqTzh1OGl5TElEdVhPMi1zWEVrWWJ4NWlDWE9paNIBeEFVX3lxTE1Oc0F2bF9DR2FKLTI4QWtFVnJRV3A1bW1ZbkFzdWRVY0RmQnJCUGhxUmNuT2JSanhHQkpLU3VEbG5KYVAtamZ6RV9xUndwNnpia25EX0J2T3YzeUVfTjkxa21CR1RsdVNXNlo0eEFDNGYwbjNDaUwzcw?oc=5",
@@ -214,6 +248,15 @@
      "date": "2026-11-25",
      "time": "10:49",
      "published_at": "2026-11-25T10:49:00+09:00"
+    },
+    {
+     "keyword": "엔비디아",
+     "title": "엔비디아 복귀 후 충격적인 행보...추가 불륜 고백한 젠슨 황 [이슈톺]",
+     "source": "YTN",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9hbUEtaG5iU1JueUY4V3hwMndmd3ZBYlI4LWxtMUpRbU56Z0p1SkVBR0kydzhoQXVWbGJqeXhCZXg3dUdSY1J4bXgzNzJoclVlSGVmbzZFOUFRcWJzRVE?oc=5",
+     "date": "2026-11-25",
+     "time": "10:37",
+     "published_at": "2026-11-25T10:37:00+09:00"
     },
     {
      "keyword": "엔비디아",
@@ -298,69 +341,24 @@
     },
     {
      "keyword": "엔비디아",
+     "title": "두산, 엔비디아 반등 하루 만에 꺾이자 11%대 급락",
+     "source": "뉴스웨이",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9JRWY4Nnh1aTM3UmJkdFVuVHRLdVRKcHVaSGJNRWlPMVh3YUxJUzRVV05QY1IwSU1MV2NmcG9GdlNSVm5NUkJRSGN2dnQyWjUxS2twRng0X19HUXdvbkFzeWFsbTV2Y1VJSnc?oc=5",
+     "date": "2026-11-25",
+     "time": "09:49",
+     "published_at": "2026-11-25T09:49:39+09:00"
+    },
+    {
+     "keyword": "엔비디아",
      "title": "[더벨]에스오에스랩, 엔비디아 자율주행 생태계 기반 글로벌 공략 - 머니투데이",
      "source": "머니투데이",
      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE14Y1dLeC0xb3ZXNXRSQkNzaDczNURiUGxIVTQ5SEpFMHh6VEtjZFlXSnQwbG1SV19hYTNxMUY3WkRCU1c5VkpwX2NpNlAxSzRVSEpvS0JTNzFQWmpfaTBOdXJfV1Fjc0pF0gFuQVVfeXFMT1NDaFFXZHAzajZacW41UkUyOHNwRlIxeTBpWUxPRXZyUDFzaEhrQ0RyRm9xWkpOelpfRThVQkZoUXF0ZWZOUHRMUmZNUmQ0MnozQnRsellTZ0pYaFRRblh5MjJvWWZDaHNuTDZ4ekE?oc=5",
      "date": "2026-11-25",
      "time": "09:47",
      "published_at": "2026-11-25T09:47:21+09:00"
-    },
-    {
-     "keyword": "엔비디아",
-     "title": "젠슨 황 복귀 랠리 하루 만에 꺾였다···워싱턴 반발 속 엔비디아 5% 이상 하락",
-     "source": "Benzinga",
-     "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxQQnk5aEh6OWZMNldnMTZNTnNhWU5mdWNZRV9IcGs1VFNGS3JHZWdkd0ZjYnA0dkZQTjl3eVcyTFI1NE9iVU14a0FDWmNBM1hZYzQ2MFZpRWQ3clNkQnBMaTU0cmgyTVVGMzhpWDdZY1hvazE1WlRnTUlvbUlhbG5YLXc2MExJcWxnUWQzS0NVbTZESVJBeGVmcTRJNVhXZnZmdVhDb0xYakN4SlRhdDM3Yjk5YzQ4UVk5bGk5b3BZNllIOWJzMTcxUzQ5V3ZzSDhERk56X2JITFZhOGZjZ010RzBoWVh5Vlc1ZnhMSzl3ZkMyWGkyeHhiQkVpOEtGYzEyeG5jQ25MZG9ZdHVyck5FdGFUUzZQcW1MVXV2Z0UydDRXU21YODFwalVUcnkyd3RsT0JEVktQeXFYYk1ETW1kR1lB?oc=5",
-     "date": "2026-11-25",
-     "time": "09:42",
-     "published_at": "2026-11-25T09:42:36+09:00"
-    },
-    {
-     "keyword": "엔비디아",
-     "title": "“후계자 없다” 못 박은 젠슨 황… 엔비디아 ‘1인 의존’ 심화 우려",
-     "source": "동아일보",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9uQ1lOZFJadlc2VF83aHM1clVGZHlKQnhhMXJOUG1Xa0FldFNDZ1k2WkJXZVYyS1hWRTVRZnI2UkdmQzA0NEU2LVZZME0wdVRLSnVCZzN1cXEwaWhGeHhSTGNLU1FRWVFLT1ZZN0VMUzEtRmvSAWZBVV95cUxQenVHQjdVcERHWDh3cjNZdWpkTmlrN3hSbThfUl9wb1VtRFVHaEZ5RGo2ZUVQZW9ZYWtPdzRjU2J1SVUzWVpsdmQtVExJYkR1ZFdDNDJTbWRwOTRrbkhoR1VIX3hmcVE?oc=5",
-     "date": "2026-11-25",
-     "time": "09:41",
-     "published_at": "2026-11-25T09:41:20+09:00"
-    },
-    {
-     "keyword": "엔비디아",
-     "title": "'트럼프 개입' 후폭풍‥엔비디아 하락 반전",
-     "source": "MBC 뉴스",
-     "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE0zMF9kMzZkcWlRWkNCWGVIeGxPbTg4ZVlGLVl2ZzQ0QnZ2ODlTQjlrOC12QTlBUHg5QlhkV2dqSFdkYnZZMUQxeEVOVC1NbVBvam9reHphZU5UWHJWeFRacHdneHltR2laSnpJdHVJdTVwLW4xTXpn0gF3QVVfeXFMUFFQVVhCTnVYbm42Y1VLSGlHUWNGMFhTUm1KbktUc1EwQ2E5eXM5bEt2UzRpb29tY2xmM2c5aDdRb3paTkFoZG9rTG9COG0zX2ppMWF1OXhBdjg1SWVQQlp1bUNLbG9Pcm9PbkEyc3hPMnpOZGVWSFU?oc=5",
-     "date": "2026-11-25",
-     "time": "09:36",
-     "published_at": "2026-11-25T09:36:25+09:00"
-    },
-    {
-     "keyword": "엔비디아",
-     "title": "어제 14% 뛴 두산, 오늘은 12% 급락…엔비디아 따라 출렁",
-     "source": "매일경제 마켓",
-     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9taW1ucm5XTmcyUkRUTlo3Z1RBY1RRS0ZBa3RXZFplRlROaGhIWTdJNmJUZFVaejBHcUJWZ3VIRVFpQjBvekFpMEV1UGlnaHdSZkE?oc=5",
-     "date": "2026-11-25",
-     "time": "09:31",
-     "published_at": "2026-11-25T09:31:34+09:00"
-    },
-    {
-     "keyword": "엔비디아",
-     "title": "엔비디아 주가 6% 빠진 날…'미국판 다이소' 11% 급등한 이유",
-     "source": "한국경제",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1fRHhOenp4YjMzWFVUbHhwWDJ2c1lHYWQzeVZIeV90RHNGQjEyYkowTG04YzhWME5aTy1KWktKLThWRkIzUm9kUWU2XzNzMVViNkNDeW9fQzN6QQ?oc=5",
-     "date": "2026-11-25",
-     "time": "09:16",
-     "published_at": "2026-11-25T09:16:52+09:00"
-    },
-    {
-     "keyword": "엔비디아",
-     "title": "젠슨 황 엔비디아 CEO, 타운홀 미팅서 임직원에 사과",
-     "source": "지디넷코리아",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE90UmQtQjVSYW1aUTFhb184WU9GMWM5eXh1TC1pSV9zQ0F3anJZa0ZZNTRmYTdwNkdDWmhXa2I0VVpQaXRHQm85aEZGWHNOMkxoUnlWYjFn?oc=5",
-     "date": "2026-11-25",
-     "time": "09:08",
-     "published_at": "2026-11-25T09:08:34+09:00"
     }
    ],
-   "fetched_at": "2026-11-25T12:08:30+09:00",
+   "fetched_at": "2026-11-25T13:09:04+09:00",
    "keyword": "엔비디아",
    "id": "trace_nvda"
   },
@@ -369,12 +367,30 @@
    "articles": [
     {
      "keyword": "HBM",
+     "title": "삼성전자, HBM 베이스다이 수요 2배 뛴다…평택·美테일러 라인 확대",
+     "source": "한국신용신문",
+     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9NWmxWZFZKOTl0cUV5VG0zS1E1ZEplM3F5TEZuNFFoblN3NnpkMkdjX0VVOFNQWXdLWUo3SmUxcFFTQmpIMXdUSEx4NkoxMGlFLVB2TjNkQkFtT0tZeXFTcXVrQmdLQUFJVFpR?oc=5",
+     "date": "2026-11-25",
+     "time": "12:41",
+     "published_at": "2026-11-25T12:41:00+09:00"
+    },
+    {
+     "keyword": "HBM",
      "title": "삼성전자 HBM4E 성능 높였다…엔비디아 목표치 근접",
      "source": "뉴스저널리즘",
      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBNVnZHWlZlaWY5aWU5QzVKNlJUb2VZaTV6NUJxdm14Tk5CeGV5MlZrMzBSOGJDSjFSampKLTVfQ0hudldFQmRqU2kwSlhVTzhZMjVkcklNYU5aM3dJMVRqTDZvenlaTndwU0lZ?oc=5",
      "date": "2026-11-25",
      "time": "11:05",
      "published_at": "2026-11-25T11:05:21+09:00"
+    },
+    {
+     "keyword": "HBM",
+     "title": "삼성전자, ‘적자 DX’ 임원 승진 31명 축소…HBM·파운드리는 대거 중용",
+     "source": "서울경제",
+     "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE14THFlRlJCR1lrQV8zaUpTenBwa2NLSHBNZjhNQ2lSeExuLVJtZXVMb3Y1eGMtRzAyZnNqeUsxZWw2TnZxVkhoN0hQNEN6bmdYMWfSAVNBVV95cUxQOWg5Um9WTU9IMk1aNTNfNk5oaUp5MHZEX0JrWlFKTDlvUXF3WHIwX0FMU0lSNW4tQ3AzLTkyM1Ziai1IZmp3Umd5Wl9GLVVKY0RBUQ?oc=5",
+     "date": "2026-11-25",
+     "time": "10:37",
+     "published_at": "2026-11-25T10:37:45+09:00"
     },
     {
      "keyword": "HBM",
@@ -567,6 +583,15 @@
     },
     {
      "keyword": "HBM",
+     "title": "전체 승진 규모 19% 줄였지만… 삼성 반도체 `HBM4·파운드리` 힘 더 실었다",
+     "source": "디지털데일리",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE94bkFyMmI4RklIMkdtdDhvdzIzLU82Y1dmWXduU0FaU0dlYjVucHhKLWp0T3gyVEliWjZWcFdUUndfZDNXVGlON0hrTmNvaW85bVFEUUdUZFVNUGZrS0k4UzkyeHk?oc=5",
+     "date": "2026-11-24",
+     "time": "15:24",
+     "published_at": "2026-11-24T15:24:18+09:00"
+    },
+    {
+     "keyword": "HBM",
      "title": "[글로벌 이슈K] 젠슨 황 돌아왔지만…삼성·SK HBM 호황, AI 서버값 급등 변수",
      "source": "뉴스핌",
      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBHSUQ0bldCdWVYelZScS1sZXE1a1BFZ29KSUYzR3FnTVU4UEthTkxRcEJFYWxiOEFWQ3U1MEpiUEtRZmZjdUI5VC1aSEZQOTN6OWlmeEdETGFIM2VO?oc=5",
@@ -582,15 +607,6 @@
      "date": "2026-11-24",
      "time": "14:53",
      "published_at": "2026-11-24T14:53:00+09:00"
-    },
-    {
-     "keyword": "HBM",
-     "title": "[2027 삼성전자 인사] 'HBM4 주역' 전면에…반도체가 승진자 절반 넘었다",
-     "source": "전자신문",
-     "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE85ekVzTjZfWi12bE5CMjlmZFoyWVpWWVpOX05KVlV6Q09zN2F3RFFlTTFWT004Z25vYmZCRzRma3k0bmNuVFR5YWtjOExxUQ?oc=5",
-     "date": "2026-11-24",
-     "time": "14:38",
-     "published_at": "2026-11-24T14:38:16+09:00"
     },
     {
      "keyword": "HBM",
@@ -618,33 +634,33 @@
      "date": "2026-11-24",
      "time": "13:36",
      "published_at": "2026-11-24T13:36:52+09:00"
-    },
-    {
-     "keyword": "HBM",
-     "title": "삼성전자 임원 승진 19% 축소…HBM·AI·로봇 인재 ‘전진 배치’",
-     "source": "시사1",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1WdUlWTU9sN2dWcFNuUklQRjMzNkZwTnpkZEZQUFljSkI1Z25XMTVvendjcmp0RlZoN2xKcUNkdHlCTF93VHdhZ3I2OTJKTHYyNkRES0NGY1JtR0NaTlNwag?oc=5",
-     "date": "2026-11-24",
-     "time": "12:45",
-     "published_at": "2026-11-24T12:45:08+09:00"
-    },
-    {
-     "keyword": "HBM",
-     "title": "승진 줄여도 성과 보상은 확실...삼성전자, HBM·로봇 등 기술인재 발탁",
-     "source": "월요신문",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1aOTQzOWx1bE8yc2dRV21kaFJkYXVhOTdzZlEwYThhRU5Ca0VxZDA0ckl2N0pMb1VUM05jZVctdDNMVkNCa2RPRl8yYmtRRTFJZktrTDh3YzR1OS1FTFhhanQxLTUtMFU4a0E?oc=5",
-     "date": "2026-11-24",
-     "time": "12:19",
-     "published_at": "2026-11-24T12:19:32+09:00"
     }
    ],
-   "fetched_at": "2026-11-25T12:08:33+09:00",
+   "fetched_at": "2026-11-25T13:09:07+09:00",
    "keyword": "HBM",
    "id": "trace_hbm"
   },
   "미국 이란 전쟁": {
    "query": "이란",
    "articles": [
+    {
+     "keyword": "이란",
+     "title": "아버지 이어 아들도 타깃?…“미, 이란 수뇌부 ’참수 작전’ 검토“",
+     "source": "연합뉴스TV",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1WWlJ5eDI1V0pUemhPWHBZeE5ILW1EcVFpLVp5YmoxZ2tCd3hnTFlhT2ZEMW9TTnZieGJHeGczVFFGX2t2YjJwcGp3OVFLLXllZzN3S1lEX1RQdVZHTzBLWExvM2x0U2s?oc=5",
+     "date": "2026-11-25",
+     "time": "12:56",
+     "published_at": "2026-11-25T12:56:00+09:00"
+    },
+    {
+     "keyword": "이란",
+     "title": "여론조사, “조건과 상관없이 이란 전쟁 종식” 원해",
+     "source": "뉴스타운",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBKeHZDY05VQVVnQlA1cm1wNUpoV1FhZER2Mi1JRmVWNldTdjdrMjdadEVOZjhwU1RfNXRPbWtpd2dOdGd2UlI2TUJxWEFMVTU1UjFSZUV6V3ZDcmpVRnVhUFNpUlFYclE0YVNQd2JR?oc=5",
+     "date": "2026-11-25",
+     "time": "12:17",
+     "published_at": "2026-11-25T12:17:07+09:00"
+    },
     {
      "keyword": "이란",
      "title": "이란, 호르무즈 '해상 지원망'까지 압박…예인선 26척 제재 대상에 추가",
@@ -692,12 +708,12 @@
     },
     {
      "keyword": "이란",
-     "title": "미군, 이란 공격 재개 대비 '참수 작전' 검토…최고지도부 제거 논의",
-     "source": "한국NGO신문",
-     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9Da2J0OFhxNC1PLVEwUGJiWEJxTUc1Y2x6YnU4Qm45LUF3N3A0QzZRYkY3c1VQSFVMLWdjc1hRbEVVNHQ5eWpRMU5Hd19VZTIyUy0tQjZQcG5ReWcxN2hWZFRlUFhLZ0FX?oc=5",
+     "title": "[잇슈 SNS] 미 해상봉쇄에…이란 국경에 늘어선 42km 화물차 행렬",
+     "source": "KBS 뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1jc1p6SFhxTTVUcTlyWEdQaEFwU08taVlYQnRGcWxZNjV0akliVzNtOER4MEE3bHNUdHJacXItdkt5dVEtbmUxdFR2MTFrdnl6QVRvRDZ6RDBPUDY5WXBKRUxxMHdrdw?oc=5",
      "date": "2026-11-25",
-     "time": "08:40",
-     "published_at": "2026-11-25T08:40:29+09:00"
+     "time": "08:41",
+     "published_at": "2026-11-25T08:41:00+09:00"
     },
     {
      "keyword": "이란",
@@ -800,21 +816,21 @@
     },
     {
      "keyword": "이란",
+     "title": "트럼프, 종전 카드 꺼내나…\"이란 수뇌부 '참수작전' 검토\"",
+     "source": "한국경제",
+     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFA4NHNYNXJYNGVqWFMwd0luRVNvUG5rMzdSVXdtTkZCRzhhNUt5b2VhVWk1Q2FCcFphaFcyWGlTTEJkWENhSm5NMEJoMzE5VjJ4Z2ZqSURhXzRTUQ?oc=5",
+     "date": "2026-11-25",
+     "time": "06:16",
+     "published_at": "2026-11-25T06:16:55+09:00"
+    },
+    {
+     "keyword": "이란",
      "title": "이란 안보수장 \"美 해상 봉쇄 돌파할 것…새로운 공격에 전력 대응\"",
      "source": "연합인포맥스",
      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFAwZGhuMFNfdXFBUGpwaHh2emNpQmR2d3NYOE02YjZWeWFpY3ZwaHQ3Y1YxdzZIWHcxaWVEVWlPbjBGaFl1clNwcEx4N2owWkllalZETXdhMlFSbm14eEx5VUY4ZC1ZcWc2cDJtYUJZQ3o?oc=5",
      "date": "2026-11-25",
      "time": "06:02",
      "published_at": "2026-11-25T06:02:58+09:00"
-    },
-    {
-     "keyword": "이란",
-     "title": "이란, 호르무즈 블랙리스트에 예인선 26척 추가…해운업계 압박 강화",
-     "source": "아시아경제",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBSc2dfdXJWblNwZ25Na1VjOHU4LUN1RVdTSTRwcHprN3l6cU8yZEtyaFNMWE51Ni12QVVyT2ZoOC1zWS04NTJxbjVPYnVlaGMtSzVENVZLeEtFVG5acjZCaQ?oc=5",
-     "date": "2026-11-25",
-     "time": "06:02",
-     "published_at": "2026-11-25T06:02:40+09:00"
     },
     {
      "keyword": "이란",
@@ -833,15 +849,6 @@
      "date": "2026-11-25",
      "time": "05:53",
      "published_at": "2026-11-25T05:53:00+09:00"
-    },
-    {
-     "keyword": "이란",
-     "title": "\"미군, 이란 수뇌부 '참수 작전' 검토…'협상 어려워져' 반대도\"",
-     "source": "연합뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9CbEFPTktLQVBZNkFnMDhtUy1fNHdZYTdnLVMxYmFQTVhoeUx2TXVOOHlyWTlRYU1HS1pKNjR0d0xnay10RzVBalF5UkNpVmdxOXNVZ1NYUUoxS2vSAWBBVV95cUxPUEtfLXhLWUo4VE4wNzhrMjhUUHlqRkFudThUc1k1NTJNZlBLLUExS3I0TU9vclliRWVhaU1ZUTdlSDFibC1vZUUyZG03MXFRN0hpQWg3TDV3dFZUUldZa1U?oc=5",
-     "date": "2026-11-25",
-     "time": "05:51",
-     "published_at": "2026-11-25T05:51:48+09:00"
     },
     {
      "keyword": "이란",
@@ -905,18 +912,9 @@
      "date": "2026-11-24",
      "time": "23:34",
      "published_at": "2026-11-24T23:34:00+09:00"
-    },
-    {
-     "keyword": "이란",
-     "title": "美, 이란 해외 결제망 제재…암시장 달러 환율 하루 새 5% 급등",
-     "source": "마켓인",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5kMTh5a2NmemdkWG5VUUlNVWZ1bnNFT1RFYml5bUhtMElSN2Z4YWJhNTNUYUQ4V1RPMkdZVjN6d1VUYTg5aW1pX2RhbjJ6bFhDa01QUUNXeFNBdVRGME1wZTBSTXN4WG9NdG5GVlIyc3UyQzA?oc=5",
-     "date": "2026-11-24",
-     "time": "22:52",
-     "published_at": "2026-11-24T22:52:30+09:00"
     }
    ],
-   "fetched_at": "2026-11-25T12:08:36+09:00",
+   "fetched_at": "2026-11-25T13:09:10+09:00",
    "keyword": "미국 이란 전쟁",
    "id": "trace_iran"
   },
@@ -1017,12 +1015,75 @@
     },
     {
      "keyword": "트럼프",
+     "title": "미련 못 버린 트럼프 “김정은과 러브레터 당장 재개 가능”",
+     "source": "중앙일보",
+     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBRaGVDcjhpQ1ZBTlR0WklBM0haRGplVi1TMjV4U0RaaVlXM1FYVDFiNndhY3E1Q2lmXzBIR3JDSzJlTWY2YzRaMk94QkpGeW04bmVZN2pR?oc=5",
+     "date": "2026-11-25",
+     "time": "12:22",
+     "published_at": "2026-11-25T12:22:38+09:00"
+    },
+    {
+     "keyword": "트럼프",
+     "title": "\"트럼프, 중국 이익 우선하나\"…공화 대중 강경파도 강력 반발 [지금이뉴스]",
+     "source": "YTN",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1kRnk5ZkFZdHdjeGltZTJMZkhpTXYxVEhmNmZZNXc3QWp3ZnFDSHQySnVzeWRIbERFc1N5a0pzMDUxcHREdVZQQlMwVU0zX1NXc2wtSlJBQkp2RnBXd3c?oc=5",
+     "date": "2026-11-25",
+     "time": "12:20",
+     "published_at": "2026-11-25T12:20:00+09:00"
+    },
+    {
+     "keyword": "트럼프",
+     "title": "하루 만에 끝난 '젠슨 황 복귀' 효과...트럼프 개입 비판 [뉴스나우]",
+     "source": "YTN",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5SUEFERDg2MFZXYmkyQ3pKcDRKdkpkOFhPX21oSC1ma2JuSE43VWJTNWFlTktKS0Zzb3NSOFpBWFFaTDd5d1NTUTNLcElxN2ZIVDc0RHVIZDcydHdCTlE?oc=5",
+     "date": "2026-11-25",
+     "time": "12:16",
+     "published_at": "2026-11-25T12:16:00+09:00"
+    },
+    {
+     "keyword": "트럼프",
+     "title": "트럼프 핵심 표적 하버드, '마가란 무엇인가' 수업 개설",
+     "source": "YTN",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE83aXB2ZjhqTXBtc0l3d2tXYkVES1JtaWJHVER5ZW44dnFKTzhDemJwRklxdXZraWVhZllGOVg4bTNwWExKMGJ1clBwVFUwR2RSalRhWjRRYmtoY0lBbnc?oc=5",
+     "date": "2026-11-25",
+     "time": "12:08",
+     "published_at": "2026-11-25T12:08:00+09:00"
+    },
+    {
+     "keyword": "트럼프",
+     "title": "트럼프 \"김정은과 러브레터, 다시 시작될 수도\"",
+     "source": "연합뉴스TV",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1UZndPa3hUeGo4ZU8taDZMNHJxbVQ1QXZuVDlWenZWa0JKVlNVdDNSNFc5RVNQOUtzNU5MOU1DbnJjbXVSQnc0SnNla2l0NUhMNHZIUzVscV9oWS05STZDU2NIRjctMjA?oc=5",
+     "date": "2026-11-25",
+     "time": "12:07",
+     "published_at": "2026-11-25T12:07:00+09:00"
+    },
+    {
+     "keyword": "트럼프",
+     "title": "‘젠슨황 복귀’ 트럼프 개입에 비판 고조…엔비디아 주가는 하락",
+     "source": "KBS 뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1DWENkUDY4MlUyX1M1WHhfU0VlYUdPTDZoUWJTZFc4UENqQ0RIZW4zck5rQ21fbFBHa2pOQk9oX2VhejFKNmJVVVZwU3FyZGl1aWxWcWt2Qk5NSEE?oc=5",
+     "date": "2026-11-25",
+     "time": "12:02",
+     "published_at": "2026-11-25T12:02:00+09:00"
+    },
+    {
+     "keyword": "트럼프",
      "title": "트럼프, 또 추가 관세 추진…한국 2.5~5%p 인상 전망",
      "source": "한겨레",
      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5kZXUtS2NvWm81SW5qWk5FcWdHOVUwT1EzYVlPVUhHSFZZd2Vnd3I2SW9aUUJ5Nkxxejh5RTVFWEJSdmdZMlZ6bkNNMVdLV1VKTVl6UlZCYXgzcnY2Q3E2bjhQY2c5VFEzYU9IYzlqSQ?oc=5",
      "date": "2026-11-25",
      "time": "11:49",
      "published_at": "2026-11-25T11:49:00+09:00"
+    },
+    {
+     "keyword": "트럼프",
+     "title": "트럼프 \"김정은과 '러브레터' 당장이라도 재개 가능…만날 때 올 것\"",
+     "source": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5mZjR1d2tfQXI1R2NtMGowdkU2VFdSMnJtcGJXd1hVSE90dl9EMUxEM0hPVFNLODJpZ2hYZHpCbGRpejZxM2MyR3pLUDE3RWlxY1ZmcjJkQmc?oc=5",
+     "date": "2026-11-25",
+     "time": "11:45",
+     "published_at": "2026-11-25T11:45:03+09:00"
     },
     {
      "keyword": "트럼프",
@@ -1041,6 +1102,33 @@
      "date": "2026-11-25",
      "time": "11:21",
      "published_at": "2026-11-25T11:21:26+09:00"
+    },
+    {
+     "keyword": "트럼프",
+     "title": "트럼프 “김정은과 ‘러브레터 외교’ 당장 다시 시작할 수도”",
+     "source": "KBS 뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9sWk5GcG0ta1FuRTFmUjMzbWVwRjZyeWU4THZMNnMyV3p6VXhJMUFrTVBtbDhMNGJjVmY5UV91OEdWaFlTYzdlNHZ0SE1QRzVUaTNwYklVLTJ2cVU?oc=5",
+     "date": "2026-11-25",
+     "time": "11:13",
+     "published_at": "2026-11-25T11:13:00+09:00"
+    },
+    {
+     "keyword": "트럼프",
+     "title": "트럼프 \"이란, 미사일 쏠 능력 없어…역사상 최대 해상봉쇄\" 자찬",
+     "source": "마켓인",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE93TmdhRlhab204YUFCd1d5TmNzcnNhbS1Vbi1UOXNNRE1jWFA0V3dOa1ZFaEVwVEoyR1JmT2RxVEQtcTBmeERkcDhxWUUxN0hGNVdlbnlfY3pDLU42dzNKNzdtOVJmaXhETHpoX3ItTGZYd00?oc=5",
+     "date": "2026-11-25",
+     "time": "11:12",
+     "published_at": "2026-11-25T11:12:50+09:00"
+    },
+    {
+     "keyword": "트럼프",
+     "title": "“한국산 철강이 또 눈엣가시”…관세폭탄 무색해진 트럼프 [이슈+]",
+     "source": "에너지경제신문",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBtUnBZY2pHSHBHajQ4M3VhTHFhV04wNTBMaGIwajZaMTFiaVI5RHh4ME5kTDAtd1BQRGRCSVphOHhZcWFHaGNJbFROOEd1U1hDdDYyQ0ZHci1XUWRUTDBhMmg3aw?oc=5",
+     "date": "2026-11-25",
+     "time": "11:08",
+     "published_at": "2026-11-25T11:08:23+09:00"
     },
     {
      "keyword": "트럼프",
@@ -1116,6 +1204,15 @@
     },
     {
      "keyword": "트럼프",
+     "title": "트럼프 \"김정은과 러브레터, 당장이라도 다시 시작 가능\"",
+     "source": "부산일보",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5sRjlMOE8ySEJpLWN2aVJONDdGMjZGN1RvbFZyYllraHIzNjZwYVJTU0c4Ry1pT3RXU0FDYU10bERySG5tbnp4U1dDanU5NGZ6WEtUdlZ1bkVCc1pVWkdRd1otWkcwZUtZRU9UbWREZU9FcVNFS2JtVld0cw?oc=5",
+     "date": "2026-11-25",
+     "time": "10:51",
+     "published_at": "2026-11-25T10:51:45+09:00"
+    },
+    {
+     "keyword": "트럼프",
      "title": "트럼프 \"김정은과 러브레터 당장 다시 시작할 수도\"...북미 정상 재회 가능성 시사",
      "source": "BBS 불교방송",
      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5jcHRnNnhwaU10M2gtSlVUQVBMSXNGUHZucmpCdkdRemxEdlZDZy0waUxIbmtXZVJqWm9WLU1KUWpvQmZQZmliRmFaalV0RlphaDlvaVhtanR6ZE82aFJTRElISmFNSFpEWDFj?oc=5",
@@ -1134,24 +1231,6 @@
     },
     {
      "keyword": "트럼프",
-     "title": "트럼프 \"김정은과 러브레터 당장 재개될 수도\"…친분 거듭 강조",
-     "source": "연합뉴스TV",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE54bml4ZUZNaE1xcWE4RFU5c2p0eDdTS2F1OHFIRFlhWkhLTmxrZEhPT0FmdUlVODJMVkVqcDY5RUloc0Z5QnZOWmlCWXdWcG8xMVpuRUh1NU4xd0RCQ3l0TWZJb0JrWDA?oc=5",
-     "date": "2026-11-25",
-     "time": "10:47",
-     "published_at": "2026-11-25T10:47:00+09:00"
-    },
-    {
-     "keyword": "트럼프",
-     "title": "‘황의 귀환’ 작전상황실까지…트럼프 움직인 테크 거물들 전방위 로비",
-     "source": "한겨레",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9JU3lyUzdISVpVUkY1MklqT2NONWVqUUtBZlhvZDFQeFJEZWFDckNXRzhSMWVyNEQtRGZ3ZmFtTFdsMHg0N1dKQVlWZ1dkVXVZamZKRm42b0R1eWxBQVVKUmdiWFk4REJreDdMaExacw?oc=5",
-     "date": "2026-11-25",
-     "time": "10:46",
-     "published_at": "2026-11-25T10:46:52+09:00"
-    },
-    {
-     "keyword": "트럼프",
      "title": "트럼프 \"김정은과 러브레터 당장 다시 주고받을 수도\"",
      "source": "한국경제",
      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9YUTNLSmU5UU9pT0JiZ28tVDBWZC1Zd0xXZ21KZnB1Y0J1WVR3OUxkaGxQaVFiemdaTWZISzIxMVZkbWNHUnNIbmpzOTZhYTByOGd6X2YwVVowQQ?oc=5",
@@ -1167,90 +1246,9 @@
      "date": "2026-11-25",
      "time": "10:45",
      "published_at": "2026-11-25T10:45:40+09:00"
-    },
-    {
-     "keyword": "트럼프",
-     "title": "트럼프·젠슨 황, 돈으로 맺어진 2년간의 밀월…커지는 이해충돌 의혹 [1일1트]",
-     "source": "헤럴드경제",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5sM0cydkhlMHJ1MFFIV1hQbVhWWGZrd3ZKaUl3WF95dHVoUXEwMHQ0MC1MV2o4VjIyMzdSSzhkcjNVS2JjUVFhY2RtX0wwZC13NTBncXVn?oc=5",
-     "date": "2026-11-25",
-     "time": "10:45",
-     "published_at": "2026-11-25T10:45:35+09:00"
-    },
-    {
-     "keyword": "트럼프",
-     "title": "트럼프, 칠면조 사면식서도 ‘뒤끝 작렬’…“6조달러 잃어”",
-     "source": "중앙일보",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE10TGdEcEktNXE2Nk5DSjFLRFd0TlNtLV9NcHAwa01xaGFfczNPRTlQbUlYUnJYeG9yQy0wcGR0aW9vMXpNVy02NG1adzU0UlR5QWhwU1JR?oc=5",
-     "date": "2026-11-25",
-     "time": "10:38",
-     "published_at": "2026-11-25T10:38:38+09:00"
-    },
-    {
-     "keyword": "트럼프",
-     "title": "'젠슨황 복귀' 트럼프 개입 비판 봇물...\"막장 드라마의 극적 반전\"",
-     "source": "YTN",
-     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBoY3JiMVEwZVNnZHV3NkVBQW56VXlCZ2tUM2Uya2RVQUhWRURjdURadjBPN3BiU3d5eTdreXQzWEJvbUR4U19aNElaalhLTExnSEVvYjc4U000RmhaS1E?oc=5",
-     "date": "2026-11-25",
-     "time": "10:32",
-     "published_at": "2026-11-25T10:32:00+09:00"
-    },
-    {
-     "keyword": "트럼프",
-     "title": "트럼프 \"젠슨 황 사면도 선택지…의회서 진실 말해야\"",
-     "source": "연합인포맥스",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBIeDcyUHQ2QVc4Sk1KRjZoR2ZKYTd5SUlaMHA1T1JRRkZubWZkMTlLdTRSLWdHa3FoNXJwcFN0bTczUXVKN3dNbjdjRDJpVGVScW5sZ3FkUG91S1hvN2d4Yk14ak5xc3Q5UHozazlTWEI?oc=5",
-     "date": "2026-11-25",
-     "time": "10:31",
-     "published_at": "2026-11-25T10:31:00+09:00"
-    },
-    {
-     "keyword": "트럼프",
-     "title": "‘젠슨 황 복귀 개입’ 트럼프, 엔비디아 급등에 최대 200억 수익",
-     "source": "한겨레",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1wLXg4bURQeDFaam5tWW5wSVhTMmxkd092QlNRRF8ydXBRRGZXd21OY2F4OHYtY1VGYUdYRlM1WEhhNElMZkdSRDdkUTZuWGMzU1o5akhzaGI4cnFMTzBVS09hanoxQjVnX0hRTVRsQQ?oc=5",
-     "date": "2026-11-25",
-     "time": "10:23",
-     "published_at": "2026-11-25T10:23:00+09:00"
-    },
-    {
-     "keyword": "트럼프",
-     "title": "“제임스 본드는 보수주의자인가?” 성향부터 확인한 트럼프, 패틴슨엔 “행운 빈다”",
-     "source": "동아일보",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE8yamNEcThDZ28zenZNeXo0S2xnT2Y0UXJPcUUyV3FTV2dqTkRDOXNLclFOdTNCQ0IyZld1NWJLeEJMM1hzYWF4SUhHenBnSXcySWJWY0hmcDFnZTVfcXJaZ2I1cXAxTk5Kb3ZWVlJaelFMMEHSAWZBVV95cUxOVzVrdTQyWjVkWWNQaGZuRjhZRDB5aVNoUmlyT1Y5OTJkbFpKUXhpUFR2U3dxLWRTRmxQdlJyU19ndUZ4cVl2bHZLaTE2WmRpWHd0WTN0X0pnS3VWSVZhU3VtWjNZOGc?oc=5",
-     "date": "2026-11-25",
-     "time": "10:15",
-     "published_at": "2026-11-25T10:15:00+09:00"
-    },
-    {
-     "keyword": "트럼프",
-     "title": "복귀 밀어붙이더니 “사면도 가능”… 트럼프 행정부, 의회 청문회 앞둔 젠슨 황 총력 방어",
-     "source": "동아일보",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFB6ZFVxMHdkNG93REVRWEJnYTJLTDNJT183azBoeGFVeEMzTGtlbnl0NDlzb0gwODVZWnVDSnRwRldKUmxIN211ZVg1TUE2QjdmQ3FXd0lLUGNIc1oxSkd4UGRZc2x5X2JLOHN6aGI1M1JKaEnSAWZBVV95cUxNbENRaExrQ3Jsa3FscDJWSWVvRFA4SDNhZ005czRQZzM0YnliR05heW9kbU0yZHJCZVNEV2JybTZUTm9Qem5kQU5YYkFRbWgweVFxQzhvcy11alg2WTAyRUdZV2ZkVnc?oc=5",
-     "date": "2026-11-25",
-     "time": "09:59",
-     "published_at": "2026-11-25T09:59:20+09:00"
-    },
-    {
-     "keyword": "트럼프",
-     "title": "미 민주당, 트럼프 장남 투자사 포함 4곳 조사…특혜 여부 정조준",
-     "source": "한겨레",
-     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNcHhZRkVVVHRhNV85ck96ZmxvQ0ZDY3NKMkJLN1BvbjVtQktjMmxwVEc0MjNwcmNQMmQ1bkgtUHdZTEk0YW9DTVd1OUR6dDR2Vm1VZWVnUkttQlo4aUYzX1gtbUZyekpVRUZpSlZ0OVZGcDJyNnlvdlMtcjNOM29SYUhR?oc=5",
-     "date": "2026-11-25",
-     "time": "09:57",
-     "published_at": "2026-11-25T09:57:00+09:00"
-    },
-    {
-     "keyword": "트럼프",
-     "title": "트럼프, 젠슨 황 사면이 “언제나 선택지에 있다”고 발언｜Global Money Club",
-     "source": "중앙일보",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9kRHpGM1RpTmNxSF81ZHZOcUdnaF9rLUtxT2N0Z29EMjZJNmVJWGU1OUMwRUQxd1JhdzBUTWZvNUFua0pKQXBvbzRjLVo1cTBaRzVlVERXU2FZRzg?oc=5",
-     "date": "2026-11-25",
-     "time": "09:50",
-     "published_at": "2026-11-25T09:50:42+09:00"
     }
    ],
-   "fetched_at": "2026-11-25T12:08:39+09:00",
+   "fetched_at": "2026-11-25T13:09:13+09:00",
    "keyword": "트럼프",
    "id": "trace_trump"
   }
@@ -1259,6 +1257,15 @@
   {
    "query": "반도체 수출",
    "articles": [
+    {
+     "keyword": "반도체 수출",
+     "title": "1조 달러 시대 연 수출, 최근 4년 성장률 절반 넘게 채웠다",
+     "source": "부산일보",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9kQTV0MVFLUmFuVjNHd2dlVWdxbUl0ZTBrUjFrV1JCcDlwQm9paHo4b0lkdW5SMDVCT1JZcm9lNHRLbzlCLUVvYmhvUU1HdmQzeUZtNFpTODE4NXNLdWI3WU1IeTVUMVRVdkNvbGpGeUxJU1hCVkxlNndUZw?oc=5",
+     "date": "2026-11-25",
+     "time": "11:30",
+     "published_at": "2026-11-25T11:30:08+09:00"
+    },
     {
      "keyword": "반도체 수출",
      "title": "반도체·선박 '부진' 속 석유·車 '날개'… 전남광주 수출 34% 급증",
@@ -1321,23 +1328,32 @@
      "date": "2026-11-25",
      "time": "10:28",
      "published_at": "2026-11-25T10:28:00+09:00"
-    },
-    {
-     "keyword": "반도체 수출",
-     "title": "중견기업 3분기 수출 367억달러···반도체·바이오헬스 날았다",
-     "source": "이뉴스투데이",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1HNHhGSEgxOHEwVURiaFl1dTB4RjhCU0F5YnBTQzBrZmFpNGh2VFlUdEdtZnpwYTkwTXB0T09xSWVFUzQ0bE15Rk9icVNuMUJiQVhRdC1LV195M2otY0o5bmFzVVhtYmtrVnhEMlBCRHPSAXRBVV95cUxQeWpJVTVNWnJjZGhRRnc1MVZ5Z1htTV95cFVhdnBXaDFCZ05wXzBRMllSN3FSTDVwM1VPaEtFNUUxaGlKdnRHNm5qQjNJTzlMLUcxY3Brbk1xdTZWOVJXenl5ZU1QZUtJaUkxLW5fbzUxX3dGbA?oc=5",
-     "date": "2026-11-25",
-     "time": "10:24",
-     "published_at": "2026-11-25T10:24:26+09:00"
     }
    ],
-   "fetched_at": "2026-11-25T12:08:42+09:00",
+   "fetched_at": "2026-11-25T13:09:16+09:00",
    "tag": "반도체"
   },
   {
    "query": "코스피 외국인",
    "articles": [
+    {
+     "keyword": "코스피 외국인",
+     "title": "코스피, 오후에도 4700선서 급락…외국인 1.5조 매도에 삼전닉스 9%대↓",
+     "source": "이투데이",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE4ya2hqeW1ZMmFGS1kyekpKSng4Mm83eXUydTJXTnRBRlp5cWhkUFRzVGNWOGVQczhMV3RBYm1jOXZQeHNack5Pd2tFbEttQ3loYmZiWA?oc=5",
+     "date": "2026-11-25",
+     "time": "13:01",
+     "published_at": "2026-11-25T13:01:00+09:00"
+    },
+    {
+     "keyword": "코스피 외국인",
+     "title": "외국인 1.2조 순매도에 코스피 5%대 급락…삼전닉스 9%대 하락 [장중시황]",
+     "source": "www.2news.co.kr",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9vOUtDN0V2dXg3ZVJwMkc4VUhiOVRCZTJ1cE1wNjhRVC1pM1ZxN0EtUk0wUmdLelZ1Y3dmdkx2cUFDLW5qdTVGUjRGSTdXVy1UanBHREotUkFYelNXaTNuSEx4eWZXZ2pj?oc=5",
+     "date": "2026-11-25",
+     "time": "12:07",
+     "published_at": "2026-11-25T12:07:00+09:00"
+    },
     {
      "keyword": "코스피 외국인",
      "title": "[장중시황] 코스피, 외국인 1조원 매도에 4%대 급락…삼전·하닉 동반 약세",
@@ -1391,27 +1407,9 @@
      "date": "2026-11-25",
      "time": "09:37",
      "published_at": "2026-11-25T09:37:05+09:00"
-    },
-    {
-     "keyword": "코스피 외국인",
-     "title": "코스피 오를수록 外人은 주식 팔았다…\"주가·환율 같은 방향으로\"",
-     "source": "KB Think",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9xYzByMkR4VWNJR2NYbFpvekRQczRMdXRrZjVtTEpndkpLM3BzSEVvaHZIcm9XeUFMbC1tcGM4aVhiYmJ0WjU5eTF2c2NBaUpURXc2QTdyYkhkcFl6UTY4elgtTWNMbGgtRDFMMUxHdjhXQQ?oc=5",
-     "date": "2026-11-25",
-     "time": "08:32",
-     "published_at": "2026-11-25T08:32:51+09:00"
-    },
-    {
-     "keyword": "코스피 외국인",
-     "title": "[오늘 증시 전망] 코스피 6.32% 급반등에 5,000선 회복…미국 기술주 재하락에 25일 증시 시험대",
-     "source": "업코리아",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBoMUlKUjRBMmY3NENKb0E1bjhocUhLTy1aQ1g2amQyRUwxMTU5eHpxSF9meFQ0VlZ0ZVJQcXp3ZzBjMjl2WVFmS0c4SU9vblNyaEl4S21qWGtfTTRaNUJoSEFhNkxTRFR2dFFHQjNn?oc=5",
-     "date": "2026-11-25",
-     "time": "08:18",
-     "published_at": "2026-11-25T08:18:49+09:00"
     }
    ],
-   "fetched_at": "2026-11-25T12:08:46+09:00",
+   "fetched_at": "2026-11-25T13:09:19+09:00",
    "tag": "국내증시"
   },
   {
@@ -1419,9 +1417,18 @@
    "articles": [
     {
      "keyword": "AI 데이터센터 투자",
+     "title": "보령 2조원 규모 AI 데이터센터 조성 '탄력'",
+     "source": "에이티엔뉴스",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1pWk03bHQ4OFp1bHJkUmxrQTItdExZQXFrV2lCVzNYeVl6dkVieUc3bmVTMmVlYm1sYlNjdTF5M1RWcGhYaktKZU9xa0JUeXlyZXR2RzdlaWR0LUxUOHlxNTVwNENDUThfczJXZw?oc=5",
+     "date": "2026-11-25",
+     "time": "13:06",
+     "published_at": "2026-11-25T13:06:45+09:00"
+    },
+    {
+     "keyword": "AI 데이터센터 투자",
      "title": "AI 데이터센터부터 노후 전력망까지, 전력기기 3사 설비투자 급증",
      "source": "아시아경제",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9GNFBTTE5jaGRvUDA1WG51WnpMSHVtTkxKRnJyNllWMHhsbGh1eU5NX3dmeE84MzQ3SWtIVlRacktRdFNIWWFQVTh4SW9rSXl2ZmRvWU1UalM2ZXNqUU9NRg?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBQTVh6YnlIWmVkNDEtQWx6QktIWC1UQ2V3eGlnNThhX2MyakdFZlFKenhNZlZ4eVU4cU9oZERpSDVCV0FKQUVrcEhqTzR2Wklra3pINnUxc09wVTVhMjNHUTFR?oc=5",
      "date": "2026-11-25",
      "time": "11:23",
      "published_at": "2026-11-25T11:23:00+09:00"
@@ -1473,24 +1480,15 @@
     },
     {
      "keyword": "AI 데이터센터 투자",
-     "title": "빅테크 AI 투자 내년 ‘1884조’…2027년까지 ‘골든타임’에 韓 초격차 속도전",
-     "source": "더퍼블릭",
-     "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9QSTB0bE9oN1UtWkZJM2UtOWoxckFlaEFPV1R1Wjg5ZWxzU3kzeC1XMTdhQklwQmJLSER6TEh2Q2RkWHZDVnc5SnF1RFZLcFlyRmdZVHhwS1FQLTRUbm8zc3lJQk1aQkttSG9B0gFvQVVfeXFMTUY5ai1jY19iX3Uyb2VLbXZRQ0hRcmZIZ2x3WkFEQXZlMWJiWl8wRVBmNDByTUk1SzlpczNmZmo4YThuM2tqVllaU3RXVzlxWlBlR1pNenZNMEZxV1ltZ0NmQmp4WkpZc0QxT0Z2WW9F?oc=5",
+     "title": "2조원 ‘보령 웅천 AI 데이터센터’ 본격화…부지 계약",
+     "source": "서울신문",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE53dDBhREdTRlNLcXRqMGtFWnpPV2RYX2JTRjh2dS1XR3lmUjRnOEdUaTE3dklMX1dtYVNRSzBPLWJjaXdrWUJacTBnX19veTFoeFpSbE1FbHk2MDR3MDl3SEJOVnNJSjNmLU5fNWpielVxRjg?oc=5",
      "date": "2026-11-25",
-     "time": "10:44",
-     "published_at": "2026-11-25T10:44:08+09:00"
-    },
-    {
-     "keyword": "AI 데이터센터 투자",
-     "title": "'美 AI 데이터센터 특수' LS전선…LSCUS 내년 매출 목표 2조원으로 상향",
-     "source": "nbn 시사경제",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5ET29LNVdkbTRLTnNEdkJsRXJTSzVXc0RUQUxMVWJvM0h2NVJoUWZJaHBFYkI1M0F3Q3lGbWtQLVIxN1NQc29KUGE4ZGZPak8yZVc2NGZHVGxnelNBRFNnMDZIMDNwSnBhYlE?oc=5",
-     "date": "2026-11-25",
-     "time": "10:40",
-     "published_at": "2026-11-25T10:40:56+09:00"
+     "time": "10:54",
+     "published_at": "2026-11-25T10:54:09+09:00"
     }
    ],
-   "fetched_at": "2026-11-25T12:08:48+09:00",
+   "fetched_at": "2026-11-25T13:09:22+09:00",
    "tag": "AI"
   }
  ],
@@ -1590,72 +1588,30 @@
    "articles": [
     {
      "keyword": "SK하이닉스 실적",
-     "title": "불확실성 완화에 아시아의 엔비디아 공급업체와 스타트업, 황의 복귀 환영",
-     "source": "로이터",
-     "url": "https://www.saveticker.com/news/news_LoRp1rtq1OTp",
-     "date": "2026-11-24",
-     "time": "17:35",
-     "published_at": "2026-11-24T17:35:29+09:00",
-     "origin": "SAVE",
-     "badge": "SAVE",
-     "labels": [],
-     "view_count": 202,
-     "summary": "복귀로 제품 계획과 투자에 드리웠던 먹구름 걷혀 제품 주기를 앞당기고 공급업체들이 보조를 맞추도록 압박 그러나 국가안보 우려는 사라지지 ...",
-     "keywords": [
-      "엔비디아"
-     ],
-     "companies": [
-      "NVDA",
-      "005930",
-      "000660",
-      "005380"
-     ],
-     "is_top_story": false
+     "title": "'삼전·SK하닉' 실적·주가 디커플링 언제 풀릴까...주가는 연일 뒷걸음",
+     "source": "인사이트코리아",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9URXlXellZcnNncHoyWEVGRFU5N3ZDbGRzWDF6UGtBWl9HT0hDbWFPUjlOOXRiWkotal9fWGh1UU1wNDAtb2lRVzBXVVNhTlhXeGdoRnp2c1NPd3FkWTRkMlpOQmVoMHRvVEtGNko0RzUtZUnSAXdBVV95cUxNVzl3aWlMbHhnZWFWNF90dVJqQWRaZWFNODh6bXB3OFpzU1lzWC1tQ1I4cG0yMURaVjE4T2RISlVlSGFQRG1mTEwyb05qdmhWaXNYM2NsQU0ySzZwTEtCU0lZRXd4WGhzNXZzY2pCSVR4N1ZXNmJpYw?oc=5",
+     "date": "2026-11-25",
+     "time": "11:24",
+     "published_at": "2026-11-25T11:24:08+09:00"
     },
     {
      "keyword": "SK하이닉스 실적",
-     "title": "(카더라) 델·HPE 등, 계약 체결 수개월 뒤 AI 서버 가격 최대 45% 인상 요구",
-     "source": "파이낸셜타임스",
-     "url": "https://www.saveticker.com/news/news_kYms9hmh1qIr",
-     "date": "2026-11-22",
-     "time": "22:37",
-     "published_at": "2026-11-22T22:37:17+09:00",
-     "origin": "SAVE",
-     "badge": "SAVE PICK",
-     "labels": [
-      "정보"
-     ],
-     "view_count": 21066,
-     "summary": "파이낸셜타임스(FT)는 소식통을 인용해, 델·HPE·레노버·슈퍼마이크로 등 주요 서버 공급업체들이 계약 체결 수개월 뒤 실제 납품 시점에 엔비...",
-     "keywords": [],
-     "companies": [
-      "MU",
-      "000660"
-     ],
-     "is_top_story": true
+     "title": "국내 500대 기업 이익잉여금 1862조원 … 삼성전자·SK하이닉스가 37% 차지",
+     "source": "워크투데이",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5PYkRmUkZnMGhxdWRUaS1DMGtSRTFtQThMVGJDbGIwcmdpaExZSFl4Z05wTzRjNVF4Z3NTcnZBYWhTN1BOMkl2bGRGZGtxVXpESExiOHV1T284U0RiXzhVRGZyNXVrN25scGNNUA?oc=5",
+     "date": "2026-11-25",
+     "time": "08:37",
+     "published_at": "2026-11-25T08:37:49+09:00"
     },
     {
      "keyword": "SK하이닉스 실적",
-     "title": "(카더라) 삼성전자, 중국 시안 공장 AI 데이터센터용 낸드 생산능력 5배 확대 추진",
-     "source": "서울경제/블룸버그",
-     "url": "https://www.saveticker.com/news/news_TRpU4esD6VvY",
+     "title": "삼성전자 SK하이닉스 주가 젠슨 황 엔비디아 복귀에 '반짝' 반등, AI 불확실성 넘고 추세적 상승 이어갈까",
+     "source": "비즈니스포스트",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5NcFdfdFE5R0U5WEZrbVhCQmlMWldCLW1WYlQwZmZZOWhmRmhzb3RXelR6WDJDTTVwQkVXV3NjMjlCakJiclRvTmlBUnR0aU1LNm1EX3BCMnhGalplY0gzQTVHcVJuVmpGMHhMSGtoYzduYjQ?oc=5",
      "date": "2026-11-24",
-     "time": "08:16",
-     "published_at": "2026-11-24T08:16:57+09:00",
-     "origin": "SAVE",
-     "badge": "SAVE PICK",
-     "labels": [
-      "정보"
-     ],
-     "view_count": 13188,
-     "summary": "서울경제는 업계 소식통을 인용해, 삼성전자가 AI 데이터센터의 기업용 SSD에 탑재되는 9세대 V낸드(V9) 생산을 늘리기 위해 중국 시안 반도...",
-     "keywords": [],
-     "companies": [
-      "005930",
-      "000660",
-      "MU"
-     ],
-     "is_top_story": false
+     "time": "16:53",
+     "published_at": "2026-11-24T16:53:07+09:00"
     },
     {
      "keyword": "SK하이닉스 실적",
@@ -1685,7 +1641,7 @@
      "published_at": "2026-11-23T17:40:37+09:00"
     }
    ],
-   "fetched_at": "2026-11-24T15:05:51+09:00",
+   "fetched_at": "2026-11-25T13:09:25+09:00",
    "code": "000660"
   },
   "012450": {
@@ -2190,12 +2146,39 @@
     },
     {
      "keyword": "브로드컴 실적",
+     "title": "브로드컴, AI 반도체 성장에 장기 주가 반등 기대…2030년 두 배 상승 가능성 제기",
+     "source": "제민일보",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5VN2EyN2l0RG05a0RELVpJREwwUG5pOUUyNjk5YU9DVktMSVJxeGEwNUJmdXEtY0NBcEtscU4ybkR4OGVGZW5BT0JHelZzaGVhVVo2RHZjQnJQRzFETzNHczlzTjJ6LVE?oc=5",
+     "date": "2026-11-23",
+     "time": "01:43",
+     "published_at": "2026-11-23T01:43:50+09:00"
+    },
+    {
+     "keyword": "브로드컴 실적",
+     "title": "브로드컴, AI 반도체 성장세 시험대…12월 실적 발표에 시장 촉각",
+     "source": "제민일보",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5GbzRybFlhRUlDeks2WUp6SkdmdTd6ektBZ05vMjY1Q0h3WVFneWY4SXFaRkdaWHRiaXNFSllmby1jMUNoOFBFZnBQZFQzdXJha2ZzSk5lT25QWTRibHZidEhqUUY5UQ?oc=5",
+     "date": "2026-11-22",
+     "time": "08:21",
+     "published_at": "2026-11-22T08:21:12+09:00"
+    },
+    {
+     "keyword": "브로드컴 실적",
      "title": "브로드컴(AVGO) 28% 밀렸다…AI 매출 217억 달러 넘을까",
      "source": "코인리더스",
      "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFA4NDY3VHVHdkZCX3BPeXFSSEhTbWVvQlVCM0hJMV9GdjlINERjaEwyR1JMYnNjdzdhS0ZhSDFyQ3hHeEZCdDBUZGRn?oc=5",
      "date": "2026-11-21",
      "time": "23:04",
      "published_at": "2026-11-21T23:04:59+09:00"
+    },
+    {
+     "keyword": "브로드컴 실적",
+     "title": "골드만삭스 브로드컴 실적 전망: 매수 등급 유지, 목표가 460달러로 인하",
+     "source": "深潮TechFlow",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBtalNEMVk5Y3V3MVg2X3pJWFZicnNLVzFCUHZBSk9PZzk5ZWNER0cxdWZuOHdwVlR2aldqcURqNlhta21ZU1JmaHVkc2J1eXg4VHg5NUZiZGJudmdu?oc=5",
+     "date": "2026-11-20",
+     "time": "15:33",
+     "published_at": "2026-11-20T15:33:31+09:00"
     },
     {
      "keyword": "브로드컴 실적",
@@ -2207,7 +2190,7 @@
      "published_at": "2026-11-17T17:14:00+09:00"
     }
    ],
-   "fetched_at": "2026-11-24T14:06:14+09:00",
+   "fetched_at": "2026-11-25T13:09:28+09:00",
    "code": "AVGO"
   },
   "MU": {
@@ -2287,96 +2270,96 @@
    "articles": [
     {
      "keyword": "삼성전자",
-     "title": "삼성전자, 9년만에 최소 131명 승진…반도체서만 70명 발탁(종합2보)",
-     "source": "연합뉴스 한민족센터",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBKczRzSlQ5bkZkeExrbjFuRWFOWGVOUVdEMm9BRWlQUEhMcm81RENTRXUyMUhtTV9aTENWWWRLbnpXM2E3bjd2ZHpKTEtvaThBY01XQllCUHNDelAxYnRBTEF3dXlUc2U0VG0xUjdNbVVMaFFD?oc=5",
-     "date": "2026-11-24",
-     "time": "13:48",
-     "published_at": "2026-11-24T13:48:17+09:00"
+     "title": "韓 500대 기업 이익잉여금 1861조원···삼성전자·SK하이닉스, 전체 37%",
+     "source": "서울파이낸스",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBWNTRRYk1qeXUydXJXb1I0U0p1cWo5Y0dqWlZaU1BwWkh4ZGZiM2VORHdmSUJyaVI2aTFFRV9MSzNNVHdDbXdkQUNEZ2p5clBUQngtN0kxbTBfV0N1emYwYTZMMVVibDViT3c?oc=5",
+     "date": "2026-11-25",
+     "time": "11:55",
+     "published_at": "2026-11-25T11:55:56+09:00"
     },
     {
      "keyword": "삼성전자",
-     "title": "삼성전자, 임원 승진자 53% DS부문서 발탁…DS·DX 비중 균등히 맞춰",
-     "source": "뉴스웍스",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE42QWNMcUVDd3planBVWmpkZUFudHQwc2lRcmtybTRwcVl0WjBCZzl3YkhRNWtPVmVBRDVFMXlUZ1lnTnBOM1p5M2FqazZUVWg2SGJCUW94Y01QWVRGSjZQcGdXRGhYTnRTNW9WN0dJNNIBc0FVX3lxTE4yOWh1TjFDM1lMTmFTRmg2ajg3M0JwOEh2Tld3RndIZmVHU3dQZ1p5VzE0eHFMcDhyWnF4Tk5zeHlCRWR1XzJkeVpBTzJWQ3ZYYTZRcVlZUTF3ajRfM0VFQTRoWEFzdXB1WXhQUC1hdl9ZZlk?oc=5",
-     "date": "2026-11-24",
-     "time": "12:05",
-     "published_at": "2026-11-24T12:05:07+09:00"
-    },
-    {
-     "keyword": "삼성전자",
-     "title": "삼성전자 DX부문 임원 승진 3분의 1 급감…TV는 '광고'·미래는 '로봇' 방점",
-     "source": "지디넷코리아",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5fYkJXZ0VwZEQ1YTJJak5LUXdhbl90eEh3N09ubWxuNXUySnRkRWlQbXZGcGRMTEIzZDhlNjN3NVY2bEU5NHhUNkVJTXVNZzhaUGZSa05B?oc=5",
-     "date": "2026-11-24",
-     "time": "12:02",
-     "published_at": "2026-11-24T12:02:03+09:00"
-    },
-    {
-     "keyword": "삼성전자",
-     "title": "삼성전자, 임원 131명 승진 인사...HBM4·파운드리 주역 전진 배치",
-     "source": "지디넷코리아",
-     "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBDaUV2R2JldElybm9mdmwxMGJ1RWYtdlEtZkFzV0lTckpNc1cyRGFBSW9nSnVOZzFSZWVxS2lfQjV6RUxLaTgyRU1kNzgzaFB2UDFaeVBn?oc=5",
-     "date": "2026-11-24",
-     "time": "11:56",
-     "published_at": "2026-11-24T11:56:40+09:00"
-    },
-    {
-     "keyword": "삼성전자",
-     "title": "[리포트 브리핑]삼성전자, '넘쳐나는 FCF에 대한 고민' 목표가 300,000원 - 다올투자증권",
-     "source": "뉴스핌",
-     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1aYmlzdDRiTGhfQjZaUjZLWkJHZ0lwbElKS0lLUmJaOGg0LV9KeWhqWTJ3Rlk4ODlVdU16RGNtWDJJLWZFMENiT2N0LWFrY3JhWTg1SkxwX21RNWlW?oc=5",
-     "date": "2026-11-24",
+     "title": "[삼성전자 굴기] 메모리 다음 승부처 '파운드리'…전영현에 맡긴 이재용의 승부구",
+     "source": "녹색경제신문",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5vb2g0RXVfTk5tS2hEZkFMQ1ZZYWNDN0ZaazE4U253UGJla1NTd2l3cWpRV3h4UmFWcGN0cklUVWxtLWVaX2I4aHJrSnM4RjF0R2VYTWM0dEhlb3Y2WFh5eW5OaUZpcmFm?oc=5",
+     "date": "2026-11-25",
      "time": "11:47",
-     "published_at": "2026-11-24T11:47:00+09:00"
+     "published_at": "2026-11-25T11:47:19+09:00"
     },
     {
      "keyword": "삼성전자",
-     "title": "삼성전자, 2027년 임원인사 131명 승진…반도체 성과주의·AI 인재 중용",
-     "source": "경기일보",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5ZZ3czaC05NElfOFlUQ2NDYndQZWRGTk90cjhqVFJoS2lvTFdvRWQ5X1ZYTUk1WDBMSk8xTXhFbk00a00tek83OVNlay1hVGhMSWJUZVFkdlEwRkE?oc=5",
-     "date": "2026-11-24",
-     "time": "11:33",
-     "published_at": "2026-11-24T11:33:23+09:00"
+     "title": "[심층분석] 엔비디아 반락에 삼성전자·SK하이닉스 급락…2028년 메모리 전망도 갈렸다",
+     "source": "굿모닝경제",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5jT2w4OHN1Q0w2QnBUUUhtekw1aFlmb3pOMjBDZWZCVFRkekY2dVBrQ0lJX2pZdHZTR29ZcnJ4YVllWkZTMTQ2THUtXzlxeVZPSkRwczdGZ252dnpaY01hTHJjWWtqc2ZBa3VkeQ?oc=5",
+     "date": "2026-11-25",
+     "time": "11:45",
+     "published_at": "2026-11-25T11:45:04+09:00"
     },
     {
      "keyword": "삼성전자",
-     "title": "삼성전자, 2027 임원인사…반도체 인재 중용 ‘성과주의’ 재확인",
-     "source": "AI타임스",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE14empMaFFPM0ZhSF9fM21xQVZ5YUJyZ25iZnJ4eFpYMzZ2azdwaHczTlpaX2ktYUdJYWxNdWotLUg3S1FKcU1FWHFxX0J4OWUzMTRYZzNrQkQ1Tk5zdndqd3dUWWlDdWNpNXc?oc=5",
-     "date": "2026-11-24",
-     "time": "11:26",
-     "published_at": "2026-11-24T11:26:32+09:00"
+     "title": "'CES 2027' 로봇 전쟁…삼성전자 휴머노이드 출격 주목",
+     "source": "로봇신문",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9kOVdZREVEM2V6bm1zWE9GdVpXQVd3WWlnc251Z3JGbE05UDZ5a1U0NjNWSFpXTkE4cHhpSl9WLXZYZl9SelROTWxKby1rMXMxNktuOWdWU1BFbURGWUQydmdHWXJUaGJCejk0Zg?oc=5",
+     "date": "2026-11-25",
+     "time": "11:34",
+     "published_at": "2026-11-25T11:34:09+09:00"
     },
     {
      "keyword": "삼성전자",
-     "title": "삼성전자 역대급 실적에도 임원 승진은 9년 만에 최소",
-     "source": "디일렉",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1aWVU0SzhmMVJkZ09fdGtUeVFrbVhMRTc4ckhQMVVYTmdpQmVDMUtnU2hvdkJkVnlqUFNMWmpIVHQ3a29tZlh4YXQybVpZbkY1d3dZMC1tVU0zNzBTTzVpREJxYjhGUQ?oc=5",
-     "date": "2026-11-24",
-     "time": "11:20",
-     "published_at": "2026-11-24T11:20:31+09:00"
+     "title": "'하루천하' 젠슨 황 복귀 효과…삼성전자·SK하이닉스 8%대 급락",
+     "source": "금융소비자뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9GNlQya01hQm5lS2hJTm1ncVJRYzlQaEZMYjBLWmhCd2Z4dE9PWnVjTHBBM01pai10V2hKcFNpR1JOX0ZSaVZ0UXZwaHpXb0lsaUpZdVA2RUFTUGFULUZlSjlXZ0VTdmpqZUE?oc=5",
+     "date": "2026-11-25",
+     "time": "11:30",
+     "published_at": "2026-11-25T11:30:27+09:00"
     },
     {
      "keyword": "삼성전자",
-     "title": "삼성전자 임원 131명 승진 인사…HBM·로봇 인재 발탁",
-     "source": "경향신문",
-     "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5oQmx2Z3VPUnJsQWxlYURvMVF6OVlGUkQtcmRzcXE2cTZ3Y20wX2FHTG5LR2hFMExBYjRLTUtYRWJtTmRLSTVTYmJYR24xNjZzRWl2S2lyUk56UdIBX0FVX3lxTE5YUTQ1Zktfenh0RE5mTHhTN2pyQ0RoVTN1YUJzbGVLWmE5UE1MME1JZWhaRjJYUGlmcmwxNmlJb2ZJQXpGazVmeERneU1DTmZGZEtaU2hlOTRnbXA0Tzdr?oc=5",
-     "date": "2026-11-24",
-     "time": "11:14",
-     "published_at": "2026-11-24T11:14:00+09:00"
+     "title": "국회 토론회 찾은 중기부 차관·삼성전자 사장",
+     "source": "뉴스1",
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBsejVnc2ExakhKSDBJTGRJb3FRXy12R2FiNWVTdDQ4OXAzZjFPZTlOMloyeF9PRmNFSUlwS3ZXVG41SENTUjdNdU9tUQ?oc=5",
+     "date": "2026-11-25",
+     "time": "11:28",
+     "published_at": "2026-11-25T11:28:37+09:00"
     },
     {
      "keyword": "삼성전자",
-     "title": "삼성전자, '131명' 승진 임원인사 단행… AI 메모리 초격차 주역 대거 부사장 승진",
-     "source": "오피니언뉴스",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1DUGRVQ195NmhsS2tmR3d6TlBmNHdsM05KQW50M0JYbWsyUF9GS0Fadm1saksyNF9hMVRKNkhZM01QejJLR2tzSmFLWVhlTDV4UlVLLUxRRlozQ0hRN2dxVVN4SFlHX1FUY05XTUlXYVdudw?oc=5",
-     "date": "2026-11-24",
-     "time": "11:01",
-     "published_at": "2026-11-24T11:01:00+09:00"
+     "title": "준감위, 라이프운용에 답변...\"삼성전자 주주환원 결정 이해상충 아냐\"",
+     "source": "데일리브리프",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE96d3p2anRwNUlUNkVpSWxsb21jTzZhSks1VE93RWdSNl9BRk1UVktWM2psZ24yZDVTZGFTQnFoRHQ2WEtCUkduZTd2Vm04d2VGRUtXNUp5eTdfcmoyV29VTnRBWVNISlB5MWllNjR3?oc=5",
+     "date": "2026-11-25",
+     "time": "11:24",
+     "published_at": "2026-11-25T11:24:55+09:00"
+    },
+    {
+     "keyword": "삼성전자",
+     "title": "코스피 4730선까지 밀려…삼성전자·SK하이닉스 8%대 급락",
+     "source": "진일보 | 전남일보",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5nTWFHeFY5cmZuaFVyTjVTcExzbTMwNTdjNVAzWFF0QmJaX1NxZTV0bWdubEdRLXp5cmVjTDhhSG9FdzZZREpKZFhHYlFJMnZEeUFEaUo0YmV1b2hXY2s3Qzc4eGR6bzNCVmRRYVZXOA?oc=5",
+     "date": "2026-11-25",
+     "time": "11:24",
+     "published_at": "2026-11-25T11:24:42+09:00"
+    },
+    {
+     "keyword": "삼성전자",
+     "title": "'젠슨 황 복귀'에도 엇갈린 외국인 수급…'삼성전자' 사고 'SK하이닉스' 팔았다",
+     "source": "뉴스핌",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBoczZIZEhkUEdKTl9TNy1IZTVyRzdPbkNGZjdacDh5NWZRdlY4dGZ2bms1SmowVE9nbnhSR3ZmSGlmbXZzdkhEc2RDX0FlOHFVNWcycGhaTTdSdXZ3?oc=5",
+     "date": "2026-11-25",
+     "time": "11:24",
+     "published_at": "2026-11-25T11:24:00+09:00"
+    },
+    {
+     "keyword": "삼성전자",
+     "title": "메모리 반도체 다음은?…임원인사로 본 삼성전자 '미래 먹거리' 지형도",
+     "source": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5KTmtXT2dpWlhNeHVjOEp4M3JBT2JsVmlKS3BOS1pCRmVjU0c4S2hibTRPUmZHaWlSYmxBNlFBMjhOYlQ0d2lWSHAwYURoNWlwRjVvM1lIUW13dnJ5d3dPUdIBeEFVX3lxTE5ZN1NKcllFV0dNMzZFY2lRRV8tOWFCclZYcDJSem9vVjJVT1ZFWUNyWmpFaDdZUEt1SW5ZZnZpM18xQzF2Wmhfdi02b3JTLVBGMFVwejdMOVJSTHZsNDZZZVVUWTlWYkIzZk5Kd1NMRlJRRWcwbmxURA?oc=5",
+     "date": "2026-11-25",
+     "time": "11:07",
+     "published_at": "2026-11-25T11:07:51+09:00"
     }
    ],
-   "fetched_at": "2026-11-24T14:06:17+09:00",
+   "fetched_at": "2026-11-25T13:09:31+09:00",
    "keyword": "삼성전자"
   },
   "SK하이닉스": {
@@ -4033,96 +4016,96 @@
    "articles": [
     {
      "keyword": "애플",
-     "title": "한국공항공사, ‘2026 그린애플 어워드’에너지 관리 부문 금상 수상",
-     "source": "기호일보",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5GYzhkMFlpV09ORXZ4VjNPWVZNTlplVDVOb1JRVHVIU2dpd2lDLTJLaDhISmY3Y2dUSlNieDVVU1A3LUhLNEFldVZwdFBFb1RwcjZ1bTViZFlaX0VyWXZhcjB4MktlczZVUlhKOUllRQ?oc=5",
-     "date": "2026-11-24",
-     "time": "12:57",
-     "published_at": "2026-11-24T12:57:10+09:00"
-    },
-    {
-     "keyword": "애플",
-     "title": "애플 에어팟 4 vs 보스 QC 이어버드, 구매 전 확인해야 할 사양 비교 : 테크/과학",
+     "title": "애플 맥북프로 A1707 2016 15.4인치 모델 상세 살펴보기 : 테크/과학",
      "source": "재경일보",
-     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1vWElQNGR5MXFPYmNqSzNhRDU4UU51T0Z6MEJGTHhCazNWaXJCdHdjLUtTeWdLM24tY05vdjgyOGphcVNYbVFQa18xQQ?oc=5",
-     "date": "2026-11-24",
-     "time": "12:23",
-     "published_at": "2026-11-24T12:23:12+09:00"
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE0yVThmX09lV2h6U3hKV1hiLVNtQ1pVQm5IUVhxYjh5QW1jVzlNRUIweW9uYVl2Mko1TFE3ajBUWk9hWjJuaGk4elM1WQ?oc=5",
+     "date": "2026-11-25",
+     "time": "12:42",
+     "published_at": "2026-11-25T12:42:52+09:00"
     },
     {
      "keyword": "애플",
-     "title": "애플펜슬 손글씨 입력 단어는 지그재그로 지운다",
-     "source": "비건뉴스",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFA4S0E3Z3M4SE5PMkl2Rnd5b3pTeWFIY19PREJOY211U1JEdXd0Vkk3Ym9aTENqOU1UM0xkSTY2UzE4T2lSN3pNcXgwVnZYNUdxV1BSOW5OaGhTWEZ1NTR0M2tsOFRwdw?oc=5",
-     "date": "2026-11-24",
-     "time": "11:51",
-     "published_at": "2026-11-24T11:51:37+09:00"
+     "title": "화웨이 독자 OS 탑재 기기 1억대 돌파⋯중국서 애플 추월",
+     "source": "포커스온경제",
+     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBjYWhKek5SWDFIaGMwZDNwdDJackRhdzBHcUZ0cUo5ZDZnU1hxN0h4LWF1SlZfSlNZcFVIaEM5M2ZtbWVDQ3NjcklUV1FhMEtXcW5rdjRoR0hFVGNGaU9n?oc=5",
+     "date": "2026-11-25",
+     "time": "11:57",
+     "published_at": "2026-11-25T11:57:54+09:00"
     },
     {
      "keyword": "애플",
-     "title": "한국공항공사, 영국 ‘그린애플 어워드’서 에너지 관리 부문 금상 수상",
-     "source": "경기일보",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1HTEUwVVhJbHRVZHo2WU0yQUh6U3FCdmJNN0tyQVlVUWxwLXhmai1UemdzbFREOWd5cG80WkVNOVg2YVZfU3N4T0VqSXZzc3NzQ3YtTEFXNDRXNzQ?oc=5",
-     "date": "2026-11-24",
-     "time": "11:42",
-     "published_at": "2026-11-24T11:42:22+09:00"
+     "title": "D램값 폭등에 삼성·애플도 출하 목표 줄였다⋯글로벌 스마트폰 업계 '감산 도미노'",
+     "source": "엠투데이",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9uMXoyZmkxSmQ0Mkt1SVdqVGRWa0RaRjRHUm5WNlFVT3NNdTJoQzZCRHlEcWNXbTF6Wm9sYkNXSjRnLWpydjlaRlhKRm9SaU1fRkN1WFFjWG9wdDM4ckRMUUs1WFJfRTVfcGhSMUoydw?oc=5",
+     "date": "2026-11-25",
+     "time": "11:50",
+     "published_at": "2026-11-25T11:50:42+09:00"
     },
     {
      "keyword": "애플",
-     "title": "‘테드 래소’ 시즌5 확정…애플TV 최대 히트작, 로이 켄트 거취는 여전히 미정",
-     "source": "Martin Cid Magazine",
-     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQbDUycUxWRU1acVdQTHV4cDIyQ1FBZGJNc1lEUVJaYXV4U1ZKemFUdzNOb1hNMTJnSjlOSmRILURnZkhzS09aNWdQOWEyVjhPcF95SkNsRF8xOEt4eTJtUVBjMjVBeVlLZWlqMUVtMnJ4amJ6NEVmQ3NMWDB1NU1aSFl1RQ?oc=5",
-     "date": "2026-11-24",
-     "time": "11:41",
-     "published_at": "2026-11-24T11:41:25+09:00"
-    },
-    {
-     "keyword": "애플",
-     "title": "애플·삼성 이어 샤오미도 ‘부품값 쇼크’…수익성 방어 안간힘",
-     "source": "데일리안",
-     "url": "https://news.google.com/rss/articles/CBMiowJBVV95cUxNQ1NIdXpTN2VtYXZIa1oxekxKY1JlS3RCMVZDaTVPYVVTNUVtVDRnR1o2ZFVDOEdSVTdlLS0tNzFHa19LSzlTTlpOMF9VMmFsTkI4aUc0M1ZDYWFTMFUwckJlby1WajFnVGRGZWtQbjUzREQyLWRZM0g4OGlONm53dGE5aXhLN3dadU1OeDhJeVc2WWVMdVdwOGxVWmExckxDc25CVnByY255cHpJTkNNODRKX2JzUkxFX3dRN25UM0hDSzIzNnpjYmdHa1h1ODhac0JVM1gydDhRMkJnRjdzT09mcFVUME9fb3h2ZDV4bV9Na1ZUbE1KbFQ0RjJub0NURElCZVUzRTlQVjJ2emVUVWVZb3AzLUUzd3JQck12OXZ5dFU?oc=5",
-     "date": "2026-11-24",
-     "time": "11:41",
-     "published_at": "2026-11-24T11:41:00+09:00"
-    },
-    {
-     "keyword": "애플",
-     "title": "삼성디스플레이, 애플 첫 폴더블 양산 '일등공신' 승진자 명단에",
-     "source": "블로터",
-     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1aMHJVZEhrd2lBWU1vYU5hV0RETGxza1p2cFVPbmwtcHh2dm1OQVNCQU1QZE43Mm0ydDBTaS1jQjVNRnExSEhQUWxkcWs3RzllcHBBaDM3TzlMal9rUkcwRDFDZ2RJOEp40gFsQVVfeXFMTXZsSHJmYWwxWGVuR19yaE13dGxyLVVrZi1BNFFCbG1lSGxVbVVDODBPQUtLUUswRGh3RUx3S0sxcE5rSXM1azh0LTBmem9yXzZEclNCaW1pQTdQQXRCUmJqSzB3emx2aHZYRmtn?oc=5",
-     "date": "2026-11-24",
-     "time": "11:39",
-     "published_at": "2026-11-24T11:39:40+09:00"
-    },
-    {
-     "keyword": "애플",
-     "title": "삼성디스플레이, 애플 폴더블폰 '장기 독점' 굳히나…5년간 공급 전망",
+     "title": "애플 '프로덕트 레드' 3년 만에 돌아오나…12월 1일 특별 이벤트 개최",
      "source": "케이벤치",
-     "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBGNXEyZWlwUm5YekdzZTRwLUs1Uk9ZQ0RWNl9QU1dReTFTelcyODFUQVBuczROQmNtYmNScFF5VUpkYzZGSzlhSg?oc=5",
-     "date": "2026-11-24",
-     "time": "11:18",
-     "published_at": "2026-11-24T11:18:49+09:00"
+     "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE5XM3p3Qnl6UHkzMVZBcEZCVWdzc0NMSnFYZ3ZzMUFzdEFUcEQzYU41TGFhdG9IblJDYmEzbEhLcS01YUxRSF9tag?oc=5",
+     "date": "2026-11-25",
+     "time": "11:45",
+     "published_at": "2026-11-25T11:45:37+09:00"
     },
     {
      "keyword": "애플",
-     "title": "만들면서 바로 바꾼다… 애플, 실시간 영상 생성 AI '패스트프레임' 공개",
-     "source": "유스연합",
-     "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE02NG9yUDNpdENwczRzSGpkTXZka0YtakJ3SVh6Y3JJdXJWeUJjSFNDcnZ1V2ZSb25tRHd0THBjUy1TMXo0LVQ4VEUtOGxkRHdtMW1N?oc=5",
-     "date": "2026-11-24",
-     "time": "11:15",
-     "published_at": "2026-11-24T11:15:55+09:00"
+     "title": "하정우 부위원장, 애플·AWS·퀄컴과 회동 “AI 생태계 전반 협력 논의”",
+     "source": "디지털데일리",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1ZZTFkekVibXJTazBmRU5PTmFILTRxMEQzcGFFZy15bGVqRW05S2d2THFyWDYzMkIxc0ZaTVlUb1RtUVhSbzdhODUtMDVDUW1pN0VBUW9jOFhPUWtDdnN1QlJQS3A?oc=5",
+     "date": "2026-11-25",
+     "time": "11:35",
+     "published_at": "2026-11-25T11:35:16+09:00"
     },
     {
      "keyword": "애플",
-     "title": "가을 아이폰 공식 깬 애플...내년 초 갤럭시와 격돌",
-     "source": "아시아경제",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5pWlYwN3lyYXFBODBYUXNUbUNFSTZ6SlBnYi16Y2FRakQ1LUF4R2lUUzZtQ2FjcUxJVmZpYUdqa05XOGJfaTlSclJ4TjJJMzlIT0hDU0kyT0U0dUpXZ09NRg?oc=5",
-     "date": "2026-11-24",
-     "time": "11:09",
-     "published_at": "2026-11-24T11:09:56+09:00"
+     "title": "성남시, '그린 애플 어워즈'에서 '챔피언 오브 챔피언스' 수상 쾌거",
+     "source": "데일리안",
+     "url": "https://news.google.com/rss/articles/CBMimAJBVV95cUxPU2IteFhrVXY1YWlnc0JmZmdocDJ0QVdpcVpoZnpuQ0d6NzdGbmt1RVVCRnFkN1U1a1RrYlFqLTVZRWhyS1pGX18yN0JJOEcyb2Vtbng5TU80SW1pQ04yQTZmZEFNV1UyTVU1MnF1Z1hjRldsTGQxZGlvaU90UUVzeks0UzhwTTBrVGNrTTB6MElreHNVa1drRDh3eUlpOFE4MnJQQzc2amNrUEdLVFVaZjhhWjVWdllzV0xMV2ZIYXVQbkNqN1N1c2R4dDN3R0psRlBZUHVtd1RpV0FVejhBV3VoUFBOQnk4eUpjUnctLTZTRXc4UWJxYlEyNTQ4M0puT2tscXlxWjZya21jSUtwT0JJMlJwWFJW?oc=5",
+     "date": "2026-11-25",
+     "time": "11:20",
+     "published_at": "2026-11-25T11:20:00+09:00"
+    },
+    {
+     "keyword": "애플",
+     "title": "성남시, 英 그린 애플 어워즈 최고 대상…분당 특별정비구역 지정 절차 개선",
+     "source": "대한경제",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5SeWVhYWMyLVB0Y0dBc0tBbm9rSjFyNFR0QnNiUkg0cUU0bDJxUzVqMnpqeTcyc28yR1ZPZFUteVdHZC1tdlJhS2cyMDRqdkFBR3kzRzJEakx1bklBY0lFVVIzaFhUdlplMXlVNGRFblFwVDQ?oc=5",
+     "date": "2026-11-25",
+     "time": "11:14",
+     "published_at": "2026-11-25T11:14:15+09:00"
+    },
+    {
+     "keyword": "애플",
+     "title": "애플 '프로덕트 레드' 부활하나…12월 1일 신제품 4종 기대",
+     "source": "디지털투데이",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5fd09ieG5qUUR1Rm1pTjFsMEExT3BCelhTM1VpRzI2Y3RaQ213OEhjSTFPWGhEQm1NNFpIdlFQVmVPeHROamgwaUNKR1NJUVc2b3pxaUdWblFZQnVNQkRDbFc4a1hQTWplcldSeWYwSmdZT2M?oc=5",
+     "date": "2026-11-25",
+     "time": "11:13",
+     "published_at": "2026-11-25T11:13:16+09:00"
+    },
+    {
+     "keyword": "애플",
+     "title": "정식품, ‘베지밀 꼭꼭 씹히는 애플망고두유’ 리뉴얼",
+     "source": "뉴스웰",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5NRXphVlJLZ1Z0Z1hCaVFzc2ZlRVE1NkJGdWpUeTlqTzZPTXVnMHF6aWdiUFZHWEd2dWZ6eEVSWjdtMHlTSmlLYWJnWEVzR09GY1kzYUtfVWFCODY2ZDVLOTRnclNWWTV0MklseA?oc=5",
+     "date": "2026-11-25",
+     "time": "11:02",
+     "published_at": "2026-11-25T11:02:14+09:00"
+    },
+    {
+     "keyword": "애플",
+     "title": "성남시, 국제 환경상 '그린 애플 어워즈' 최고 대상 수상",
+     "source": "뉴시스",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE13MEdjVmV4aEdKSGhGNF9idlZRUHVNZjhQa2FEY2xHQlJpMmRpLU5PY3pQLVcyLVVfOHcxWGpwZ2FVcjdfRzlHMm1FWmlEZmNiSFlHWnBtT1JHYS1KV3VRX9IBeEFVX3lxTE94R2xvdkNPLXRORnRseGJkbjlLcDBpeUhMdm5qbXV5VHA0OGtHRFdpOHd5OU5Xb2Z4NkQ4SGhWS2QyaEFqVkN3enVjYWxDY1Z0UGhQRVlaYjZaZnkzYksxZVB4VURrejhWM0pXUGFyT3lHUGNzT0p1MQ?oc=5",
+     "date": "2026-11-25",
+     "time": "11:00",
+     "published_at": "2026-11-25T11:00:46+09:00"
     }
    ],
-   "fetched_at": "2026-11-24T13:07:07+09:00",
+   "fetched_at": "2026-11-25T13:09:34+09:00",
    "keyword": "애플"
   },
   "2차전지": {
@@ -4473,96 +4456,96 @@
    "articles": [
     {
      "keyword": "엔비디아",
-     "title": "엔비디아, 젠슨 황 CEO 전격 복귀 … 트럼프, ‘내가 성사시켰다’ 주장",
+     "title": "[특징주] 두산, 엔비디아 급락에 AI 투심 위축…13%대 하락",
+     "source": "글로벌이코노믹",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNeG5jNW0wWjFhbXpqRnh3ang5ODIwVGlMS243eGs0S3B1YmxyMTVUTjc1N1JPcjV2X3hrZXRjZFQ2Z2dpZ1h0NWhERjMxd0pnWjVJTkRBbThwWW9qU3dUeG1VSkxLYTNkb2FSbWltOGsxYVZyRGRkd0dLVGo0WUdObmg2WU1YTVc3?oc=5",
+     "date": "2026-11-25",
+     "time": "13:00",
+     "published_at": "2026-11-25T13:00:14+09:00"
+    },
+    {
+     "keyword": "엔비디아",
+     "title": "‘젠슨황 복귀’ 트럼프 개입에 비판 고조…엔비디아 주가는 하락",
+     "source": "KBS 뉴스",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1DWENkUDY4MlUyX1M1WHhfU0VlYUdPTDZoUWJTZFc4UENqQ0RIZW4zck5rQ21fbFBHa2pOQk9oX2VhejFKNmJVVVZwU3FyZGl1aWxWcWt2Qk5NSEE?oc=5",
+     "date": "2026-11-25",
+     "time": "12:02",
+     "published_at": "2026-11-25T12:02:00+09:00"
+    },
+    {
+     "keyword": "엔비디아",
+     "title": "젠슨 황 \"승계 계획 필요 없다\"⋯엔비디아 기존 경영체제 고수",
+     "source": "포커스온경제",
+     "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBfaGtyN3FSdW0xdVdFZ3ZtSXBTMjFLZjBmdFdTM0dpM093TkxBM1FMbnJuUXlUTmxHb2lHbVNyblpMV2JxRmw0MVhHYUxjQ3lqUHg4aUU3Mm5pbzVDOTU4?oc=5",
+     "date": "2026-11-25",
+     "time": "11:35",
+     "published_at": "2026-11-25T11:35:02+09:00"
+    },
+    {
+     "keyword": "엔비디아",
+     "title": "젠슨 황 복귀한 엔비디아…창업자 의존 리스크 여전",
+     "source": "매일일보",
+     "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1pZ08ybUtmazVLZ1FxQU1GSzJWaUthWE4wQ2hCQXNLSDJiV1BVbmpuY1VxTnd3OWtzSXJKQ0YzVlJpWWdhNGY5dm45eTE1ZHhUblhlaVVUU1lYMnRpeDFrY0xVdWk?oc=5",
+     "date": "2026-11-25",
+     "time": "11:33",
+     "published_at": "2026-11-25T11:33:54+09:00"
+    },
+    {
+     "keyword": "엔비디아",
+     "title": "11배 쓸어 담았는데…엔비디아 ‘줍줍’ 서학개미 어쩌나",
+     "source": "마켓인",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5ZNDdjMlF5MmdBZ2VQaW1saWpQQktpZ0NvTWNRQ1NqVEphT1VkcXpRRHBIS2w1OUUtYThFeEs0VW1DNjFHX3VlVUwxLXpZcFBWQlZTcmtjUGlNN00tUC1wSFI0SU04b0JDSk1zTHNERzQwUXc?oc=5",
+     "date": "2026-11-25",
+     "time": "11:31",
+     "published_at": "2026-11-25T11:31:00+09:00"
+    },
+    {
+     "keyword": "엔비디아",
+     "title": "젠슨 황, 엔비디아 복귀…중국 시진핑에게는 어떤 의미일까?",
      "source": "BBC",
-     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE55LWVERnRyZDJBM3pjaE05d0kxQ3Q5aUhHX2FCdE9lUzQyeEJtU1oxR0xONTFORElILVE3ekdxTy14RWdjWmh5a1ZPbGpkRkswMFBndGpmMzJsVExWT0HSAWNBVV95cUxPX3pOcGZIdnMtdzdjVlNjcEotazROeWVNTmlNVlB1N2kyNEdxTmNaZGlEbXBNYXdZQXhFamVHUEZVeGRlM2M2Mk02QVozN083NHZfa3lnYm1BYUI1LXVNVEZUdTg?oc=5",
-     "date": "2026-11-24",
-     "time": "12:32",
-     "published_at": "2026-11-24T12:32:34+09:00"
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE53TGxvLURFN0FkSlp6OUlxc3VzbXRWMGdERFFXLThsdlF5SjZQTFZVWEh2aFNoWGNFaWxyeXN3MTF4cTNhNmcxZFJEeXNINEZBLTdwV1RFRUZCeFpPWnfSAWNBVV95cUxNWEZOWkJjTTFLcHdtWC1na2ROUTJPRENxdGhaRVE5ZmV1d2hOQWlXdzM2RFo4V3dkemd1bFI0ZXppQ2U5S3dvX2c4YWE5VDFLZzk4VWtnWHI4T2pZN0JGRElaTnc?oc=5",
+     "date": "2026-11-25",
+     "time": "11:14",
+     "published_at": "2026-11-25T11:14:05+09:00"
     },
     {
      "keyword": "엔비디아",
-     "title": "월가 전문가 \"엔비디아發 안도 랠리에도 경고 신호 여전\"",
-     "source": "연합인포맥스",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFAtSDZwVVQ1YUVVblVkQWs4WllvTVdZc0VNZy1IT1MtTHB5bTFoR0dFQUstVFRCRFQzUEdSU1hraHhZQWZxMUt3Mi16V1QtLXdpbUVSUndOTHVXbDBuVHpFa1BlUXdXZFBkMXA3SHZ2RDc?oc=5",
-     "date": "2026-11-24",
-     "time": "12:28",
-     "published_at": "2026-11-24T12:28:14+09:00"
+     "title": "젠슨 황, \"별도 승계계획 필요없어\"...엔비디아 경영체제 유지 시사",
+     "source": "KBC광주방송",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBSMWhVSWRzNmFrQ0FLampqWVFucEpqblhWcXZiem1uQnhHWDc2ODFQTmZkT2dwdy1fVnZhMldZc3NndkVpdXlqb202OUhHd2RXc1Rkdmhuc0xSRS1IRGVuNA?oc=5",
+     "date": "2026-11-25",
+     "time": "11:11",
+     "published_at": "2026-11-25T11:11:10+09:00"
     },
     {
      "keyword": "엔비디아",
-     "title": "'스캔들' 젠슨 황 전격 복귀‥엔비디아 폭등",
-     "source": "MBC 뉴스",
-     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9sQ0VPdDNJdG5YVkh1OWhwb3NOck9hZ1EyVFAwVlNkdEpKZVliMl9aZUEyeVJtdV9ZWGhWWkJ0eUNaaHF0UlprODg1NHAyVTVsaVZ6bDBkb0ViZjFZRFd2UElWLWwtMEFSUDV2cEhHQWZGSUxkRG9wNtIBeEFVX3lxTE9wMnBKeFlEam9FeUhwUkNzUFI5Zk9La3lVWUFPSGZFOUw3TTh4b1BpNlFmN011dkRzdlRySTlJUEhDdEMxTU9ZeEN5RWsxVl9LcFh2SkpQaVpyaThSRWp3andwRjdCZVp3cnUxQ0V6QlpxVVA3MzgtSQ?oc=5",
-     "date": "2026-11-24",
-     "time": "12:09",
-     "published_at": "2026-11-24T12:09:51+09:00"
-    },
-    {
-     "keyword": "엔비디아",
-     "title": "젠슨 황, 엔비디아 CEO 전격 복귀…이사회 공식 발표",
-     "source": "한겨레",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE13MlJSeWJKaFpHN2R6VHVxdnVDcDJZZ1BLNFozcWNZRndJZTdFZENsTjlfWDB3dE96Z01YMWlPZlN5RDhTNnlDanV1eHR6djZOcFktTFFMT3RFMkxOTEV2QWRDTlIwSDZMSHExNDFaTQ?oc=5",
-     "date": "2026-11-24",
-     "time": "11:55",
-     "published_at": "2026-11-24T11:55:00+09:00"
-    },
-    {
-     "keyword": "엔비디아",
-     "title": "젠슨 황 복귀에 엔비디아 31% 급등…나스닥 6.47% 반등",
-     "source": "한겨레",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFAtbzgzR3JqdDRrT0UxUEJCdk94NGtUMHV4TUF1cDUyNHEybXVMSVNpU1Z0dWtCcVpBR0czWS1TUERwVk44YWxoZFdWTHotZmt0WG1MN3hsb2JKNHhkYkxnSEs2bUczd0FTZjJHZUQ1cw?oc=5",
-     "date": "2026-11-24",
-     "time": "11:54",
-     "published_at": "2026-11-24T11:54:00+09:00"
-    },
-    {
-     "keyword": "엔비디아",
-     "title": "조사도 안 끝났는데 젠슨 황 복귀…엔비디아 이사회 전원 사퇴 거론",
-     "source": "한겨레",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBBR29OQ0s1WUhRSUZYM3p6RUxFWEt6Z2ZpT3UtdzZEM2xEZ0hDSk0zNDFCc1NkSEc3bTF6b21hajJudlZyVm1nOTczZ3FrS1EwNXJwRGo4TXpOWkMxZW1qUWk0VGphX3VRajU5YllOcw?oc=5",
-     "date": "2026-11-24",
-     "time": "11:54",
-     "published_at": "2026-11-24T11:54:00+09:00"
-    },
-    {
-     "keyword": "엔비디아",
-     "title": "젠슨황 복귀시킨 트럼프, 엔비디아 급등에 최대 221억 원 수익",
-     "source": "MBC 뉴스",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE14bVpDX2gtbDdLelFSUkhZbkdtX2ktRTVWVWNGUjhMdVdGa0I4bjZra3JBVV92el9KanFWLU5mV1pybEs0UWhwem50RTFPUEpLd2M4dzFGT3pLdThqUWlGajl1ci1ZWUVWTlF0MXBMeldLT24x0gF0QVVfeXFMUGNTZlNGeG5NbkUxTk4zNXJSYWxaZXBvWGhXRVYwVFNBZWVDNVNzZjdCeUtqMzlJQmNTRXdzVXFNdnVmRWszcGRsRXJ0eF9jX1VkM0FEVkwtSTdYMjl0OVF1V0hjakpnUXNDS1ktbVp4ajBiMTY?oc=5",
-     "date": "2026-11-24",
-     "time": "11:46",
-     "published_at": "2026-11-24T11:46:59+09:00"
-    },
-    {
-     "keyword": "엔비디아",
-     "title": "\"트럼프, 엔비디아 주가 급등에 최대 221억원 수익\"",
+     "title": "젠슨 황 돌아오자 변심?…’복귀 찬성’ 엔비디아 직원 절반 ’뚝’",
      "source": "연합뉴스TV",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE12dVlvc0FCMGFNcFlqMFo0dFRiX1pSSGNUNUxPVG5JV1l5Q2taZ3R2Y1FLb29QdEZaSldHUzAyaDBNZHhwd1R2TXVlY2ZwTFowaG5vQXNKbnlBU3Z2cHdrVWh3cGVud28?oc=5",
-     "date": "2026-11-24",
-     "time": "11:42",
-     "published_at": "2026-11-24T11:42:00+09:00"
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0wdGpVajBKSTA3VlB4NHR3ZFJuMFdTVVAxZ2x6bEhQdHlEeTNjQnhqVkJtRk1jaExCRG8zeFVablpUN0dMYm9CVUxoNng3QWRkU0l2VkRQcEJrM3czbDB3NTZSc0JnWnc?oc=5",
+     "date": "2026-11-25",
+     "time": "10:49",
+     "published_at": "2026-11-25T10:49:00+09:00"
     },
     {
      "keyword": "엔비디아",
-     "title": "엔비디아 스캔들: 미국, 싱가포르 기업 '메가스피드' 블랙리스트 추가 예정",
-     "source": "BBC",
-     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBiMnpIWDNOSWx0ZDlFdHF1NVpvOW1adjJuTUpaVW5mUE1meFppMHp0Q1g0bDluX3hWY2tTYy10dkEzYXJSU0ZtRmdPeTM2ODFJUDNMYlZGaWpwUVNYTUHSAWNBVV95cUxOXzNOaVZpSGY3aGEycW5jR190RnpBZkNXTXJZMUVTWWZtckJHa0Q2c1RHLW5TMkNkay1YY2FBREJiSG1QRW9SZTVZenlFczk3VzBlbG9uTnp0RlQ1OWk1YkJEYTA?oc=5",
-     "date": "2026-11-24",
-     "time": "11:37",
-     "published_at": "2026-11-24T11:37:27+09:00"
+     "title": "엔비디아 복귀 후 충격적인 행보...추가 불륜 고백한 젠슨 황 [이슈톺]",
+     "source": "YTN",
+     "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9hbUEtaG5iU1JueUY4V3hwMndmd3ZBYlI4LWxtMUpRbU56Z0p1SkVBR0kydzhoQXVWbGJqeXhCZXg3dUdSY1J4bXgzNzJoclVlSGVmbzZFOUFRcWJzRVE?oc=5",
+     "date": "2026-11-25",
+     "time": "10:37",
+     "published_at": "2026-11-25T10:37:00+09:00"
     },
     {
      "keyword": "엔비디아",
-     "title": "'젠슨 황 귀환'에 코스피 5천 탈환…나스닥 6.5%↑, 엔비디아 30%대 폭등",
-     "source": "SBS Biz",
-     "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE12WFAzVmk2eldWUG1MMjZaVXBBRnBLNzRtdTByMmhtdUJ3Z2dxN19DdjNSbTNIbmQ2OVV4aE1OZUpNLXd0aWlSY0Z4RHptajdQaFhr0gFYQVVfeXFMUFBoYS1DUkxkNDQ3RjJvNGxxRnl6WWZDS2UwSGc3VGl0R1JIY0NwLVFLMXFCMGsxc1dtRHB3elBPQzUzeVg2Skg2czd6QVZ3YjJIUTVXSlRidw?oc=5",
-     "date": "2026-11-24",
-     "time": "11:20",
-     "published_at": "2026-11-24T11:20:00+09:00"
+     "title": "[뉴욕 인사이트] 전날 폭등 후 엔비디아·반도체주 급락에 나스닥 1.47% 하락…다우는 상승 마감 (영상)",
+     "source": "Investing.com 한국어",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1Xakxnd21LNjBtZEV3ZjlWenV0MmV2RFNtb2FLOXJ5WTB2Tm9rOV9mNDZpWVRTR0FCcXFCR2ZMUFdEc1hjdFhEdEJhekQ5NElRSEtENEVUc2cwV21rSF9zdg?oc=5",
+     "date": "2026-11-25",
+     "time": "10:36",
+     "published_at": "2026-11-25T10:36:00+09:00"
     }
    ],
-   "fetched_at": "2026-11-24T13:07:10+09:00",
+   "fetched_at": "2026-11-25T13:09:37+09:00",
    "keyword": "엔비디아"
   },
   "트럼프": {
@@ -4761,8 +4744,8 @@
   }
  },
  "save": {
-  "status": "live",
-  "stale": false,
+  "status": "cached",
+  "stale": true,
   "fetched_at": "2026-11-25T13:08:17+09:00",
   "fetched_via": "browser-session",
   "count": 40,
@@ -5404,15 +5387,17 @@
    ]
   },
   "added": {
-   "keywords": 0,
+   "keywords": 10,
    "companies": 0
   },
-  "errors": [],
+  "errors": [
+   "SAVE 직접 조회 불가: Cloudflare 봇 차단(Just a moment) — 익명 요청으로는 접근 불가"
+  ],
   "site": "https://www.saveticker.com"
  },
  "errors": [],
  "briefing": {
-  "headline": "미국 증시 마감: 다우 50,018.70 (+0.85%), 나스닥 23,733.54 (-1.48%), S&P500 7,201.09 (-0.50%), SOX 8,832.50 (-7.88%) / 코스피 4,700.99 (-6.09%), 코스닥 647.67 (-2.73%)",
+  "headline": "미국 증시 마감: 다우 50,018.70 (+0.85%), 나스닥 23,733.54 (-1.48%), S&P500 7,201.09 (-0.50%), SOX 8,832.50 (-7.88%) / 코스피 4,722.93 (-5.66%), 코스닥 651.36 (-2.18%)",
   "checkpoints": [
    {
     "title": "반도체·기술주 흐름",
@@ -5424,34 +5409,34 @@
    },
    {
     "title": "금리·환율",
-    "detail": "미 10년물 4.900% (-0.22bp), 미 2년물 4.658%, 원/달러 1,343.70원 (+0.09%)."
+    "detail": "미 10년물 4.900% (-0.22bp), 미 2년물 4.658%, 원/달러 1,343.50원 (+0.07%)."
    },
    {
     "title": "국내 증시",
-    "detail": "국내 추적 종목 낙폭 최대는 삼성전자 -9.66%."
+    "detail": "국내 추적 종목 낙폭 최대는 삼성전자 -9.24%."
    }
   ],
   "sector_news": [
    {
     "tag": "반도체",
-    "text": "반도체·선박 '부진' 속 석유·車 '날개'… 전남광주 수출 34% 급증",
+    "text": "1조 달러 시대 연 수출, 최근 4년 성장률 절반 넘게 채웠다",
     "date": "2026-11-25",
-    "source": "뉴시스",
-    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1qQldZbUcwM1N6ZVJVaVNKVUpqNElTakNuNmpIZjdMZzhqNHFkYWpMTXZmZ3VFZUJiWEczS3A5bEVOSi1DeEtrVzRHclRobHJwQmtLTkNpNWRVam8yLTJxadIBeEFVX3lxTE9MQzdyT3ljcnRiemVYNEI1Mmo2Vkg3X3AzQnd0Ri1mcGVBYlhNMWVIRmwtbWpzdFZWUUFsNnotQ3FuVUZsR3FBWjRFWFV3M3FrTHUtaE1YVDhWa0hkM0pNOUtXRFM4djlhLTA4VE5ZOVB2cGFXYVJ0Tg?oc=5"
+    "source": "부산일보",
+    "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9kQTV0MVFLUmFuVjNHd2dlVWdxbUl0ZTBrUjFrV1JCcDlwQm9paHo4b0lkdW5SMDVCT1JZcm9lNHRLbzlCLUVvYmhvUU1HdmQzeUZtNFpTODE4NXNLdWI3WU1IeTVUMVRVdkNvbGpGeUxJU1hCVkxlNndUZw?oc=5"
    },
    {
     "tag": "국내증시",
-    "text": "[장중시황] 코스피, 외국인 1조원 매도에 4%대 급락…삼전·하닉 동반 약세",
+    "text": "코스피, 오후에도 4700선서 급락…외국인 1.5조 매도에 삼전닉스 9%대↓",
     "date": "2026-11-25",
-    "source": "브릿지경제",
-    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5fdmhwM010NDVnV3NRa0NpdVh3UTZYbE5VMElsam5ZQ3UxWUpveGM5dERNd1RMRjRhSlZ0WFBjMnlJV2pGU0JnaFBjR1pnS0pLSHNuRW5hdnpydw?oc=5"
+    "source": "이투데이",
+    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE4ya2hqeW1ZMmFGS1kyekpKSng4Mm83eXUydTJXTnRBRlp5cWhkUFRzVGNWOGVQczhMV3RBYm1jOXZQeHNack5Pd2tFbEttQ3loYmZiWA?oc=5"
    },
    {
     "tag": "AI",
-    "text": "AI 데이터센터부터 노후 전력망까지, 전력기기 3사 설비투자 급증",
+    "text": "보령 2조원 규모 AI 데이터센터 조성 '탄력'",
     "date": "2026-11-25",
-    "source": "아시아경제",
-    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9GNFBTTE5jaGRvUDA1WG51WnpMSHVtTkxKRnJyNllWMHhsbGh1eU5NX3dmeE84MzQ3SWtIVlRacktRdFNIWWFQVTh4SW9rSXl2ZmRvWU1UalM2ZXNqUU9NRg?oc=5"
+    "source": "에이티엔뉴스",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1pWk03bHQ4OFp1bHJkUmxrQTItdExZQXFrV2lCVzNYeVl6dkVieUc3bmVTMmVlYm1sYlNjdTF5M1RWcGhYaktKZU9xa0JUeXlyZXR2RzdlaWR0LUxUOHlxNTVwNENDUThfczJXZw?oc=5"
    }
   ]
  }
