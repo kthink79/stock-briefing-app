@@ -9,7 +9,7 @@
             임의의 가짜 시세·기사로 채우지 않는다.
    ========================================================================== */
 
-const APP_VERSION = 'v3.4 (매수·매도 시점 분석)';
+const APP_VERSION = 'v3.5 (키워드 3중 필터)';
 const MARKET_PATH = 'data/market_latest.json';
 const NEWS_PATH = 'data/news_latest.json';
 const REMOTE_BASE = 'https://kthink79.github.io/stock-briefing-app/';
@@ -550,6 +550,98 @@ function normalizeKeyword(k) {
   return String(k || '').replace(/[^0-9A-Za-z가-힣]/g, '').toLowerCase();
 }
 
+/* ---------------------------------------------------------------------------
+   키워드 3중 필터 — 서버(scripts/collect_live_data.py)와 같은 규칙
+   ① 단어 경계  : '수학이란'·'창당이란'·'이란성'처럼 다른 단어의 일부로 들어간 '이란' 차단
+   ② 복합 맥락  : '미국 이란 전쟁'은 이란 단독 통과 금지 — 지정학·시장 맥락이 함께 필요
+   ③ 비증시 노이즈: 신간·사형·연예·야구 같은 사회/문화 기사 제외(경제 신호 있으면 예외)
+   기기에 저장돼 있던 옛 기사도 이 규칙으로 다시 걸러낸다.
+--------------------------------------------------------------------------- */
+const KEYWORD_NOISE_TOKENS = ['신간', '출간', '도서', '저자', '서평', '베스트셀러', '사형', '고문',
+  '반정부', '시위', '인권', '부고', '별세', '결혼', '이혼', '연예', '드라마', '예능',
+  '아이돌', '야구', '축구', '농구', '올림픽', '책'];
+const KEYWORD_MARKET_TOKENS = ['증시', '주가', '주식', '코스피', '코스닥', '시가총액', '시총',
+  '실적', '영업이익', '매출', '상장', '공시', '수주', '수출', '투자', '인수', '합병', 'M&A',
+  '금리', '환율', '반도체', '공급', '계약', '특징주', '종목', '펀드', 'ETF', '배당', '유가',
+  '원유', '달러', '지수', '선물', '채권', '증권', '매수', '매도'];
+const IRAN_CONTEXT_TOKENS = ['전쟁', '분쟁', '군사', '무력', '공격', '타격', '충돌', '공습',
+  '미사일', '드론', '기뢰', '호르무즈', '해협', '유조선', '원유', '유가', '석유', '이스라엘',
+  '네타냐후', '미국', '트럼프', '제재', '핵', '중동', '외교', '협상', '중재', '혁명수비대',
+  '파병', '휴전', '청해부대', '걸프'];
+const KEYWORD_BLOCK_PHRASES = {
+  '이란': ['이란성'],
+  '조선': ['조선일보', '조선비즈', '조선노동당', '조선미녀', '조선왕조', '조선시대', '조선 후기', '조선족'],
+  '애플': ['애플망고', '그린 애플']
+};
+
+function stripKeywordPhrases(text) {
+  let out = String(text || '');
+  Object.keys(KEYWORD_BLOCK_PHRASES).forEach(function (key) {
+    KEYWORD_BLOCK_PHRASES[key].forEach(function (phrase) {
+      out = out.split(phrase).join(' ');
+    });
+  });
+  return out;
+}
+
+/* 토큰이 단어 경계 규칙을 지켜 본문에 있는지 */
+function newsTokenPresent(token, text) {
+  const tok = String(token || '').trim();
+  const hay = String(text || '');
+  if (!tok || !hay) return false;
+  const isLatin = /^[0-9A-Za-z][0-9A-Za-z&+.\- ]*$/.test(tok) && /[A-Za-z]/.test(tok);
+  const isHangul = /[가-힣]/.test(tok);
+  const needle = isLatin ? tok.toLowerCase() : tok;
+  const hayLower = isLatin ? hay.toLowerCase() : hay;
+  let from = 0;
+  while (true) {
+    const i = hayLower.indexOf(needle, from);
+    if (i < 0) return false;
+    const before = i > 0 ? hay.charAt(i - 1) : '';
+    const after = hay.charAt(i + needle.length);
+    let ok = true;
+    if (isLatin) {
+      if (/[A-Za-z]/.test(before) || /[A-Za-z]/.test(after)) ok = false;
+    } else if (isHangul) {
+      if (tok === '이란') {
+        if (/[가-힣]/.test(before) || after === '성') ok = false;
+      } else if (tok.length === 1) {
+        if (/[가-힣]/.test(before) || /[가-힣]/.test(after)) ok = false;
+      }
+    }
+    if (ok) return true;
+    from = i + 1;
+  }
+}
+
+function newsHasAny(tokens, text) {
+  for (let i = 0; i < (tokens || []).length; i++) {
+    if (newsTokenPresent(tokens[i], text)) return true;
+  }
+  return false;
+}
+
+function newsTitleIsNoise(title) {
+  const raw = String(title || '');
+  if (!raw) return false;
+  const text = stripKeywordPhrases(raw);
+  if (!newsHasAny(KEYWORD_NOISE_TOKENS, text)) return false;
+  return !newsHasAny(KEYWORD_MARKET_TOKENS, text);  // 주가·실적 등이 함께 있으면 경제 기사
+}
+
+/* 키워드 트레이스 기사가 3중 필터를 통과하는지 */
+function traceArticleOk(article, keyword) {
+  const title = String((article && article.title) || '');
+  if (!title || newsTitleIsNoise(title)) return false;
+  const label = String(keyword || '');
+  const text = stripKeywordPhrases(title + ' ' + String((article && article.summary) || ''));
+  if (label.indexOf('이란') !== -1) {
+    if (!newsTokenPresent('이란', text)) return false;
+    if (!newsHasAny(IRAN_CONTEXT_TOKENS, text)) return false;
+  }
+  return true;
+}
+
 /* 서버가 미리 수집한 기사 중 해당 키워드/기업 기사 찾기 */
 function snapshotArticlesFor(keyword) {
   const news = LIVE.news;
@@ -725,7 +817,9 @@ async function fetchLiveKeywordNews(keyword) {
       };
     }).filter(function (a) { return a.published_at; });
     const cutoff = Date.now() - 10 * 86400000;
-    return articles.filter(function (a) { return Date.parse(a.published_at) >= cutoff; });
+    return articles.filter(function (a) {
+      return Date.parse(a.published_at) >= cutoff && traceArticleOk(a, keyword);
+    });
   } catch (e) {
     return [];
   }
@@ -922,10 +1016,10 @@ function rebuildTrace(trace) {
 
 async function hydrateTrace(trace, force) {
   const fromSnapshot = snapshotArticlesFor(trace.keyword).filter(function (a) {
-    return articleRelevant(a, trace.keyword);
+    return articleRelevant(a, trace.keyword) && traceArticleOk(a, trace.keyword);
   });
   const existing = (Array.isArray(trace.articles) ? trace.articles : []).filter(function (a) {
-    return articleRelevant(a, trace.keyword);
+    return articleRelevant(a, trace.keyword) && traceArticleOk(a, trace.keyword);
   });
   const age = trace.articlesAt ? (Date.now() - Date.parse(trace.articlesAt)) : Infinity;
   const snapAge = LIVE.newsAt ? (Date.now() - Date.parse(LIVE.newsAt)) : Infinity;

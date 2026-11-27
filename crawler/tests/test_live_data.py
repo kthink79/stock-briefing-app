@@ -368,5 +368,142 @@ class TestPolicyRates(unittest.TestCase):
         self.assertIn("market.policy_rates", js)
 
 
+class TestKeywordThreeWayFilter(unittest.TestCase):
+    """키워드 트레이싱 3중 필터 — ①단어 경계 ②복합 맥락 ③비증시 노이즈.
+
+    사용자가 스크린샷으로 제보한 오탐 두 건(수학이란·신간 / 반정부시위 사형선고)이
+    다시 들어오지 않고, 실제 중동·유가 기사는 그대로 남는지를 고정한다.
+    """
+
+    def _rule(self, keyword="미국 이란 전쟁", cfg=None):
+        cfg = cfg or live.DEFAULT_CONFIG
+        entry = next((k for k in cfg["trace_keywords"] if k["keyword"] == keyword), {})
+        return live.keyword_rule(keyword, entry)
+
+    def test_copula_and_suffix_iran_are_blocked(self):
+        rule = self._rule()
+        for title in (
+            "AI가 난제를 푸는 시대에 인간에게 수학이란, 신간",
+            "무엇이란 무엇인가…철학 입문서 출간",
+            "장동혁, ‘조작 징계’ 사과 요구에…“탈당·창당이란 좋은 제도 있다”",
+            "이란성 쌍둥이 부모의 고민",
+        ):
+            self.assertFalse(live.article_passes(title, rule), title)
+        # 앞이 공백·문장부호·시작이고 뒤에 조사/합성어가 붙은 진짜 지명·국가는 통과
+        self.assertTrue(live.token_present("이란", "이란 외무, 조현에 외국군 주둔은 분쟁 키워"))
+        self.assertTrue(live.token_present("이란", "한-이란 외교장관 통화"))
+        self.assertTrue(live.token_present("이란", "이란전쟁에 생사 기로"))
+
+    def test_social_noise_is_blocked(self):
+        rule = self._rule()
+        self.assertFalse(live.article_passes(
+            "이란서 반정부시위 가담 여성 6명 사형선고...고문도 당해", rule))
+        self.assertTrue(live.is_noise_title("AI가 난제를 푸는 시대에 인간에게 수학이란, 신간"))
+        self.assertTrue(live.is_noise_title("프로야구 개막전 매진"))
+        # 경제·증시 신호가 함께 있는 기사는 노이즈 단어가 있어도 남긴다
+        self.assertFalse(live.is_noise_title("프로야구단 인수전…구단주 주가 급등"))
+        self.assertFalse(live.is_noise_title("엔비디아 실적 발표"))
+
+    def test_geopolitical_articles_pass(self):
+        rule = self._rule()
+        self.assertTrue(live.article_passes("이란 외무, 조현에 외국군 주둔은 분쟁 키워", rule))
+        self.assertTrue(live.article_passes("호르무즈 해협 기뢰·이란 긴장 유가 급등", rule))
+        self.assertTrue(live.article_passes("이란 드론에 쿠웨이트서 이탈리아인 2명 사망…유조선도 기뢰 피격", rule))
+
+    def test_iran_alone_without_geopolitical_context_is_blocked(self):
+        rule = self._rule()
+        self.assertFalse(live.article_passes("이란, 대통령 선거 일정 발표", rule))
+        self.assertFalse(live.article_passes("서울 다산콜센터 해외서도 벤치마킹…이란에 '128콜센터' 설립", rule))
+
+    def test_filter_relevant_applies_all_three_filters(self):
+        arts = [
+            {"title": "AI가 난제를 푸는 시대에 인간에게 수학이란, 신간"},
+            {"title": "이란 외무, 조현에 외국군 주둔은 분쟁 키워"},
+            {"title": "이란 반정부시위 가담 여성 6명 사형선고…고문도 당해"},
+            {"title": "이란·튀니지…120다산콜재단 상담 운영 경험 배운다"},
+            {"title": "호르무즈 해협 기뢰·이란 긴장 유가 급등"},
+        ]
+        picked = live.filter_relevant(arts, ["이란"], live.GEOPOLITICAL_CONTEXT)
+        self.assertEqual([a["title"] for a in picked],
+                         ["이란 외무, 조현에 외국군 주둔은 분쟁 키워",
+                          "호르무즈 해협 기뢰·이란 긴장 유가 급등"])
+
+    def test_latin_tokens_use_word_boundary(self):
+        self.assertFalse(live.token_present("AI", "TRAIN SERVICES DELAYED"))
+        self.assertFalse(live.token_present("AI", "PAID SUBSCRIPTIONS"))
+        self.assertTrue(live.token_present("AI", "NEW AI MODEL RELEASED"))
+        self.assertTrue(live.token_present("HBM", "SK하이닉스 HBM4 양산 확대"))
+
+    def test_multi_word_keyword_requires_every_word(self):
+        rule = live.keyword_rule("미국 이란 전쟁")  # require 없음 → 세 낱말 모두 필요
+        self.assertTrue(rule["require_all"])
+        self.assertTrue(live.keyword_matches("미국-이란 전쟁 발발 가능성", rule))
+        self.assertFalse(live.keyword_matches("우크라이나 전쟁 장기화", rule))
+
+    def test_sanitize_news_cleans_existing_articles(self):
+        news = {
+            "keywords": {
+                "미국 이란 전쟁": {"articles": [
+                    {"title": "AI가 난제를 푸는 시대에 인간에게 수학이란, 신간"},
+                    {"title": "이란 외무, 조현에 외국군 주둔은 분쟁 키워"},
+                    {"title": "이란 반정부시위 가담 여성 6명 사형선고…고문도 당해"},
+                    {"title": "이란 외무, 조현에 외국군 주둔은 분쟁 키워"},  # 중복
+                ]},
+                "엔비디아": {"articles": [
+                    {"title": "엔비디아 실적 발표"},
+                    {"title": "무관한 기사"},
+                ]},
+            },
+            "pool": {"이란": {"articles": [
+                {"title": "장동혁, “탈당·창당이란 좋은 제도 있다”"},
+                {"title": "이란군, 호르무즈서 LNG선·유조선 기뢰 충돌 화재"},
+            ]}},
+            "companies": {}, "sectors": [],
+        }
+        report = live.sanitize_news(news, live.DEFAULT_CONFIG)
+        self.assertEqual(report["removed"], 5)  # 오탐 3 + 중복 1 + 엔비디아 무관 1 + pool 1
+        self.assertEqual([a["title"] for a in news["keywords"]["미국 이란 전쟁"]["articles"]],
+                         ["이란 외무, 조현에 외국군 주둔은 분쟁 키워"])
+        self.assertEqual([a["title"] for a in news["keywords"]["엔비디아"]["articles"]],
+                         ["엔비디아 실적 발표"])
+        self.assertEqual([a["title"] for a in news["pool"]["이란"]["articles"]],
+                         ["이란군, 호르무즈서 LNG선·유조선 기뢰 충돌 화재"])
+
+    def test_save_merge_rechecks_stored_keyword_tags(self):
+        news = {"keywords": {"미국 이란 전쟁": {"query": "이란", "articles": []}},
+                "companies": {}, "errors": []}
+        snapshot = {"status": "live", "fetched_at": live.iso_kst(live.now_kst()),
+                    "news": [
+                        {"title": "서울 다산콜센터…이란에 '128콜센터' 설립",
+                         "keywords": ["미국 이란 전쟁"], "keyword": "미국 이란 전쟁",
+                         "published_at": live.iso_kst(live.now_kst())},
+                        {"title": "이란 외무, 조현에 외국군 주둔은 분쟁 키워",
+                         "keywords": ["미국 이란 전쟁"], "keyword": "미국 이란 전쟁",
+                         "published_at": live.iso_kst(live.now_kst())},
+                    ],
+                    "top_stories": [], "calendar": [], "errors": []}
+        merged = live.merge_save_news(news, snapshot, live.DEFAULT_CONFIG)
+        titles = [a["title"] for a in merged["keywords"]["미국 이란 전쟁"]["articles"]]
+        self.assertEqual(titles, ["이란 외무, 조현에 외국군 주둔은 분쟁 키워"])
+
+    def test_default_config_carries_filter_rules(self):
+        iran = next(k for k in live.DEFAULT_CONFIG["trace_keywords"] if k["id"] == "trace_iran")
+        for word in ("전쟁", "분쟁", "호르무즈", "유가", "원유", "이스라엘", "미국",
+                     "트럼프", "제재", "미사일", "드론", "공습", "기뢰", "외교", "핵", "중동"):
+            self.assertIn(word, iran["context_any"])
+        self.assertIn("noise_exclude", live.DEFAULT_CONFIG["news_filter"])
+        self.assertIn("market_context", live.DEFAULT_CONFIG["news_filter"])
+
+    def test_committed_config_has_three_way_filter(self):
+        path = os.path.join(ROOT, "data", "config.json")
+        with open(path, encoding="utf-8") as f:
+            cfg = json.load(f)
+        iran = next(k for k in cfg["trace_keywords"] if k["id"] == "trace_iran")
+        self.assertIn("호르무즈", iran["context_any"])
+        self.assertTrue(cfg["news_filter"]["noise_exclude"])
+        for word in ("신간", "사형", "반정부", "야구", "연예"):
+            self.assertIn(word, cfg["news_filter"]["noise_exclude"])
+
+
 if __name__ == "__main__":
     unittest.main()

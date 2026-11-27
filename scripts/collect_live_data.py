@@ -31,6 +31,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
+from functools import lru_cache
 
 KST = timezone(timedelta(hours=9))
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -130,7 +131,12 @@ DEFAULT_CONFIG = {
     "trace_keywords": [
         {"id": "trace_nvda", "keyword": "엔비디아", "query": "엔비디아", "require": ["엔비디아"]},
         {"id": "trace_hbm", "keyword": "HBM", "query": "HBM", "require": ["HBM"]},
-        {"id": "trace_iran", "keyword": "미국 이란 전쟁", "query": "이란", "require": ["이란"]},
+        {"id": "trace_iran", "keyword": "미국 이란 전쟁", "query": "이란", "require": ["이란"],
+         "context_any": ["전쟁", "분쟁", "군사", "무력", "공격", "타격", "충돌", "공습",
+                         "미사일", "드론", "기뢰", "호르무즈", "해협", "유조선", "원유",
+                         "유가", "석유", "이스라엘", "네타냐후", "미국", "트럼프", "제재",
+                         "핵", "중동", "외교", "협상", "중재", "혁명수비대", "파병",
+                         "휴전", "청해부대", "걸프"]},
         {"id": "trace_trump", "keyword": "트럼프", "query": "트럼프", "require": ["트럼프"]},
     ],
     "sector_news": [
@@ -144,6 +150,20 @@ DEFAULT_CONFIG = {
         "연준", "물가", "코스피", "테슬라", "애플", "2차전지", "바이오",
         "우주항공", "메모리", "엔비디아", "트럼프", "이란",
     ],
+    "news_filter": {
+        "noise_exclude": [
+            "신간", "출간", "도서", "저자", "서평", "베스트셀러", "사형", "고문",
+            "반정부", "시위", "인권", "부고", "별세", "결혼", "이혼", "연예",
+            "드라마", "예능", "아이돌", "야구", "축구", "농구", "올림픽",
+        ],
+        "market_context": [
+            "증시", "주가", "주식", "코스피", "코스닥", "시가총액", "시총", "실적",
+            "영업이익", "매출", "상장", "공시", "수주", "수출", "투자", "인수",
+            "합병", "M&A", "금리", "환율", "반도체", "공급", "계약", "특징주",
+            "종목", "펀드", "ETF", "배당", "유가", "원유", "달러", "지수", "선물",
+            "채권", "증권", "매수", "매도",
+        ],
+    },
     "news_max_age_days": 10,
     "news_per_keyword": 30,
     "news_reuse_minutes": 20,
@@ -705,34 +725,224 @@ def parse_google_news_rss(xml_bytes: bytes, keyword: str, max_age_days: int = 10
     return articles
 
 
+# --------------------------------------------------------------------------
+# 키워드 3중 필터 — 키워드 트레이싱 오탐 차단
+#   ① 단어 경계 : '수학이란'·'창당이란'·'무엇이란'·'이란성'처럼 다른 단어의 일부로
+#                  들어간 '이란'은 매칭하지 않는다(서술격 조사 '-(이)란' 대응).
+#   ② 복합 맥락 : '미국 이란 전쟁'은 '이란' 단독으로 통과시키지 않고 전쟁·분쟁·군사·
+#                  호르무즈·유가·원유·이스라엘·미국·트럼프·제재·미사일·드론·공습·
+#                  기뢰·외교·핵·중동 같은 지정학·시장 맥락이 함께 있을 때만 통과시킨다.
+#   ③ 비증시 노이즈: 신간·도서·출간·저자·사형·고문·반정부시위·인권·부고·결혼·연예·
+#                  드라마·야구·축구 같은 사회/문화 기사는 제외한다. 단 주가·실적·수출
+#                  처럼 명백한 경제·증시·기업 신호가 함께 있으면 예외로 남긴다.
+#   같은 규칙을 Google News 수집·SAVE 병합·기존 저장분 재검사·앱(app.js)에 함께 적용한다.
+# --------------------------------------------------------------------------
+_HANGUL = "가-힣"
+# 서술격 조사 '-(이)란' 과 모양이 같아 앞 글자에 붙으면 다른 말이 되는 키워드
+_COPULA_TOKENS = frozenset({"이란", "라는", "란"})
+# 같은 표기지만 다른 뜻인 고유명사 — 매칭 전에 지운다(경계 규칙으로는 못 가른다)
+TOKEN_BLOCK_PHRASES = {
+    "조선": ("조선일보", "조선비즈", "조선노동당", "조선미녀", "조선왕조", "조선시대",
+            "조선 후기", "조선족", "조선대학교"),
+    "이란": ("이란성",),
+    "애플": ("애플망고", "그린 애플", "애플 어워즈"),
+}
+# 지정학·시장 맥락(복합 맥락 필수 키워드)
+GEOPOLITICAL_CONTEXT = [
+    "전쟁", "분쟁", "군사", "무력", "공격", "타격", "충돌", "공습", "미사일",
+    "드론", "기뢰", "호르무즈", "해협", "유조선", "원유", "유가", "석유",
+    "이스라엘", "네타냐후", "미국", "트럼프", "제재", "핵", "중동", "외교",
+    "협상", "중재", "혁명수비대", "파병", "휴전", "청해부대", "걸프",
+]
+# 키워드별 기본 맥락(config 에 context_any 가 없을 때)
+DEFAULT_CONTEXT = {
+    "미국 이란 전쟁": GEOPOLITICAL_CONTEXT,
+    "이란": GEOPOLITICAL_CONTEXT,
+}
+# 비증시·사회/문화 노이즈
+NOISE_TOKENS = (
+    "신간", "출간", "도서", "저자", "서평", "베스트셀러", "사형", "고문",
+    "반정부", "시위", "인권", "부고", "별세", "결혼", "이혼", "연예",
+    "드라마", "예능", "아이돌", "야구", "축구", "농구", "올림픽",
+)
+# 한 글자라 낱말 경계로만 판정해야 하는 노이즈('책임' 오탐 방지)
+NOISE_WORD_TOKENS = ("책",)
+# 노이즈 단어가 있어도 이 신호가 함께 있으면 경제·증시·기업 기사로 보고 남긴다
+MARKET_CONTEXT_TOKENS = (
+    "증시", "주가", "주식", "코스피", "코스닥", "시가총액", "시총", "실적",
+    "영업이익", "매출", "상장", "공시", "수주", "수출", "투자", "인수", "합병",
+    "M&A", "금리", "환율", "반도체", "공급", "계약", "특징주", "종목", "펀드",
+    "ETF", "배당", "유가", "원유", "달러", "지수", "선물", "채권", "증권",
+    "매수", "매도",
+)
+_ASCII_TOKEN_RE = re.compile(r"^[0-9A-Za-z][0-9A-Za-z&+.\- ]*$")
+
+
+@lru_cache(maxsize=1024)
+def _token_pattern(token: str):
+    """토큰 하나의 매칭 정규식.
+
+    · 영문/숫자 토큰 : 앞뒤 영문 경계 — 'AI' 가 'TRAIN' 에 걸리지 않고,
+      'HBM' 은 'HBM4' 를 포함한다(숫자 접미 허용).
+    · '이란'        : 앞에 한글 음절이 붙으면('-이란' 서술격 조사) 다른 단어이므로 차단,
+      뒤에는 '이란전쟁'·'이란군' 같은 합성어를 허용하고 '이란성(雙)' 만 막는다.
+    · 한 글자 한글    : 낱말 경계 필수(ex. '책' vs '책임').
+    · 그 밖의 한글    : 부분 문자열 매칭(기존 동작 유지).
+    """
+    tok = (token or "").strip()
+    if not tok:
+        return None
+    esc = re.escape(tok)
+    if _ASCII_TOKEN_RE.match(tok) and re.search(r"[A-Za-z]", tok):
+        return re.compile(rf"(?<![A-Za-z]){esc}(?![A-Za-z])", re.IGNORECASE)
+    if tok in _COPULA_TOKENS:
+        return re.compile(rf"(?<![{_HANGUL}]){esc}(?!성)")
+    if len(tok) == 1:
+        return re.compile(rf"(?<![{_HANGUL}]){esc}(?![{_HANGUL}])")
+    return re.compile(esc)
+
+
+def token_present(token: str, text: str) -> bool:
+    """토큰이 단어 경계 규칙을 지켜 본문에 있는지."""
+    if not token or not text:
+        return False
+    pattern = _token_pattern(str(token))
+    return bool(pattern and pattern.search(text))
+
+
+def _filter_lists(cfg: dict | None = None) -> tuple:
+    """config 의 news_filter(없으면 기본값) → (노이즈 토큰, 경제 예외 토큰)."""
+    conf = ((cfg or {}).get("news_filter") or {})
+    noise = tuple(conf.get("noise_exclude") or NOISE_TOKENS) + tuple(NOISE_WORD_TOKENS)
+    market = tuple(conf.get("market_context") or MARKET_CONTEXT_TOKENS)
+    return noise, market
+
+
+def is_noise_title(title: str, cfg: dict | None = None) -> bool:
+    """비증시·사회/문화 노이즈 제목인지(경제·증시 신호가 함께 있으면 예외)."""
+    text = (title or "").strip()
+    if not text:
+        return False
+    noise, market = _filter_lists(cfg)
+    if not any(token_present(t, text) for t in noise):
+        return False
+    return not any(token_present(t, text) for t in market)
+
+
 def keyword_tokens(keyword: str) -> list:
     """'미국 이란 전쟁' → ['미국','이란','전쟁'] 같은 관련성 판정용 토큰."""
     return [t for t in re.split(r"\s+", keyword or "") if len(t) >= 2]
 
 
-def filter_relevant(articles: list, tokens: list) -> list:
-    """제목에 토큰이 하나도 없는 기사는 검색 노이즈로 보고 제외한다."""
-    if not tokens:
+def default_context_tokens(label: str, tokens: list | None = None) -> list:
+    for key in [label] + list(tokens or []):
+        if key in DEFAULT_CONTEXT:
+            return list(DEFAULT_CONTEXT[key])
+    return []
+
+
+def keyword_rule(label: str, entry: dict | None = None) -> dict:
+    """키워드 하나의 판정 규칙 — 토큰·복합 맥락·차단 구절.
+
+    require 를 명시하지 않은 여러 낱말 키워드는 모든 낱말이 함께 있어야 통과한다.
+    """
+    entry = dict(entry or {})
+    explicit = [str(t) for t in (entry.get("require") or []) if str(t).strip()]
+    tokens = explicit or [t for t in keyword_tokens(label) if t]
+    context = [str(t) for t in (entry.get("context_any") or []) if str(t).strip()]
+    if not context:
+        context = default_context_tokens(label, tokens)
+    block = [str(p) for p in (entry.get("block_phrases") or []) if str(p).strip()]
+    for key in [label] + tokens:
+        block.extend(TOKEN_BLOCK_PHRASES.get(key, ()))
+    return {
+        "label": label,
+        "tokens": tokens,
+        "context_any": context,
+        "block_phrases": list(dict.fromkeys(block)),
+        "require_all": not explicit and len(tokens) > 1,
+    }
+
+
+def _strip_block_phrases(text: str, rule: dict) -> str:
+    for phrase in rule.get("block_phrases") or ():
+        if phrase and phrase in text:
+            text = text.replace(phrase, " ")
+    return text
+
+
+def keyword_matches(text: str, rule: dict | None) -> bool:
+    """3중 필터 중 ①단어 경계 + ②복합 맥락 판정."""
+    rule = rule or {}
+    body = _strip_block_phrases((text or "").strip(), rule)
+    if not body:
+        return False
+    tokens = [t for t in (rule.get("tokens") or []) if t]
+    if tokens:
+        hits = [token_present(t, body) for t in tokens]
+        if rule.get("require_all"):
+            if not all(hits):
+                return False
+        elif not any(hits):
+            return False
+    context = [t for t in (rule.get("context_any") or []) if t]
+    if context and not any(token_present(t, body) for t in context):
+        return False
+    return True
+
+
+def article_text(article: dict) -> str:
+    return " ".join(str(article.get(k) or "") for k in ("title", "summary")
+                    if article.get(k)).strip()
+
+
+def article_passes(article, rule: dict | None, cfg: dict | None = None,
+                   noise: bool = True) -> bool:
+    """기사 한 건이 3중 필터를 통과하는지.
+
+    article 은 dict(title/summary) 또는 문자열(제목)이다. 노이즈 판정은 제목만 본다
+    (본문에 우연히 들어간 '결혼' 같은 낱말로 기사를 버리지 않기 위해).
+    """
+    if isinstance(article, str):
+        title, text = article, article
+    else:
+        article = article or {}
+        title = str(article.get("title") or "")
+        text = article_text(article)
+    if noise and is_noise_title(title, cfg):
+        return False
+    return keyword_matches(text, rule)
+
+
+def filter_relevant(articles: list, tokens: list, context_any: list | None = None,
+                    cfg: dict | None = None) -> list:
+    """제목에 토큰이 없거나 노이즈·맥락 조건을 못 맞춘 기사는 검색 노이즈로 보고 제외한다."""
+    tokens = [str(t) for t in (tokens or []) if str(t).strip()]
+    if not tokens and not context_any:
         return articles
-    lowered = [t.lower() for t in tokens]
-    out = []
-    for a in articles:
-        title = (a.get("title") or "").lower()
-        if any(t in title for t in lowered):
-            out.append(a)
-    return out
+    block = []
+    for t in tokens:
+        block.extend(TOKEN_BLOCK_PHRASES.get(t, ()))
+    rule = {
+        "tokens": tokens,
+        "context_any": list(context_any or default_context_tokens("", tokens)),
+        "block_phrases": list(dict.fromkeys(block)),
+        "require_all": False,
+    }
+    return [a for a in articles if article_passes(a, rule, cfg)]
 
 
 def fetch_news_for(query: str, max_age_days: int = 10, limit: int = 30,
-                   require_tokens: list | None = None) -> list:
+                   require_tokens: list | None = None,
+                   context_any: list | None = None) -> list:
     params = urllib.parse.urlencode({
         "q": query, "hl": "ko", "gl": "KR", "ceid": "KR:ko",
     })
     xml_bytes = http_get(f"{GOOGLE_NEWS}?{params}", timeout=8, retries=1,
                          max_seconds=15)
     articles = parse_google_news_rss(xml_bytes, query, max_age_days * 2, limit * 3)
-    if require_tokens:
-        articles = filter_relevant(articles, require_tokens)
+    if require_tokens or context_any:
+        articles = filter_relevant(articles, require_tokens or [], context_any)
     return articles[:limit]
 
 
@@ -830,13 +1040,15 @@ def save_symbols(cfg: dict) -> dict:
 
 
 def save_keyword_rules(cfg: dict) -> list:
-    """트레이스 키워드 → 기사 매칭 토큰. config 의 require(없으면 키워드 토큰)를 쓴다."""
+    """트레이스 키워드 → [(표시명, 3중 필터 규칙)].
+
+    config 의 require·context_any 를 그대로 쓰고, 없으면 키워드 낱말과 기본 맥락을 쓴다.
+    """
     rules = []
     for kw in (cfg.get("trace_keywords") or []):
         label = kw.get("keyword") or ""
-        tokens = [t for t in (kw.get("require") or keyword_tokens(label)) if t]
         if label:
-            rules.append((label, tokens))
+            rules.append((label, keyword_rule(label, kw)))
     return rules
 
 
@@ -920,11 +1132,15 @@ def parse_save_item(raw: dict, keyword_rules: list, ticker_codes: dict,
     if (now - dt) > timedelta(days=max_age_days):
         return None
     body = str(raw.get("content") or "")
-    haystack = (title + " " + body)
-    lowered = haystack.lower()
     keywords = []
-    for label, tokens in keyword_rules:
-        if any(t.lower() in lowered for t in tokens):
+    for item in keyword_rules or []:
+        if isinstance(item, (tuple, list)) and len(item) == 2:
+            label, rule = item
+        elif isinstance(item, dict):
+            label, rule = item.get("label") or "", item
+        else:
+            label, rule = str(item or ""), {"tokens": [str(item or "")]}
+        if label and article_passes({"title": title, "summary": body}, rule):
             keywords.append(label)
     companies = []
     for ticker in (raw.get("tickers") or []):
@@ -1114,6 +1330,8 @@ def merge_save_news(news: dict, snapshot: dict, cfg: dict | None = None,
     items = snapshot.get("news") or []
     cutoff = now_kst() - timedelta(days=max_age_days)
     added = {"keywords": 0, "companies": 0}
+    # 스냅샷에 저장된 예전 키워드 태그를 그대로 믿지 않고 3중 필터로 다시 판정한다
+    rules = dict(save_keyword_rules(cfg))
     if items:
         keyword_buckets = news.setdefault("keywords", {})
         company_buckets = news.setdefault("companies", {})
@@ -1139,6 +1357,9 @@ def merge_save_news(news: dict, snapshot: dict, cfg: dict | None = None,
             for label in dict.fromkeys(targets):
                 bucket = keyword_buckets.get(label)
                 if not bucket:
+                    continue
+                rule = rules.get(label)
+                if rule is None or not article_passes(art, rule, cfg):
                     continue
                 merged = dict(art)
                 merged["keyword"] = label
@@ -1917,7 +2138,7 @@ def _pace_sleep(seconds: float, deadline: float | None = None) -> None:
 
 
 def _refresh_entry(prev, query, reuse, max_age, limit, errors, label, force, state,
-                   require_tokens=None, deadline: float | None = None):
+                   require_tokens=None, context_any=None, deadline: float | None = None):
     """캐시가 신선하면 재사용, 아니면 실제 수집. 실패하면 직전 값 유지(stale).
 
     deadline 을 넘기면 더 이상 수집하지 않고 직전 값을 그대로 쓴다 — 뉴스는
@@ -1938,7 +2159,7 @@ def _refresh_entry(prev, query, reuse, max_age, limit, errors, label, force, sta
             _pace_sleep(2.5, deadline)
         state["fetched"] = state.get("fetched", 0) + 1
         log(f"[news] 수집: {label}")
-        arts = fetch_news_for(query, max_age, limit, require_tokens)
+        arts = fetch_news_for(query, max_age, limit, require_tokens, context_any=context_any)
         return {"query": query, "articles": arts, "fetched_at": iso_kst(now_kst())}
     except Exception as e:
         log(f"[warn] 뉴스 수집 실패({label}): {e}")
@@ -1964,15 +2185,16 @@ def collect_news(cfg: dict, previous: dict, stock_names: dict | None = None,
     # 뉴스는 부가 정보 — 정해진 시간 안에서만 수집하고, 넘기면 캐시를 그대로 쓴다.
     deadline = time.monotonic() + max(1.0, min(NEWS_BUDGET_SECONDS, budget_left()))
 
-    # 1) 기본 키워드 트레이스
+    # 1) 기본 키워드 트레이스 / 2) 기본 맥락
     keywords = {}
     for kw in cfg["trace_keywords"]:
         label = kw["keyword"]
         query = kw.get("query") or label
+        rule = keyword_rule(label, kw)
         entry = _refresh_entry(prev_kw.get(label), query,
                                int(cfg.get("news_reuse_minutes", 20)),
                                max_age, limit, errors, label, force, state,
-                               kw.get("require") or keyword_tokens(label),
+                               rule["tokens"], context_any=rule["context_any"],
                                deadline=deadline)
         if entry:
             entry = dict(entry)
@@ -2034,8 +2256,10 @@ def collect_news(cfg: dict, previous: dict, stock_names: dict | None = None,
     for kw in pool_queries:
         prev = prev_pool.get(kw)
         if kw in selected_pool:
+            rule = keyword_rule(kw)
             entry = _refresh_entry(prev, kw, 0, max_age, 20, errors, kw, True, state,
-                                   keyword_tokens(kw), deadline=deadline)
+                                   rule["tokens"], context_any=rule["context_any"],
+                                   deadline=deadline)
         else:
             entry = prev
         if entry:
@@ -2046,6 +2270,145 @@ def collect_news(cfg: dict, previous: dict, stock_names: dict | None = None,
     log(f"[news] 수집 {state['fetched']}회, 오류 {len(errors)}건 (소요 {elapsed_seconds():.0f}초)")
     return {"keywords": keywords, "sectors": sectors, "companies": companies,
             "pool": pool, "errors": errors}
+
+
+def sanitize_news(news: dict, cfg: dict) -> dict:
+    """저장·캐시된 기사까지 3중 필터로 다시 검사해 오탐을 걷어낸다.
+
+    · keywords/pool 버킷: 토큰 경계·복합 맥락·노이즈 필터 적용 + 같은 제목 중복 제거
+    · sectors/companies 버킷: 노이즈 필터만(기업명 표기가 달라도 버리지 않기 위해)
+    반환: {"removed": 걷어낸 기사 수, "buckets": {버킷: 제거 수}}
+    """
+    news = news or {}
+    removed = 0
+    detail = {}
+
+    def _filter_bucket(name: str, bucket, rule: dict, noise: bool = True) -> None:
+        nonlocal removed
+        if not isinstance(bucket, dict):
+            return
+        articles = list(bucket.get("articles") or [])
+        kept, seen = [], set()
+        for art in articles:
+            if not article_passes(art, rule, cfg, noise=noise):
+                continue
+            key = title_key(str((art or {}).get("title") or ""))
+            if key and key in seen:
+                continue
+            if key:
+                seen.add(key)
+            kept.append(art)
+        drop = len(articles) - len(kept)
+        if drop > 0:
+            removed += drop
+            detail[name] = drop
+            bucket["articles"] = kept
+
+    trace_rules = {kw["keyword"]: keyword_rule(kw["keyword"], kw)
+                   for kw in (cfg.get("trace_keywords") or []) if kw.get("keyword")}
+    for label, bucket in (news.get("keywords") or {}).items():
+        _filter_bucket(f"keywords:{label}", bucket, trace_rules.get(label) or keyword_rule(label))
+    for label, bucket in (news.get("pool") or {}).items():
+        _filter_bucket(f"pool:{label}", bucket, keyword_rule(label))
+    for bucket in (news.get("sectors") or []):
+        _filter_bucket(f"sectors:{bucket.get('tag')}", bucket, {"tokens": [], "context_any": []})
+    for code, bucket in (news.get("companies") or {}).items():
+        _filter_bucket(f"companies:{code}", bucket, {"tokens": [], "context_any": []})
+    if removed:
+        log(f"[filter] 3중 필터로 오탐 {removed}건 제거 — {detail}")
+    return {"removed": removed, "buckets": detail}
+
+
+def sanitize_save_snapshot(snapshot: dict, cfg: dict) -> int:
+    """SAVE 스냅샷에 붙어 있던 키워드 태그를 현재 규칙으로 다시 계산한다."""
+    rules = save_keyword_rules(cfg)
+    changed = 0
+    for art in (snapshot or {}).get("news") or []:
+        if not isinstance(art, dict):
+            continue
+        labels = [label for label, rule in rules if article_passes(art, rule, cfg)]
+        if list(art.get("keywords") or []) != labels:
+            art["keywords"] = labels
+            if art.get("keyword") and art["keyword"] not in labels:
+                art["keyword"] = labels[0] if labels else ""
+            changed += 1
+    return changed
+
+
+def sanitize_company_news(payload: dict, cfg: dict) -> int:
+    """기업별 뉴스(data/company_news.json)에 남은 비증시·사회 노이즈 기사를 걷어낸다."""
+    removed = 0
+    for entry in (payload or {}).get("companies", {}).values():
+        if not isinstance(entry, dict):
+            continue
+        arts = list(entry.get("articles") or [])
+        kept = [a for a in arts if not is_noise_title(str((a or {}).get("title") or ""), cfg)]
+        if len(kept) != len(arts):
+            removed += len(arts) - len(kept)
+            entry["articles"] = kept
+    return removed
+
+
+def count_articles(news: dict) -> int:
+    total = sum(len((b or {}).get("articles") or [])
+                for b in (news.get("keywords") or {}).values())
+    total += sum(len((b or {}).get("articles") or [])
+                 for b in (news.get("pool") or {}).values())
+    total += sum(len((b or {}).get("articles") or [])
+                 for b in (news.get("companies") or {}).values())
+    total += sum(len((b or {}).get("articles") or []) for b in (news.get("sectors") or []))
+    return total
+
+
+def refilter_data_files(cfg: dict) -> int:
+    """수집 없이 저장된 data/news_latest.json·data/save_latest.json 만 재검사한다.
+
+    이미 화면에 들어가 있던 오탐 기사(예: '수학이란, 신간', '반정부시위 사형선고')를
+    다음 수집을 기다리지 않고 바로 걷어내는 용도.
+    """
+    if not os.path.exists(NEWS_PATH):
+        log("[refilter] data/news_latest.json 이 없습니다")
+        return 1
+    news = load_json(NEWS_PATH, {})
+    if not news:
+        log("[refilter] news_latest.json 을 읽지 못했습니다")
+        return 1
+    before = count_articles(news)
+    report = sanitize_news(news, cfg)
+    after = count_articles(news)
+    news.setdefault("filter", {})
+    news["filter"].update({
+        "rule": "3중 필터(단어 경계·복합 맥락·비증시 노이즈)",
+        "refiltered_at": iso_kst(now_kst()),
+        "removed_last_run": report["removed"],
+        "buckets": report["buckets"],
+    })
+    with open(NEWS_PATH, "w", encoding="utf-8") as f:
+        json.dump(news, f, ensure_ascii=False, indent=1)
+        f.write("\n")
+    save_changed = 0
+    if os.path.exists(SAVE_PATH):
+        snapshot = load_json(SAVE_PATH, {})
+        if snapshot:
+            save_changed = sanitize_save_snapshot(snapshot, cfg)
+            if save_changed:
+                with open(SAVE_PATH, "w", encoding="utf-8") as f:
+                    json.dump(snapshot, f, ensure_ascii=False, indent=1)
+                    f.write("\n")
+    company_noise = 0
+    if os.path.exists(COMPANY_NEWS_PATH):
+        company_payload = load_json(COMPANY_NEWS_PATH, {})
+        if company_payload:
+            company_noise = sanitize_company_news(company_payload, cfg)
+            if company_noise:
+                with open(COMPANY_NEWS_PATH, "w", encoding="utf-8") as f:
+                    json.dump(company_payload, f, ensure_ascii=False, separators=(",", ":"))
+                    f.write("\n")
+    print(json.dumps({"articles_before": before, "articles_after": after,
+                      "removed": before - after, "buckets": report["buckets"],
+                      "save_keyword_fix": save_changed,
+                      "company_noise_removed": company_noise}, ensure_ascii=False, indent=1))
+    return 0
 
 
 def significant_change(old: dict, new: dict) -> bool:
@@ -2112,6 +2475,8 @@ def main(argv=None) -> int:
     parser.add_argument("--check", action="store_true", help="파일 기록 없이 결과만 확인")
     parser.add_argument("--force-news", action="store_true", help="뉴스 캐시 무시하고 재수집")
     parser.add_argument("--skip-universe", action="store_true", help="전종목 인덱스 수집 생략(빠른 확인용)")
+    parser.add_argument("--refilter-data", action="store_true",
+                        help="수집 없이 저장된 data/*.json 기사만 3중 필터로 재검사")
     args = parser.parse_args(argv)
 
     # 출력을 라인 단위로 즉시 내보낸다 — Actions 로그에서 멈춘 지점을 바로 본다.
@@ -2124,6 +2489,8 @@ def main(argv=None) -> int:
     log(f"[start] 라이브 데이터 수집 시작 (예산 {RUN_BUDGET_SECONDS:.0f}초)")
 
     cfg = load_config()
+    if args.refilter_data:
+        return refilter_data_files(cfg)
     prev_market = load_json(MARKET_PATH, {})
     prev_news = load_json(NEWS_PATH, {})
     prev_universe = load_json(UNIVERSE_PATH, {})
@@ -2142,6 +2509,9 @@ def main(argv=None) -> int:
                            lambda: {"status": "unavailable", "news": [],
                                     "top_stories": [], "calendar": [], "count": 0})
     news = merge_save_news(news, save_snapshot, cfg)
+
+    # 3중 필터: 이번 수집·캐시 유지·SAVE 병합분까지 한 번 더 검사해 오탐을 걷어낸다
+    filter_report = sanitize_news(news, cfg)
 
     universe = None
     company_news = None
@@ -2202,6 +2572,9 @@ def main(argv=None) -> int:
         "companies": news["companies"],
         "pool": news["pool"],
         "save": news.get("save"),
+        "filter": {"rule": "3중 필터(단어 경계·복합 맥락·비증시 노이즈)",
+                   "removed": filter_report["removed"],
+                   "buckets": filter_report["buckets"]},
         "errors": news["errors"],
     }
     news_payload["briefing"] = market_payload["briefing"]
@@ -2215,6 +2588,7 @@ def main(argv=None) -> int:
         "company_news": len(news_payload["companies"]),
         "save_status": news_payload.get("save", {}).get("status"),
         "save_articles": news_payload.get("save", {}).get("count", 0),
+        "filtered_out": filter_report["removed"],
         "errors": len(market.get("errors", [])) + len(news.get("errors", [])),
     }
     if universe:
@@ -2265,12 +2639,13 @@ def main(argv=None) -> int:
             json.dump(save_snapshot, f, ensure_ascii=False, indent=1)
             f.write("\n")
     if company_news:
+        company_payload = {"schema": 1,
+                           "generated_at": iso_kst(generated),
+                           "source": "Google News RSS (news.google.com)",
+                           "companies": company_news.get("companies") or {}}
+        counts["company_noise_removed"] = sanitize_company_news(company_payload, cfg)
         with open(COMPANY_NEWS_PATH, "w", encoding="utf-8") as f:
-            json.dump({"schema": 1,
-                       "generated_at": iso_kst(generated),
-                       "source": "Google News RSS (news.google.com)",
-                       "companies": company_news.get("companies") or {}},
-                      f, ensure_ascii=False, separators=(",", ":"))
+            json.dump(company_payload, f, ensure_ascii=False, separators=(",", ":"))
             f.write("\n")
 
     # 매수·매도 시점 분석용 일봉·수급·밸류에이션 수집(회전) — 부가 정보이므로 실패해도
