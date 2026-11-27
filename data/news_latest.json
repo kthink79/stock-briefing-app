@@ -23,7 +23,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 422,
+     "view_count": 432,
      "summary": "11월 26일 (로이터) - 중국의 클라우드 기반 상거래 및 마케팅 솔루션 제공업체인 웨이멍(Weimob) 2013.HK은 목요일 자체 GPU ...",
      "keywords": [
       "엔비디아"
@@ -46,7 +46,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 540,
+     "view_count": 577,
      "summary": "",
      "keywords": [
       "엔비디아"
@@ -69,7 +69,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 874,
+     "view_count": 937,
      "summary": "",
      "keywords": [
       "엔비디아"
@@ -90,7 +90,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 551,
+     "view_count": 581,
      "summary": "11월 26일 (로이터) - 칩 판매업체들은 컴퓨팅 용량 중 일부라도 중국 기업에 임대될 경우 엔비디아 칩을 공급하지 않겠다고 네오클라우드 ...",
      "keywords": [
       "엔비디아"
@@ -111,7 +111,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 255,
+     "view_count": 289,
      "summary": "러시아, 제재로 AI 개발에 어려움 카자흐스탄 대통령, 10월 엔비디아 황 CEO와 회동 카자흐스탄 은행, 엔비디아 첨단 칩 주문 토...",
      "keywords": [
       "엔비디아"
@@ -123,7 +123,7 @@
     },
     {
      "keyword": "엔비디아",
-     "title": "(카더라) 엔비디아 GPU 판매업체들, 구매사에 '중국 기업 임대 배제' 요구",
+     "title": "(카더라) 엔비디아 GPU 판매업체들, 구매사에 ‘중국 기업 임대 배제’ 요구",
      "source": "CNBC",
      "url": "https://www.saveticker.com/news/news_H_IKqh_1TO1r",
      "date": "2026-11-27",
@@ -134,8 +134,8 @@
      "labels": [
       "정보"
      ],
-     "view_count": 8835,
-     "summary": "CNBC는 소식통을 인용해, 칩 판매업체들이 네오클라우드 업체들에 컴퓨팅 자원의 일부라도 중국 기업에 임대할 경우 엔비디아 칩을 공급하지 않겠...",
+     "view_count": 15317,
+     "summary": "CNBC는 소식통을 인용해, 칩 판매업체들이 네오클라우드 업체들에 컴퓨팅 자원의 일부라도 중국 기업에 임대할 경우 엔비디아 칩을 공급하지 않겠다...",
      "keywords": [
       "엔비디아"
      ],
@@ -646,6 +646,26 @@
   "미국 이란 전쟁": {
    "query": "이란",
    "articles": [
+    {
+     "keyword": "미국 이란 전쟁",
+     "title": "트럼프 대통령, 국가 권한을 더 많이 행사하려는 이라크 지도자의 노력 지지",
+     "source": "로이터",
+     "url": "https://www.saveticker.com/news/news_lWMoDDgTQp1O",
+     "date": "2026-11-27",
+     "time": "20:28",
+     "published_at": "2026-11-27T20:28:21+09:00",
+     "origin": "SAVE",
+     "badge": "SAVE",
+     "labels": [],
+     "view_count": 233,
+     "summary": "트럼프 대통령, 자이디의 국가 권한 확대 추진 지지 밝혀 이란의 동맹 세력과 쿠르드족을 겨냥한 단속의 핵심은 석유 이라크, 석유 밀수로 ...",
+     "keywords": [
+      "미국 이란 전쟁",
+      "트럼프"
+     ],
+     "companies": [],
+     "is_top_story": false
+    },
     {
      "keyword": "미국 이란 전쟁",
      "title": "알하다스, 미국이 트럼프 대통령과 이스라엘의 아이젠코트 간 회동을 주선하기 위해 노력 중이며, 회동에서 이란 문제와 네타냐후 총리와의 합의 사항을 다룰 것이라고 보도",
@@ -1542,7 +1562,7 @@
      "labels": [
       "정보"
      ],
-     "view_count": 17745,
+     "view_count": 19922,
      "summary": "연합뉴스는 업계 관계자들을 인용해, 삼성전자가 메모리 개발 조직을 메모리사업부장 직속으로 통합하고 반도체 설계를 담당하는 시스템LSI사업부의 ...",
      "keywords": [],
      "companies": [
@@ -2112,6 +2132,26 @@
    "articles": [
     {
      "keyword": "애플 실적",
+     "title": "[4보] AI 수요로 대만 경제, 거의 50년 만에 가장 빠른 성장률 기록할 것으로 예상",
+     "source": "로이터",
+     "url": "https://www.saveticker.com/news/news_2w21QoJhFVqD",
+     "date": "2026-11-27",
+     "time": "17:15",
+     "published_at": "2026-11-27T17:15:22+09:00",
+     "origin": "SAVE",
+     "badge": "SAVE",
+     "labels": [],
+     "view_count": 377,
+     "summary": "2026년 GDP 추정치 +13.28%, 이전 +11.05% 대비 2026년 CPI 추정치 +2.07%, 이전 +2.07% 대비 2027...",
+     "keywords": [],
+     "companies": [
+      "NVDA",
+      "AAPL"
+     ],
+     "is_top_story": false
+    },
+    {
+     "keyword": "애플 실적",
      "title": "[3보] 관세가 의류·신발 수출을 위협하는 가운데 베트남, 미국과 무역 협정 모색",
      "source": "로이터",
      "url": "https://www.saveticker.com/news/news_arF6AqURg2Kp",
@@ -2162,7 +2202,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 21098,
+     "view_count": 21239,
      "summary": "헌터브룩은 자사가 AMD의 중국 관련 리스크를 보도한 이후, AMD가 AI 서버 파트너 페이지에서 미국 수출 블랙리스트에 오른 중국 기업과 연관...",
      "keywords": [],
      "companies": [
@@ -4751,9 +4791,9 @@
   }
  },
  "save": {
-  "status": "cached",
-  "stale": true,
-  "fetched_at": "2026-11-27T09:17:18+09:00",
+  "status": "live",
+  "stale": false,
+  "fetched_at": "2026-11-27T21:40:27+09:00",
   "fetched_via": "browser-session",
   "count": 40,
   "top_stories": [
@@ -4770,7 +4810,7 @@
     "labels": [
      "정보"
     ],
-    "view_count": 41602,
+    "view_count": 53529,
     "summary": "마이클 버리는 자신의 포트폴리오가 최근 들어 어느 때보다 롱 비중이 높고 숏 비중은 낮은 상태라고 밝힘 - 기술주가 약세를 보이자 나스닥10...",
     "keywords": [],
     "companies": [],
@@ -4789,7 +4829,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 10172,
+    "view_count": 11249,
     "summary": "제이미슨 그리어 미국 무역대표부(USTR) 대표는 CNBC 인터뷰에서 과잉생산에 대응해 무역법 301조에 따른 표적 관세를 제안했으며, 세율은 ...",
     "keywords": [],
     "companies": [],
@@ -4808,7 +4848,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 51431,
+    "view_count": 51885,
     "summary": "트럼프 대통령은 뉴욕포스트와의 단독 인터뷰에서 젠슨 황 엔비디아 CEO에 대한 사면 가능성을 열어두면서도, 실제로 사면이 필요하지는 않을 것으로...",
     "keywords": [
      "엔비디아",
@@ -4832,7 +4872,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 27137,
+    "view_count": 27376,
     "summary": "블룸버그 통신은 소식통을 인용해, 젠슨 황 엔비디아 CEO가 화요일 복귀 후 처음으로 열린 전 직원 회의에서 자신의 사임으로 이어진 행동에 대해...",
     "keywords": [
      "엔비디아"
@@ -4855,7 +4895,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 21098,
+    "view_count": 21239,
     "summary": "헌터브룩은 자사가 AMD의 중국 관련 리스크를 보도한 이후, AMD가 AI 서버 파트너 페이지에서 미국 수출 블랙리스트에 오른 중국 기업과 연관...",
     "keywords": [],
     "companies": [
@@ -4876,30 +4916,11 @@
     "labels": [
      "속보"
     ],
-    "view_count": 42905,
+    "view_count": 43054,
     "summary": "월스트리트저널(WSJ)은 소식통을 인용해, 트럼프 행정부가 중국, 한국, 일본, 유럽연합(EU) 등 수십 개국이 자국 산업을 지원해 미국 기업에...",
     "keywords": [
      "트럼프"
     ],
-    "companies": [],
-    "is_top_story": true
-   },
-   {
-    "keyword": "",
-    "title": "(카더라) 앤트로픽·오픈AI 내부서 차세대 AI 모델의 안전성 우려 확산",
-    "source": "Axios",
-    "url": "https://www.saveticker.com/news/news_TY--oZN5FSW2",
-    "date": "2026-11-24",
-    "time": "19:50",
-    "published_at": "2026-11-24T19:50:37+09:00",
-    "origin": "SAVE",
-    "badge": "SAVE PICK",
-    "labels": [
-     "속보"
-    ],
-    "view_count": 22934,
-    "summary": "악시오스는 소식통을 인용해, 앤트로픽과 오픈AI의 미공개 AI 모델이 기존 공개 모델보다 훨씬 강력해지면서, 이를 안전하게 외부에 출시하기 어렵...",
-    "keywords": [],
     "companies": [],
     "is_top_story": true
    }
@@ -4972,7 +4993,7 @@
     "date": "2026-12-02",
     "time": "00:00",
     "datetime": "2026-12-02T00:00:00+09:00",
-    "note": "이전: 7.523M 예측: 7.3M",
+    "note": "이전: 7.523M 예측: 7.4M",
     "importance": 3
    },
    {
@@ -4982,8 +5003,18 @@
     "date": "2026-12-02",
     "time": "00:00",
     "datetime": "2026-12-02T00:00:00+09:00",
-    "note": "이전: -1.9% 예측: -0.5%",
+    "note": "이전: -1.9% 예측: 0.5%",
     "importance": 2
+   },
+   {
+    "id": "12254",
+    "title": "Fed Bowman Testimony",
+    "market": "us",
+    "date": "2026-12-02",
+    "time": "00:00",
+    "datetime": "2026-12-02T00:00:00+09:00",
+    "note": "",
+    "importance": 0
    },
    {
     "id": "11940",
@@ -5052,7 +5083,7 @@
     "date": "2026-12-04",
     "time": "00:00",
     "datetime": "2026-12-04T00:00:00+09:00",
-    "note": "이전: 1.8% 예측: 2.0%",
+    "note": "이전: 1.8% 예측: 0.5%",
     "importance": 2
    },
    {
@@ -5331,12 +5362,10 @@
    ]
   },
   "added": {
-   "keywords": 13,
-   "companies": 0
+   "keywords": 1,
+   "companies": 1
   },
-  "errors": [
-   "SAVE 직접 조회 불가: Cloudflare 봇 차단(Just a moment) — 익명 요청으로는 접근 불가"
-  ],
+  "errors": [],
   "site": "https://www.saveticker.com"
  },
  "filter": {
