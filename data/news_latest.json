@@ -25,7 +25,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 25780,
+     "view_count": 28016,
      "summary": "파이낸셜타임스(FT)는 소식통을 인용해, 엔비디아가 미국의 수출 통제 강화에 따라 델과 슈퍼마이크로 등 제조 협력사에 말레이시아, 싱가포르, 태...",
      "keywords": [
       "엔비디아"
@@ -46,7 +46,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 725,
+     "view_count": 750,
      "summary": "2항에 지난주 발효된 새로운 미국 규칙 추가 11월 26일 (로이터) - 엔비디아(NVDA.O)는 말레이시아, 싱가포르, 태국, 인도네시아로...",
      "keywords": [
       "엔비디아"
@@ -90,7 +90,7 @@
      "labels": [
       "정보"
      ],
-     "view_count": 12541,
+     "view_count": 16408,
      "summary": "월스트리트저널(WSJ)은 소식통을 인용해, 엔비디아 글로벌 영업 총괄이던 제이 푸리가 고객사 슈퍼마이크로의 고위 임원이던 센리 첸과 수년간 교제...",
      "keywords": [
       "엔비디아"
@@ -132,7 +132,7 @@
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [],
-     "view_count": 324,
+     "view_count": 422,
      "summary": "11월 26일 (로이터) - 중국의 클라우드 기반 상거래 및 마케팅 솔루션 제공업체인 웨이멍(Weimob) 2013.HK은 목요일 자체 GPU ...",
      "keywords": [
       "엔비디아"
@@ -645,6 +645,28 @@
    "query": "이란",
    "articles": [
     {
+     "keyword": "미국 이란 전쟁",
+     "title": "알하다스, 미국이 트럼프 대통령과 이스라엘의 아이젠코트 간 회동을 주선하기 위해 노력 중이며, 회동에서 이란 문제와 네타냐후 총리와의 합의 사항을 다룰 것이라고 보도",
+     "source": "financial-juice",
+     "url": "https://www.saveticker.com/news/news_kJxIcvx6DpMR",
+     "date": "2026-11-27",
+     "time": "01:20",
+     "published_at": "2026-11-27T01:20:15+09:00",
+     "origin": "SAVE",
+     "badge": "SAVE",
+     "labels": [
+      "속보"
+     ],
+     "view_count": 1150,
+     "summary": "",
+     "keywords": [
+      "미국 이란 전쟁",
+      "트럼프"
+     ],
+     "companies": [],
+     "is_top_story": false
+    },
+    {
      "keyword": "이란",
      "title": "이란 외무, 조현에 “외국군 주둔은 분쟁 키워”…한국 “전쟁 불개입”",
      "source": "채널A",
@@ -987,17 +1009,17 @@
      "keyword": "트럼프",
      "title": "[귀금속] 연준 금리 인상 우려가 드리우며 금값 하락세",
      "source": "로이터",
-     "url": "https://www.saveticker.com/news/news_3buD9neqCb9m",
-     "date": "2026-11-26",
-     "time": "17:57",
-     "published_at": "2026-11-26T17:57:20+09:00",
+     "url": "https://www.saveticker.com/news/news_cQ04e7IY2LiH",
+     "date": "2026-11-27",
+     "time": "01:44",
+     "published_at": "2026-11-27T01:44:33+09:00",
      "origin": "SAVE",
      "badge": "SAVE",
      "labels": [
       "시황/분석"
      ],
-     "view_count": 135,
-     "summary": "유럽 오전 시간대에 맞춰 기사 전면 수정 트럼프 대통령, 과잉 산업 생산능력을 이유로 새 관세 발표 현물 백금 1% 상승 추수감사절 ...",
+     "view_count": 178,
+     "summary": "트럼프 대통령, 과잉 산업 생산능력에 새로운 관세 발표 현물 백금 1% 상승 추수감사절 연휴로 미국 시장 휴장 가격 업데이트, 2~3...",
      "keywords": [
       "트럼프"
      ],
@@ -1522,7 +1544,7 @@
      "labels": [
       "정보"
      ],
-     "view_count": 12148,
+     "view_count": 17745,
      "summary": "연합뉴스는 업계 관계자들을 인용해, 삼성전자가 메모리 개발 조직을 메모리사업부장 직속으로 통합하고 반도체 설계를 담당하는 시스템LSI사업부의 ...",
      "keywords": [],
      "companies": [
@@ -2155,7 +2177,7 @@
      "labels": [
       "속보"
      ],
-     "view_count": 20909,
+     "view_count": 21098,
      "summary": "헌터브룩은 자사가 AMD의 중국 관련 리스크를 보도한 이후, AMD가 AI 서버 파트너 페이지에서 미국 수출 블랙리스트에 오른 중국 기업과 연관...",
      "keywords": [],
      "companies": [
@@ -4797,9 +4819,9 @@
   }
  },
  "save": {
-  "status": "cached",
-  "stale": true,
-  "fetched_at": "2026-11-26T21:09:45+09:00",
+  "status": "live",
+  "stale": false,
+  "fetched_at": "2026-11-27T09:17:18+09:00",
   "fetched_via": "browser-session",
   "count": 40,
   "top_stories": [
@@ -4816,7 +4838,7 @@
     "labels": [
      "정보"
     ],
-    "view_count": 32202,
+    "view_count": 41602,
     "summary": "마이클 버리는 자신의 포트폴리오가 최근 들어 어느 때보다 롱 비중이 높고 숏 비중은 낮은 상태라고 밝힘 - 기술주가 약세를 보이자 나스닥10...",
     "keywords": [],
     "companies": [],
@@ -4835,7 +4857,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 9309,
+    "view_count": 10172,
     "summary": "제이미슨 그리어 미국 무역대표부(USTR) 대표는 CNBC 인터뷰에서 과잉생산에 대응해 무역법 301조에 따른 표적 관세를 제안했으며, 세율은 ...",
     "keywords": [],
     "companies": [],
@@ -4854,7 +4876,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 51110,
+    "view_count": 51431,
     "summary": "트럼프 대통령은 뉴욕포스트와의 단독 인터뷰에서 젠슨 황 엔비디아 CEO에 대한 사면 가능성을 열어두면서도, 실제로 사면이 필요하지는 않을 것으로...",
     "keywords": [
      "엔비디아",
@@ -4878,7 +4900,7 @@
     "labels": [
      "속보"
     ],
-    "view_count": 26959,
+    "view_count": 27137,
     "summary": "블룸버그 통신은 소식통을 인용해, 젠슨 황 엔비디아 CEO가 화요일 복귀 후 처음으로 열린 전 직원 회의에서 자신의 사임으로 이어진 행동에 대해...",
     "keywords": [
      "엔비디아"
@@ -4887,19 +4909,70 @@
      "NVDA"
     ],
     "is_top_story": true
+   },
+   {
+    "keyword": "",
+    "title": "헌터브룩 \"AMD, 중국 관련 의혹 보도 이후 홈페이지에서 관련 기업 삭제\"",
+    "source": "SAVE PICK",
+    "url": "https://www.saveticker.com/news/news_IXPKHGMXll3o",
+    "date": "2026-11-24",
+    "time": "23:31",
+    "published_at": "2026-11-24T23:31:04+09:00",
+    "origin": "SAVE",
+    "badge": "SAVE PICK",
+    "labels": [
+     "속보"
+    ],
+    "view_count": 21098,
+    "summary": "헌터브룩은 자사가 AMD의 중국 관련 리스크를 보도한 이후, AMD가 AI 서버 파트너 페이지에서 미국 수출 블랙리스트에 오른 중국 기업과 연관...",
+    "keywords": [],
+    "companies": [
+     "AMD"
+    ],
+    "is_top_story": true
+   },
+   {
+    "keyword": "트럼프",
+    "title": "(카더라) 트럼프 행정부, 한국·중국·일본·EU 등 수십 개국 관세 인상 추진",
+    "source": "월스트리트저널",
+    "url": "https://www.saveticker.com/news/news_MofDqvtfnwB5",
+    "date": "2026-11-24",
+    "time": "22:10",
+    "published_at": "2026-11-24T22:10:10+09:00",
+    "origin": "SAVE",
+    "badge": "SAVE PICK",
+    "labels": [
+     "속보"
+    ],
+    "view_count": 42905,
+    "summary": "월스트리트저널(WSJ)은 소식통을 인용해, 트럼프 행정부가 중국, 한국, 일본, 유럽연합(EU) 등 수십 개국이 자국 산업을 지원해 미국 기업에...",
+    "keywords": [
+     "트럼프"
+    ],
+    "companies": [],
+    "is_top_story": true
+   },
+   {
+    "keyword": "",
+    "title": "(카더라) 앤트로픽·오픈AI 내부서 차세대 AI 모델의 안전성 우려 확산",
+    "source": "Axios",
+    "url": "https://www.saveticker.com/news/news_TY--oZN5FSW2",
+    "date": "2026-11-24",
+    "time": "19:50",
+    "published_at": "2026-11-24T19:50:37+09:00",
+    "origin": "SAVE",
+    "badge": "SAVE PICK",
+    "labels": [
+     "속보"
+    ],
+    "view_count": 22934,
+    "summary": "악시오스는 소식통을 인용해, 앤트로픽과 오픈AI의 미공개 AI 모델이 기존 공개 모델보다 훨씬 강력해지면서, 이를 안전하게 외부에 출시하기 어렵...",
+    "keywords": [],
+    "companies": [],
+    "is_top_story": true
    }
   ],
   "calendar": [
-   {
-    "id": "12178",
-    "title": "추수감사절 휴장",
-    "market": "us",
-    "date": "2026-11-26",
-    "time": "23:30",
-    "datetime": "2026-11-26T23:30:00+09:00",
-    "note": "미국 주식 휴장 · 해외선물 조기 종료",
-    "importance": 0
-   },
    {
     "id": "11875",
     "title": "10월 도매재고 ★",
@@ -5259,6 +5332,56 @@
     "datetime": "2026-12-10T04:30:00+09:00",
     "note": "",
     "importance": 3
+   },
+   {
+    "id": "12055",
+    "title": "11월 근원 CPI상승률 ★★★",
+    "market": "us",
+    "date": "2026-12-10",
+    "time": "22:30",
+    "datetime": "2026-12-10T22:30:00+09:00",
+    "note": "",
+    "importance": 3
+   },
+   {
+    "id": "12056",
+    "title": "11월 CPI상승률 ★★★",
+    "market": "us",
+    "date": "2026-12-10",
+    "time": "22:30",
+    "datetime": "2026-12-10T22:30:00+09:00",
+    "note": "예측: 3.8%",
+    "importance": 3
+   },
+   {
+    "id": "12057",
+    "title": "신규실업수당청구건수 ★★★",
+    "market": "us",
+    "date": "2026-12-10",
+    "time": "22:30",
+    "datetime": "2026-12-10T22:30:00+09:00",
+    "note": "",
+    "importance": 3
+   },
+   {
+    "id": "12079",
+    "title": "EIA 천연가스 재고 ★",
+    "market": "us",
+    "date": "2026-12-11",
+    "time": "00:30",
+    "datetime": "2026-12-11T00:30:00+09:00",
+    "note": "",
+    "importance": 1
+   },
+   {
+    "id": "12080",
+    "title": "30년물 국채 입찰 ★★",
+    "market": "us",
+    "date": "2026-12-11",
+    "time": "03:00",
+    "datetime": "2026-12-11T03:00:00+09:00",
+    "note": "",
+    "importance": 2
    }
   ],
   "interests": {
@@ -5276,12 +5399,10 @@
    ]
   },
   "added": {
-   "keywords": 12,
+   "keywords": 1,
    "companies": 0
   },
-  "errors": [
-   "SAVE 직접 조회 불가: Cloudflare 봇 차단(Just a moment) — 익명 요청으로는 접근 불가"
-  ],
+  "errors": [],
   "site": "https://www.saveticker.com"
  },
  "errors": [],
