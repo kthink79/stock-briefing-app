@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generated_at": "2026-11-28T09:42:13+09:00",
- "generated_at_kst": "2026-11-28(토) 09:42",
+ "generated_at": "2026-11-28T17:27:47+09:00",
+ "generated_at_kst": "2026-11-28(토) 17:27",
  "source": "네이버 금융 실시간 (polling.finance.naver.com)",
  "market": {
   "indices": {
@@ -103,7 +103,7 @@
     "change": 0.0875,
     "pct": 1.8,
     "currency": null,
-    "market_status": "OPEN",
+    "market_status": "CLOSE",
     "as_of": "2026-11-27T14:30:00-05:00",
     "bp": 8.75
    },
@@ -113,7 +113,7 @@
     "change": 0.0749,
     "pct": 1.62,
     "currency": null,
-    "market_status": "OPEN",
+    "market_status": "CLOSE",
     "as_of": "2026-11-27T14:30:00-05:00",
     "bp": 7.49
    }
@@ -341,14 +341,14 @@
     "high": 151.98,
     "low": 145.39,
     "open": 151.9,
-    "volume": 185548910.0,
+    "volume": 185759641.0,
     "market_value": 3626809000000.0,
     "extended": {
      "session": "AFTER_MARKET",
      "price": 149.8,
      "pct": -0.46,
      "change": -0.69,
-     "as_of": "2026-11-27T16:59:59-05:00",
+     "as_of": "2026-11-27T20:00:00-05:00",
      "volume": null
     }
    },
@@ -364,14 +364,14 @@
     "high": 401.18,
     "low": 384.66,
     "open": 391.34,
-    "volume": 26612800.0,
+    "volume": 26634592.0,
     "market_value": 1581103178400.0,
     "extended": {
      "session": "AFTER_MARKET",
      "price": 398.85,
      "pct": -0.29,
      "change": -1.15,
-     "as_of": "2026-11-27T16:59:45-05:00",
+     "as_of": "2026-11-27T20:00:00-05:00",
      "volume": null
     }
    },
@@ -387,14 +387,14 @@
     "high": 359.5,
     "low": 355.64,
     "open": 358.21,
-    "volume": 22676036.0,
+    "volume": 22683910.0,
     "market_value": 5210368534280.0,
     "extended": {
      "session": "AFTER_MARKET",
      "price": 359.29,
      "pct": 0.21,
      "change": 0.75,
-     "as_of": "2026-11-27T16:59:37-05:00",
+     "as_of": "2026-11-27T20:00:00-05:00",
      "volume": null
     }
    },
@@ -410,14 +410,14 @@
     "high": 426.88,
     "low": 398.59,
     "open": 420.27,
-    "volume": 22306572.0,
+    "volume": 22329180.0,
     "market_value": 696282641540.0,
     "extended": {
      "session": "AFTER_MARKET",
      "price": 422.9,
      "pct": -0.39,
      "change": -1.64,
-     "as_of": "2026-11-27T16:59:59-05:00",
+     "as_of": "2026-11-27T20:00:00-05:00",
      "volume": null
     }
    },
@@ -433,14 +433,14 @@
     "high": 313.13,
     "low": 304.75,
     "open": 305.21,
-    "volume": 17087457.0,
+    "volume": 17091992.0,
     "market_value": 1490995552034.0,
     "extended": {
      "session": "AFTER_MARKET",
      "price": 311.67,
      "pct": -0.21,
      "change": -0.67,
-     "as_of": "2026-11-27T16:59:54-05:00",
+     "as_of": "2026-11-27T20:00:00-05:00",
      "volume": null
     }
    },
@@ -456,14 +456,14 @@
     "high": 654.44,
     "low": 607.27,
     "open": 630.13,
-    "volume": 26873189.0,
+    "volume": 26904909.0,
     "market_value": 828700453795.0,
     "extended": {
      "session": "AFTER_MARKET",
      "price": 645.66,
      "pct": -0.2,
      "change": -1.29,
-     "as_of": "2026-11-27T16:59:58-05:00",
+     "as_of": "2026-11-27T20:00:00-05:00",
      "volume": null
     }
    }
@@ -478,7 +478,7 @@
     "url": "https://markets.newyorkfed.org/api/rates/unsecured/effr/last/1.json",
     "status": "ok",
     "stale": false,
-    "checked_at": "2026-11-28T09:38:47+09:00"
+    "checked_at": "2026-11-28T17:26:03+09:00"
    },
    "KR": {
     "rate": 3.25,
@@ -487,7 +487,7 @@
     "url": "https://www.bok.or.kr/portal/singl/baseRate/list.do?dataSeCd=01&menuNo=200643",
     "status": "ok",
     "stale": false,
-    "checked_at": "2026-11-28T09:38:47+09:00"
+    "checked_at": "2026-11-28T17:26:03+09:00"
    }
   },
   "session": {
@@ -708,14 +708,14 @@
    "high": 151.98,
    "low": 145.39,
    "open": 151.9,
-   "volume": 185548910.0,
+   "volume": 185759641.0,
    "market_value": 3626809000000.0,
    "extended": {
     "session": "AFTER_MARKET",
     "price": 149.8,
     "pct": -0.46,
     "change": -0.69,
-    "as_of": "2026-11-27T16:59:59-05:00",
+    "as_of": "2026-11-27T20:00:00-05:00",
     "volume": null
    }
   },
@@ -731,14 +731,14 @@
    "high": 401.18,
    "low": 384.66,
    "open": 391.34,
-   "volume": 26612800.0,
+   "volume": 26634592.0,
    "market_value": 1581103178400.0,
    "extended": {
     "session": "AFTER_MARKET",
     "price": 398.85,
     "pct": -0.29,
     "change": -1.15,
-    "as_of": "2026-11-27T16:59:45-05:00",
+    "as_of": "2026-11-27T20:00:00-05:00",
     "volume": null
    }
   },
@@ -754,14 +754,14 @@
    "high": 359.5,
    "low": 355.64,
    "open": 358.21,
-   "volume": 22676036.0,
+   "volume": 22683910.0,
    "market_value": 5210368534280.0,
    "extended": {
     "session": "AFTER_MARKET",
     "price": 359.29,
     "pct": 0.21,
     "change": 0.75,
-    "as_of": "2026-11-27T16:59:37-05:00",
+    "as_of": "2026-11-27T20:00:00-05:00",
     "volume": null
    }
   },
@@ -777,14 +777,14 @@
    "high": 426.88,
    "low": 398.59,
    "open": 420.27,
-   "volume": 22306572.0,
+   "volume": 22329180.0,
    "market_value": 696282641540.0,
    "extended": {
     "session": "AFTER_MARKET",
     "price": 422.9,
     "pct": -0.39,
     "change": -1.64,
-    "as_of": "2026-11-27T16:59:59-05:00",
+    "as_of": "2026-11-27T20:00:00-05:00",
     "volume": null
    }
   },
@@ -800,14 +800,14 @@
    "high": 313.13,
    "low": 304.75,
    "open": 305.21,
-   "volume": 17087457.0,
+   "volume": 17091992.0,
    "market_value": 1490995552034.0,
    "extended": {
     "session": "AFTER_MARKET",
     "price": 311.67,
     "pct": -0.21,
     "change": -0.67,
-    "as_of": "2026-11-27T16:59:54-05:00",
+    "as_of": "2026-11-27T20:00:00-05:00",
     "volume": null
    }
   },
@@ -823,14 +823,14 @@
    "high": 654.44,
    "low": 607.27,
    "open": 630.13,
-   "volume": 26873189.0,
+   "volume": 26904909.0,
    "market_value": 828700453795.0,
    "extended": {
     "session": "AFTER_MARKET",
     "price": 645.66,
     "pct": -0.2,
     "change": -1.29,
-    "as_of": "2026-11-27T16:59:58-05:00",
+    "as_of": "2026-11-27T20:00:00-05:00",
     "volume": null
    }
   }
@@ -858,24 +858,24 @@
   "sector_news": [
    {
     "tag": "반도체",
-    "text": "반도체 수출이 성장 견인……비IT 부문 회복은 과제",
+    "text": "경제는 성장한다는데 서민들의 대출이자는 더 늘어난다",
     "date": "2026-11-28",
-    "source": "미디어펜",
-    "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFA2aXJIRjZRMWZGSDlJajA4VUdmUFFkMDhCckRfTktUTTRidGlRay0teFpsWGcxcU1sVzZJaDFTMV9HcmMwdFcwUGVLSG5YZ0VSOEJYT9IBWEFVX3lxTFA2NXRlZU9CSmFVSTBHbVVlRjFlYlA4SFpMTGZ5YldvbkFLNmhaZlZ1T3dpeHpkTkdlOGNieEhDNi1VTnZ2VlBMTjZFSmctSndGR1FjX1dBRDY?oc=5"
+    "source": "용인신문",
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1pYTJiWFBTNW9UZFFkN1RITXNNODNLMC1jWHdTU0xuc2h1Y3ZwR3h3YW5jbFRNUDl3ZmRBQWVXa0JBWFRQdVJiMEI2bl82UW9kOUs1Tjg3WUNWblFYWHptcVpFVTg?oc=5"
    },
    {
     "tag": "국내증시",
-    "text": "나스닥 주간 6.7% 반등·SOXL 14% 급등…외국인 돌아온 코스피, 5000선 회복하나",
+    "text": "\"코스닥 8%, 코스피 4% 쭉쭉\" 증안펀드 기대, 외인도 올라탔다 - 머니투데이",
     "date": "2026-11-28",
-    "source": "녹색경제신문",
-    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE13ZGp5Sk1fQUpLYkJfb0tuVGMtaWVsa3hYamxOUm1XTVVpaTJyN2hoMEtvRUpEN01UeVN0RkJ5LS1nVlJGQUZQMDE2ZEtBMGlCdlZQMU1ac19RM0xhV3JnSW9wZHJZSG5I?oc=5"
+    "source": "머니투데이",
+    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5KYTEtcXBBUGpXdWVvVllISHQ3cmsxN3drdVZGbVNYNEpWVWdIckF5ZURCMUNFcEwwVGRLMjlQUHYtQkFiMDJUTFlxZE04ODF4S0NxSlFHU1h0c1VhN25mdHlfbUtTZmJJ0gFuQVVfeXFMT3pqTVZvX2FCMFIyUUpzbDBZdzJydGJaTDZ6QWg1RmhKcTNZbU12bV9VVHB0bWNkc1IxVDdMekRYaDYxck5Ua29GUThoR2MwY1ZNb3NoTXdJMzI3NXhleHVyZXVONnIyZW9idFZOWUE?oc=5"
    },
    {
     "tag": "AI",
-    "text": "＂AI가 다 빨아들인다＂…데이터센터 탓 美방산업까지 생산차질",
+    "text": "최대 120조원 투자 ‘동해 GS AI 데이터센터’ 착공...아시아 최대 규모",
     "date": "2026-11-28",
-    "source": "한국경제TV",
-    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOVWJiRy1hVVJ5aF96a2hTNDA4TDVkQVUtdGFSeWk4azJNRzhPVGF4WGp5LWhxcUJqbHI4MGVoQXE5MEFTSTUwaHlCdFNiRzU3ZE5SaUNXeGh4dEtoV203MWdfZlNsTGZDazVrUC1wb29VODVONUw1Y1d6QnJXZ1JSWA?oc=5"
+    "source": "M이코노미뉴스",
+    "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5qeVRJWnVpdWxKOEIyRG91ZnFOTHBET1dZRklFM0VibWtta2U2MGttY25BTUJyNzhBUThCQkI3MEF0OXFmSFJWSUlEdWZXeFYwa0d3UlRuVGlXakk5WkFPdU9PZ0JjdW8?oc=5"
    }
   ]
  }
