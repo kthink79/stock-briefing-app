@@ -1,7 +1,7 @@
 {
  "schema": 1,
- "generated_at": "2026-11-28T17:27:47+09:00",
- "generated_at_kst": "2026-11-28(토) 17:27",
+ "generated_at": "2026-11-29T02:07:02+09:00",
+ "generated_at_kst": "2026-11-29(일) 02:07",
  "source": "네이버 금융 실시간 (polling.finance.naver.com)",
  "market": {
   "indices": {
@@ -478,7 +478,7 @@
     "url": "https://markets.newyorkfed.org/api/rates/unsecured/effr/last/1.json",
     "status": "ok",
     "stale": false,
-    "checked_at": "2026-11-28T17:26:03+09:00"
+    "checked_at": "2026-11-29T02:05:24+09:00"
    },
    "KR": {
     "rate": 3.25,
@@ -487,7 +487,7 @@
     "url": "https://www.bok.or.kr/portal/singl/baseRate/list.do?dataSeCd=01&menuNo=200643",
     "status": "ok",
     "stale": false,
-    "checked_at": "2026-11-28T17:26:03+09:00"
+    "checked_at": "2026-11-29T02:05:24+09:00"
    }
   },
   "session": {
@@ -858,24 +858,24 @@
   "sector_news": [
    {
     "tag": "반도체",
-    "text": "경제는 성장한다는데 서민들의 대출이자는 더 늘어난다",
-    "date": "2026-11-28",
-    "source": "용인신문",
-    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1pYTJiWFBTNW9UZFFkN1RITXNNODNLMC1jWHdTU0xuc2h1Y3ZwR3h3YW5jbFRNUDl3ZmRBQWVXa0JBWFRQdVJiMEI2bl82UW9kOUs1Tjg3WUNWblFYWHptcVpFVTg?oc=5"
+    "text": "역대급 엔저에도 서민살이 팍팍한 日…'반도체 쏠림' 韓에 주는 시사점은",
+    "date": "2026-11-29",
+    "source": "뉴시스",
+    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE04TU8xS1kzaTRDenVUVG42WUdTVnlrVkxjcnBfX3dPTXBIWGw2OTVhcHBIY1FzMzVLVUJjeEpwNDlNdFJiNlQ5RlB5dnpJYzh4ZGQwQ2IwS2NFTTNfN0VxYtIBeEFVX3lxTE9sTnFIWUFuRjNBd2VwaTBCT1piOE5xbnVlMDRSMWhqd0RHTmZTOWVXNHU1Wmg4cHQyQm5PYzVjZ3JGMjdyVG1GMVpVc043VVN1b3ZpeGhTYnEzQ2tEVDhSV3k5aG9Pa2ZlUEJMbWlYVklTVVlycUt3Rw?oc=5"
    },
    {
     "tag": "국내증시",
-    "text": "\"코스닥 8%, 코스피 4% 쭉쭉\" 증안펀드 기대, 외인도 올라탔다 - 머니투데이",
+    "text": "“외국인만 224조원 판 코스피, 반토막인데 오르긴 할까요”…당국, 증안펀드 승부수",
     "date": "2026-11-28",
-    "source": "머니투데이",
-    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5KYTEtcXBBUGpXdWVvVllISHQ3cmsxN3drdVZGbVNYNEpWVWdIckF5ZURCMUNFcEwwVGRLMjlQUHYtQkFiMDJUTFlxZE04ODF4S0NxSlFHU1h0c1VhN25mdHlfbUtTZmJJ0gFuQVVfeXFMT3pqTVZvX2FCMFIyUUpzbDBZdzJydGJaTDZ6QWg1RmhKcTNZbU12bV9VVHB0bWNkc1IxVDdMekRYaDYxck5Ua29GUThoR2MwY1ZNb3NoTXdJMzI3NXhleHVyZXVONnIyZW9idFZOWUE?oc=5"
+    "source": "매일경제 마켓",
+    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1RZ2RHQXRwOWxGTTI2WnhWUnQ3dHgyaE5oN2VPOHBLdnAtc1VpV2lQV2FFdGpFeUV6WDk0c2RLYnNyRnhtUVkxMGxqWW5UZGFZclE?oc=5"
    },
    {
     "tag": "AI",
-    "text": "최대 120조원 투자 ‘동해 GS AI 데이터센터’ 착공...아시아 최대 규모",
-    "date": "2026-11-28",
-    "source": "M이코노미뉴스",
-    "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5qeVRJWnVpdWxKOEIyRG91ZnFOTHBET1dZRklFM0VibWtta2U2MGttY25BTUJyNzhBUThCQkI3MEF0OXFmSFJWSUlEdWZXeFYwa0d3UlRuVGlXakk5WkFPdU9PZ0JjdW8?oc=5"
+    "text": "GS, 동해 AI 데이터센터 1단계 착공…1.2GW 규모에 15조원 투자",
+    "date": "2026-11-29",
+    "source": "인더스트리뉴스",
+    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE16TXNRQ2pUNE9ESHNEOXp2MkRhZk9KS05LQUZlUGRpdFZZcGFLRFE0QzloTXFhN3MzZlVBUDZGdWtTcFpNYUp5T3F0UmRNS09JZVpVQ1habUhOUXI0bld3NVRES09sRlBHMGdFNXBnZWI2UQ?oc=5"
    }
   ]
  }
